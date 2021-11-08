@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16A9148427396543001D82A6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9148327396543001D82A6 /* WelcomeView.swift */; };
+		16A9148627396587001D82A6 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9148527396587001D82A6 /* ExerciseView.swift */; };
+		16A91488273965A0001D82A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A91487273965A0001D82A6 /* ContentView.swift */; };
 		CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C923251474DC0049DB93 /* HIITFitApp.swift */; };
-		CD30C926251474DC0049DB93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C925251474DC0049DB93 /* ContentView.swift */; };
 		CD30C928251474DD0049DB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C927251474DD0049DB93 /* Assets.xcassets */; };
 		CD30C92B251474DD0049DB93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C92A251474DD0049DB93 /* Preview Assets.xcassets */; };
 		CD30C93F25147A8C0049DB93 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C93D25147A8C0049DB93 /* DateExtension.swift */; };
@@ -20,9 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16A9148327396543001D82A6 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		16A9148527396587001D82A6 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		16A91487273965A0001D82A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CD30C920251474DC0049DB93 /* HIITFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HIITFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD30C923251474DC0049DB93 /* HIITFitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIITFitApp.swift; sourceTree = "<group>"; };
-		CD30C925251474DC0049DB93 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CD30C927251474DD0049DB93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD30C92A251474DD0049DB93 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD30C92C251474DD0049DB93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16A914892739676A001D82A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16A91487273965A0001D82A6 /* ContentView.swift */,
+				16A9148327396543001D82A6 /* WelcomeView.swift */,
+				16A9148527396587001D82A6 /* ExerciseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CD30C917251474DC0049DB93 = {
 			isa = PBXGroup;
 			children = (
@@ -65,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				CD30C923251474DC0049DB93 /* HIITFitApp.swift */,
-				CD30C925251474DC0049DB93 /* ContentView.swift */,
+				16A914892739676A001D82A6 /* View */,
 				CD30C93D25147A8C0049DB93 /* DateExtension.swift */,
 				CD30C93E25147A8C0049DB93 /* ImageExtension.swift */,
 				CD30C927251474DD0049DB93 /* Assets.xcassets */,
@@ -191,7 +205,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD30C926251474DC0049DB93 /* ContentView.swift in Sources */,
+				16A9148427396543001D82A6 /* WelcomeView.swift in Sources */,
+				16A9148627396587001D82A6 /* ExerciseView.swift in Sources */,
+				16A91488273965A0001D82A6 /* ContentView.swift in Sources */,
 				CD30C93F25147A8C0049DB93 /* DateExtension.swift in Sources */,
 				CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* ImageExtension.swift in Sources */,
