@@ -6,29 +6,31 @@ struct WelcomeView: View {
             VStack {
                 HStack {
                   VStack(alignment: .center) {
-                  Text("Get fit")
-                    .font(.largeTitle)
-                  Text("with high intensity interval training")
-                    .font(.headline)
+                  Text("Getf!t")
+                          .font(.custom("Getfit", size: 50))
+                          .foregroundColor(.green)
+                          .bold()
                       Image("step-up")
                           .resizedToFill(width: 240, height: 240)
-                          .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                          .shadow(radius: 100)
+                          .clipShape(Circle())
+                          .shadow(radius: 80)
                           .padding()
+                      Text("with high intensity interval training")
+                              .font(.headline)
+                              .italic()
                   }
                 }
-
-                Button(action: { }) {
-                  Text("Get Started")
-                  Image(systemName: "arrow.right.circle")
-                }
-                .font(.title2)
-                .padding()
             }
 
             VStack {
                 HeaderView(titleText: "Welcome")
                 Spacer()
+                Button(action: { }) {
+                  Text("Get Started")
+                  Image(systemName: "arrow.right.circle")
+                }
+                .font(.custom("Get started", size: 28))
+                .padding(90)
                 Button("History") { }
                   .padding(.bottom)
             }

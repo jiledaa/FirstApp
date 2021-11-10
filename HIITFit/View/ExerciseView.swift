@@ -24,11 +24,12 @@ struct ExerciseView: View {
                 Text(Date().addingTimeInterval(interval), style: .timer)
                     .font(.system(size: 90))
                 Button("Start/Done") { }
-                  .font(.title3)
+                .font(.custom("StartStop", size: 30))
                   .padding()
                 RatingView()
                     .padding()
-                Text("History button")
+                Button("History") { }
+                  .padding(.bottom)
             }
         }
     }
