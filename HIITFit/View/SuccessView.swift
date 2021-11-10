@@ -9,17 +9,16 @@ struct SuccessView: View {
                     .foregroundColor(.purple)
                 VStack(alignment: .leading) {
                     Image(systemName: "hand.raised.fill")
-                        .resizedToFill(width: 0, height: 85)
+                        .resizedToFill(width: 0, height: 80)
                         .foregroundColor(.red)
                         .padding(130)
                         .rotation3DEffect(Angle(degrees: 300), axis: (x: 35.0, y: 55.0, z: 25.0))
-                    Text("Sieg he!l")
-                        .font(.custom("Heil", size: 50))
-                    Text("""
-    Sie haben gut gemacht!
-    Und jetzt lass unseren\
-    Nazi stopfen!
-    """)
+                    Text(NSLocalizedString("Glory to the victory!", comment: "glory"))
+                        .font(.custom("Heil", size: 30))
+                    Text(NSLocalizedString("""
+Well done! And now cram your nazi.
+""",
+                                           comment: "food"))
                         .foregroundColor(.gray)
                 }
 
@@ -28,13 +27,13 @@ struct SuccessView: View {
                     .foregroundColor(.red)
             }
             VStack {
-                HeaderView(titleText: "Der Erfolg!")
+                HeaderView(titleText: NSLocalizedString("Success!", comment: "praise"))
                 Spacer()
                 Button(action: { }) {
-                  Text("fortsenzen")
+                  Text(NSLocalizedString("Continue", comment: "continue"))
                   Image(systemName: "arrow.right.circle")
                 }
-                .font(.custom("Get started", size: 28))
+                .font(.custom("continue", size: 28))
                 .padding(90)
             }
         }

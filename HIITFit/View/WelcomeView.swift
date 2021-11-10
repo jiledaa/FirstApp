@@ -15,7 +15,7 @@ struct WelcomeView: View {
                           .clipShape(Circle())
                           .shadow(radius: 80)
                           .padding()
-                      Text("with high intensity interval training")
+                      Text(NSLocalizedString("with high intensity interval training", comment: "postscript"))
                               .font(.headline)
                               .italic()
                   }
@@ -23,15 +23,15 @@ struct WelcomeView: View {
             }
 
             VStack {
-                HeaderView(titleText: "Welcome")
+                HeaderView(titleText: NSLocalizedString("Welcome", comment: "greeting"))
                 Spacer()
                 Button(action: { }) {
-                  Text("Get Started")
+                  Text(NSLocalizedString("Get started", comment: "StartButton"))
                   Image(systemName: "arrow.right.circle")
                 }
                 .font(.custom("Get started", size: 28))
                 .padding(90)
-                Button("History") { }
+                Button(NSLocalizedString("History", comment: "view user activity")) { }
                   .padding(.bottom)
             }
         }
