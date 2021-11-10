@@ -14,7 +14,11 @@ struct SuccessView: View {
                     .rotation3DEffect(Angle(degrees: 300), axis: (x: 35.0, y: 65.0, z: 25.0))
                 Text("Sieg he!l")
                     .font(.custom("Heil", size: 50))
-                Text("Sie haben gut gemacht!")
+                Text("""
+Sie haben gut gemacht!
+Und jetzt lass unseren\
+Nazi stopfen!
+""")
                     .foregroundColor(.gray)
             }
 
