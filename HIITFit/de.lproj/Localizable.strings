@@ -1,8 +1,8 @@
 /* exercise */
 "Burpee" = "Burpee";
 
-/* invitation */
-"Get Started" = "Starten!";
+/* StartButton */
+"Get started" = "Starten!";
 
 /* view user activity */
 "History" = "Die Historie!";
@@ -11,7 +11,7 @@
 "Squat" = "Die Hocken!";
 
 /* begin exercise / mark as finished */
-"Start/Done" = "Starten/Vertig";
+"Start/done" = "Starten/Vertig";
 
 /* exercise */
 "Step Up" = "Steig Auf";
@@ -36,3 +36,6 @@
 
 /* praise */
 "Success!" = "Der Erfolg!";
+
+/* continue */
+"Continue" = "Forsetzen!";

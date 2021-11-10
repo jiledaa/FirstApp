@@ -9,14 +9,14 @@ struct SuccessView: View {
                     .foregroundColor(.purple)
                 VStack(alignment: .leading) {
                     Image(systemName: "hand.raised.fill")
-                        .resizedToFill(width: 0, height: 80)
+                        .resizedToFill(width: 0, height: 75)
                         .foregroundColor(.red)
                         .padding(130)
-                        .rotation3DEffect(Angle(degrees: 300), axis: (x: 35.0, y: 55.0, z: 25.0))
+                        .rotation3DEffect(Angle(degrees: 290), axis: (x: 25.0, y: 50.0, z: 35.0))
                     Text(NSLocalizedString("Glory to the victory!", comment: "glory"))
                         .font(.custom("Heil", size: 30))
                     Text(NSLocalizedString("""
-Well done! And now cram your nazi.
+    Well done! And now cram your nazi.
 """,
                                            comment: "food"))
                         .foregroundColor(.gray)
