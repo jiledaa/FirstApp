@@ -35,13 +35,27 @@ struct ExerciseView: View {
                     Button(NSLocalizedString("Start", comment: "StartButton")) { }
                     .font(.custom("StartStop", size: 35))
                     .padding()
-                    Button(NSLocalizedString("Done", comment: "DoneButton")) { selectedTab = lastExercise ? 9 : selectedTab + 1 }
+                    Button(NSLocalizedString("Done", comment: "DoneButton")) {
+                        if lastExercise {
+                          showSuccess.toggle()
+                        } else {
+                          selectedTab += 1
+                        }
+                    }
+                    .sheet(isPresented: $showSuccess) {
+                        SuccessView(selectedTab: $selectedTab)
+                    }
                     .font(.custom("StartStop", size: 35))
                     .padding()
                 }
                 RatingView(rating: $rating)
                     .padding()
-                Button(NSLocalizedString("History", comment: "History")) { }
+                Button(NSLocalizedString("History", comment: "History")) {
+                    showHistory.toggle()
+                }
+                .sheet(isPresented: $showHistory) {
+                  HistoryView(showHistory: $showHistory)
+                }
                   .padding(.bottom)
             }
         }
@@ -50,7 +64,7 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(selectedTab: .constant(1), index: 1)
+        ExerciseView(selectedTab: .constant(3), index: 3)
     }
 }
 

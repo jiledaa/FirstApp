@@ -8,20 +8,20 @@ struct WelcomeView: View {
         ZStack {
             VStack {
                 HStack {
-                  VStack(alignment: .center) {
-                  Text("Getf!t")
+                    VStack(alignment: .center) {
+                        Text("Getf!t")
                           .font(.custom("Getfit", size: 50))
                           .foregroundColor(.green)
                           .bold()
-                      Image("step-up")
+                        Image("step-up")
                           .resizedToFill(width: 240, height: 240)
                           .clipShape(Circle())
                           .shadow(radius: 80)
                           .padding()
-                      Text(NSLocalizedString("with high intensity interval training", comment: "postscript"))
+                        Text(NSLocalizedString("with high intensity interval training", comment: "postscript"))
                               .font(.headline)
                               .italic()
-                  }
+                    }
                 }
             }
 
@@ -34,7 +34,12 @@ struct WelcomeView: View {
                 }
                 .font(.custom("Get started", size: 35))
                 .padding(90)
-                Button(NSLocalizedString("History", comment: "view user activity")) { }
+                Button(NSLocalizedString("History", comment: "view user activity")) {
+                    showHistory.toggle()
+                  }
+                  .sheet(isPresented: $showHistory) {
+                    HistoryView(showHistory: $showHistory)
+                  }
                   .padding(.bottom)
             }
         }
