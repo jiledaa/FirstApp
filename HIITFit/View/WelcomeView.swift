@@ -26,7 +26,7 @@ struct WelcomeView: View {
             }
 
             VStack {
-                HeaderView(titleText: NSLocalizedString("Welcome", comment: "greeting"))
+               HeaderView(selectedTab: $selectedTab, titleText: NSLocalizedString("Welcome", comment: "greeting"))
                 Spacer()
                 Button(action: { selectedTab = 0 }) {
                   Text(NSLocalizedString("Get started", comment: "StartButton"))

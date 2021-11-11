@@ -20,7 +20,7 @@ struct SuccessView: View {
             }
 
             VStack {
-                HeaderView(titleText: NSLocalizedString("Success!", comment: "praise"))
+                HeaderView(selectedTab: .constant(0), titleText: NSLocalizedString("Success!", comment: "praise"))
                 Spacer()
                 Button(action: { }) {
                   Text(NSLocalizedString("Continue", comment: "continue"))

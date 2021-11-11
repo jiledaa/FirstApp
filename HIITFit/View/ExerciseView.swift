@@ -9,10 +9,16 @@ struct ExerciseView: View {
     let index: Int
     let interval: TimeInterval = 30
 
+    var lastExercise: Bool {
+      index + 1 == Exercise.exercises.count
+    }
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(titleText: Exercise.exercises[index].exerciseName)
+                HeaderView(
+                  selectedTab: $selectedTab,
+                  titleText: Exercise.exercises[index].exerciseName)
                     .padding(.bottom)
                 if let url = Bundle.main.url(
                     forResource: Exercise.exercises[index].videoName,
@@ -24,16 +30,16 @@ struct ExerciseView: View {
                         .foregroundColor(.red)
                 }
                 Text(Date().addingTimeInterval(interval), style: .timer)
-                    .font(.system(size: 90))
+                    .font(.system(size: 70))
                 HStack(spacing: 180) {
                     Button(NSLocalizedString("Start", comment: "StartButton")) { }
                     .font(.custom("StartStop", size: 35))
                     .padding()
-                    Button(NSLocalizedString("Done", comment: "DoneButton")) { }
+                    Button(NSLocalizedString("Done", comment: "DoneButton")) { selectedTab = lastExercise ? 9 : selectedTab + 1 }
                     .font(.custom("StartStop", size: 35))
                     .padding()
                 }
-                RatingView()
+                RatingView(rating: $rating)
                     .padding()
                 Button(NSLocalizedString("History", comment: "History")) { }
                   .padding(.bottom)
