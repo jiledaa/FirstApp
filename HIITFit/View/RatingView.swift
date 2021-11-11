@@ -3,14 +3,25 @@ import SwiftUI
 struct RatingView: View {
     var body: some View {
         HStack {
-            ForEach(0 ..< 5) { _ in
-                Image(systemName: "waveform.path.ecg")
-                    .foregroundColor(.red)
-                    .font(.system(size: 50))
+            Image(systemName: "battery.100")
+                .foregroundColor(.green)
+                .font(.system(size: 50))
+            Image(systemName: "waveform.path.ecg")
+                .foregroundColor(.red)
+                .font(.system(size: 50))
+            Image(systemName: "battery.50")
+                .foregroundColor(.green)
+                .font(.system(size: 50))
+            Image(systemName: "waveform.path.ecg")
+                .foregroundColor(.red)
+                .font(.system(size: 50))
+            Image(systemName: "battery.0")
+                .foregroundColor(.green)
+                .font(.system(size: 50))
             }
         }
     }
-}
+
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {

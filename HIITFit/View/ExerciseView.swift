@@ -2,6 +2,10 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
+    @State private var rating = 0
+    @State private var showHistory = false
+    @State private var showSuccess = false
+    @Binding var selectedTab: Int
     let index: Int
     let interval: TimeInterval = 30
 
@@ -21,9 +25,14 @@ struct ExerciseView: View {
                 }
                 Text(Date().addingTimeInterval(interval), style: .timer)
                     .font(.system(size: 90))
-                Button(NSLocalizedString("Start/done", comment: "StartButton")) { }
-                .font(.custom("StartStop", size: 30))
-                  .padding()
+                HStack(spacing: 180) {
+                    Button(NSLocalizedString("Start", comment: "StartButton")) { }
+                    .font(.custom("StartStop", size: 35))
+                    .padding()
+                    Button(NSLocalizedString("Done", comment: "DoneButton")) { }
+                    .font(.custom("StartStop", size: 35))
+                    .padding()
+                }
                 RatingView()
                     .padding()
                 Button(NSLocalizedString("History", comment: "History")) { }
@@ -35,7 +44,7 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(index: 0)
+        ExerciseView(selectedTab: .constant(1), index: 1)
     }
 }
 

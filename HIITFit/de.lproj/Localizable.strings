@@ -10,8 +10,11 @@
 /* exercise */
 "Squat" = "Die Hocken!";
 
-/* begin exercise / mark as finished */
-"Start/done" = "Starten/Vertig";
+/* StartButton */
+"Start" = "Starten";
+
+/* StopButton */
+"Done" = "Fertig";
 
 /* exercise */
 "Step Up" = "Steig Auf";
@@ -29,10 +32,10 @@
 "Couldn't find" = "Can nicht finden";
 
 /* glory */
-"Glory to the victory!" = "Sieg heil!";
+"Glory to the victory!" = "Sieg he!l";
 
 /* food */
-"Well done! And now cram your nazi." = "Gut gemacht! Und jetzt stopf den Nazzi!";
+"Well done! And now cram your nazi." = "Gut gemacht! Jetzt stopf deinen Nazzi!";
 
 /* praise */
 "Success!" = "Der Erfolg!";

@@ -13,8 +13,11 @@
 /* exercise */
 "Squat" = "Squat";
 
-/* begin exercise / mark as finished */
-"Start/Done" = "Start/Done";
+/* StartButton */
+"Start" = "Start";
+
+/* StopButton */
+"Done" = "Done";
 
 /* exercise */
 "Step Up" = "Step Up";
