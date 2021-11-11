@@ -18,7 +18,7 @@
 		16A91499273C1FD9001D82A6 /* HistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A91498273C1FD9001D82A6 /* HistoryStore.swift */; };
 		16A9149B273C23FC001D82A6 /* HistoryStoreDevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9149A273C23FC001D82A6 /* HistoryStoreDevData.swift */; };
 		16A9149E273C2C65001D82A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A914A0273C2C65001D82A6 /* Localizable.strings */; };
-		CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C923251474DC0049DB93 /* HIITFitApp.swift */; };
+		CD30C924251474DC0049DB93 /* GetF!tApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C923251474DC0049DB93 /* GetF!tApp.swift */; };
 		CD30C928251474DD0049DB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C927251474DD0049DB93 /* Assets.xcassets */; };
 		CD30C92B251474DD0049DB93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C92A251474DD0049DB93 /* Preview Assets.xcassets */; };
 		CD30C93F25147A8C0049DB93 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C93D25147A8C0049DB93 /* DateExtension.swift */; };
@@ -42,8 +42,8 @@
 		16A9149A273C23FC001D82A6 /* HistoryStoreDevData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStoreDevData.swift; sourceTree = "<group>"; };
 		16A9149F273C2C65001D82A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16A914A1273C2C6D001D82A6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		CD30C920251474DC0049DB93 /* HIITFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HIITFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD30C923251474DC0049DB93 /* HIITFitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIITFitApp.swift; sourceTree = "<group>"; };
+		CD30C920251474DC0049DB93 /* GetF!t.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GetF!t.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD30C923251474DC0049DB93 /* GetF!tApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetF!tApp.swift"; sourceTree = "<group>"; };
 		CD30C927251474DD0049DB93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD30C92A251474DD0049DB93 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD30C92C251474DD0049DB93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		CD30C917251474DC0049DB93 = {
 			isa = PBXGroup;
 			children = (
-				CD30C922251474DC0049DB93 /* HIITFit */,
+				CD30C922251474DC0049DB93 /* GetF!t */,
 				CD30C921251474DC0049DB93 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,15 +100,15 @@
 		CD30C921251474DC0049DB93 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD30C920251474DC0049DB93 /* HIITFit.app */,
+				CD30C920251474DC0049DB93 /* GetF!t.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CD30C922251474DC0049DB93 /* HIITFit */ = {
+		CD30C922251474DC0049DB93 /* GetF!t */ = {
 			isa = PBXGroup;
 			children = (
-				CD30C923251474DC0049DB93 /* HIITFitApp.swift */,
+				CD30C923251474DC0049DB93 /* GetF!tApp.swift */,
 				16A91495273C18C8001D82A6 /* Model */,
 				16A914892739676A001D82A6 /* View */,
 				CD30C93D25147A8C0049DB93 /* DateExtension.swift */,
@@ -119,7 +119,7 @@
 				CD30C92C251474DD0049DB93 /* Info.plist */,
 				CD30C929251474DD0049DB93 /* Preview Content */,
 			);
-			path = HIITFit;
+			path = "GetF!t";
 			sourceTree = "<group>";
 		};
 		CD30C929251474DD0049DB93 /* Preview Content */ = {
@@ -145,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CD30C91F251474DC0049DB93 /* HIITFit */ = {
+		CD30C91F251474DC0049DB93 /* GetF!t */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CD30C92F251474DD0049DB93 /* Build configuration list for PBXNativeTarget "HIITFit" */;
+			buildConfigurationList = CD30C92F251474DD0049DB93 /* Build configuration list for PBXNativeTarget "GetF!t" */;
 			buildPhases = (
 				CD0BEDFE2524567A00937B4F /* SwiftLint */,
 				CD30C91C251474DC0049DB93 /* Sources */,
@@ -158,9 +158,9 @@
 			);
 			dependencies = (
 			);
-			name = HIITFit;
+			name = "GetF!t";
 			productName = HIITFit;
-			productReference = CD30C920251474DC0049DB93 /* HIITFit.app */;
+			productReference = CD30C920251474DC0049DB93 /* GetF!t.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +178,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CD30C91B251474DC0049DB93 /* Build configuration list for PBXProject "HIITFit" */;
+			buildConfigurationList = CD30C91B251474DC0049DB93 /* Build configuration list for PBXProject "GetF!t" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -192,7 +192,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CD30C91F251474DC0049DB93 /* HIITFit */,
+				CD30C91F251474DC0049DB93 /* GetF!t */,
 			);
 		};
 /* End PBXProject section */
@@ -249,7 +249,7 @@
 				16A91488273965A0001D82A6 /* ContentView.swift in Sources */,
 				16A91490273AA2F6001D82A6 /* RatingView.swift in Sources */,
 				CD30C93F25147A8C0049DB93 /* DateExtension.swift in Sources */,
-				CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */,
+				CD30C924251474DC0049DB93 /* GetF!tApp.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* ImageExtension.swift in Sources */,
 				16A91492273AB2C4001D82A6 /* HistoryView.swift in Sources */,
 				16A9148C2739A38C001D82A6 /* HeaderView.swift in Sources */,
@@ -395,7 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HIITFit/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = HIITFit/Info.plist;
+				INFOPLIST_FILE = "GetF!t/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -416,7 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HIITFit/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = HIITFit/Info.plist;
+				INFOPLIST_FILE = "GetF!t/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -432,7 +432,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CD30C91B251474DC0049DB93 /* Build configuration list for PBXProject "HIITFit" */ = {
+		CD30C91B251474DC0049DB93 /* Build configuration list for PBXProject "GetF!t" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD30C92D251474DD0049DB93 /* Debug */,
@@ -441,7 +441,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CD30C92F251474DD0049DB93 /* Build configuration list for PBXNativeTarget "HIITFit" */ = {
+		CD30C92F251474DD0049DB93 /* Build configuration list for PBXNativeTarget "GetF!t" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD30C930251474DD0049DB93 /* Debug */,
