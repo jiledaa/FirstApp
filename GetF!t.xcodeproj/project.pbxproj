@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689CED92743B0C9004362A7 /* TimerView.swift */; };
 		16A9148427396543001D82A6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9148327396543001D82A6 /* WelcomeView.swift */; };
 		16A9148627396587001D82A6 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9148527396587001D82A6 /* ExerciseView.swift */; };
 		16A91488273965A0001D82A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A91487273965A0001D82A6 /* ContentView.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1689CED92743B0C9004362A7 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		16A9148327396543001D82A6 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		16A9148527396587001D82A6 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		16A91487273965A0001D82A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				16A9148F273AA2F6001D82A6 /* RatingView.swift */,
 				16A91491273AB2C4001D82A6 /* HistoryView.swift */,
 				16A91493273BE9B5001D82A6 /* SuccessView.swift */,
+				1689CED92743B0C9004362A7 /* TimerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */,
 				16A91497273C18E8001D82A6 /* Exerise.swift in Sources */,
 				16A9148427396543001D82A6 /* WelcomeView.swift in Sources */,
 				16A9148627396587001D82A6 /* ExerciseView.swift in Sources */,
@@ -393,7 +397,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"HIITFit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GetF!t/Preview Content\"";
+				DEVELOPMENT_TEAM = 9FD3J9E394;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "GetF!t/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -401,7 +406,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.HIITFit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.GetFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -414,7 +419,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"HIITFit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GetF!t/Preview Content\"";
+				DEVELOPMENT_TEAM = 9FD3J9E394;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "GetF!t/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -422,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.HIITFit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.GetFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

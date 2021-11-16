@@ -2,12 +2,14 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
+    @EnvironmentObject var history: HistoryStore
     @State private var rating = 0
     @State private var showHistory = false
     @State private var showSuccess = false
     @Binding var selectedTab: Int
     let index: Int
-    let interval: TimeInterval = 30
+    @State private var timerDone = false
+    @State private var showTimer = false
 
     var lastExercise: Bool {
       index + 1 == Exercise.exercises.count
@@ -29,25 +31,33 @@ struct ExerciseView: View {
                     Text(NSLocalizedString("Couldn't find \(Exercise.exercises[index].videoName).mp4", comment: "message"))
                         .foregroundColor(.red)
                 }
-                Text(Date().addingTimeInterval(interval), style: .timer)
-                    .font(.system(size: 70))
+                
                 HStack(spacing: 180) {
-                    Button(NSLocalizedString("Start", comment: "StartButton")) { }
+                    Button(NSLocalizedString("Start", comment: "StartButton")) { showTimer.toggle()
+                    }
                     .font(.custom("StartStop", size: 35))
                     .padding()
                     Button(NSLocalizedString("Done", comment: "DoneButton")) {
+                        history.addDoneExercise(Exercise.exercises[index].exerciseName)
+                        timerDone = false
+                        showTimer.toggle()
                         if lastExercise {
                           showSuccess.toggle()
                         } else {
                           selectedTab += 1
                         }
-                    }
-                    .sheet(isPresented: $showSuccess) {
+                      }
+                      .disabled(!timerDone)
+                      .sheet(isPresented: $showSuccess) {
                         SuccessView(selectedTab: $selectedTab)
-                    }
+                      }
+                }
                     .font(.custom("StartStop", size: 35))
                     .padding()
-                }
+                    if showTimer {
+                      TimerView(timerDone: $timerDone)
+                    }
+                
                 RatingView(rating: $rating)
                     .padding()
                 Button(NSLocalizedString("History", comment: "History")) {
@@ -65,6 +75,7 @@ struct ExerciseView: View {
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ExerciseView(selectedTab: .constant(3), index: 3)
+            .environmentObject(HistoryStore())
     }
 }
 

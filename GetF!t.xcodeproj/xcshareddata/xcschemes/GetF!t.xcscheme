@@ -7,20 +7,6 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "NO"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CD30C91F251474DC0049DB93"
-               BuildableName = "HIITFit.app"
-               BlueprintName = "HIITFit"
-               ReferencedContainer = "container:HIITFit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
@@ -29,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CD30C91F251474DC0049DB93"
-               BuildableName = "GetTF!t.app"
+               BuildableName = "GetF!t.app"
                BlueprintName = "GetF!t"
                ReferencedContainer = "container:GetF!t.xcodeproj">
             </BuildableReference>
@@ -55,16 +41,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = ""
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = ""
-            isEnabled = "NO">
-         </CommandLineArgument>
-      </CommandLineArguments>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CD30C91F251474DC0049DB93"
+            BuildableName = "GetF!t.app"
+            BlueprintName = "GetF!t"
+            ReferencedContainer = "container:GetF!t.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -76,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD30C91F251474DC0049DB93"
-            BuildableName = "GetTF!t.app"
+            BuildableName = "GetF!t.app"
             BlueprintName = "GetF!t"
             ReferencedContainer = "container:GetF!t.xcodeproj">
          </BuildableReference>

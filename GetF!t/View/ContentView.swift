@@ -12,11 +12,12 @@ struct ContentView: View {
             .tag(index)
         }
       }
+      .environmentObject(HistoryStore())
       .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
 }
 
-struct Exercise_2_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
