@@ -6,23 +6,19 @@ struct WelcomeView: View {
 
     var body: some View {
         ZStack {
-            VStack {
-                HStack {
-                    VStack(alignment: .center) {
-                        Text("Getf!t")
-                          .font(.custom("Getfit", size: 50))
-                          .foregroundColor(.green)
-                          .bold()
-                        Image("step-up")
-                          .resizedToFill(width: 240, height: 240)
-                          .clipShape(Circle())
-                          .shadow(radius: 80)
-                          .padding()
-                        Text(NSLocalizedString("with high intensity interval training", comment: "postscript"))
-                              .font(.headline)
-                              .italic()
-                    }
-                }
+            VStack(alignment: .center) {
+                Text("Getf!t")
+                    .font(.custom("Getfit", size: 50))
+                    .foregroundColor(.green)
+                    .bold()
+                Image("step-up")
+                    .resizedToFill(width: 240, height: 240)
+                    .clipShape(Circle())
+                    .shadow(radius: 80)
+                    .padding()
+                Text(NSLocalizedString("with high intensity interval training", comment: "postscript"))
+                    .font(.headline)
+                    .italic()
             }
 
             VStack {

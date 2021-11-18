@@ -22,32 +22,24 @@ class HistoryStore: ObservableObject {
   }
 
     func getURL() -> URL? {
-      // 1
       guard let documentsURL = FileManager.default.urls(
         for: .documentDirectory, in: .userDomainMask).first else {
-        // 2
         return nil
       }
-      // 3
       return documentsURL.appendingPathComponent("history.plist")
     }
 
     func load() throws {
-      // 1
       guard let dataURL = getURL() else {
         throw FileError.urlFailure
       }
       do {
-        // 2
         let data = try Data(contentsOf: dataURL)
-        // 3
         let plistData = try PropertyListSerialization.propertyList(
           from: data,
           options: [],
           format: nil)
-        // 4
         let convertedPlistData = plistData as? [[Any]] ?? []
-        // 5
         exerciseDays = convertedPlistData.map {
           ExerciseDay(
             date: $0[1] as? Date ?? Date(),

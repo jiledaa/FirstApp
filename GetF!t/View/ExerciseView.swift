@@ -16,56 +16,59 @@ struct ExerciseView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                HeaderView(
-                  selectedTab: $selectedTab,
-                  titleText: Exercise.exercises[index].exerciseName)
-                    .padding(.bottom)
-                if let url = Bundle.main.url(
-                    forResource: Exercise.exercises[index].videoName,
-                    withExtension: "mp4") {
-                    VideoPlayer(player: AVPlayer(url: url))
-                        .frame(height: geometry.size.height * 0.45)
-                } else {
-                    Text(NSLocalizedString("Couldn't find \(Exercise.exercises[index].videoName).mp4", comment: "message"))
-                        .foregroundColor(.red)
-                }
-                
-                HStack(spacing: 180) {
-                    Button(NSLocalizedString("Start", comment: "StartButton")) { showTimer.toggle()
+            ZStack {
+                VStack {
+                    HeaderView(
+                      selectedTab: $selectedTab,
+                      titleText: Exercise.exercises[index].exerciseName)
+                        .padding(.bottom)
+                    if let url = Bundle.main.url(
+                        forResource: Exercise.exercises[index].videoName,
+                        withExtension: "mp4") {
+                        VideoPlayer(player: AVPlayer(url: url))
+                            .frame(height: geometry.size.height * 0.45)
+                    } else {
+                        Text(NSLocalizedString("Couldn't find \(Exercise.exercises[index].videoName).mp4", comment: "message"))
+                            .foregroundColor(.red)
                     }
-                    .font(.custom("StartStop", size: 35))
-                    .padding()
-                    Button(NSLocalizedString("Done", comment: "DoneButton")) {
-                        history.addDoneExercise(Exercise.exercises[index].exerciseName)
-                        timerDone = false
-                        showTimer.toggle()
-                        if lastExercise {
-                          showSuccess.toggle()
-                        } else {
-                          selectedTab += 1
+
+                    HStack(spacing: 150) {
+                        Button(NSLocalizedString("Start", comment: "StartButton")) { showTimer.toggle()
                         }
-                      }
-                      .disabled(!timerDone)
-                      .sheet(isPresented: $showSuccess) {
-                        SuccessView(selectedTab: $selectedTab)
-                      }
-                }
-                    .font(.custom("StartStop", size: 35))
+                        .font(.custom("StartStop", size: 30))
+                        .padding()
+                        Button(NSLocalizedString("Done", comment: "DoneButton")) {
+                            history.addDoneExercise(Exercise.exercises[index].exerciseName)
+                            timerDone = false
+                            showTimer.toggle()
+                            if lastExercise {
+                              showSuccess.toggle()
+                            } else {
+                              selectedTab += 1
+                            }
+                        }
+                        .disabled(!timerDone)
+                        .sheet(isPresented: $showSuccess) {
+                            SuccessView(selectedTab: $selectedTab)
+                        }
+                    }
+                    .font(.custom("StartStop", size: 30))
                     .padding()
                     if showTimer {
-                      TimerView(timerDone: $timerDone)
+                          TimerView(timerDone: $timerDone)
                     }
-                
-                RatingView(exerciseIndex: index)
-                    .padding()
-                Button(NSLocalizedString("History", comment: "History")) {
-                    showHistory.toggle()
+
+                    Spacer()
+                    RatingView(exerciseIndex: index)
+                        .padding()
+                    Button(NSLocalizedString("History", comment: "History")) {
+                        showHistory.toggle()
+                    }
+                    .sheet(isPresented: $showHistory) {
+                      HistoryView(showHistory: $showHistory)
+                    }
+                      .padding(.bottom)
                 }
-                .sheet(isPresented: $showHistory) {
-                  HistoryView(showHistory: $showHistory)
-                }
-                  .padding(.bottom)
             }
         }
     }
