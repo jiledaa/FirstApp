@@ -27,3 +27,9 @@
 
 /* greeting */
 "Welcome" = "Welcome";
+
+/* continue */
+"Could not load history data" = "Could not load history data";
+
+/* continue */
+"LoadingError" = "Unfortunately, your exercise history \n cannot be loaded. \n Email support:support@berlin.com";

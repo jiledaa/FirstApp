@@ -15,11 +15,18 @@ class HistoryStore: ObservableObject {
       case urlFailure
     }
 
-  init() {
+    init() {}
+
+    init(withChecking: Bool) throws {
     #if DEBUG
 //    createDevData()
     #endif
-  }
+        do {
+            try load()
+        } catch {
+            throw error
+        }
+    }
 
     func getURL() -> URL? {
       guard let documentsURL = FileManager.default.urls(
@@ -33,8 +40,9 @@ class HistoryStore: ObservableObject {
       guard let dataURL = getURL() else {
         throw FileError.urlFailure
       }
-      do {
-        let data = try Data(contentsOf: dataURL)
+        guard let data = try? Data(contentsOf: dataURL) else {
+            return
+        }
         let plistData = try PropertyListSerialization.propertyList(
           from: data,
           options: [],
@@ -45,9 +53,6 @@ class HistoryStore: ObservableObject {
             date: $0[1] as? Date ?? Date(),
             exercises: $0[2] as? [String] ?? [])
         }
-      } catch {
-        throw FileError.loadFailure
-      }
     }
 
     func save() throws {
@@ -70,7 +75,7 @@ class HistoryStore: ObservableObject {
 
   func addDoneExercise(_ exerciseName: String) {
     let today = Date()
-      if let firstDate = exerciseDays.first?.date,
+    if let firstDate = exerciseDays.first?.date,
          today.isSameDay(as: firstDate) {
       print("Adding \(exerciseName)")
       exerciseDays[0].exercises.append(exerciseName)

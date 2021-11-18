@@ -42,3 +42,9 @@
 
 /* continue */
 "Continue" = "Forsetzen!";
+
+/* continue */
+"Could not load history data" = "Die Trainingsdaten könnten nicht geladen werden!";
+
+/* continue */
+"LoadingError" = "Leider kann Ihr Trainingsverlauf \n nicht geladen werden! \n Email Untersützung:support@berlin.com";
