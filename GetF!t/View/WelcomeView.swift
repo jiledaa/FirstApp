@@ -5,40 +5,47 @@ struct WelcomeView: View {
     @Binding var selectedTab: Int
 
     var body: some View {
-        ZStack {
-            VStack(alignment: .center) {
-                Text("Getf!t")
-                    .font(.custom("Getfit", size: 50))
-                    .foregroundColor(.green)
-                    .bold()
-                Image("step-up")
-                    .resizedToFill(width: 240, height: 240)
-                    .clipShape(Circle())
-                    .shadow(radius: 80)
-                    .padding()
-                Text(NSLocalizedString("with high intensity interval training", comment: "postscript"))
-                    .font(.headline)
-                    .italic()
-            }
-
+        GeometryReader { geometry in
             VStack {
-               HeaderView(selectedTab: $selectedTab, titleText: NSLocalizedString("Welcome", comment: "greeting"))
+                HeaderView(
+                    selectedTab: $selectedTab,
+                    titleText: "Welcome")
                 Spacer()
-                Button(action: { selectedTab = 0 }) {
-                  Text(NSLocalizedString("Get started", comment: "StartButton"))
-                  Image(systemName: "arrow.right.circle")
-                }
-                .font(.custom("Get started", size: 35))
-                .padding(90)
-                Button(NSLocalizedString("History", comment: "view user activity")) {
-                    showHistory.toggle()
-                  }
-                  .sheet(isPresented: $showHistory) {
-                    HistoryView(showHistory: $showHistory)
-                  }
-                  .padding(.bottom)
+                ContainerView {
+                    VStack {
+                        WelcomeView.images
+                        WelcomeView.welcomeText
+                        getStartedButton
+                        Spacer()
+                        historyButton
+                          .sheet(isPresented: $showHistory) {
+                            HistoryView(showHistory: $showHistory)
+                          }
+                      }
+                    }
+                    .frame(height: geometry.size.height * 0.7)
             }
         }
+    }
+
+    var getStartedButton: some View {
+      RaisedButton(buttonText: "Get Started") {
+        selectedTab = 0
+      }
+      .padding(150)
+    }
+
+    var historyButton: some View {
+      Button(
+        action: {
+          showHistory = true
+        }, label: {
+          Text("History")
+            .fontWeight(.bold)
+            .padding([.leading, .trailing], 5)
+        })
+        .padding(.bottom, 10)
+        .buttonStyle(EmbossedButtonStyle())
     }
 }
 
