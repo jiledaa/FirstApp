@@ -18,12 +18,12 @@ struct RaisedButton: View {
 struct RaisedButtonStyle: ButtonStyle {
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
-      .frame(maxWidth: .infinity)
+          .frame(maxWidth: 200)
       .padding([.top, .bottom], 12)
       .background(
         Capsule()
           .foregroundColor(Color("background"))
-          .shadow(color: Color("drop-shadow"), radius: 4, x: 6, y: 6)
+          .shadow(color: Color("drop-shadow"), radius: 4, x: -6, y: 2)
           .shadow(color: Color("drop-highlight"), radius: 4, x: -6, y: -6)
       )
   }

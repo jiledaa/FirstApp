@@ -19,6 +19,7 @@ struct HeaderView: View {
           .padding(5)
         }
         .font(.custom("pages", size: 30))
+        .padding(-10)
       }
     }
   }
