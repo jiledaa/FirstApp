@@ -51,7 +51,7 @@ extension WelcomeView {
     .frame(maxWidth: .infinity, maxHeight: 220)
     .shadow(color: Color("drop-shadow"), radius: 6, x: 5, y: 5)
     .padding(.top, 10)
-    .padding(.bottom, 50)
+    .padding(.bottom, 150)
   }
 }
 

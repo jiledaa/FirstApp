@@ -14,7 +14,7 @@ struct WelcomeView: View {
                 ContainerView {
                     VStack {
                         WelcomeView.images
-                            .padding(110)
+                            .padding(150)
                         getStartedButton
                         Spacer()
                         historyButton
@@ -32,7 +32,7 @@ struct WelcomeView: View {
       RaisedButton(buttonText: NSLocalizedString("Get started", comment: "Starten!")) {
         selectedTab = 0
       }
-      .padding(100)
+      .padding(50)
     }
 
     var historyButton: some View {
@@ -44,7 +44,7 @@ struct WelcomeView: View {
             .fontWeight(.bold)
             .padding([.leading, .trailing], 5)
         })
-        .padding(.bottom, 300)
+        .padding(.bottom, 200)
         .buttonStyle(EmbossedButtonStyle())
     }
 }
