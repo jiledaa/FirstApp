@@ -6,7 +6,7 @@ struct RatingView: View {
   @State private var rating = 0
   let maximumRating = 5
 
-  let onColor = Color.red
+  let onColor = Color("ratings")
   let offColor = Color.gray
 
   init(exerciseIndex: Int) {
@@ -28,52 +28,52 @@ struct RatingView: View {
     rating = character.wholeNumberValue ?? 0
   }
 
-  var body: some View {
-   
-     
-      VStack {
-          HStack {
-                  ForEach(1 ..< maximumRating + 1) { index in
-                    Image(systemName: "waveform.path.ecg")
-                      .foregroundColor(
-                        index > rating ? offColor : onColor)
-                      .onTapGesture {
-                        updateRating(index: index)
-                      }
-                      .onChange(of: ratings) { _ in
-                        convertRating()
-                      }
-                      .onAppear {
-                        convertRating()
-                      }
-                  }
-                }
-          .font(.largeTitle)
-          .padding(-5)
-
-
-      HStack {
-      Image(systemName: "battery.100")
-          .foregroundColor(.green)
-          .font(.system(size: 35))
-          .padding(10)
-      Image(systemName: "battery.50")
-          .foregroundColor(.green)
-          .font(.system(size: 35))
-          .padding(10)
-      Image(systemName: "battery.0")
-          .foregroundColor(.green)
-          .font(.system(size: 35))
-          .padding(10)
-      }.padding(-5)
-      }
-  }
   func updateRating(index: Int) {
     rating = index
     let index = ratings.index(
       ratings.startIndex,
       offsetBy: exerciseIndex)
     ratings.replaceSubrange(index...index, with: String(rating))
+  }
+
+  var body: some View {
+      VStack {
+          HStack {
+          ForEach(1 ..< maximumRating + 1) { index in
+            Button(action: {
+              updateRating(index: index)
+            }, label: {
+              Image(systemName: "waveform.path.ecg")
+                .foregroundColor(
+                  index > rating ? offColor : onColor)
+                .font(.custom("wave", size: 25))
+            })
+            .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+            .onChange(of: ratings) { _ in
+              convertRating()
+            }
+            .onAppear {
+              convertRating()
+            }
+          }
+        }
+          .font(.largeTitle)
+
+          HStack {
+          Image(systemName: "battery.100")
+              .foregroundColor(.green)
+              .font(.system(size: 45))
+              .padding(10)
+          Image(systemName: "battery.50")
+              .foregroundColor(.green)
+              .font(.system(size: 45))
+              .padding(10)
+          Image(systemName: "battery.0")
+              .foregroundColor(.green)
+              .font(.system(size: 45))
+              .padding(10)
+          }.padding(-5)
+      }
   }
 }
 
@@ -82,6 +82,7 @@ struct RatingView_Previews: PreviewProvider {
   static var previews: some View {
     ratings = nil
     return RatingView(exerciseIndex: 0)
+      .preferredColorScheme(.dark)
       .previewLayout(.sizeThatFits)
   }
 }
