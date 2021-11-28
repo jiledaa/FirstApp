@@ -22,14 +22,14 @@ struct SuccessView: View {
                         .padding()
                         .rotation3DEffect(Angle(degrees: 180), axis: (x: 0, y: 1, z: 0))
                 }
-
+                
                 Text(NSLocalizedString("Glory to the victory!", comment: "glory"))
                     .font(.custom("Heil", size: 30))
                 Text(NSLocalizedString("Well done! And now cram your nazi.", comment: "food"))
                     .font(.custom("food", size: 20))
                     .foregroundColor(.gray)
             }
-
+            
             VStack {
                 HeaderView(selectedTab: .constant(0), titleText: NSLocalizedString("Success!", comment: "praise"))
                 Spacer()
@@ -37,8 +37,8 @@ struct SuccessView: View {
                     selectedTab = 9
                     presentationMode.wrappedValue.dismiss()
                 }) {
-                  Text(NSLocalizedString("Continue", comment: "continue"))
-                  Image(systemName: "arrow.right.circle")
+                    Text(NSLocalizedString("Continue", comment: "continue"))
+                    Image(systemName: "arrow.right.circle")
                 }
                 .font(.custom("continue", size: 35))
                 .padding(90)

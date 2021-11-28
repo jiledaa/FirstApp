@@ -3,49 +3,51 @@ import SwiftUI
 struct WelcomeView: View {
     @State private var showHistory = false
     @Binding var selectedTab: Int
-
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 HeaderView(
                     selectedTab: $selectedTab,
-                    titleText: NSLocalizedString("Welcome", comment: "Wilkommen!"))
+                    titleText: NSLocalizedString("Welcome", comment: "Wilkommen!")
+                )
                 Spacer()
-                ContainerView {
-                    VStack {
-                        WelcomeView.images
-                            .padding(150)
-                        getStartedButton
-                        Spacer()
-                        historyButton
-                          .sheet(isPresented: $showHistory) {
+                VStack {
+                    WelcomeView.images
+                        .padding(150)
+                    getStartedButton
+                    Spacer()
+                    historyButton
+                        .sheet(isPresented: $showHistory) {
                             HistoryView(showHistory: $showHistory)
-                          }
-                      }
-                    }
-                    .frame(height: geometry.size.height * 0.7)
+                        }
+                }
+                
+                .frame(height: geometry.size.height * 0.7)
             }
         } 
     }
-
+    
     var getStartedButton: some View {
-      RaisedButton(buttonText: NSLocalizedString("Get started", comment: "Starten!")) {
-        selectedTab = 0
-      }
-      .padding(50)
+        RaisedButton(buttonText: NSLocalizedString("Get started", comment: "Starten!")) {
+            selectedTab = 0
+        }
+        .padding(50)
     }
-
+    
     var historyButton: some View {
-      Button(
-        action: {
-          showHistory = true
-        }, label: {
-          Text("History")
-            .fontWeight(.bold)
-            .padding([.leading, .trailing], 5)
-        })
-        .padding(.bottom, 200)
-        .buttonStyle(EmbossedButtonStyle())
+        Button(
+            action: {
+                showHistory = true
+            },
+            label: {
+                Text("History")
+                    .fontWeight(.bold)
+                    .padding([.leading, .trailing], 5)
+            }
+        )
+            .padding(.bottom, 200)
+            .buttonStyle(EmbossedButtonStyle())
     }
 }
 

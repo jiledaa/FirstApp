@@ -5,31 +5,37 @@ struct HeaderView: View {
     let titleText: String
 
     var body: some View {
-      VStack {
-        Text(titleText)
-          .font(.largeTitle)
-        HStack {
-          ForEach(0 ..< Exercise.exercises.count) { index in
-            let fill = index == selectedTab ? ".fill" : ""
-            Image(systemName: "\(index + 1).circle\(fill)")
-              .onTapGesture {
-                selectedTab = index
-              }
-          }
-          .padding(5)
+        VStack {
+            Text(titleText)
+                .font(.largeTitle)
+                .fontWeight(.black)
+                .foregroundColor(.white)
+            HStack {
+                ForEach(0 ..< Exercise.exercises.count) { index in
+                    ZStack {
+                        Circle()
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(.white)
+                            .opacity(index == selectedTab ? 0.5 : 0)
+                        Circle()
+                            .frame(width: 16, height: 16)
+                            .foregroundColor(.white)
+                    }
+                    .onTapGesture {
+                        selectedTab = index
+                    }
+                }
+            }
         }
-        .font(.custom("pages", size: 30))
-        .padding(-10)
-      }
     }
-  }
+}
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HeaderView(selectedTab: .constant(0), titleText: "Squat")
-              .previewLayout(.sizeThatFits)
-            HeaderView(selectedTab: .constant(1), titleText: "Step Up")
+            HeaderView(selectedTab: .constant(0), titleText: NSLocalizedString("Squat", comment: "Squat!"))
+                .previewLayout(.sizeThatFits)
+            HeaderView(selectedTab: .constant(1), titleText: NSLocalizedString("Step Up", comment: "Stepup!"))
                 .preferredColorScheme(.dark)
                 .environment(\.sizeCategory, .accessibilityLarge)
                 .previewLayout(.sizeThatFits)

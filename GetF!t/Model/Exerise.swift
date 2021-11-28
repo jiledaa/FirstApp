@@ -17,7 +17,7 @@ struct Exercise {
 extension Exercise {
   static let exercises = [
     Exercise(
-      exerciseName: ExerciseEnum.squat.rawValue,
+     exerciseName: NSLocalizedString("Squat", comment: "Wilkommen!"),
       videoName: "squat"),
     Exercise(
       exerciseName: ExerciseEnum.stepUp.rawValue,

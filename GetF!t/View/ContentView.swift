@@ -7,13 +7,13 @@ struct ContentView: View {
         ZStack {
             GradientBackground()
             TabView(selection: $selectedTab) {
-            WelcomeView(selectedTab: $selectedTab)
-              .tag(9)
-            ForEach(0 ..< Exercise.exercises.count) { index in
-              ExerciseView(selectedTab: $selectedTab, index: index)
-                .tag(index)
+                WelcomeView(selectedTab: $selectedTab)
+                    .tag(9)
+                ForEach(0 ..< Exercise.exercises.count) { index in
+                    ExerciseView(selectedTab: $selectedTab, index: index)
+                        .tag(index)
+                }
             }
-          }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
     }
@@ -23,8 +23,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-                .previewDevice("iPhone 12 mini")
+            .previewDevice("iPhone 12 mini")
             ContentView()
-                .previewDevice("iPad Pro")        }
+            .previewDevice("iPad Pro")        }
     }
 }
