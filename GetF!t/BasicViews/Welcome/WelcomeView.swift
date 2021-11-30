@@ -32,7 +32,8 @@ struct WelcomeView: View {
         RaisedButton(buttonText: NSLocalizedString("Get started", comment: "Starten!")) {
             selectedTab = 0
         }
-        .padding(50)
+        .frame(width: 250, height: 50, alignment: .center)
+        .padding(40)
     }
     
     var historyButton: some View {

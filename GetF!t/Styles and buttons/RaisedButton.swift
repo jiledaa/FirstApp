@@ -18,7 +18,7 @@ struct RaisedButton: View {
 struct RaisedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(maxWidth: 200)
+            .frame(maxWidth: 250, maxHeight: 50)
             .padding([.top, .bottom], 12)
             .background(
                 Capsule()
