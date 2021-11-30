@@ -54,7 +54,6 @@ struct ExerciseView: View {
                         }
                     }
                     .font(.custom("StartStop", size: 30))
-                    .padding()
                     if showTimer {
                         TimerView(timerDone: $timerDone)
                     }
@@ -77,7 +76,6 @@ struct ExerciseView: View {
                         }
                         .padding(.bottom)
                         .buttonStyle(EmbossedButtonStyle())
-                    
                 }
             }
         }

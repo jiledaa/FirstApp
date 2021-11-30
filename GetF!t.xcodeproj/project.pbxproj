@@ -84,42 +84,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16A914892739676A001D82A6 /* View */ = {
+		1683917527565DF3000DFF7A /* Styles and buttons */ = {
 			isa = PBXGroup;
 			children = (
-				16A91487273965A0001D82A6 /* ContentView.swift */,
-				16A9148327396543001D82A6 /* WelcomeView.swift */,
-				16A9148527396587001D82A6 /* ExerciseView.swift */,
-				16A9148B2739A38C001D82A6 /* HeaderView.swift */,
-				16A9148F273AA2F6001D82A6 /* RatingView.swift */,
-				16A91491273AB2C4001D82A6 /* HistoryView.swift */,
-				16F20177275101CB00ACE724 /* HistoryListView.swift */,
-				16F201792751021500ACE724 /* HistoryBarView.swift */,
-				16A91493273BE9B5001D82A6 /* SuccessView.swift */,
-				1689CED92743B0C9004362A7 /* TimerView.swift */,
-				168C09F6274E54E200390C21 /* WelcomeImages.swift */,
 				168C09F4274E4FB400390C21 /* RaisedButton.swift */,
 				168C09F8274E54FB00390C21 /* EmbossedButton.swift */,
 				168C09FA274E550700390C21 /* ContainerView.swift */,
 				16F2017B2751029700ACE724 /* IndentView.swift */,
 				168C09FC274E552600390C21 /* GradientBackground.swift */,
 			);
-			path = View;
+			path = "Styles and buttons";
 			sourceTree = "<group>";
 		};
-		16A91495273C18C8001D82A6 /* Model */ = {
+		1683917627565F1D000DFF7A /* History */ = {
+			isa = PBXGroup;
+			children = (
+				16A91491273AB2C4001D82A6 /* HistoryView.swift */,
+				16F20177275101CB00ACE724 /* HistoryListView.swift */,
+				16F201792751021500ACE724 /* HistoryBarView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		1683917827566076000DFF7A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD30C93D25147A8C0049DB93 /* DateExtension.swift */,
+				CD30C93E25147A8C0049DB93 /* ImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1683917B27566177000DFF7A /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				16A9148327396543001D82A6 /* WelcomeView.swift */,
+				168C09F6274E54E200390C21 /* WelcomeImages.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		1683917D275661B6000DFF7A /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				16A9148527396587001D82A6 /* ExerciseView.swift */,
+				16A9148B2739A38C001D82A6 /* HeaderView.swift */,
+				1689CED92743B0C9004362A7 /* TimerView.swift */,
+				16A9148F273AA2F6001D82A6 /* RatingView.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		1683917E2756633E000DFF7A /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		16A914892739676A001D82A6 /* BasicViews */ = {
+			isa = PBXGroup;
+			children = (
+				16A91487273965A0001D82A6 /* ContentView.swift */,
+				1683917B27566177000DFF7A /* Welcome */,
+				1683917D275661B6000DFF7A /* Exercise */,
+				16A91493273BE9B5001D82A6 /* SuccessView.swift */,
+				1683917627565F1D000DFF7A /* History */,
+			);
+			path = BasicViews;
+			sourceTree = "<group>";
+		};
+		16A91495273C18C8001D82A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				16A91496273C18E8001D82A6 /* Exerise.swift */,
 				16A91498273C1FD9001D82A6 /* HistoryStore.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CD30C917251474DC0049DB93 = {
 			isa = PBXGroup;
 			children = (
 				CD30C922251474DC0049DB93 /* GetF!t */,
+				16A914A0273C2C65001D82A6 /* Localizable.strings */,
+				CD30C927251474DD0049DB93 /* Assets.xcassets */,
 				CD30C921251474DC0049DB93 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,14 +185,13 @@
 			isa = PBXGroup;
 			children = (
 				CD30C923251474DC0049DB93 /* GetF!tApp.swift */,
-				16A91495273C18C8001D82A6 /* Model */,
-				16A914892739676A001D82A6 /* View */,
-				CD30C93D25147A8C0049DB93 /* DateExtension.swift */,
-				CD30C93E25147A8C0049DB93 /* ImageExtension.swift */,
-				CD30C927251474DD0049DB93 /* Assets.xcassets */,
-				16A914A0273C2C65001D82A6 /* Localizable.strings */,
-				CD30C94D25147B420049DB93 /* Videos */,
 				CD30C92C251474DD0049DB93 /* Info.plist */,
+				16A91495273C18C8001D82A6 /* Models */,
+				1683917E2756633E000DFF7A /* ModelViews */,
+				16A914892739676A001D82A6 /* BasicViews */,
+				1683917527565DF3000DFF7A /* Styles and buttons */,
+				1683917827566076000DFF7A /* Extensions */,
+				CD30C94D25147B420049DB93 /* Videos */,
 				CD30C929251474DD0049DB93 /* Preview Content */,
 			);
 			path = "GetF!t";
