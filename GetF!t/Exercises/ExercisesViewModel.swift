@@ -3,11 +3,9 @@ import SwiftUI
 import AVKit
 
 struct ExerciseModelView {
-
   @State private var showSheet = false
   @State private var showHistory = false
   @State private var showTimer = false
-
   @State private var exerciseSheet: ExerciseSheet?
 
   let index: Int
