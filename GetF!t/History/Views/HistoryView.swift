@@ -3,11 +3,8 @@ import SwiftUI
 struct HistoryView: View {
     @EnvironmentObject var history: HistoryStore
     @Environment(\.presentationMode) var presentationMode
-
     @Binding var showHistory: Bool
-
     @State var layoutType = LayoutType.list
-
 
     enum LayoutType {
         case list, bar
