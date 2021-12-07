@@ -6,7 +6,7 @@ struct ExerciseDay: Identifiable {
   var exercises: [String] = []
 }
 
-class HistoryStore: ObservableObject {
+class HistoryViewModel: ObservableObject {
     @Published var exerciseDays: [ExerciseDay] = []
 
     enum FileError: Error {

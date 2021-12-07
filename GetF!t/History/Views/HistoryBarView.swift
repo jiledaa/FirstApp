@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HistoryBarView: View {
-    @EnvironmentObject var history: HistoryStore
+    @EnvironmentObject var history: HistoryViewModel
     
     @State private var days: [Date] = []
     @State private var exercisesForWeek: [ExerciseDay] = []

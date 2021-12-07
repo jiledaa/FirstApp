@@ -2,7 +2,7 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-  @EnvironmentObject var history: HistoryStore
+  @EnvironmentObject var history: HistoryViewModel
   @Binding var selectedTab: Int
   @State private var timerDone = false
 
@@ -126,6 +126,6 @@ struct ExerciseView: View {
 struct ExerciseView_Previews: PreviewProvider {
   static var previews: some View {
     ExerciseView(selectedTab: .constant(0), index: 0)
-      .environmentObject(HistoryStore())
+      .environmentObject(HistoryViewModel())
   }
 }

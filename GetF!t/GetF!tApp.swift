@@ -2,16 +2,16 @@ import SwiftUI
 
 @main
 struct GetFit: App {
-  @StateObject private var historyStore: HistoryStore
+  @StateObject private var historyStore: HistoryViewModel
   @State private var showAlert = false
 
   init() {
-    let historyStore: HistoryStore
+    let historyStore: HistoryViewModel
     do {
-      historyStore = try HistoryStore(withChecking: true)
+      historyStore = try HistoryViewModel(withChecking: true)
     } catch {
       print(NSLocalizedString("Could not load history data", comment: "LoadingError"))
-      historyStore = HistoryStore()
+      historyStore = HistoryViewModel()
       showAlert = true
     }
     _historyStore = StateObject(wrappedValue: historyStore)

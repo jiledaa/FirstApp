@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HistoryListView: View {
-    @EnvironmentObject var history: HistoryStore
+    @EnvironmentObject var history: HistoryViewModel
     
     var body: some View {
         ScrollView {

@@ -1,6 +1,6 @@
 import Foundation
 
-extension HistoryStore {
+extension HistoryViewModel {
     func createDevData() {
     // Development data
     exerciseDays = [

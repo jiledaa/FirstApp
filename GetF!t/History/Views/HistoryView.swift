@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @EnvironmentObject var history: HistoryStore
+    @EnvironmentObject var history: HistoryViewModel
     @Environment(\.presentationMode) var presentationMode
     @Binding var showHistory: Bool
     @State var layoutType = LayoutType.list
