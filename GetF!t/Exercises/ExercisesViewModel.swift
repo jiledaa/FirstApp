@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 import AVKit
 
-struct ExerciseModelView {
+struct ExercisesViewModel {
   @State private var showSheet = false
   @State private var showHistory = false
   @State private var showTimer = false
