@@ -29,16 +29,13 @@ struct SuccessView: View {
                     .font(.custom("food", size: 20))
                     .foregroundColor(.gray)
             }
-            
+
             VStack {
-                HeaderView(selectedTab: .constant(0), titleText: NSLocalizedString("Success!", comment: "praise"))
+                HeaderView(selectedTab: .constant(0), titleText: LocalizedStringProvider.SuccesPage.success)
                 Spacer()
-                Button(action: {
+                RaisedButton(buttonText: LocalizedStringProvider.Button.continuE) {
                     selectedTab = 9
                     presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text(NSLocalizedString("Continue", comment: "continue"))
-                    Image(systemName: "arrow.right.circle")
                 }
                 .font(.custom("continue", size: 35))
                 .padding(90)

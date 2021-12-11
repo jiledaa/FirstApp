@@ -36,36 +36,33 @@ struct HistoryView: View {
 
     var layout: some View {
         HStack {
-            if layoutType == .list {
-                Button(action: {
-                    layoutType = .bar
-                }, label: {
+            switch layoutType {
+            case .list:
+                Button(action: {})
+                {
                     Image(systemName: "square.grid.2x2.fill")
                         .padding([.leading, .trailing], 20)
-                })
+                }
                     .buttonStyle(EmbossedButtonStyle())
-                Button(action: {
-                    layoutType = .bar
-                }, label: {
+                Button(action: {layoutType = .bar}) {
                     Image(systemName: "chart.bar.fill")
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
-                })
-            } else {
-                Button(action: {
-                    layoutType = .list
-                }, label: {
+                }
+                .buttonStyle(EmbossedButtonStyle())
+            case .bar:
+                Button(action: {layoutType = .list})
+                {
                     Image(systemName: "square.grid.2x2.fill")
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
-                })
-                Button(action: {
-                    layoutType = .list
-                }, label: {
+                }
+                    .buttonStyle(EmbossedButtonStyle())
+                Button(action: {}) {
                     Image(systemName: "chart.bar.fill")
                         .padding([.leading, .trailing], 20)
-                })
-                    .buttonStyle(EmbossedButtonStyle())
+                }
+                .buttonStyle(EmbossedButtonStyle())
             }
         }
     }

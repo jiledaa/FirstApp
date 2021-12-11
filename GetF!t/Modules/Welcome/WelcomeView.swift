@@ -9,7 +9,7 @@ struct WelcomeView: View {
             VStack {
                 HeaderView(
                     selectedTab: $selectedTab,
-                    titleText: NSLocalizedString("Welcome", comment: "Wilkommen!")
+                    titleText: LocalizedStringProvider.WelcomePage.welcome
                 )
                 Spacer()
                 VStack {
@@ -29,7 +29,7 @@ struct WelcomeView: View {
     }
     
     var getStartedButton: some View {
-        RaisedButton(buttonText: NSLocalizedString("Get started", comment: "Starten!")) {
+        RaisedButton(buttonText: LocalizedStringProvider.Button.getStarted) {
             selectedTab = 0
         }
         .frame(width: 250, height: 50, alignment: .center)
@@ -37,16 +37,14 @@ struct WelcomeView: View {
     }
     
     var historyButton: some View {
-        Button(
-            action: {
-                showHistory = true
-            },
-            label: {
+        Button(action: {
+            showHistory.toggle()
+        }) {
                 Text("History")
                     .fontWeight(.bold)
                     .padding([.leading, .trailing], 5)
             }
-        )
+
             .padding(.bottom, 200)
             .buttonStyle(EmbossedButtonStyle())
     }

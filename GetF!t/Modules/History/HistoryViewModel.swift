@@ -1,9 +1,10 @@
 import Foundation
+import SwiftUI
 
 struct ExerciseDay: Identifiable {
   let id = UUID()
   let date: Date
-  var exercises: [String] = []
+  var exercises: [LocalizedStringKey] = []
 }
 
 class HistoryViewModel: ObservableObject {
@@ -51,7 +52,7 @@ class HistoryViewModel: ObservableObject {
         exerciseDays = convertedPlistData.map {
             ExerciseDay(
                 date: $0[1] as? Date ?? Date(),
-                exercises: $0[2] as? [String] ?? [])
+                exercises: $0[2] as? [LocalizedStringKey] ?? [])
         }
     }
 
@@ -73,7 +74,7 @@ class HistoryViewModel: ObservableObject {
         }
     }
 
-    func addDoneExercise(_ exerciseName: String) {
+    func addDoneExercise(_ exerciseName: LocalizedStringKey) {
         let today = Date()
         if let firstDate = exerciseDays.first?.date,
            today.isSameDay(as: firstDate) {

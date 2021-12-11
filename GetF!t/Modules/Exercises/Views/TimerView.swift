@@ -4,7 +4,7 @@ struct TimerView: View {
   @Environment(\.presentationMode) var presentationMode
   @Binding var timerDone: Bool
   @State private var timeRemaining = 3 // 30
-  let exerciseName: String
+  let exerciseName: LocalizedStringKey
   let timer = Timer.publish(
     every: 1,
     on: .main,

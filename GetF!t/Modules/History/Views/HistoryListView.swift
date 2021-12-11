@@ -19,9 +19,7 @@ struct HistoryListView: View {
                         Divider()
                         .padding(.top, 40)
                 ) {
-                    // Only the first four exercises are shown
-                    // After Part II, you will be able to add all
-                    // exercises in a grid
+
                     HStack(spacing: 40) {
                         ForEach(0..<min(day.exercises.count, 4)) { index in
                             let exercise = day.exercises[index]
@@ -31,7 +29,6 @@ struct HistoryListView: View {
                                     case "Squat":
                                         Image(systemName: "bolt.fill")
                                             .frame(minWidth: 60)
-                                        //                        .padding(15)
                                     case "Step Up":
                                         Image(systemName: "arrow.uturn.up")
                                             .frame(minWidth: 60)
@@ -41,7 +38,6 @@ struct HistoryListView: View {
                                     default:
                                         Image(systemName: "sun.max.fill")
                                             .frame(minWidth: 60)
-                                        //                        .padding(15)
                                     }
                                 }
                                 .foregroundColor(Color("exercise-history"))
