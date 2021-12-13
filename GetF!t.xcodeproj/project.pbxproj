@@ -12,6 +12,8 @@
 		168391842756B4FB000DFF7A /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391832756B4FB000DFF7A /* RatingViewModel.swift */; };
 		1683E5E32764D075003B6B02 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E22764D075003B6B02 /* ImageProvider.swift */; };
 		1683E5E52764E442003B6B02 /* ColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E42764E442003B6B02 /* ColorProvider.swift */; };
+		168602C12767C0D300A7CFCA /* IndentViewInverted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C02767C0D300A7CFCA /* IndentViewInverted.swift */; };
+		168602C32767D6A000A7CFCA /* DateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C22767D6A000A7CFCA /* DateProvider.swift */; };
 		1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689CED92743B0C9004362A7 /* TimerView.swift */; };
 		168C09F5274E4FB400390C21 /* RaisedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F4274E4FB400390C21 /* RaisedButton.swift */; };
 		168C09F7274E54E200390C21 /* WelcomeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F6274E54E200390C21 /* WelcomeImages.swift */; };
@@ -51,6 +53,8 @@
 		168391832756B4FB000DFF7A /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		1683E5E22764D075003B6B02 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		1683E5E42764E442003B6B02 /* ColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorProvider.swift; sourceTree = "<group>"; };
+		168602C02767C0D300A7CFCA /* IndentViewInverted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentViewInverted.swift; sourceTree = "<group>"; };
+		168602C22767D6A000A7CFCA /* DateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProvider.swift; sourceTree = "<group>"; };
 		1689CED92743B0C9004362A7 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		168C09F4274E4FB400390C21 /* RaisedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButton.swift; sourceTree = "<group>"; };
 		168C09F6274E54E200390C21 /* WelcomeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeImages.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				168C09FA274E550700390C21 /* ContainerView.swift */,
 				16F2017B2751029700ACE724 /* IndentView.swift */,
 				168C09FC274E552600390C21 /* GradientBackground.swift */,
+				168602C02767C0D300A7CFCA /* IndentViewInverted.swift */,
 			);
 			path = "Styles and buttons";
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				168E9923276352CE00B0406A /* LocalizedStringProvider.swift */,
 				1683E5E22764D075003B6B02 /* ImageProvider.swift */,
 				1683E5E42764E442003B6B02 /* ColorProvider.swift */,
+				168602C22767D6A000A7CFCA /* DateProvider.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -361,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				168C09F7274E54E200390C21 /* WelcomeImages.swift in Sources */,
+				168602C12767C0D300A7CFCA /* IndentViewInverted.swift in Sources */,
 				1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */,
 				16F2017C2751029700ACE724 /* IndentView.swift in Sources */,
 				168E9924276352CE00B0406A /* LocalizedStringProvider.swift in Sources */,
@@ -387,6 +394,7 @@
 				168C09F9274E54FB00390C21 /* EmbossedButton.swift in Sources */,
 				168C09FD274E552600390C21 /* GradientBackground.swift in Sources */,
 				16A9148C2739A38C001D82A6 /* HeaderView.swift in Sources */,
+				168602C32767D6A000A7CFCA /* DateProvider.swift in Sources */,
 				1683918027569B2E000DFF7A /* ExercisesViewModel.swift in Sources */,
 				168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */,
 			);

@@ -44,7 +44,7 @@ struct RaisedButton_Previews: PreviewProvider {
             .buttonStyle(RaisedButtonStyle())
             .padding(20)
         }
-        .background(Color("background"))
+        .background(Color(ColorProvider.BackgroundColor.background))
         .previewLayout(.sizeThatFits)
     }
 }

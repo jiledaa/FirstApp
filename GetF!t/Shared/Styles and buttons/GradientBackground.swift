@@ -2,8 +2,8 @@ import SwiftUI
 
 struct GradientBackground: View {
     var gradient: Gradient {
-        let color1 = Color("gradient-top")
-        let color2 = Color("drop-highlight")
+        let color1 = Color(ColorProvider.BackgroundColor.gradientTop)
+        let color2 = Color(ColorProvider.ShadowColor.dropHighlight)
         return Gradient(
             stops: [
                 Gradient.Stop(color: color1, location: 0),

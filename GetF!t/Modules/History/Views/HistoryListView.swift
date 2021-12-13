@@ -40,7 +40,7 @@ struct HistoryListView: View {
                                             .frame(minWidth: 60)
                                     }
                                 }
-                                .foregroundColor(Color(ColorProvider.BackgroundColor.historyBar))
+                                .foregroundColor(Color(ColorProvider.BackgroundColor.gradientTop))
                                 .padding(.bottom, 20)
                                 Text(exercise)
                                     .font(.caption)
@@ -59,8 +59,8 @@ struct HistoryListView: View {
 }
 
 struct HistoryListView_Previews: PreviewProvider {
-  static var previews: some View {
-    HistoryListView()
-     
-  }
+    static var previews: some View {
+        HistoryListView()
+            .environmentObject(HistoryViewModel(debugData: true))
+    }
 }

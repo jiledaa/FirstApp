@@ -12,7 +12,7 @@ extension Date {
     
     var yearMonthDay: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy MM dd"
+        dateFormatter.dateFormat = DateProvider.yyyyMMdd
         return dateFormatter.string(from: self)
     }
     
@@ -25,19 +25,19 @@ extension Date {
     
     var dayName: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
+        dateFormatter.dateFormat = DateProvider.EEEE
         return dateFormatter.string(from: self)
     }
     
     var truncatedDayName: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE"
+        dateFormatter.dateFormat = DateProvider.EEE
         return dateFormatter.string(from: self)
     }
     
     var truncatedDayMonth: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM"
+        dateFormatter.dateFormat = DateProvider.ddMMM
         return dateFormatter.string(from: self)
     }
     

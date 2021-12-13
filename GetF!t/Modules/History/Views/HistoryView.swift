@@ -73,7 +73,6 @@ struct HistoryView: View {
                 .edgesIgnoringSafeArea(.all)
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
-                // swiftlint:disable:next multiple_closures_with_trailing_closure
             }) {
                 Image(systemName: ImageProvider.xmark)
                     .foregroundColor(.primary)
