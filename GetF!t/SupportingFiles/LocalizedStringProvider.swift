@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct LocalizedStringProvider {
+    static let selectedtab = "selectedTab"
+    static let ratingsString = "ratings"
+    static let historyPlist = "history.plist"
     struct ExercisesNames {
         static let burpee: LocalizedStringKey = "Burpee"
         static let squat: LocalizedStringKey = "Squat"
@@ -37,7 +40,7 @@ struct LocalizedStringProvider {
         static let gloryPostScript: LocalizedStringKey = "GloryPostScript"
     }
 
-    struct Error {
+    struct Errors {
         static let couldntFind: LocalizedStringKey = "CouldntFind"
         static let loadingError1: LocalizedStringKey = "LaodingError1"
         static let loadingError2: LocalizedStringKey = "LoadingError2"

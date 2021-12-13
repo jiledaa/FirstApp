@@ -28,6 +28,6 @@
 
 "Continue" = "Continue";
 
-"LaodingError1" = "Could not load history data";
+"LoadingError1" = "Could not load history data.";
 
 "LoadingError2" = "Could not load history data \n Email Support: support@berlin.com";

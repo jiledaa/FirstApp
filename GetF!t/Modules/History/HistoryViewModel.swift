@@ -34,7 +34,7 @@ class HistoryViewModel: ObservableObject {
             for: .documentDirectory, in: .userDomainMask).first else {
                 return nil
             }
-        return documentsURL.appendingPathComponent("history.plist")
+        return documentsURL.appendingPathComponent(LocalizedStringProvider.historyPlist)
     }
 
     func load() throws {
@@ -78,17 +78,11 @@ class HistoryViewModel: ObservableObject {
         let today = Date()
         if let firstDate = exerciseDays.first?.date,
            today.isSameDay(as: firstDate) {
-            print("Adding \(exerciseName)")
             exerciseDays[0].exercises.append(exerciseName)
         } else {
             exerciseDays.insert(
                 ExerciseDay(date: today, exercises: [exerciseName]),
                 at: 0)
-        }
-        do {
-            try save()
-        } catch {
-            fatalError(error.localizedDescription)
         }
     }
 }

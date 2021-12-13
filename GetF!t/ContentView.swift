@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @SceneStorage("selectedTab") private var selectedTab = 9
+    @SceneStorage(LocalizedStringProvider.selectedtab) private var selectedTab = 9
 
     var body: some View {
         ZStack {
@@ -23,8 +23,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-            .previewDevice("iPhone 12 mini")
-            ContentView()
-            .previewDevice("iPad Pro")        }
+        }
     }
 }

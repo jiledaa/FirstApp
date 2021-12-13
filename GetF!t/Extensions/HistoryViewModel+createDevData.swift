@@ -1,13 +1,12 @@
 import Foundation
 
 extension HistoryViewModel {
-    func createDevData() {
-    // Development data
+  func createDevData() {
     exerciseDays = [
       ExerciseDay(
         date: Date().addingTimeInterval(-86400),
         exercises: [
-            Exercise.exercises[0].exerciseName ,
+          Exercise.exercises[0].exerciseName,
           Exercise.exercises[1].exerciseName,
           Exercise.exercises[2].exerciseName
         ]),
@@ -17,5 +16,11 @@ extension HistoryViewModel {
           Exercise.exercises[1].exerciseName,
           Exercise.exercises[0].exerciseName
         ])
-] }
+    ]
+  }
+
+  convenience init(debugData: Bool) {
+    self.init()
+    createDevData()
+  }
 }

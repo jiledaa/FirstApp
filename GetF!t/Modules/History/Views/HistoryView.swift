@@ -16,7 +16,7 @@ struct HistoryView: View {
                 closeButton
                 VStack {
                     VStack {
-                        Text("History")
+                        Text(LocalizedStringProvider.Button.history)
                             .font(.title)
                             .fontWeight(.bold)
                             .padding()
@@ -40,12 +40,12 @@ struct HistoryView: View {
             case .list:
                 Button(action: {})
                 {
-                    Image(systemName: "square.grid.2x2.fill")
+                    Image(systemName: ImageProvider.squareGrid2x2Fill)
                         .padding([.leading, .trailing], 20)
                 }
                     .buttonStyle(EmbossedButtonStyle())
                 Button(action: {layoutType = .bar}) {
-                    Image(systemName: "chart.bar.fill")
+                    Image(systemName: ImageProvider.chartBarFill)
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
@@ -53,13 +53,13 @@ struct HistoryView: View {
             case .bar:
                 Button(action: {layoutType = .list})
                 {
-                    Image(systemName: "square.grid.2x2.fill")
+                    Image(systemName: ImageProvider.squareGrid2x2Fill)
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
                     .buttonStyle(EmbossedButtonStyle())
                 Button(action: {}) {
-                    Image(systemName: "chart.bar.fill")
+                    Image(systemName: ImageProvider.chartBarFill)
                         .padding([.leading, .trailing], 20)
                 }
                 .buttonStyle(EmbossedButtonStyle())
@@ -69,13 +69,13 @@ struct HistoryView: View {
 
     var closeButton: some View {
         ZStack(alignment: .topTrailing) {
-            Color("background")
+            Color(ColorProvider.BackgroundColor.background)
                 .edgesIgnoringSafeArea(.all)
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
                 // swiftlint:disable:next multiple_closures_with_trailing_closure
             }) {
-                Image(systemName: "xmark")
+                Image(systemName: ImageProvider.xmark)
                     .foregroundColor(.primary)
             }
             .font(.title2)

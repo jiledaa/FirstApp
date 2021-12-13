@@ -8,25 +8,25 @@ struct SuccessView: View {
         ZStack {
             VStack {
                 HStack {
-                    Image(systemName: "person.3.fill")
+                    Image(systemName: ImageProvider.person3Fill)
                         .resizedToFill(width: 180, height: 110)
                         .foregroundColor(.purple)
-                    Image(systemName: "hand.raised.fill")
+                    Image(systemName: ImageProvider.handRaised)
                         .resizedToFill(width: 0, height: 75)
                         .foregroundColor(.red)
                         .padding(115)
                         .rotation3DEffect(Angle(degrees: 270), axis: (x: 20.0, y: 40.0, z: 40.0))
-                    Image(systemName: "person.wave.2.fill")
+                    Image(systemName: ImageProvider.personWave2Fill)
                         .resizedToFill(width: 0, height: 140)
                         .foregroundColor(.red)
                         .padding()
                         .rotation3DEffect(Angle(degrees: 180), axis: (x: 0, y: 1, z: 0))
                 }
                 
-                Text(NSLocalizedString("Glory to the victory!", comment: "glory"))
-                    .font(.custom("Heil", size: 30))
-                Text(NSLocalizedString("Well done! And now cram your nazi.", comment: "food"))
-                    .font(.custom("food", size: 20))
+                Text(LocalizedStringProvider.SuccesPage.glory)
+                    .font(.title)
+                Text(LocalizedStringProvider.SuccesPage.gloryPostScript)
+                    .font(.title2)
                     .foregroundColor(.gray)
             }
 
@@ -37,7 +37,7 @@ struct SuccessView: View {
                     selectedTab = 9
                     presentationMode.wrappedValue.dismiss()
                 }
-                .font(.custom("continue", size: 35))
+                .font(.largeTitle)
                 .padding(90)
             }
         }

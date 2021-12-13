@@ -14,7 +14,7 @@ struct TimerView: View {
   var body: some View {
     GeometryReader { geometry in
       ZStack {
-        Color("background")
+          Color(ColorProvider.BackgroundColor.background)
           .edgesIgnoringSafeArea(.all)
         circle(size: geometry.size)
           .overlay(
@@ -32,7 +32,7 @@ struct TimerView: View {
             timerText
           }
           Spacer()
-          RaisedButton(buttonText: "Done") {
+            RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
             presentationMode.wrappedValue.dismiss()
           }
           .opacity(timerDone ? 1 : 0)
@@ -81,6 +81,6 @@ struct TimerView_Previews: PreviewProvider {
   static var previews: some View {
     TimerView(
       timerDone: .constant(false),
-      exerciseName: "Step Up")
+      exerciseName: LocalizedStringProvider.ExercisesNames.stepUp)
   }
 }

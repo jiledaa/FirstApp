@@ -95,7 +95,7 @@ struct ExerciseView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     .padding(20)
             } else {
-                Text(LocalizedStringProvider.Error.couldntFind)
+                Text(LocalizedStringProvider.Errors.couldntFind)
                     .foregroundColor(.red)
             }
         }
@@ -115,7 +115,7 @@ struct ExerciseView: View {
             showHistory = true
             exerciseSheet = .history
         }) {
-            Text("History")
+            Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)
                 .padding([.leading, .trailing], 5)
         }

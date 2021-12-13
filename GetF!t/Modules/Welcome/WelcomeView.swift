@@ -25,7 +25,7 @@ struct WelcomeView: View {
                 
                 .frame(height: geometry.size.height * 0.7)
             }
-        } 
+        }
     }
     
     var getStartedButton: some View {
@@ -40,13 +40,13 @@ struct WelcomeView: View {
         Button(action: {
             showHistory.toggle()
         }) {
-                Text("History")
-                    .fontWeight(.bold)
-                    .padding([.leading, .trailing], 5)
-            }
+            Text(LocalizedStringProvider.Button.history)
+                .fontWeight(.bold)
+                .padding([.leading, .trailing], 5)
+        }
 
-            .padding(.bottom, 200)
-            .buttonStyle(EmbossedButtonStyle())
+        .padding(.bottom, 200)
+        .buttonStyle(EmbossedButtonStyle())
     }
 }
 

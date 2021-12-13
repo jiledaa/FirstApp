@@ -20,9 +20,9 @@ struct RaisedButtonStyle: ButtonStyle {
             .padding([.top, .bottom], 12)
             .background(
                 Capsule()
-                    .foregroundColor(Color("background"))
-                    .shadow(color: Color("drop-shadow"), radius: 4, x: -6, y: 2)
-                    .shadow(color: Color("drop-highlight"), radius: 4, x: -6, y: -6)
+                    .foregroundColor(Color(ColorProvider.BackgroundColor.background))
+                    .shadow(color: Color(ColorProvider.ShadowColor.dropShadow), radius: 4, x: -6, y: 2)
+                    .shadow(color: Color(ColorProvider.ShadowColor.dropHighlight), radius: 4, x: -6, y: -6)
             )
     }
 }
@@ -38,8 +38,8 @@ extension Text {
 struct RaisedButton_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            RaisedButton(buttonText: "Get Started") {
-                print("Hello World")
+            RaisedButton(buttonText: LocalizedStringProvider.Button.getStarted) {
+
             }
             .buttonStyle(RaisedButtonStyle())
             .padding(20)

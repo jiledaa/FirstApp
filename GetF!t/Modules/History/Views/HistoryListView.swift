@@ -26,21 +26,21 @@ struct HistoryListView: View {
                             VStack {
                                 IndentView {
                                     switch exercise {
-                                    case "Squat":
-                                        Image(systemName: "bolt.fill")
+                                    case LocalizedStringProvider.ExercisesNames.squat:
+                                        Image(systemName: ImageProvider.boltFill)
                                             .frame(minWidth: 60)
-                                    case "Step Up":
-                                        Image(systemName: "arrow.uturn.up")
+                                    case LocalizedStringProvider.ExercisesNames.stepUp:
+                                        Image(systemName: ImageProvider.arrowUturnUp)
                                             .frame(minWidth: 60)
-                                    case "Burpee":
-                                        Image(systemName: "hare.fill")
+                                    case LocalizedStringProvider.ExercisesNames.burpee:
+                                        Image(systemName: ImageProvider.hareFill)
                                             .frame(minWidth: 60)
                                     default:
-                                        Image(systemName: "sun.max.fill")
+                                        Image(systemName: ImageProvider.sunMaxFill)
                                             .frame(minWidth: 60)
                                     }
                                 }
-                                .foregroundColor(Color("exercise-history"))
+                                .foregroundColor(Color(ColorProvider.BackgroundColor.historyBar))
                                 .padding(.bottom, 20)
                                 Text(exercise)
                                     .font(.caption)

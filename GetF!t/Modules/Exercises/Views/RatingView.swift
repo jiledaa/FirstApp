@@ -2,10 +2,10 @@ import SwiftUI
 
 struct RatingView: View {
     let exerciseIndex: Int
-    @AppStorage("ratings") private var ratings = ""
+    @AppStorage(LocalizedStringProvider.ratingsString) private var ratings = ""
     @State private var rating = 0
     let maximumRating = 5
-    let onColor = Color("ratings")
+    let onColor = Color(LocalizedStringProvider.ratingsString)
     let offColor = Color.gray
     
     init(exerciseIndex: Int) {
@@ -42,10 +42,10 @@ struct RatingView: View {
                     Button(action: {
                         updateRating(index: index)
                     }, label: {
-                        Image(systemName: "waveform.path.ecg")
+                        Image(systemName: ImageProvider.waveform)
                             .foregroundColor(
                                 index > rating ? offColor : onColor)
-                            .font(.custom("wave", size: 25))
+                            .font(.title3)
                     })
                         .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
                         .onChange(of: ratings) { _ in
@@ -59,25 +59,25 @@ struct RatingView: View {
             .font(.largeTitle)
             
             HStack {
-                Image(systemName: "battery.100")
+                Image(systemName: ImageProvider.battery100)
                     .foregroundColor(.green)
-                    .font(.system(size: 45))
-                    .padding(10)
-                Image(systemName: "battery.50")
+                    .font(.title)
+                    .padding(.trailing, 15)
+                Image(systemName: ImageProvider.battery50)
                     .foregroundColor(.green)
-                    .font(.system(size: 45))
-                    .padding(10)
-                Image(systemName: "battery.0")
+                    .font(.title)
+                    .padding(.horizontal, 15)
+                Image(systemName: ImageProvider.battery0)
                     .foregroundColor(.green)
-                    .font(.system(size: 45))
-                    .padding(10)
+                    .font(.title)
+                    .padding(.leading, 15)
             }.padding(-5)
         }
     }
 }
 
 struct RatingView_Previews: PreviewProvider {
-  @AppStorage("ratings") static var ratings: String?
+    @AppStorage(LocalizedStringProvider.ratingsString) static var ratings: String?
   static var previews: some View {
     ratings = nil
     return RatingView(exerciseIndex: 0)

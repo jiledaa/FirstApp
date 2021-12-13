@@ -3,11 +3,11 @@ import SwiftUI
 
 struct RatingModelView {
     let exerciseIndex: Int
-    @AppStorage("ratings") private var ratings = ""
+    @AppStorage(LocalizedStringProvider.ratingsString) private var ratings = ""
     @State private var rating = 0
     let maximumRating = 5
 
-    let onColor = Color("ratings")
+    let onColor = Color(LocalizedStringProvider.ratingsString)
     let offColor = Color.gray
 
     init(exerciseIndex: Int) {

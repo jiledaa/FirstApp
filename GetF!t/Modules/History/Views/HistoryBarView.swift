@@ -31,7 +31,6 @@ struct HistoryBarView: View {
                     return foundDate.first?.exercises.count ?? 0
                 }
                 assert(counts.count == 7)
-                // remap values to 0 to maxBarHeight
                 let maxValue = max(counts.max() ?? 0, 1)
                 countsForWeek = counts.map {
                     $0 * maxBarHeight / maxValue
@@ -52,20 +51,20 @@ struct HistoryBarView: View {
                 if countsForWeek[day] > 0 {
                     RoundedRectangle(cornerRadius: 10)
                         .padding(3)
-                        .foregroundColor(Color("background"))
+                        .foregroundColor(Color(ColorProvider.BackgroundColor.background))
                         .shadow(
-                            color: Color("drop-highlight"),
+                            color: Color(ColorProvider.ShadowColor.dropHighlight),
                             radius: 4,
                             x: -4,
                             y: -4)
                         .shadow(
-                            color: Color("drop-shadow"),
+                            color: Color(ColorProvider.ShadowColor.dropShadow),
                             radius: 4,
                             x: 4,
                             y: 4)
                     RoundedRectangle(cornerRadius: 6)
                         .padding(12)
-                        .foregroundColor(Color("history-bar"))
+                        .foregroundColor(Color(ColorProvider.BackgroundColor.historyBar))
                 }
             }
             .frame(height: CGFloat(countsForWeek[day]))
