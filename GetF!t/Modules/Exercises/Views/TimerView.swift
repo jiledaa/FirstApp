@@ -11,7 +11,6 @@ struct TimerView: View {
     in: .common)
     .autoconnect()
 
-
   var body: some View {
     GeometryReader { geometry in
       ZStack {

@@ -95,15 +95,14 @@ struct ExerciseView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     .padding(20)
             } else {
-                Text(
-                    "Couldn't find \(Exercise.exercises[index].videoName).mp4")
+                Text(LocalizedStringProvider.Error.couldntFind)
                     .foregroundColor(.red)
             }
         }
     }
 
     var startExerciseButton: some View {
-        RaisedButton(buttonText: "Start Exercise") {
+        RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
             showTimer.toggle()
             showSheet = true
             exerciseSheet = .timer

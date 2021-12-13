@@ -6,7 +6,6 @@ struct LocalizedStringProvider {
         static let squat: LocalizedStringKey = "Squat"
         static let stepUp: LocalizedStringKey = "StepUp"
         static let sunSalute: LocalizedStringKey = "SunSalute"
-
     }
 
     struct ExercisesNamesVideo {
