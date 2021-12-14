@@ -72,7 +72,7 @@ struct TimerView: View {
             }
     }
 
-    func circle(size: CGSize) -> some View {
+    private func circle(size: CGSize) -> some View {
         Circle()
             .frame(
                 width: size.width,

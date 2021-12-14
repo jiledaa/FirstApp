@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct RatingModelView {
+class RatingModelView: ObservableObject {
     let exerciseIndex: Int
     @AppStorage(LocalizedStringProvider.ratingsString) private var ratings = ""
     @State private var rating = 0
@@ -21,7 +21,7 @@ struct RatingModelView {
         }
     }
 
-    fileprivate func convertRating() {
+    func convertRating() {
         let index = ratings.index(
             ratings.startIndex,
             offsetBy: exerciseIndex)

@@ -14,6 +14,7 @@
 		1683E5E52764E442003B6B02 /* ColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E42764E442003B6B02 /* ColorProvider.swift */; };
 		168602C12767C0D300A7CFCA /* IndentViewInverted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C02767C0D300A7CFCA /* IndentViewInverted.swift */; };
 		168602C32767D6A000A7CFCA /* DateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C22767D6A000A7CFCA /* DateProvider.swift */; };
+		168602C62767DF5800A7CFCA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C52767DF5800A7CFCA /* TimerViewModel.swift */; };
 		1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689CED92743B0C9004362A7 /* TimerView.swift */; };
 		168C09F5274E4FB400390C21 /* RaisedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F4274E4FB400390C21 /* RaisedButton.swift */; };
 		168C09F7274E54E200390C21 /* WelcomeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F6274E54E200390C21 /* WelcomeImages.swift */; };
@@ -55,6 +56,7 @@
 		1683E5E42764E442003B6B02 /* ColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorProvider.swift; sourceTree = "<group>"; };
 		168602C02767C0D300A7CFCA /* IndentViewInverted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentViewInverted.swift; sourceTree = "<group>"; };
 		168602C22767D6A000A7CFCA /* DateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProvider.swift; sourceTree = "<group>"; };
+		168602C52767DF5800A7CFCA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		1689CED92743B0C9004362A7 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		168C09F4274E4FB400390C21 /* RaisedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButton.swift; sourceTree = "<group>"; };
 		168C09F6274E54E200390C21 /* WelcomeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeImages.swift; sourceTree = "<group>"; };
@@ -124,17 +126,6 @@
 			path = History;
 			sourceTree = "<group>";
 		};
-		1683917D275661B6000DFF7A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				16A9148527396587001D82A6 /* ExercisesView.swift */,
-				1689CED92743B0C9004362A7 /* TimerView.swift */,
-				16A9148F273AA2F6001D82A6 /* RatingView.swift */,
-				16A91493273BE9B5001D82A6 /* SuccessView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		1683917E2756633E000DFF7A /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +134,32 @@
 				1694FDBF276230F700B36F52 /* WelcomeViewModel.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		168602C42767DF2500A7CFCA /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				1689CED92743B0C9004362A7 /* TimerView.swift */,
+				168602C52767DF5800A7CFCA /* TimerViewModel.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		168602C72768ACC700A7CFCA /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				16A9148F273AA2F6001D82A6 /* RatingView.swift */,
+				168391832756B4FB000DFF7A /* RatingViewModel.swift */,
+			);
+			path = Rating;
+			sourceTree = "<group>";
+		};
+		168602C82768AD2900A7CFCA /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				16A91493273BE9B5001D82A6 /* SuccessView.swift */,
+			);
+			path = Success;
 			sourceTree = "<group>";
 		};
 		168E991F27634C1800B0406A /* Resources */ = {
@@ -209,10 +226,12 @@
 		16A91495273C18C8001D82A6 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
-				1683917D275661B6000DFF7A /* Views */,
 				16A91496273C18E8001D82A6 /* ExercisesModel.swift */,
 				1683917F27569B2E000DFF7A /* ExercisesViewModel.swift */,
-				168391832756B4FB000DFF7A /* RatingViewModel.swift */,
+				16A9148527396587001D82A6 /* ExercisesView.swift */,
+				168602C42767DF2500A7CFCA /* Timer */,
+				168602C72768ACC700A7CFCA /* Rating */,
+				168602C82768AD2900A7CFCA /* Success */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -394,6 +413,7 @@
 				168C09F9274E54FB00390C21 /* EmbossedButton.swift in Sources */,
 				168C09FD274E552600390C21 /* GradientBackground.swift in Sources */,
 				16A9148C2739A38C001D82A6 /* HeaderView.swift in Sources */,
+				168602C62767DF5800A7CFCA /* TimerViewModel.swift in Sources */,
 				168602C32767D6A000A7CFCA /* DateProvider.swift in Sources */,
 				1683918027569B2E000DFF7A /* ExercisesViewModel.swift in Sources */,
 				168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */,
