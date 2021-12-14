@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RatingView: View {
-    @ObservedObject var ratingViewModel: RatingModelView
+    @ObservedObject var ratingViewModel: RatingViewModel
     let exerciseIndex: Int
     @AppStorage(LocalizedStringProvider.ratingsString) private var ratings = ""
     @State private var rating = 0
@@ -9,30 +9,10 @@ struct RatingView: View {
     let onColor = Color(LocalizedStringProvider.ratingsString)
     let offColor = Color.gray
     
-
-
-
-    
     var body: some View {
         VStack {
             HStack {
-                ForEach(1 ..< maximumRating + 1) { index in
-                    Button(action: {
-                        ratingViewModel.updateRating(index: index)
-                    }, label: {
-                        Image(systemName: ImageProvider.waveform)
-                            .foregroundColor(
-                                index > rating ? offColor : onColor)
-                            .font(.title3)
-                    })
-                        .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
-                        .onChange(of: ratings) { _ in
-                            ratingViewModel.convertRating()
-                        }
-                        .onAppear {
-                            ratingViewModel.convertRating()
-                        }
-                }
+                ratingViewModel.forEach()
             }
             .font(.largeTitle)
             
@@ -58,7 +38,7 @@ struct RatingView_Previews: PreviewProvider {
     @AppStorage(LocalizedStringProvider.ratingsString) static var ratings: String?
   static var previews: some View {
     ratings = nil
-      return RatingView(ratingViewModel: <#RatingModelView#>, exerciseIndex: 0)
+      return RatingView(ratingViewModel: RatingViewModel.init(exerciseIndex: 0), exerciseIndex: 0)
       .preferredColorScheme(.dark)
       .previewLayout(.sizeThatFits)
   }

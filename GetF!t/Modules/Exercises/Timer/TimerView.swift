@@ -1,15 +1,8 @@
 import SwiftUI
 
 struct TimerView: View {
+    @ObservedObject var timerViewModel: TimerViewModel
     @Environment(\.presentationMode) var presentationMode
-    @Binding var timerDone: Bool
-    @State private var timeRemaining = 3 // 30
-    let exerciseName: LocalizedStringKey
-    let timer = Timer.publish(
-        every: 1,
-        on: .main,
-        in: .common)
-        .autoconnect()
 
     var body: some View {
         GeometryReader { geometry in
@@ -22,39 +15,41 @@ struct TimerView: View {
                             .mask(circle(size: geometry.size))
                     )
                 VStack {
-                    Text(exerciseName)
+                    Text(timerViewModel.exerciseName)
                         .font(.largeTitle)
                         .fontWeight(.black)
                         .foregroundColor(.white)
                         .padding(.top, 20)
                     Spacer()
-                    if timerDone == false {
-                        IndentView {
-                            timerText
-                        }
-                    } else {
-                        IndentViewInverted {
-                            timerText
-                        }
-                    }
+                   invertIndentView
                     Spacer()
                     RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
                         presentationMode.wrappedValue.dismiss()
                     }
-                    .opacity(timerDone ? 1 : 0)
+                    .opacity(timerViewModel.opacity)
                     .padding([.leading, .trailing], 30)
                     .padding(.bottom, 60)
-                    .disabled(!timerDone)
-                }
-                .onAppear {
-                    timerDone = false
+                    .disabled(!timerViewModel.timerDone)
                 }
             }
         }
     }
 
+    @ViewBuilder
+    private var invertIndentView: some View {
+        if timerViewModel.timerDone == false {
+            IndentView {
+                timerText
+            }
+        } else {
+            IndentViewInverted {
+                timerText
+            }
+        }
+    }
+
     var timerText: some View {
-        Text("\(timeRemaining)")
+        Text("\(timerViewModel.timeRemaining)")
             .font(.system(size: 90, design: .rounded))
             .fontWeight(.heavy)
             .frame(
@@ -63,13 +58,7 @@ struct TimerView: View {
                 minHeight: 180,
                 maxHeight: 200)
             .padding()
-            .onReceive(timer) { _ in
-                if self.timeRemaining > 0 {
-                    self.timeRemaining -= 1
-                } else {
-                    timerDone = true
-                }
-            }
+            .onReceive(timerViewModel.timer, perform: timerViewModel.onTimeOver)
     }
 
     private func circle(size: CGSize) -> some View {
@@ -85,8 +74,6 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(
-            timerDone: .constant(false),
-            exerciseName: LocalizedStringProvider.ExercisesNames.stepUp)
+        TimerView(timerViewModel: TimerViewModel.init(exerciseName: "Steig auf!"))
     }
 }

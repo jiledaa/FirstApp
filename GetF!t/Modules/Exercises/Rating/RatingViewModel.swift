@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-class RatingModelView: ObservableObject {
+class RatingViewModel: ObservableObject {
     let exerciseIndex: Int
     @AppStorage(LocalizedStringProvider.ratingsString) private var ratings = ""
     @State private var rating = 0
@@ -18,6 +18,24 @@ class RatingModelView: ObservableObject {
                 toLength: desiredLength,
                 withPad: "0",
                 startingAt: 0)
+        }
+    }
+
+    func forEach() -> some View {
+        ForEach(1 ..< maximumRating + 1) { index in
+            Button(action: {self.updateRating(index: index)}) {
+                Image(systemName: ImageProvider.waveform)
+                    .foregroundColor(
+                        index > self.rating ? self.offColor : self.onColor)
+                    .font(.title3)
+            }
+            .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+            .onChange(of: self.ratings) { _ in
+                self.convertRating()
+            }
+            .onAppear {
+                self.convertRating()
+            }
         }
     }
 

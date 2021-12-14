@@ -1,8 +1,9 @@
 import Foundation
+import SwiftUI
 
 class TimerViewModel: ObservableObject {
     @Published var timeRemaining = 3
-    @Published var timerDone: Bool
+    @Published var timerDone = false
 
     let exerciseName: LocalizedStringKey
     let timer = Timer.publish(
@@ -11,29 +12,19 @@ class TimerViewModel: ObservableObject {
         in: .common)
         .autoconnect()
 
-    init() {
-
+    init(exerciseName: LocalizedStringKey) {
+        self.exerciseName = exerciseName
     }
 
-    func invertIndentView(_ timerText) {
-        if timerDone == false {
-            IndentView {
-                timerText
-            }
-        } else {
-            IndentViewInverted {
-                timerText
-            }
-        }
+
+
+    var opacity: Double {
+        timerDone ? 1 : 0
     }
 
-    func opacity() {
-        .opacity(timerDone ? 1 : 0)
-    }
-
-    func onTimeOver() { _ in
-        if self.timeRemaining > 0 {
-            self.timeRemaining -= 1
+    func onTimeOver(_ timerValue: Date) -> Void {
+        if timeRemaining > 0 {
+            timeRemaining -= 1
         } else {
             timerDone = true
         }
