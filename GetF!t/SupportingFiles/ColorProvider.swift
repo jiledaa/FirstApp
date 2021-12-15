@@ -1,18 +1,14 @@
 import SwiftUI
 
 struct ColorProvider {
-    struct Colors {
-        static let ratingsColor = "ratings"
-    }
-
-    struct BackgroundColor {
-        static let background = "background"
-        static let historyBar = "history-bar"
-        static let gradientTop = "gradient-top"
-    }
-
-    struct ShadowColor {
-        static let dropShadow = "drop-shadow"
-        static let dropHighlight = "drop-highlight"
-    }
+        static let background = Color("background")
+        static let dropHighlight = Color("drop-highlight")
+        static let dropShadow = Color("drop-shadow")
+        static let exerciseHistory = Color("exercise-history")
+        static let gradientBottom = Color("gradient-bottom")
+        static let gradientTop = Color("gradient-top")
+        static let historyBar = Color("history-bar")
+        static let rwDark = Color("rw-dark")
+        static let rwGreen = Color("rw-green")
+        static let rwLight = Color("rw-light")
 }

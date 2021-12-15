@@ -14,10 +14,10 @@ struct IndentView<Content: View>: View {
                     GeometryReader { geometry in
                         Circle()
                             .inset(by: -4)
-                            .stroke(Color(ColorProvider.BackgroundColor.background), lineWidth: 8)
-                            .shadow(color: Color(ColorProvider.ShadowColor.dropShadow).opacity(0.5), radius: 6, x: 6, y: 6)
-                            .shadow(color: Color(ColorProvider.ShadowColor.dropHighlight), radius: 6, x: -6, y: -6)
-                            .foregroundColor(Color(ColorProvider.BackgroundColor.background))
+                            .stroke(ColorProvider.background, lineWidth: 8)
+                            .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6, x: 6, y: 6)
+                            .shadow(color: ColorProvider.dropHighlight, radius: 6, x: -6, y: -6)
+                            .foregroundColor(ColorProvider.background)
                             .clipShape(Circle().inset(by: -1))
                             .resized(size: geometry.size)
                     }

@@ -8,14 +8,14 @@ struct EmbossedButtonStyle: ButtonStyle {
     var buttonShape = EmbossedButtonShape.capsule
 
     func makeBody(configuration: Configuration) -> some View {
-        let shadow = Color(ColorProvider.ShadowColor.dropShadow)
-        let highlight = Color(ColorProvider.ShadowColor.dropHighlight)
+        let shadow = ColorProvider.dropShadow
+        let highlight = ColorProvider.dropHighlight
         return configuration.label
             .padding(10)
             .background(
                 GeometryReader { geometry in
                     shape(size: geometry.size)
-                        .foregroundColor(Color(ColorProvider.BackgroundColor.background))
+                        .foregroundColor(ColorProvider.background)
                         .shadow(color: shadow, radius: 1, x: -2, y: 2)
                         .shadow(color: highlight, radius: 1, x: -2, y: -2)
                         .offset(x: -1, y: -1)
@@ -27,7 +27,7 @@ struct EmbossedButtonStyle: ButtonStyle {
         switch buttonShape {
         case .round:
             Circle()
-                .stroke(Color(ColorProvider.BackgroundColor.background), lineWidth: 2)
+                .stroke(ColorProvider.background, lineWidth: 2)
                 .frame(
                     width: max(size.width, size.height),
                     height: max(size.width, size.height))
@@ -36,7 +36,7 @@ struct EmbossedButtonStyle: ButtonStyle {
                         min(size.width, size.height) / 2)
         case .capsule:
             Capsule()
-                .stroke(Color(ColorProvider.BackgroundColor.background), lineWidth: 2)
+                .stroke(ColorProvider.background, lineWidth: 2)
         }
     }
 }
@@ -51,12 +51,10 @@ struct EmbossedButton_Previews: PreviewProvider {
                 .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
                 .padding(40)
                 .previewLayout(.sizeThatFits)
-            Button(
-                action: {},
-                label: {
+            Button(action: {}) {
                     Text(LocalizedStringProvider.Button.history)
                         .fontWeight(.bold)
-                })
+                }
                 .preferredColorScheme(.dark)
                 .buttonStyle(EmbossedButtonStyle())
                 .padding(40)

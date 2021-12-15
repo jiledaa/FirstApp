@@ -5,7 +5,7 @@ import SwiftUI
 extension WelcomeView {
     static var images: some View {
         ZStack {
-            Image(ImageProvider.exercise)
+            ImageProvider.exercise
                 .resizedToFill(width: 40, height: 40)
                 .clipShape(Circle())
                 .offset(x: -230, y: -200)
@@ -49,7 +49,7 @@ extension WelcomeView {
                 .shadow(color: .orange, radius: 100, x: -20, y: -15)
         }
         .frame(maxWidth: .infinity, maxHeight: 220)
-        .shadow(color: Color(ColorProvider.ShadowColor.dropShadow), radius: 6, x: 5, y: 5)
+        .shadow(color: ColorProvider.dropShadow, radius: 6, x: 5, y: 5)
         .padding(.top, 10)
         .padding(.bottom, 150)
     }

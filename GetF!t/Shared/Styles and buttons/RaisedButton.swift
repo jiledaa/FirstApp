@@ -20,9 +20,9 @@ struct RaisedButtonStyle: ButtonStyle {
             .padding([.top, .bottom], 12)
             .background(
                 Capsule()
-                    .foregroundColor(Color(ColorProvider.BackgroundColor.background))
-                    .shadow(color: Color(ColorProvider.ShadowColor.dropShadow), radius: 4, x: -6, y: 2)
-                    .shadow(color: Color(ColorProvider.ShadowColor.dropHighlight), radius: 4, x: -6, y: -6)
+                    .foregroundColor(ColorProvider.background)
+                    .shadow(color: ColorProvider.dropShadow, radius: 4, x: -6, y: 2)
+                    .shadow(color: ColorProvider.dropHighlight, radius: 4, x: -6, y: -6)
             )
     }
 }
@@ -44,7 +44,7 @@ struct RaisedButton_Previews: PreviewProvider {
             .buttonStyle(RaisedButtonStyle())
             .padding(20)
         }
-        .background(Color(ColorProvider.BackgroundColor.background))
+        .background(ColorProvider.background)
         .previewLayout(.sizeThatFits)
     }
 }

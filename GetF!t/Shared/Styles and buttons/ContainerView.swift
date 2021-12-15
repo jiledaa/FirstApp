@@ -12,12 +12,12 @@ struct ContainerView<Content: View>: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25.0)
-                .foregroundColor(Color(ColorProvider.BackgroundColor.background))
+                .foregroundColor(ColorProvider.background)
             VStack {
                 Spacer()
                 Rectangle()
                     .frame(height: 25)
-                    .foregroundColor(Color(ColorProvider.BackgroundColor.background))
+                    .foregroundColor(ColorProvider.background)
             }
             content
         }

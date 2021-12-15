@@ -40,7 +40,7 @@ struct HistoryListView: View {
                                             .frame(minWidth: 60)
                                     }
                                 }
-                                .foregroundColor(Color(ColorProvider.BackgroundColor.gradientTop))
+                                .foregroundColor(ColorProvider.gradientTop)
                                 .padding(.bottom, 20)
                                 Text(exercise)
                                     .font(.caption)

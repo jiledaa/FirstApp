@@ -51,20 +51,20 @@ struct HistoryBarView: View {
                 if countsForWeek[day] > 0 {
                     RoundedRectangle(cornerRadius: 10)
                         .padding(3)
-                        .foregroundColor(Color(ColorProvider.BackgroundColor.background))
+                        .foregroundColor(ColorProvider.background)
                         .shadow(
-                            color: Color(ColorProvider.ShadowColor.dropHighlight),
+                            color: ColorProvider.dropHighlight,
                             radius: 4,
                             x: -4,
                             y: -4)
                         .shadow(
-                            color: Color(ColorProvider.ShadowColor.dropShadow),
+                            color: ColorProvider.dropShadow,
                             radius: 4,
                             x: 4,
                             y: 4)
                     RoundedRectangle(cornerRadius: 6)
                         .padding(12)
-                        .foregroundColor(Color(ColorProvider.BackgroundColor.historyBar))
+                        .foregroundColor(ColorProvider.historyBar)
                 }
             }
             .frame(height: CGFloat(countsForWeek[day]))

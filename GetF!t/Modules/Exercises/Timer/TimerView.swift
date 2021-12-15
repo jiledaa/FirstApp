@@ -7,7 +7,7 @@ struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Color(ColorProvider.BackgroundColor.background)
+                ColorProvider.background
                     .edgesIgnoringSafeArea(.all)
                 circle(size: geometry.size)
                     .overlay(

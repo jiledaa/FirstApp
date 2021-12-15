@@ -43,7 +43,7 @@ struct HistoryView: View {
                     Image(systemName: ImageProvider.squareGrid2x2Fill)
                         .padding([.leading, .trailing], 20)
                 }
-                    .buttonStyle(EmbossedButtonStyle())
+                .buttonStyle(EmbossedButtonStyle())
                 Button(action: {layoutType = .bar}) {
                     Image(systemName: ImageProvider.chartBarFill)
                         .padding([.leading, .trailing], 20)
@@ -57,7 +57,7 @@ struct HistoryView: View {
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
-                    .buttonStyle(EmbossedButtonStyle())
+                .buttonStyle(EmbossedButtonStyle())
                 Button(action: {}) {
                     Image(systemName: ImageProvider.chartBarFill)
                         .padding([.leading, .trailing], 20)
@@ -69,11 +69,9 @@ struct HistoryView: View {
 
     var closeButton: some View {
         ZStack(alignment: .topTrailing) {
-            Color(ColorProvider.BackgroundColor.background)
+            ColorProvider.background
                 .edgesIgnoringSafeArea(.all)
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
+            Button(action: { presentationMode.wrappedValue.dismiss() }) {
                 Image(systemName: ImageProvider.xmark)
                     .foregroundColor(.primary)
             }
@@ -84,7 +82,7 @@ struct HistoryView: View {
 }
 
 struct HistoryView_Previews: PreviewProvider {
-  static var previews: some View {
-    HistoryView(showHistory: .constant(true))
-  }
+    static var previews: some View {
+        HistoryView(showHistory: .constant(true))
+    }
 }
