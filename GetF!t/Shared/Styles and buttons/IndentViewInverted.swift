@@ -47,7 +47,7 @@ struct IndentViewInverted_Previews: PreviewProvider {
             }
             .padding(.bottom, 50)
             IndentView {
-                Image(systemName: ImageProvider.hareFill)
+                ImageProvider.hareFill
                     .font(.largeTitle)
                     .foregroundColor(.purple)
                     .padding(20)

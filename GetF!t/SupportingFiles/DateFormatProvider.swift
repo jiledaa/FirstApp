@@ -1,6 +1,6 @@
 import Foundation
 
-struct DateProvider {
+struct DateFormatProvider {
     static let yyyyMMdd = "yyyy MM dd"
     static let EEEE = "EEEE"
     static let EEE = "EEE"

@@ -9,7 +9,7 @@ struct RaisedButton: View {
             Text(buttonText)
                 .raisedButtonTextStyle()
         }
-            .buttonStyle(RaisedButtonStyle())
+        .buttonStyle(RaisedButtonStyle())
     }
 }
 

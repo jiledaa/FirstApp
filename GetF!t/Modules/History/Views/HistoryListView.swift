@@ -27,16 +27,16 @@ struct HistoryListView: View {
                                 IndentView {
                                     switch exercise {
                                     case LocalizedStringProvider.ExercisesNames.squat:
-                                        Image(systemName: ImageProvider.boltFill)
+                                        ImageProvider.boltFill
                                             .frame(minWidth: 60)
                                     case LocalizedStringProvider.ExercisesNames.stepUp:
-                                        Image(systemName: ImageProvider.arrowUturnUp)
+                                        ImageProvider.arrowUturnUp
                                             .frame(minWidth: 60)
                                     case LocalizedStringProvider.ExercisesNames.burpee:
-                                        Image(systemName: ImageProvider.hareFill)
+                                        ImageProvider.hareFill
                                             .frame(minWidth: 60)
                                     default:
-                                        Image(systemName: ImageProvider.sunMaxFill)
+                                        ImageProvider.sunMaxFill
                                             .frame(minWidth: 60)
                                     }
                                 }

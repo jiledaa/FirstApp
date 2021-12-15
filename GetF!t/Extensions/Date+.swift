@@ -3,25 +3,25 @@ import Foundation
 extension Date {
     static let yearMonthDayFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateProvider.yyyyMMdd
+        dateFormatter.dateFormat = DateFormatProvider.yyyyMMdd
         return dateFormatter
     }()
 
     static let dayNameFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateProvider.EEEE
+        dateFormatter.dateFormat = DateFormatProvider.EEEE
         return dateFormatter
     }()
 
     static let truncatedDayNameFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateProvider.EEE
+        dateFormatter.dateFormat = DateFormatProvider.EEE
         return dateFormatter
     }()
 
     static let truncatedDayMonthFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateProvider.ddMMM
+        dateFormatter.dateFormat = DateFormatProvider.ddMMM
         return dateFormatter
     }()
 

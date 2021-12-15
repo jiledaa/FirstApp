@@ -10,22 +10,22 @@ extension WelcomeView {
                 .clipShape(Circle())
                 .offset(x: -230, y: -200)
                 .shadow(color: .black, radius: 3, x: -10, y: -6)
-            Image(ImageProvider.head)
+            ImageProvider.head
                 .resizedToFill(width: 60, height: 60)
                 .clipShape(Circle())
                 .offset(x: -150, y: -170)
                 .shadow(color: .black, radius: 8, x: -15, y: -10)
-            Image(ImageProvider.arm)
+            ImageProvider.arm
                 .resizedToFill(width: 80, height: 80)
                 .clipShape(Circle())
                 .offset(x: -60, y: -110)
                 .shadow(color: .black, radius: 13, x: -23, y: -17)
-            Image(ImageProvider.hands)
+            ImageProvider.hands
                 .resizedToFill(width: 130, height: 130)
                 .clipShape(Circle())
                 .offset(x:40, y: -25)
                 .shadow(color: .black, radius: 23, x: -30, y: -22)
-            Image(ImageProvider.stepUp)
+            ImageProvider.stepUp
                 .resizedToFill(width: 190, height: 190)
                 .clipShape(Circle())
                 .offset(x: 160, y: 130)
@@ -42,7 +42,7 @@ extension WelcomeView {
                 .kerning(2)
                 .shadow(color: .black, radius: 2, x: -70, y: -15)
                 .offset(x: 15, y: 250)
-            Image(ImageProvider.sundawn)
+            ImageProvider.sundawn
                 .resizedToFill(width: 250, height: 250)
                 .clipShape(Circle())
                 .offset(x: 250, y: 360)
@@ -56,9 +56,9 @@ extension WelcomeView {
 }
 
 struct WelcomeImages_Previews: PreviewProvider {
-  static var previews: some View {
-    VStack {
-      WelcomeView.images
+    static var previews: some View {
+        VStack {
+            WelcomeView.images
+        }
     }
-  }
 }

@@ -40,12 +40,12 @@ struct HistoryView: View {
             case .list:
                 Button(action: {})
                 {
-                    Image(systemName: ImageProvider.squareGrid2x2Fill)
+                    ImageProvider.squareGrid2x2Fill
                         .padding([.leading, .trailing], 20)
                 }
                 .buttonStyle(EmbossedButtonStyle())
                 Button(action: {layoutType = .bar}) {
-                    Image(systemName: ImageProvider.chartBarFill)
+                    ImageProvider.chartBarFill
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
@@ -53,13 +53,13 @@ struct HistoryView: View {
             case .bar:
                 Button(action: {layoutType = .list})
                 {
-                    Image(systemName: ImageProvider.squareGrid2x2Fill)
+                    ImageProvider.squareGrid2x2Fill
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
                 .buttonStyle(EmbossedButtonStyle())
                 Button(action: {}) {
-                    Image(systemName: ImageProvider.chartBarFill)
+                    ImageProvider.chartBarFill
                         .padding([.leading, .trailing], 20)
                 }
                 .buttonStyle(EmbossedButtonStyle())
@@ -72,7 +72,7 @@ struct HistoryView: View {
             ColorProvider.background
                 .edgesIgnoringSafeArea(.all)
             Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                Image(systemName: ImageProvider.xmark)
+                ImageProvider.xmark
                     .foregroundColor(.primary)
             }
             .font(.title2)

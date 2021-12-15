@@ -1,21 +1,11 @@
 import SwiftUI
 
 struct LocalizedStringProvider {
-    static let `selectedtab` = "selectedTab"
-    static let `ratingsString` = "ratings"
-    static let `historyPlist` = "history.plist"
     struct ExercisesNames {
         static let `burpee` = LocalizedStringKey("Burpee")
         static let `squat` = LocalizedStringKey("Squat")
         static let `stepUp` = LocalizedStringKey("StepUp")
         static let `sunSalute` = LocalizedStringKey("SunSalute")
-    }
-
-    struct ExercisesNamesVideo {
-        static let `burpee` = String("Burpee")
-        static let `squat` = String("Squat")
-        static let `stepUp` = String("StepUp")
-        static let `sunSalute` = String("SunSalute")
     }
 
     struct Button {
@@ -39,7 +29,7 @@ struct LocalizedStringProvider {
         static let `glory` = LocalizedStringKey("Glory")
         static let `gloryPostScript` = LocalizedStringKey("GloryPostScript")
     }
-
+    
     struct Errors {
         static let `couldntFind` = LocalizedStringKey("CouldntFind")
         static let `loadingError1` = LocalizedStringKey("LaodingError1")

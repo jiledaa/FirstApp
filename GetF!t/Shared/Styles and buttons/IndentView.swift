@@ -20,8 +20,7 @@ struct IndentView<Content: View>: View {
                             .foregroundColor(ColorProvider.background)
                             .clipShape(Circle().inset(by: -1))
                             .resized(size: geometry.size)
-                    }
-                )
+                    })
         }
     }
 }
@@ -44,10 +43,10 @@ struct IndentView_Previews: PreviewProvider {
                 Text("5")
                     .font(.system(size: 90, design: .rounded))
                     .frame(width: 120, height: 120)
-            } 
+            }
             .padding(.bottom, 50)
             IndentView {
-                Image(systemName: ImageProvider.hareFill)
+                ImageProvider.hareFill
                     .font(.largeTitle)
                     .foregroundColor(.purple)
                     .padding(20)

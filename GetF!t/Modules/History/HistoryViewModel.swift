@@ -2,9 +2,9 @@ import Foundation
 import SwiftUI
 
 struct ExerciseDay: Identifiable {
-  let id = UUID()
-  let date: Date
-  var exercises: [LocalizedStringKey] = []
+    let id = UUID()
+    let date: Date
+    var exercises: [LocalizedStringKey] = []
 }
 
 class HistoryViewModel: ObservableObject {
@@ -34,7 +34,7 @@ class HistoryViewModel: ObservableObject {
             for: .documentDirectory, in: .userDomainMask).first else {
                 return nil
             }
-        return documentsURL.appendingPathComponent(LocalizedStringProvider.historyPlist)
+        return documentsURL.appendingPathComponent(StringProvider.historyPlist)
     }
 
     func load() throws {

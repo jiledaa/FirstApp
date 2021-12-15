@@ -21,7 +21,7 @@ struct TimerView: View {
                         .foregroundColor(.white)
                         .padding(.top, 20)
                     Spacer()
-                   invertIndentView
+                    invertIndentView
                     Spacer()
                     RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
                         presentationMode.wrappedValue.dismiss()

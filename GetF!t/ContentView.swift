@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @SceneStorage(LocalizedStringProvider.selectedtab) private var selectedTab = 9
+    @SceneStorage(StringProvider.selectedtab) private var selectedTab = 9
 
     var body: some View {
         ZStack {

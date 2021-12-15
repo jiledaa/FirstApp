@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum EmbossedButtonShape {
-  case round, capsule
+    case round, capsule
 }
 
 struct EmbossedButtonStyle: ButtonStyle {
@@ -46,19 +46,19 @@ struct EmbossedButton_Previews: PreviewProvider {
         Group {
             Button(action: {}) {
                 Text(LocalizedStringProvider.Button.history)
-                        .fontWeight(.bold)
-                }
-                .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
-                .padding(40)
-                .previewLayout(.sizeThatFits)
+                    .fontWeight(.bold)
+            }
+            .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+            .padding(40)
+            .previewLayout(.sizeThatFits)
             Button(action: {}) {
-                    Text(LocalizedStringProvider.Button.history)
-                        .fontWeight(.bold)
-                }
-                .preferredColorScheme(.dark)
-                .buttonStyle(EmbossedButtonStyle())
-                .padding(40)
-                .previewLayout(.sizeThatFits)
+                Text(LocalizedStringProvider.Button.history)
+                    .fontWeight(.bold)
+            }
+            .preferredColorScheme(.dark)
+            .buttonStyle(EmbossedButtonStyle())
+            .padding(40)
+            .previewLayout(.sizeThatFits)
         }
     }
 }

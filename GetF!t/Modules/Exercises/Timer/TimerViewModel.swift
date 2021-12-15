@@ -15,9 +15,7 @@ class TimerViewModel: ObservableObject {
     init(exerciseName: LocalizedStringKey) {
         self.exerciseName = exerciseName
     }
-
-
-
+    
     var opacity: Double {
         timerDone ? 1 : 0
     }
