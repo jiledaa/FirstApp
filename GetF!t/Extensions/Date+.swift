@@ -1,9 +1,30 @@
 import Foundation
 
 extension Date {
-    /// Format a date using the specified format.
-    ///   - parameters:
-    ///     - format: A date pattern string like "MM dd".
+    static let yearMonthDayFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateProvider.yyyyMMdd
+        return dateFormatter
+    }()
+
+    static let dayNameFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateProvider.EEEE
+        return dateFormatter
+    }()
+
+    static let truncatedDayNameFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateProvider.EEE
+        return dateFormatter
+    }()
+
+    static let truncatedDayMonthFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateProvider.ddMMM
+        return dateFormatter
+    }()
+
     func formatted(as format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
@@ -11,34 +32,23 @@ extension Date {
     }
     
     var yearMonthDay: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateProvider.yyyyMMdd
-        return dateFormatter.string(from: self)
+        Date.yearMonthDayFormatter.string(from: self)
     }
-    
-    /// Check another date is the same year, month and day.
-    ///   - parameters:
-    ///     - day: The other date.
+
     func isSameDay(as day: Date) -> Bool {
         return self.yearMonthDay == day.yearMonthDay
     }
     
     var dayName: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateProvider.EEEE
-        return dateFormatter.string(from: self)
+        Date.dayNameFormatter.string(from: self)
     }
     
     var truncatedDayName: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateProvider.EEE
-        return dateFormatter.string(from: self)
+        Date.truncatedDayNameFormatter.string(from: self)
     }
     
     var truncatedDayMonth: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateProvider.ddMMM
-        return dateFormatter.string(from: self)
+        Date.truncatedDayMonthFormatter.string(from: self)
     }
     
     var lastSevenDays: [Date] {
