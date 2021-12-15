@@ -22,7 +22,7 @@ class RatingViewModel: ObservableObject {
     }
 
     func forEach() -> some View {
-        ForEach(1 ..< maximumRating + 1) { index in
+        ForEach(1 ..< maximumRating + 1, id: \.self) { index in
             Button(action: {self.updateRating(index: index)}) {
                 Image(systemName: ImageProvider.waveform)
                     .foregroundColor(

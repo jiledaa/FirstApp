@@ -39,7 +39,7 @@ struct ExerciseView: View {
                             .frame(width: 250, height: 50, alignment: .center)
                             .padding(100)
                         Spacer()
-                        RatingView(exerciseIndex: index)
+                        RatingView(ratingViewModel: RatingViewModel.init(exerciseIndex: index), exerciseIndex: index)
                             .padding()
                         historyButton
                     }
@@ -72,9 +72,9 @@ struct ExerciseView: View {
                             HistoryView(showHistory: $showHistory)
                                 .environmentObject(history)
                         case .timer:
-                            TimerView(
-                                timerDone: $timerDone,
-                                exerciseName: Exercise.exercises[index].exerciseName)
+                            TimerView(timerViewModel: TimerViewModel.init(exerciseName: Exercise.exercises[index].exerciseName))
+
+
                         case .success:
                             SuccessView(selectedTab: $selectedTab)
                         }
