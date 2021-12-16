@@ -1,21 +1,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @SceneStorage(StringProvider.selectedtab) private var selectedTab = 9
+    @StateObject var selectedTabManager = SelectedTabManager()
 
     var body: some View {
         ZStack {
             GradientBackground()
-            TabView(selection: $selectedTab) {
-                WelcomeView(selectedTab: $selectedTab)
+            TabView(selection: $selectedTabManager.selectedTab) {
+                WelcomeView(selectedTab: $selectedTabManager.selectedTab)
                     .tag(9)
                 ForEach(0 ..< Exercise.exercises.count) { index in
-                    ExerciseView(selectedTab: $selectedTab, index: index)
+                    ExerciseView(selectedTab: $selectedTabManager.selectedTab, index: index)
                         .tag(index)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
+        .environmentObject(selectedTabManager)
     }
 }
 
