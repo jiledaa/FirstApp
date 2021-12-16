@@ -37,7 +37,7 @@ struct TimerView: View {
 
     @ViewBuilder
     private var invertIndentView: some View {
-        if timerViewModel.timerDone == false {
+        if !timerViewModel.timerDone {
             IndentView {
                 timerText
             }

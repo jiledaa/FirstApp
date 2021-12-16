@@ -39,7 +39,7 @@ struct ExerciseView: View {
                             .frame(width: 250, height: 50, alignment: .center)
                             .padding(100)
                         Spacer()
-                        RatingView(ratingViewModel: RatingViewModel.init(exerciseIndex: index), exerciseIndex: index)
+                        RatingView(ratingViewModel: RatingViewModel.init(exerciseIndex: index))
                             .padding()
                         historyButton
                     }

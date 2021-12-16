@@ -20,8 +20,7 @@ struct IndentViewInverted<Content: View>: View {
                             .foregroundColor(ColorProvider.background)
                             .clipShape(Circle().inset(by: -1))
                             .resized(size: geometry.size)
-                    }
-                )
+                    })
         }
     }
 }

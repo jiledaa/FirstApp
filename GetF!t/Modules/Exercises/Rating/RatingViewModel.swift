@@ -2,13 +2,11 @@ import Foundation
 import SwiftUI
 
 class RatingViewModel: ObservableObject {
-    let exerciseIndex: Int
     @AppStorage(StringProvider.ratingsString) private var ratings = ""
     @State private var rating = 0
+    
     let maximumRating = 5
-
-    let onColor = Color(StringProvider.ratingsString)
-    let offColor = Color.gray
+    let exerciseIndex: Int
 
     init(exerciseIndex: Int) {
         self.exerciseIndex = exerciseIndex
@@ -21,22 +19,8 @@ class RatingViewModel: ObservableObject {
         }
     }
 
-    func forEach() -> some View {
-        ForEach(1 ..< maximumRating + 1, id: \.self) { index in
-            Button(action: {self.updateRating(index: index)}) {
-                ImageProvider.waveform
-                    .foregroundColor(
-                        index > self.rating ? self.offColor : self.onColor)
-                    .font(.title3)
-            }
-            .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
-            .onChange(of: self.ratings) { _ in
-                self.convertRating()
-            }
-            .onAppear {
-                self.convertRating()
-            }
-        }
+    func ratingActive(_ index: Int) -> Bool {
+        index > self.rating
     }
 
     func convertRating() {
