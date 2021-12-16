@@ -2,12 +2,12 @@ import SwiftUI
 
 struct WelcomeView: View {
     @State private var showHistory = false
-    @Binding var selectedTab: Int
+    @EnvironmentObject var selectedTabManager: SelectedTabManager
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(selectedTab: $selectedTab,
+                HeaderView(selectedTab: $selectedTabManager.selectedTab,
                     titleText: LocalizedStringProvider.WelcomePage.welcome
                 )
                 Spacer()
@@ -29,7 +29,7 @@ struct WelcomeView: View {
     
     var getStartedButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.getStarted) {
-            selectedTab = 0
+            selectedTabManager.selectedTabZero()
         }
         .frame(width: 250, height: 50, alignment: .center)
         .padding(40)
@@ -51,6 +51,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView(selectedTab: .constant(9))
+        WelcomeView()
     }
 }
