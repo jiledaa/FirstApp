@@ -10,7 +10,7 @@ struct ContentView: View {
                 WelcomeView()
                     .tag(9)
                 ForEach(0 ..< Exercise.exercises.count) { index in
-                    ExerciseView(selectedTab: $selectedTabManager.selectedTab, index: index)
+                    ExerciseView(index: index)
                         .tag(index)
                 }
             }

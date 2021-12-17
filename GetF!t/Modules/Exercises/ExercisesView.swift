@@ -3,9 +3,8 @@ import AVKit
 
 struct ExerciseView: View {
     @EnvironmentObject var history: HistoryViewModel
-    @Binding var selectedTab: Int
+    @EnvironmentObject var selectedTabManager: SelectedTabManager
     @State private var timerDone = false
-
     @State private var showSuccess = false
     @State private var showSheet = false
     @State private var showHistory = false
@@ -28,7 +27,7 @@ struct ExerciseView: View {
         GeometryReader { geometry in
             VStack {
                 HeaderView(
-                    selectedTab: $selectedTab,
+                    selectedTab: $selectedTabManager.selectedTab,
                     titleText: Exercise.exercises[index].exerciseName)
                     .padding(.bottom)
                 Spacer()
@@ -59,8 +58,7 @@ struct ExerciseView: View {
                             showSheet = true
                             exerciseSheet = .success
                         } else {
-                            selectedTab += 1
-                        }
+                            selectedTabManager.goToNextTab()                        }
                     } else {
                         exerciseSheet = nil
                     }
@@ -76,7 +74,7 @@ struct ExerciseView: View {
 
 
                         case .success:
-                            SuccessView(selectedTab: $selectedTab)
+                            SuccessView(selectedTab: $selectedTabManager.selectedTab)
                         }
                     }
                 })
@@ -126,7 +124,7 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(selectedTab: .constant(0), index: 0)
+        ExerciseView(index: 0)
             .environmentObject(HistoryViewModel())
     }
 }

@@ -29,7 +29,7 @@ struct WelcomeView: View {
     
     var getStartedButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.getStarted) {
-            selectedTabManager.selectedTabZero()
+            selectedTabManager.goToFirstTab()
         }
         .frame(width: 250, height: 50, alignment: .center)
         .padding(40)

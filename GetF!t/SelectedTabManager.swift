@@ -3,11 +3,11 @@ import Foundation
 class SelectedTabManager: ObservableObject {
     @Published var selectedTab = 9
 
-    func selectedTabZero() {
+    func goToFirstTab() {
         selectedTab = 0
     }
 
-    func nextTab() {
+    func goToNextTab() {
         selectedTab += 1
     }
 }
