@@ -26,9 +26,7 @@ struct ExerciseView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(
-                    selectedTab: $selectedTabManager.selectedTab,
-                    titleText: Exercise.exercises[index].exerciseName)
+                HeaderView(titleText: Exercise.exercises[index].exerciseName)
                     .padding(.bottom)
                 Spacer()
                 ContainerView {

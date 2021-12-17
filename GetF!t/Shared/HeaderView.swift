@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var selectedTab: Int
+    @EnvironmentObject var selectedTabManager: SelectedTabManager
     let titleText: LocalizedStringKey
 
     var body: some View {
@@ -16,13 +16,13 @@ struct HeaderView: View {
                         Circle()
                             .frame(width: 32, height: 32)
                             .foregroundColor(.white)
-                            .opacity(index == selectedTab ? 0.5 : 0)
+                            .opacity(index == selectedTabManager.selectedTab ? 0.5 : 0)
                         Circle()
                             .frame(width: 16, height: 16)
                             .foregroundColor(.white)
                     }
                     .onTapGesture {
-                        selectedTab = index
+                       selectedTabManager.selectedTab = index
                     }
                 }
             }
@@ -33,9 +33,9 @@ struct HeaderView: View {
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HeaderView(selectedTab: .constant(0), titleText: LocalizedStringProvider.ExercisesNames.squat)
+            HeaderView(titleText: LocalizedStringProvider.ExercisesNames.squat)
                 .previewLayout(.sizeThatFits)
-            HeaderView(selectedTab: .constant(1), titleText: LocalizedStringProvider.ExercisesNames.stepUp)
+            HeaderView(titleText: LocalizedStringProvider.ExercisesNames.stepUp)
                 .preferredColorScheme(.dark)
                 .environment(\.sizeCategory, .accessibilityLarge)
                 .previewLayout(.sizeThatFits)

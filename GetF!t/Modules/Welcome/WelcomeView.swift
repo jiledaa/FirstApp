@@ -7,8 +7,7 @@ struct WelcomeView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(selectedTab: $selectedTabManager.selectedTab,
-                    titleText: LocalizedStringProvider.WelcomePage.welcome
+                HeaderView(titleText: LocalizedStringProvider.WelcomePage.welcome
                 )
                 Spacer()
                 VStack {

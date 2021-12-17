@@ -31,7 +31,7 @@ struct SuccessView: View {
             }
 
             VStack {
-                HeaderView(selectedTab: .constant(0), titleText: LocalizedStringProvider.SuccesPage.success)
+                HeaderView(titleText: LocalizedStringProvider.SuccesPage.success)
                 Spacer()
                 RaisedButton(buttonText: LocalizedStringProvider.Button.continuE) {
                     selectedTabManager.selectedTab = 9
