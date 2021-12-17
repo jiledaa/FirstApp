@@ -1,8 +1,9 @@
 import SwiftUI
 
 class WelcomeViewModel: ObservableObject {
-    @State private var showHistory = false
+    @State var showHistory = false
 
-
-
+    var showHistoryToggle: () {
+        showHistory.toggle()
+    }
 }

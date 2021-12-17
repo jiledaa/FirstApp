@@ -7,7 +7,7 @@ struct ContentView: View {
         ZStack {
             GradientBackground()
             TabView(selection: $selectedTabManager.selectedTab) {
-                WelcomeView()
+                WelcomeView(welcomeViewModel: WelcomeViewModel.init())
                     .tag(9)
                 ForEach(0 ..< Exercise.exercises.count) { index in
                     ExerciseView(index: index)
