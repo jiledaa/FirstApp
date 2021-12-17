@@ -34,7 +34,7 @@ struct SuccessView: View {
                 HeaderView(titleText: LocalizedStringProvider.SuccesPage.success)
                 Spacer()
                 RaisedButton(buttonText: LocalizedStringProvider.Button.continuE) {
-                    selectedTabManager.selectedTab = 9
+                    selectedTabManager.goToWelcomeView()
                     presentationMode.wrappedValue.dismiss()
                 }
                 .font(.largeTitle)

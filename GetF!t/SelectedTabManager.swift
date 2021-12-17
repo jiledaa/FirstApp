@@ -3,6 +3,10 @@ import Foundation
 class SelectedTabManager: ObservableObject {
     @Published var selectedTab = 9
 
+    func goToWelcomeView() {
+        selectedTab = 9
+    }
+
     func goToFirstTab() {
         selectedTab = 0
     }
