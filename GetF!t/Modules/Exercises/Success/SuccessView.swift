@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SuccessView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var selectedTab: Int
+    @EnvironmentObject var selectedTabManager: SelectedTabManager
     
     var body: some View {
         ZStack {
@@ -34,7 +34,7 @@ struct SuccessView: View {
                 HeaderView(selectedTab: .constant(0), titleText: LocalizedStringProvider.SuccesPage.success)
                 Spacer()
                 RaisedButton(buttonText: LocalizedStringProvider.Button.continuE) {
-                    selectedTab = 9
+                    selectedTabManager.selectedTab = 9
                     presentationMode.wrappedValue.dismiss()
                 }
                 .font(.largeTitle)
@@ -47,6 +47,6 @@ struct SuccessView: View {
 
 struct SuccessView_Previews: PreviewProvider {
     static var previews: some View {
-        SuccessView(selectedTab: .constant(3))
+        SuccessView()
     }
 }

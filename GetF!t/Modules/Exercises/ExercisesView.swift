@@ -71,10 +71,8 @@ struct ExerciseView: View {
                                 .environmentObject(history)
                         case .timer:
                             TimerView(timerViewModel: TimerViewModel.init(exerciseName: Exercise.exercises[index].exerciseName))
-
-
                         case .success:
-                            SuccessView(selectedTab: $selectedTabManager.selectedTab)
+                            SuccessView()
                         }
                     }
                 })
