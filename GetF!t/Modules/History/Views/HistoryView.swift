@@ -38,27 +38,31 @@ struct HistoryView: View {
         HStack {
             switch layoutType {
             case .list:
-                Button(action: {})
-                {
+                Button(action: {
+                }) {
                     ImageProvider.squareGrid2x2Fill
                         .padding([.leading, .trailing], 20)
                 }
                 .buttonStyle(EmbossedButtonStyle())
-                Button(action: {layoutType = .bar}) {
+                Button(action: {
+                    layoutType = .bar
+                }) {
                     ImageProvider.chartBarFill
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
                 .buttonStyle(EmbossedButtonStyle())
             case .bar:
-                Button(action: {layoutType = .list})
-                {
+                Button(action: {
+                    layoutType = .list
+                }) {
                     ImageProvider.squareGrid2x2Fill
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
                 .buttonStyle(EmbossedButtonStyle())
-                Button(action: {}) {
+                Button(action: {
+                }) {
                     ImageProvider.chartBarFill
                         .padding([.leading, .trailing], 20)
                 }
@@ -71,7 +75,9 @@ struct HistoryView: View {
         ZStack(alignment: .topTrailing) {
             ColorProvider.background
                 .edgesIgnoringSafeArea(.all)
-            Button(action: { presentationMode.wrappedValue.dismiss() }) {
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
                 ImageProvider.xmark
                     .foregroundColor(.primary)
             }

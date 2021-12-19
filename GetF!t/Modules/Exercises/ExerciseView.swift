@@ -68,7 +68,7 @@ struct ExerciseView: View {
                             HistoryView(showHistory: $showHistory)
                                 .environmentObject(history)
                         case .timer:
-                            TimerView(timerViewModel: TimerViewModel.init(exerciseName: Exercise.exercises[index].exerciseName))
+                            TimerView()
                         case .success:
                             SuccessView()
                         }

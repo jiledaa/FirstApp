@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TimerView: View {
-    @ObservedObject var timerViewModel: TimerViewModel
+    @StateObject var timerViewModel = TimerViewModel(exerciseName: LocalizedStringProvider.ExercisesNames.squat)
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -21,33 +21,37 @@ struct TimerView: View {
                         .foregroundColor(.white)
                         .padding(.top, 20)
                     Spacer()
-                    invertIndentView
+                    indentView
                     Spacer()
-                    RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                    .opacity(timerViewModel.opacity)
-                    .padding([.leading, .trailing], 30)
-                    .padding(.bottom, 60)
-                    .disabled(!timerViewModel.timerDone)
+                    doneButton
                 }
             }
         }
     }
 
     @ViewBuilder
-    private var invertIndentView: some View {
-        if !timerViewModel.timerDone {
+    private var indentView: some View {
             IndentView {
                 timerText
             }
-        } else {
-            IndentViewInverted {
-                timerText
-            }
-        }
+            .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6,
+                    x: timerViewModel.dropShadowParameter,
+                    y: timerViewModel.dropShadowParameter)
+            .shadow(color: ColorProvider.dropHighlight, radius: 6,
+                    x: timerViewModel.dropHighlightParameter,
+                    y: timerViewModel.dropHighlightParameter)
     }
 
+
+    private var doneButton: some View {
+        RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
+            presentationMode.wrappedValue.dismiss()
+        }
+        .opacity(timerViewModel.opacity)
+        .padding([.leading, .trailing], 30)
+        .padding(.bottom, 60)
+    }
+    
     var timerText: some View {
         Text("\(timerViewModel.timeRemaining)")
             .font(.system(size: 90, design: .rounded))

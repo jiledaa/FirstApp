@@ -1,7 +1,5 @@
 import SwiftUI
 
-import SwiftUI
-
 extension WelcomeView {
     static var images: some View {
         ZStack {

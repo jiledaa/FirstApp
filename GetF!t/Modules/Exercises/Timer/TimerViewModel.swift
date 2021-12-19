@@ -6,22 +6,31 @@ class TimerViewModel: ObservableObject {
     @Published var timerDone = false
 
     let exerciseName: LocalizedStringKey
+
+    init(exerciseName: LocalizedStringKey) {
+        self.exerciseName = exerciseName
+    }
+
     let timer = Timer.publish(
         every: 1,
         on: .main,
         in: .common)
         .autoconnect()
 
-    init(exerciseName: LocalizedStringKey) {
-        self.exerciseName = exerciseName
+    var dropShadowParameter: CGFloat {
+        timeOver ? 6 : -6
     }
-    
+
+    var dropHighlightParameter: CGFloat {
+        timeOver ? -6 : 6
+    }
+
     var opacity: Double {
-        timerDone ? 1 : 0
+        timeOver ? 1 : 0
     }
 
     func onTimeOver(_ timerValue: Date) -> Void {
-        if timeRemaining > 0 {
+        if !timeOver {
             timeRemaining -= 1
         } else {
             timerDone = true
