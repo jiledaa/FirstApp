@@ -4,68 +4,48 @@ import AVKit
 struct ExerciseView: View {
     @EnvironmentObject var history: HistoryViewModel
     @EnvironmentObject var selectedTabManager: SelectedTabManager
-    @State private var timerDone = false
-    @State private var showSuccess = false
-    @State private var showSheet = false
-    @State private var showHistory = false
-    @State private var showTimer = false
-
-    @State private var exerciseSheet: ExerciseSheet?
-
-    let index: Int
-
-    enum ExerciseSheet {
-        case history, timer, success
-    }
-
-    let exercisesCount = Exercise.exercises.count
-    var lastExercise: Bool {
-        index + 1 == exercisesCount
-    }
+    @ObservedObject var exerciseViewModel: ExercisesViewModel
 
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(titleText: Exercise.exercises[index].exerciseName)
+                HeaderView(titleText: exerciseViewModel.exercise)
                     .padding(.bottom)
                 Spacer()
                 ContainerView {
                     VStack {
                         video(size: geometry.size)
                         startExerciseButton
-                            .frame(width: 250, height: 50, alignment: .center)
-                            .padding(100)
                         Spacer()
-                        RatingView(ratingViewModel: RatingViewModel.init(exerciseIndex: index))
+                        RatingView(ratingViewModel: RatingViewModel.init(exerciseIndex: exerciseViewModel.index))
                             .padding()
                         historyButton
                     }
                 }
                 .frame(height: geometry.size.height * 0.8)
-                .sheet(isPresented: $showSheet, onDismiss: {
-                    showSuccess = false
-                    showHistory = false
-                    if exerciseSheet == .timer {
-                        if timerDone, index <= exercisesCount {
-                            history.addDoneExercise(Exercise.exercises[index].exerciseName)
-                            timerDone = false
+                .sheet(isPresented: $exerciseViewModel.showSheet, onDismiss: {
+                    if exerciseViewModel.exerciseSheet == .timer {
+                        if exerciseViewModel.timerDone, exerciseViewModel.indexLimit {
+                            history.addDoneExercise(exerciseViewModel.exercise)
+                            exerciseViewModel.timerDone = false
                         }
-                        showTimer = false
-                        if lastExercise {
-                            showSuccess = true
-                            showSheet = true
-                            exerciseSheet = .success
+                        exerciseViewModel.showTimer = false
+                        if exerciseViewModel.lastExercise {
+                            exerciseViewModel.showSuccess = true
+                            exerciseViewModel.showSheet = true
+                            exerciseViewModel.exerciseSheet = .success
                         } else {
-                            selectedTabManager.goToNextTab()                        }
+                            selectedTabManager.goToNextTab()
+                        }
                     } else {
-                        exerciseSheet = nil
+                        exerciseViewModel.exerciseSheet = nil
                     }
-                    showTimer = false
-                }, content: {
-                    if let exerciseSheet = exerciseSheet, index <= exercisesCount {
+                    exerciseViewModel.showTimer = false
+                }) {
+                    if let exerciseSheet = exerciseViewModel.exerciseSheet, exerciseViewModel.indexLimit {
                         switch exerciseSheet {
                         case .history:
-                            HistoryView(showHistory: $showHistory)
+                            HistoryView(showHistory: $exerciseViewModel.showHistory)
                                 .environmentObject(history)
                         case .timer:
                             TimerView()
@@ -73,16 +53,16 @@ struct ExerciseView: View {
                             SuccessView()
                         }
                     }
-                })
+                }
             }
         }
     }
 
     @ViewBuilder
-    func video(size: CGSize) -> some View {
-        if index <= exercisesCount {
+    private func video(size: CGSize) -> some View {
+        if exerciseViewModel.indexLimit {
             if let url = Bundle.main.url(
-                forResource: Exercise.exercises[index].videoName,
+                forResource: exerciseViewModel.video,
                 withExtension: "mp4") {
                 VideoPlayer(player: AVPlayer(url: url))
                     .frame(height: size.height * 0.25)
@@ -95,19 +75,17 @@ struct ExerciseView: View {
         }
     }
 
-    var startExerciseButton: some View {
+    private var startExerciseButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
-            showTimer.toggle()
-            showSheet = true
-            exerciseSheet = .timer
+            exerciseViewModel.startExerciseButtonTapped
         }
+        .frame(width: 250, height: 50, alignment: .center)
+        .padding(100)
     }
 
     var historyButton: some View {
         Button(action: {
-            showSheet = true
-            showHistory = true
-            exerciseSheet = .history
+            exerciseViewModel.historyButtonTapped
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)
@@ -120,7 +98,7 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(index: 0)
+        ExerciseView(exerciseViewModel: ExercisesViewModel.init(index: 0))
             .environmentObject(HistoryViewModel())
     }
 }
