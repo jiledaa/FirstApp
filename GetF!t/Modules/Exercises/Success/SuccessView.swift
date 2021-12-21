@@ -31,7 +31,7 @@ struct SuccessView: View {
             }
 
             VStack {
-                HeaderView(titleText: LocalizedStringProvider.SuccesPage.success)
+                HeaderView(headerViewModel: HeaderViewModel.init(), titleText: LocalizedStringProvider.SuccesPage.success)
                 Spacer()
                 RaisedButton(buttonText: LocalizedStringProvider.Button.continuE) {
                     selectedTabManager.goToWelcomeView()

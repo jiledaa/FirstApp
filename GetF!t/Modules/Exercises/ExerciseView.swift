@@ -9,7 +9,7 @@ struct ExerciseView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(titleText: exerciseViewModel.exercise)
+                HeaderView(headerViewModel: HeaderViewModel.init(), titleText: exerciseViewModel.exercise)
                     .padding(.bottom)
                 Spacer()
                 ContainerView {

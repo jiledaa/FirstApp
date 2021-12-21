@@ -7,7 +7,7 @@ struct WelcomeView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(titleText: LocalizedStringProvider.WelcomePage.welcome)
+                HeaderView(headerViewModel: HeaderViewModel.init(), titleText: LocalizedStringProvider.WelcomePage.welcome)
                 Spacer()
                 VStack {
                     WelcomeView.images

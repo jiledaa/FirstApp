@@ -14,4 +14,13 @@ class SelectedTabManager: ObservableObject {
     func goToNextTab() {
         selectedTab += 1
     }
+
+    func opacity(_ index: Int) -> Double {
+        index == selectedTab ? 0.5 : 0
+    }
+
+    func indexToSelectedTab(_ index: Int) {
+    selectedTab = index
+    }
+
 }
