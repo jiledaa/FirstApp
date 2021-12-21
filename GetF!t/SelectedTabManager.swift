@@ -20,7 +20,7 @@ class SelectedTabManager: ObservableObject {
     }
 
     func indexToSelectedTab(_ index: Int) {
-    selectedTab = index
+        selectedTab = index
     }
 
 }

@@ -16,7 +16,7 @@ struct SuccessView: View {
                         .foregroundColor(.red)
                         .padding(115)
                         .rotation3DEffect(Angle(degrees: 270), axis: (x: 20.0, y: 40.0, z: 40.0))
-                   ImageProvider.personWave2Fill
+                    ImageProvider.personWave2Fill
                         .resizedToFill(width: 0, height: 140)
                         .foregroundColor(.red)
                         .padding()

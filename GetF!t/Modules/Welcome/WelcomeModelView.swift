@@ -1,4 +1,4 @@
-import SwiftUI
+import Foundation
 
 class WelcomeViewModel: ObservableObject {
     @Published var showHistory = false

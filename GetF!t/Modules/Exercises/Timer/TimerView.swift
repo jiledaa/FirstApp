@@ -31,15 +31,15 @@ struct TimerView: View {
 
     @ViewBuilder
     private var indentView: some View {
-            IndentView {
-                timerText
-            }
-            .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6,
-                    x: timerViewModel.dropShadowParameter,
-                    y: timerViewModel.dropShadowParameter)
-            .shadow(color: ColorProvider.dropHighlight, radius: 6,
-                    x: timerViewModel.dropHighlightParameter,
-                    y: timerViewModel.dropHighlightParameter)
+        IndentView {
+            timerText
+        }
+        .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6,
+                x: timerViewModel.dropShadowParameter,
+                y: timerViewModel.dropShadowParameter)
+        .shadow(color: ColorProvider.dropHighlight, radius: 6,
+                x: timerViewModel.dropHighlightParameter,
+                y: timerViewModel.dropHighlightParameter)
     }
 
 
