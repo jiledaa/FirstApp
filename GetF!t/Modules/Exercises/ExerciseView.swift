@@ -2,8 +2,6 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-    @EnvironmentObject var history: HistoryViewModel
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
     @ObservedObject var exerciseViewModel: ExercisesViewModel
 
     var body: some View {
@@ -24,36 +22,24 @@ struct ExerciseView: View {
                 }
                 .frame(height: geometry.size.height * 0.8)
                 .sheet(isPresented: $exerciseViewModel.showSheet, onDismiss: {
-                    if exerciseViewModel.exerciseSheet == .timer {
-                        if exerciseViewModel.timerDone, exerciseViewModel.indexLimit {
-                            history.addDoneExercise(exerciseViewModel.exercise)
-                            exerciseViewModel.timerDone = false
-                        }
-                        exerciseViewModel.showTimer = false
-                        if exerciseViewModel.lastExercise {
-                            exerciseViewModel.showSuccess = true
-                            exerciseViewModel.showSheet = true
-                            exerciseViewModel.exerciseSheet = .success
-                        } else {
-                            selectedTabManager.goToNextTab()
-                        }
-                    } else {
-                        exerciseViewModel.exerciseSheet = nil
-                    }
-                    exerciseViewModel.showTimer = false
+                    exerciseViewModel.onDismissLogic
                 }) {
-                    if let exerciseSheet = exerciseViewModel.exerciseSheet, exerciseViewModel.indexLimit {
-                        switch exerciseSheet {
-                        case .history:
-                            HistoryView(showHistory: $exerciseViewModel.showHistory)
-                                .environmentObject(history)
-                        case .timer:
-                            TimerView()
-                        case .success:
-                            SuccessView()
-                        }
-                    }
+                    switchLogic()
                 }
+            }
+        }
+    }
+
+    @ViewBuilder
+    func switchLogic() -> some View {
+        if let exerciseSheet = exerciseViewModel.exerciseSheet, exerciseViewModel.indexLimit {
+            switch exerciseSheet {
+            case .history:
+                HistoryView(showHistory: $exerciseViewModel.showHistory)
+            case .timer:
+                TimerView()
+            case .success:
+                SuccessView()
             }
         }
     }
