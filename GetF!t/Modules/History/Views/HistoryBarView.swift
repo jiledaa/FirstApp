@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HistoryBarView: View {
     @EnvironmentObject var history: HistoryViewModel
-    
     @State private var days: [Date] = []
     @State private var exercisesForWeek: [ExerciseDay] = []
     @State private var countsForWeek: [Int] = []

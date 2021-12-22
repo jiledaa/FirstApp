@@ -16,7 +16,8 @@ class HistoryViewModel: ObservableObject {
         case urlFailure
     }
 
-    init() {}
+    init() {
+    }
 
     init(withChecking: Bool) throws {
 #if DEBUG

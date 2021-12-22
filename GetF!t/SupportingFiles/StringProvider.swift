@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct StringProvider {
-    static let selectedtab = String("selectedTab")
     static let ratingsString = String("ratings")
     static let historyPlist = String("history.plist")
 
