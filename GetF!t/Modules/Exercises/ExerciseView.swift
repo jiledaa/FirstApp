@@ -3,12 +3,7 @@ import AVKit
 
 struct ExerciseView: View {
     @ObservedObject var exerciseViewModel: ExercisesViewModel
-<<<<<<< HEAD
-    @EnvironmentObject var history: HistoryViewModel
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
-=======
 
->>>>>>> 109878553be7fce11fb4b432305cb7f10f12ed9f
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -40,11 +35,7 @@ struct ExerciseView: View {
         if let exerciseSheet = exerciseViewModel.exerciseSheet, exerciseViewModel.indexLimit {
             switch exerciseSheet {
             case .history:
-<<<<<<< HEAD
                 HistoryView()
-=======
-                HistoryView(showHistory: $exerciseViewModel.showHistory)
->>>>>>> 109878553be7fce11fb4b432305cb7f10f12ed9f
             case .timer:
                 TimerView()
             case .success:
