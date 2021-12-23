@@ -25,6 +25,12 @@ extension Date {
         return dateFormatter
     }()
 
+    static let truncatedMonthDayFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormatProvider.MMMd
+        return dateFormatter
+    }()
+
     func formatted(as format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
@@ -49,6 +55,10 @@ extension Date {
     
     var truncatedDayMonth: String {
         Date.truncatedDayMonthFormatter.string(from: self)
+    }
+
+    var truncatedMonthDay: String {
+        Date.truncatedMonthDayFormatter.string(from: self)
     }
     
     var lastSevenDays: [Date] {
