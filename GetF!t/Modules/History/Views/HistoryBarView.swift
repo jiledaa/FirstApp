@@ -2,13 +2,7 @@ import SwiftUI
 
 struct HistoryBarView: View {
     @EnvironmentObject var history: HistoryViewModel
-    @State private var days: [Date] = []
-    @State private var exercisesForWeek: [ExerciseDay] = []
-    @State private var countsForWeek: [Int] = []
-    @State private var datesExercised: [Date] = []
-    
-    var maxBarHeight: Int = 300
-    
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -21,18 +15,18 @@ struct HistoryBarView: View {
                 Spacer()
             }
             .onAppear {
-                days = Date().lastSevenDays
-                exercisesForWeek = [ExerciseDay](history.exerciseDays.prefix(7))
-                let counts: [Int] = days.map { day in
-                    let foundDate = exercisesForWeek.filter {
+               history.days = Date().lastSevenDays
+                   history.exercisesForWeek = [ExerciseDay](history.exerciseDays.prefix(7))
+                let counts: [Int] = history.days.map { day in
+                    let foundDate = history.exercisesForWeek.filter {
                         $0.date.yearMonthDay == day.yearMonthDay
                     }
                     return foundDate.first?.exercises.count ?? 0
                 }
                 assert(counts.count == 7)
                 let maxValue = max(counts.max() ?? 0, 1)
-                countsForWeek = counts.map {
-                    $0 * maxBarHeight / maxValue
+                history.countsForWeek = counts.map {
+                    $0 * history.maxBarHeight / maxValue
                 }
             }
             .frame(height: geometry.size.height * 0.7)
@@ -40,14 +34,14 @@ struct HistoryBarView: View {
     }
     
     func bar(day: Int, size: CGSize) -> AnyView {
-        guard days.count > day else {
+        guard history.days.count > day else {
             return AnyView(EmptyView())
         }
-        let date = days[day]
+        let date = history.days[day]
         let view = VStack {
             Spacer()
             ZStack {
-                if countsForWeek[day] > 0 {
+                if history.countsForWeek[day] > 0 {
                     RoundedRectangle(cornerRadius: 10)
                         .padding(3)
                         .foregroundColor(ColorProvider.background)
@@ -66,7 +60,7 @@ struct HistoryBarView: View {
                         .foregroundColor(ColorProvider.historyBar)
                 }
             }
-            .frame(height: CGFloat(countsForWeek[day]))
+            .frame(height: CGFloat(history.countsForWeek[day]))
             Text(date.truncatedDayName)
             Text(date.truncatedDayMonth)
         }

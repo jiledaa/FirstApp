@@ -3,12 +3,6 @@ import SwiftUI
 struct HistoryView: View {
     @EnvironmentObject var history: HistoryViewModel
     @Environment(\.presentationMode) var presentationMode
-    @Binding var showHistory: Bool
-    @State var layoutType = LayoutType.list
-
-    enum LayoutType {
-        case list, bar
-    }
 
     var body: some View {
         GeometryReader { geometry in
@@ -24,7 +18,7 @@ struct HistoryView: View {
                     }
                     .frame(height: geometry.size.height * 0.15)
                     Spacer()
-                    if layoutType == .list {
+                    if history.layoutTypeIsList {
                         HistoryListView()
                     } else {
                         HistoryBarView()
@@ -36,7 +30,7 @@ struct HistoryView: View {
 
     var layout: some View {
         HStack {
-            switch layoutType {
+            switch history.layoutType {
             case .list:
                 Button(action: {
                 }) {
@@ -45,7 +39,7 @@ struct HistoryView: View {
                 }
                 .buttonStyle(EmbossedButtonStyle())
                 Button(action: {
-                    layoutType = .bar
+                   history.layoutType = .bar
                 }) {
                     ImageProvider.chartBarFill
                         .padding([.leading, .trailing], 20)
@@ -54,7 +48,7 @@ struct HistoryView: View {
                 .buttonStyle(EmbossedButtonStyle())
             case .bar:
                 Button(action: {
-                    layoutType = .list
+                   history.layoutType = .list
                 }) {
                     ImageProvider.squareGrid2x2Fill
                         .padding([.leading, .trailing], 20)
@@ -89,6 +83,6 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView(showHistory: .constant(true))
+        HistoryView()
     }
 }

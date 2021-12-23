@@ -9,6 +9,21 @@ struct ExerciseDay: Identifiable {
 
 class HistoryViewModel: ObservableObject {
     @Published var exerciseDays: [ExerciseDay] = []
+    @Published var layoutType = LayoutType.list
+    @Published var days: [Date] = []
+    @Published var exercisesForWeek: [ExerciseDay] = []
+    @Published var countsForWeek: [Int] = []
+    @Published var datesExercised: [Date] = []
+
+    var maxBarHeight: Int = 300
+
+    enum LayoutType {
+        case list, bar
+    }
+
+    var layoutTypeIsList: Bool {
+        layoutType == .list
+    }
 
     enum FileError: Error {
         case loadFailure

@@ -9,7 +9,7 @@ struct HistoryListView: View {
                 Section(
                     header:
                         HStack {
-                            Text(day.date.formatted(as: "MMM d"))
+                            Text(day.date.formatted(as: DateFormatProvider.MMMd))
                                 .font(.title3)
                                 .fontWeight(.medium)
                                 .padding()
