@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @EnvironmentObject var history: HistoryViewModel
+    @EnvironmentObject var historyViewModel: HistoryViewModel
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -14,23 +14,28 @@ struct HistoryView: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .padding()
-                        layout
+                        buttonLayout
                     }
                     .frame(height: geometry.size.height * 0.15)
                     Spacer()
-                    if history.layoutTypeIsList {
-                        HistoryListView()
-                    } else {
-                        HistoryBarView()
-                    }
+                    historyLayout
                 }
             }
         }
     }
 
-    var layout: some View {
+    @ViewBuilder
+    private var historyLayout: some View {
+        if historyViewModel.layoutTypeIsList {
+            HistoryListView()
+        } else {
+            HistoryBarView()
+        }
+    }
+
+    private var buttonLayout: some View {
         HStack {
-            switch history.layoutType {
+            switch historyViewModel.layoutType {
             case .list:
                 Button(action: {
                 }) {
@@ -39,7 +44,7 @@ struct HistoryView: View {
                 }
                 .buttonStyle(EmbossedButtonStyle())
                 Button(action: {
-                   history.layoutType = .bar
+                    historyViewModel.layoutType = .bar
                 }) {
                     ImageProvider.chartBarFill
                         .padding([.leading, .trailing], 20)
@@ -48,7 +53,7 @@ struct HistoryView: View {
                 .buttonStyle(EmbossedButtonStyle())
             case .bar:
                 Button(action: {
-                   history.layoutType = .list
+                    historyViewModel.layoutType = .list
                 }) {
                     ImageProvider.squareGrid2x2Fill
                         .padding([.leading, .trailing], 20)

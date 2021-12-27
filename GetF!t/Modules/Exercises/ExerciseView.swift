@@ -3,6 +3,8 @@ import AVKit
 
 struct ExerciseView: View {
     @ObservedObject var exerciseViewModel: ExercisesViewModel
+    @EnvironmentObject var history: HistoryViewModel
+    @EnvironmentObject var selectedTabManager: SelectedTabManager
 
     var body: some View {
         GeometryReader { geometry in
@@ -21,17 +23,27 @@ struct ExerciseView: View {
                     }
                 }
                 .frame(height: geometry.size.height * 0.8)
-                .sheet(isPresented: $exerciseViewModel.showSheet, onDismiss: {
-                    exerciseViewModel.onDismissLogic
-                }) {
-                    switchLogic()
+                .sheet(
+                    isPresented: $exerciseViewModel.showSheet,
+                    onDismiss: exerciseViewModel.onDismissLogic
+                ) {
+                    switchLogic
                 }
+            }
+           // .onChange(of: exerciseViewModel.shouldAddExercise) {
+           //     if $0 {
+           //         history.addDoneExercise(Exercise.exercises[exerciseViewModel.index].exerciseName)
+           //     }
+           // }
+            .onAppear {
+                exerciseViewModel.addDoneExercise = history.addDoneExercise
+                exerciseViewModel.goToNextTab = selectedTabManager.goToNextTab
             }
         }
     }
 
     @ViewBuilder
-    func switchLogic() -> some View {
+    var switchLogic: some View {
         if let exerciseSheet = exerciseViewModel.exerciseSheet, exerciseViewModel.indexLimit {
             switch exerciseSheet {
             case .history:

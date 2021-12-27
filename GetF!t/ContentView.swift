@@ -10,6 +10,7 @@ struct ContentView: View {
                 WelcomeView(welcomeViewModel: WelcomeViewModel.init())
                     .tag(9)
                 ForEach(0 ..< Exercise.exercises.count) { index in
+                    // TODO: predelat ViewModel
                     ExerciseView(exerciseViewModel: ExercisesViewModel.init(index: 0))
                         .tag(index)
                 }

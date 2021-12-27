@@ -31,6 +31,23 @@ class HistoryViewModel: ObservableObject {
         case urlFailure
     }
 
+    func propertySetup() {
+        days = Date().lastSevenDays
+        exercisesForWeek = [ExerciseDay](exerciseDays.prefix(7))
+
+        let lastWeekExerciseCount: [Int] = days.map { day in
+             let foundDate = exercisesForWeek.filter {
+                 $0.date.yearMonthDay == day.yearMonthDay
+             }
+             return foundDate.first?.exercises.count ?? 0
+         }
+
+         let maxValue = max(lastWeekExerciseCount.max() ?? 0, 1)
+         countsForWeek = lastWeekExerciseCount.map {
+             $0 * maxBarHeight / maxValue
+         }
+    }
+
     init() {
     }
 

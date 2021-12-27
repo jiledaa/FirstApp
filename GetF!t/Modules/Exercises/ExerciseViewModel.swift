@@ -1,41 +1,43 @@
 import SwiftUI
 
 class ExercisesViewModel: ObservableObject {
-    @EnvironmentObject var history: HistoryViewModel
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
-
     @Published var showSheet = false
     @Published var showHistory = false
     @Published var exerciseSheet: ExerciseSheet?
+    @Published var shouldAddExercise = false
 
     var timerDone = false
     var showSuccess = false
     var showTimer = false
     let index: Int
 
+    var addDoneExercise: ((LocalizedStringKey) -> Void)?
+    var goToNextTab: (() -> Void)?
+
     var indexLimit: Bool {
         index <= Exercise.exercises.count
     }
 
-        var onDismissLogic: () {
-            if exerciseSheet == .timer {
-                if timerDone, indexLimit {
-                    history.addDoneExercise(exercise)
-                    timerDone = false
-                }
-                showTimer = false
-                if lastExercise {
-                    showSuccess = true
-                    showSheet = true
-                    exerciseSheet = .success
-                } else {
-                    selectedTabManager.goToNextTab()
-                }
-            } else {
-                exerciseSheet = nil
+    func onDismissLogic() {
+        if exerciseSheet == .timer {
+            if timerDone, indexLimit {
+              //  shouldAddExercise = true
+                addDoneExercise?(Exercise.exercises[index].exerciseName)
+                timerDone = false
             }
             showTimer = false
+            if lastExercise {
+                showSuccess = true
+                showSheet = true
+                exerciseSheet = .success
+            } else {
+                goToNextTab?()
+            }
+        } else {
+            exerciseSheet = nil
         }
+        showTimer = false
+    }
 
     var lastExercise: Bool {
         index + 1 == Exercise.exercises.count

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HistoryBarView: View {
-    @EnvironmentObject var history: HistoryViewModel
+    @EnvironmentObject var historyViewModel: HistoryViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -15,33 +15,21 @@ struct HistoryBarView: View {
                 Spacer()
             }
             .onAppear {
-               history.days = Date().lastSevenDays
-                   history.exercisesForWeek = [ExerciseDay](history.exerciseDays.prefix(7))
-                let counts: [Int] = history.days.map { day in
-                    let foundDate = history.exercisesForWeek.filter {
-                        $0.date.yearMonthDay == day.yearMonthDay
-                    }
-                    return foundDate.first?.exercises.count ?? 0
-                }
-                assert(counts.count == 7)
-                let maxValue = max(counts.max() ?? 0, 1)
-                history.countsForWeek = counts.map {
-                    $0 * history.maxBarHeight / maxValue
-                }
+                historyViewModel.propertySetup()
             }
             .frame(height: geometry.size.height * 0.7)
         }
     }
     
     func bar(day: Int, size: CGSize) -> AnyView {
-        guard history.days.count > day else {
+        guard historyViewModel.days.count > day else {
             return AnyView(EmptyView())
         }
-        let date = history.days[day]
+        let date = historyViewModel.days[day]
         let view = VStack {
             Spacer()
             ZStack {
-                if history.countsForWeek[day] > 0 {
+                if historyViewModel.countsForWeek[day] > 0 {
                     RoundedRectangle(cornerRadius: 10)
                         .padding(3)
                         .foregroundColor(ColorProvider.background)
@@ -60,7 +48,7 @@ struct HistoryBarView: View {
                         .foregroundColor(ColorProvider.historyBar)
                 }
             }
-            .frame(height: CGFloat(history.countsForWeek[day]))
+            .frame(height: CGFloat(historyViewModel.countsForWeek[day]))
             Text(date.truncatedDayName)
             Text(date.truncatedDayMonth)
         }
