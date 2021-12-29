@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct TimerView: View {
-    @StateObject var timerViewModel = TimerViewModel(exerciseName: LocalizedStringProvider.ExercisesNames.squat)
+    @ObservedObject var timerViewModel: TimerViewModel
     @Environment(\.presentationMode) var presentationMode
-
+    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -15,11 +16,11 @@ struct TimerView: View {
                             .mask(circle(size: geometry.size))
                     )
                 VStack {
-                    Text(timerViewModel.exerciseName)
+                    Text(selectedTabManager.titleText)
                         .font(.largeTitle)
                         .fontWeight(.black)
                         .foregroundColor(.white)
-                        .padding(.top, 20)
+                        .padding(.top)
                     Spacer()
                     indentView
                     Spacer()
@@ -41,7 +42,6 @@ struct TimerView: View {
                 x: timerViewModel.dropHighlightParameter,
                 y: timerViewModel.dropHighlightParameter)
     }
-
 
     private var doneButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
@@ -78,6 +78,6 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(timerViewModel: TimerViewModel.init(exerciseName: "Steig auf!"))
+        TimerView(timerViewModel: .init())
     }
 }

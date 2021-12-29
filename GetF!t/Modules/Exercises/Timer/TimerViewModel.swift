@@ -4,12 +4,6 @@ class TimerViewModel: ObservableObject {
     @Published var timeRemaining = 3
     @Published var timerDone = false
 
-    let exerciseName: LocalizedStringKey
-
-    init(exerciseName: LocalizedStringKey) {
-        self.exerciseName = exerciseName
-    }
-
     let timer = Timer.publish(
         every: 1,
         on: .main,

@@ -2,28 +2,26 @@ import SwiftUI
 
 struct HeaderView: View {
     @EnvironmentObject var selectedTabManager: SelectedTabManager
-    @ObservedObject var headerViewModel: HeaderViewModel
-    let titleText: LocalizedStringKey
 
     var body: some View {
         VStack {
-            Text(titleText)
+            Text(selectedTabManager.titleText)
                 .font(.largeTitle)
                 .fontWeight(.black)
                 .foregroundColor(.white)
             HStack {
-                ForEach(headerViewModel.exercisesCountRange) { index in
+                ForEach(0 ..< Exercise.exercises.count) { tab in
                     ZStack {
                         Circle()
                             .frame(width: 32, height: 32)
                             .foregroundColor(.white)
-                            .opacity(selectedTabManager.opacity(index))
+                            .opacity(selectedTabManager.opacity(tab))
                         Circle()
                             .frame(width: 16, height: 16)
                             .foregroundColor(.white)
                     }
                     .onTapGesture {
-                        selectedTabManager.indexToSelectedTab(index)
+                        selectedTabManager.goTo(tab)
                     }
                 }
             }
@@ -34,9 +32,9 @@ struct HeaderView: View {
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HeaderView(headerViewModel: HeaderViewModel.init(), titleText: LocalizedStringProvider.ExercisesNames.squat)
+            HeaderView()
                 .previewLayout(.sizeThatFits)
-            HeaderView(headerViewModel: HeaderViewModel.init(), titleText: LocalizedStringProvider.ExercisesNames.stepUp)
+            HeaderView()
                 .preferredColorScheme(.dark)
                 .environment(\.sizeCategory, .accessibilityLarge)
                 .previewLayout(.sizeThatFits)

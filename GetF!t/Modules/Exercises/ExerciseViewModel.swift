@@ -9,7 +9,7 @@ class ExercisesViewModel: ObservableObject {
     var timerDone = false
     var showSuccess = false
     var showTimer = false
-    let index: Int
+    var index: Int
 
     var addDoneExercise: ((LocalizedStringKey) -> Void)?
     var goToNextTab: (() -> Void)?

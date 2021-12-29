@@ -14,7 +14,6 @@
 		168602C32767D6A000A7CFCA /* DateFormatProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C22767D6A000A7CFCA /* DateFormatProvider.swift */; };
 		168602C62767DF5800A7CFCA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C52767DF5800A7CFCA /* TimerViewModel.swift */; };
 		1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689CED92743B0C9004362A7 /* TimerView.swift */; };
-		168AD3EC2771CAE100A9040F /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AD3EB2771CAE100A9040F /* HeaderViewModel.swift */; };
 		168C09F5274E4FB400390C21 /* RaisedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F4274E4FB400390C21 /* RaisedButton.swift */; };
 		168C09F7274E54E200390C21 /* WelcomeView+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F6274E54E200390C21 /* WelcomeView+Images.swift */; };
 		168C09F9274E54FB00390C21 /* EmbossedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F8274E54FB00390C21 /* EmbossedButton.swift */; };
@@ -59,7 +58,6 @@
 		168602C22767D6A000A7CFCA /* DateFormatProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatProvider.swift; sourceTree = "<group>"; };
 		168602C52767DF5800A7CFCA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		1689CED92743B0C9004362A7 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
-		168AD3EB2771CAE100A9040F /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
 		168C09F4274E4FB400390C21 /* RaisedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButton.swift; sourceTree = "<group>"; };
 		168C09F6274E54E200390C21 /* WelcomeView+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeView+Images.swift"; sourceTree = "<group>"; };
 		168C09F8274E54FB00390C21 /* EmbossedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbossedButton.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				16A9148B2739A38C001D82A6 /* HeaderView.swift */,
-				168AD3EB2771CAE100A9040F /* HeaderViewModel.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -413,7 +410,6 @@
 				16A91497273C18E8001D82A6 /* ExerciseModel.swift in Sources */,
 				16A9B133276A7A7C004F68FD /* WelcomeViewModel.swift in Sources */,
 				16A9148427396543001D82A6 /* WelcomeView.swift in Sources */,
-				168AD3EC2771CAE100A9040F /* HeaderViewModel.swift in Sources */,
 				168391842756B4FB000DFF7A /* RatingViewModel.swift in Sources */,
 				16F20178275101CC00ACE724 /* HistoryListView.swift in Sources */,
 				16A9148627396587001D82A6 /* ExerciseView.swift in Sources */,

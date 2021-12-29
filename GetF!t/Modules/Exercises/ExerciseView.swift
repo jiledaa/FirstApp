@@ -9,7 +9,7 @@ struct ExerciseView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(headerViewModel: HeaderViewModel.init(), titleText: exerciseViewModel.exercise)
+                HeaderView()
                     .padding(.bottom)
                 Spacer()
                 ContainerView {
@@ -49,7 +49,7 @@ struct ExerciseView: View {
             case .history:
                 HistoryView()
             case .timer:
-                TimerView()
+                TimerView(timerViewModel: .init())
             case .success:
                 SuccessView()
             }

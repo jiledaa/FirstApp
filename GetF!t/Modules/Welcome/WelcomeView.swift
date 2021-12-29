@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @ObservedObject var welcomeViewModel: WelcomeViewModel
+    @StateObject var welcomeViewModel = WelcomeViewModel(showHistory: false)
     @EnvironmentObject var selectedTabManager: SelectedTabManager
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(headerViewModel: HeaderViewModel.init(), titleText: LocalizedStringProvider.WelcomePage.welcome)
+                HeaderView()
                 Spacer()
                 VStack {
                     WelcomeView.images
@@ -48,6 +48,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView(welcomeViewModel: WelcomeViewModel.init())
+        WelcomeView()
     }
 }
