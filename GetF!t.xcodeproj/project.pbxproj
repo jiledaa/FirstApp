@@ -132,8 +132,8 @@
 		1683917E2756633E000DFF7A /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				16A9148327396543001D82A6 /* WelcomeView.swift */,
 				16A9B132276A7A7C004F68FD /* WelcomeViewModel.swift */,
+				16A9148327396543001D82A6 /* WelcomeView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";

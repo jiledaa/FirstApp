@@ -7,7 +7,6 @@ struct WelcomeView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView()
                 Spacer()
                 VStack {
                     WelcomeView.images

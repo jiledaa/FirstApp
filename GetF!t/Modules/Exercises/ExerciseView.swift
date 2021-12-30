@@ -9,8 +9,6 @@ struct ExerciseView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView()
-                    .padding(.bottom)
                 Spacer()
                 ContainerView {
                     VStack {
@@ -59,9 +57,7 @@ struct ExerciseView: View {
     @ViewBuilder
     private func video(size: CGSize) -> some View {
         if exerciseViewModel.indexLimit {
-            if let url = Bundle.main.url(
-                forResource: exerciseViewModel.video,
-                withExtension: "mp4") {
+            if let url = exerciseViewModel.videoURL {
                 VideoPlayer(player: AVPlayer(url: url))
                     .frame(height: size.height * 0.25)
                     .clipShape(RoundedRectangle(cornerRadius: 12))

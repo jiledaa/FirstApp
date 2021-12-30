@@ -51,8 +51,10 @@ class ExercisesViewModel: ObservableObject {
         Exercise.exercises[index].exerciseName
     }
 
-    var video: String {
-        Exercise.exercises[index].videoName
+    var videoURL: URL? {
+        Bundle.main.url(
+            forResource: Exercise.exercises[index].videoName,
+            withExtension: "mp4")
     }
 
     var startExerciseButtonTapped: () {

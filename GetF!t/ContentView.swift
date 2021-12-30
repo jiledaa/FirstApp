@@ -4,8 +4,9 @@ struct ContentView: View {
     @StateObject var selectedTabManager = SelectedTabManager()
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             GradientBackground()
+            HeaderView()
             TabView(selection: $selectedTabManager.selectedTab) {
                 WelcomeView()
                     .tag(9)
