@@ -47,7 +47,7 @@ struct ExerciseView: View {
             case .history:
                 HistoryView()
             case .timer:
-                TimerView(timerViewModel: .init())
+                TimerView(timerViewModel: .init(), selectedTabManager: selectedTabManager)
             case .success:
                 SuccessView()
             }
@@ -71,7 +71,7 @@ struct ExerciseView: View {
 
     private var startExerciseButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
-            exerciseViewModel.startExerciseButtonTapped
+            exerciseViewModel.startExerciseButtonTapped()
         }
         .frame(width: 250, height: 50, alignment: .center)
         .padding(100)
@@ -79,7 +79,7 @@ struct ExerciseView: View {
 
     var historyButton: some View {
         Button(action: {
-            exerciseViewModel.historyButtonTapped
+            exerciseViewModel.historyButtonTapped()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)

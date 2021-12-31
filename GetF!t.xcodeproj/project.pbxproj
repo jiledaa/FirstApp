@@ -123,8 +123,8 @@
 		1683917627565F1D000DFF7A /* History */ = {
 			isa = PBXGroup;
 			children = (
-				16A411252757B8C3005A8F38 /* Views */,
 				16A91498273C1FD9001D82A6 /* HistoryViewModel.swift */,
+				16A411252757B8C3005A8F38 /* Views */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -141,8 +141,8 @@
 		168602C42767DF2500A7CFCA /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				1689CED92743B0C9004362A7 /* TimerView.swift */,
 				168602C52767DF5800A7CFCA /* TimerViewModel.swift */,
+				1689CED92743B0C9004362A7 /* TimerView.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";

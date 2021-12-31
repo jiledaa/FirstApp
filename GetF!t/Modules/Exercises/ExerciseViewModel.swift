@@ -47,23 +47,19 @@ class ExercisesViewModel: ObservableObject {
         self.index = index
     }
 
-    var exercise: LocalizedStringKey {
-        Exercise.exercises[index].exerciseName
-    }
-
     var videoURL: URL? {
         Bundle.main.url(
             forResource: Exercise.exercises[index].videoName,
             withExtension: "mp4")
     }
 
-    var startExerciseButtonTapped: () {
+    func startExerciseButtonTapped() {
         showTimer.toggle()
         showSheet = true
         exerciseSheet = .timer
     }
 
-    var historyButtonTapped: () {
+    func historyButtonTapped() {
         showSheet = true
         showHistory = true
         exerciseSheet = .history

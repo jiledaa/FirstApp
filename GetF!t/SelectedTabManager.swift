@@ -5,7 +5,7 @@ class SelectedTabManager: ObservableObject {
     @Published var selectedTab = 9
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
 
-    var exerciseName: () {
+    func exerciseName() {
         switch selectedTab {
         case 0: titleText = LocalizedStringProvider.ExercisesNames.squat
         case 1: titleText = LocalizedStringProvider.ExercisesNames.stepUp
@@ -26,15 +26,15 @@ class SelectedTabManager: ObservableObject {
 
     func goToNextTab() {
         selectedTab += 1
-        exerciseName
+        exerciseName()
     }
 
     func opacity(_ index: Int) -> Double {
         index == selectedTab ? 0.5 : 0
     }
 
-    func goTo(_ tab: Int) {
+    func goTo(tab: Int) {
         selectedTab = tab
-        exerciseName
+        exerciseName()
     }
 }

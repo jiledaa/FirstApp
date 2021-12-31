@@ -33,7 +33,7 @@ struct SuccessView: View {
             VStack {
                 HeaderView()
                 Spacer()
-                RaisedButton(buttonText: LocalizedStringProvider.Button.continuE) {
+                RaisedButton(buttonText: LocalizedStringProvider.Button.continue) {
                     selectedTabManager.goToWelcomeView()
                     presentationMode.wrappedValue.dismiss()
                 }

@@ -3,7 +3,7 @@ import SwiftUI
 struct TimerView: View {
     @ObservedObject var timerViewModel: TimerViewModel
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    @StateObject var selectedTabManager: SelectedTabManager
     
     var body: some View {
         GeometryReader { geometry in
@@ -78,6 +78,6 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(timerViewModel: .init())
+        TimerView(timerViewModel: .init(), selectedTabManager: .init())
     }
 }

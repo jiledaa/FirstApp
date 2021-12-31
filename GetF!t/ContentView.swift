@@ -12,7 +12,7 @@ struct ContentView: View {
                     .tag(9)
                 ForEach(0 ..< Exercise.exercises.count) { index in
                     // TODO: predelat ViewModel
-                    ExerciseView(exerciseViewModel: .init(index: 0))
+                    ExerciseView(exerciseViewModel: .init(index: index))
                         .tag(index)
                 }
             }

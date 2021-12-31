@@ -21,7 +21,7 @@ struct HeaderView: View {
                             .foregroundColor(.white)
                     }
                     .onTapGesture {
-                        selectedTabManager.goTo(tab)
+                        selectedTabManager.goTo(tab: tab)
                     }
                 }
             }
