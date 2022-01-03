@@ -9,11 +9,43 @@ struct ExerciseDay: Identifiable {
 
 class HistoryViewModel: ObservableObject {
     @Published var exerciseDays: [ExerciseDay] = []
+    @Published var layoutType = LayoutType.list
+    @Published var days: [Date] = []
+    @Published var exercisesForWeek: [ExerciseDay] = []
+    @Published var countsForWeek: [Int] = []
+    @Published var datesExercised: [Date] = []
+
+    var maxBarHeight: Int = 300
+
+    enum LayoutType {
+        case list, bar
+    }
+
+    var layoutTypeIsList: Bool {
+        layoutType == .list
+    }
 
     enum FileError: Error {
         case loadFailure
         case saveFailure
         case urlFailure
+    }
+
+    func propertySetup() {
+        days = Date().lastSevenDays
+        exercisesForWeek = [ExerciseDay](exerciseDays.prefix(7))
+
+        let lastWeekExerciseCount: [Int] = days.map { day in
+             let foundDate = exercisesForWeek.filter {
+                 $0.date.yearMonthDay == day.yearMonthDay
+             }
+             return foundDate.first?.exercises.count ?? 0
+         }
+
+         let maxValue = max(lastWeekExerciseCount.max() ?? 0, 1)
+         countsForWeek = lastWeekExerciseCount.map {
+             $0 * maxBarHeight / maxValue
+         }
     }
 
     init() {

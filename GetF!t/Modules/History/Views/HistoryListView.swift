@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct HistoryListView: View {
-    @EnvironmentObject var history: HistoryViewModel
+    @EnvironmentObject var historyViewModel: HistoryViewModel
     
     var body: some View {
         ScrollView {
-            ForEach(history.exerciseDays) { day in
+            ForEach(historyViewModel.exerciseDays) { day in
                 Section(
                     header:
                         HStack {
-                            Text(day.date.formatted(as: "MMM d"))
+                            Text(day.date.formatted(as: DateFormatProvider.MMMd))
                                 .font(.title3)
                                 .fontWeight(.medium)
                                 .padding()
@@ -21,31 +21,7 @@ struct HistoryListView: View {
                 ) {
                     HStack(spacing: 40) {
                         ForEach(0..<min(day.exercises.count, 4)) { index in
-                            let exercise = day.exercises[index]
-                            VStack {
-                                IndentView {
-                                    switch exercise {
-                                    case LocalizedStringProvider.ExercisesNames.squat:
-                                        ImageProvider.boltFill
-                                            .frame(minWidth: 60)
-                                    case LocalizedStringProvider.ExercisesNames.stepUp:
-                                        ImageProvider.arrowUturnUp
-                                            .frame(minWidth: 60)
-                                    case LocalizedStringProvider.ExercisesNames.burpee:
-                                        ImageProvider.hareFill
-                                            .frame(minWidth: 60)
-                                    default:
-                                        ImageProvider.sunMaxFill
-                                            .frame(minWidth: 60)
-                                    }
-                                }
-                                .foregroundColor(ColorProvider.gradientTop)
-                                .padding(.bottom, 20)
-                                Text(exercise)
-                                    .font(.caption)
-                                    .fontWeight(.light)
-                                    .foregroundColor(Color.primary)
-                            }
+                            exercisesSwitch(exercise: day.exercises[index])
                         }
                     }
                     .frame(maxWidth: .infinity)
@@ -54,6 +30,33 @@ struct HistoryListView: View {
             }
         }
         .frame(maxWidth: .infinity)
+    }
+
+    func exercisesSwitch(exercise: LocalizedStringKey) -> some View {
+        VStack {
+            IndentView {
+                switch exercise {
+                case LocalizedStringProvider.ExercisesNames.squat:
+                    ImageProvider.boltFill
+                        .frame(minWidth: 60)
+                case LocalizedStringProvider.ExercisesNames.stepUp:
+                    ImageProvider.arrowUturnUp
+                        .frame(minWidth: 60)
+                case LocalizedStringProvider.ExercisesNames.burpee:
+                    ImageProvider.hareFill
+                        .frame(minWidth: 60)
+                default:
+                    ImageProvider.sunMaxFill
+                        .frame(minWidth: 60)
+                }
+            }
+            .foregroundColor(ColorProvider.gradientTop)
+            .padding(.bottom, 20)
+            Text(exercise)
+                .font(.caption)
+                .fontWeight(.light)
+                .foregroundColor(Color.primary)
+        }
     }
 }
 

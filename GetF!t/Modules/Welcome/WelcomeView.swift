@@ -1,14 +1,12 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @State private var showHistory = false
+    @StateObject var welcomeViewModel = WelcomeViewModel()
     @EnvironmentObject var selectedTabManager: SelectedTabManager
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(titleText: LocalizedStringProvider.WelcomePage.welcome
-                )
                 Spacer()
                 VStack {
                     WelcomeView.images
@@ -16,11 +14,10 @@ struct WelcomeView: View {
                     getStartedButton
                     Spacer()
                     historyButton
-                        .sheet(isPresented: $showHistory) {
-                            HistoryView(showHistory: $showHistory)
+                        .sheet(isPresented: $welcomeViewModel.showHistory) {
+                            HistoryView()
                         }
                 }
-                
                 .frame(height: geometry.size.height * 0.7)
             }
         }
@@ -36,7 +33,7 @@ struct WelcomeView: View {
     
     var historyButton: some View {
         Button(action: {
-            showHistory.toggle()
+            welcomeViewModel.showHistoryToggle
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)

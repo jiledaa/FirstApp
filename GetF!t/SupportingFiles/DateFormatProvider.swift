@@ -5,4 +5,5 @@ struct DateFormatProvider {
     static let EEEE = "EEEE"
     static let EEE = "EEE"
     static let ddMMM = "dd MMM"
+    static let MMMd = "MMM d"
 }

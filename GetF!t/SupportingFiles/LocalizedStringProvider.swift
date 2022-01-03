@@ -13,7 +13,7 @@ struct LocalizedStringProvider {
         static let `startExercise` = LocalizedStringKey("StartExercise")
         static let `done` = LocalizedStringKey("Done")
         static let `history` = LocalizedStringKey("History")
-        static let `continuE` = LocalizedStringKey("Continue")
+        static let `continue` = LocalizedStringKey("Continue")
     }
 
     struct WelcomePage {
@@ -21,7 +21,7 @@ struct LocalizedStringProvider {
         static let `getfit` = LocalizedStringKey("Getf!t")
         static let `getfitPostScript` = LocalizedStringKey("GetfitPostScript")
         static let `history` = LocalizedStringKey("History")
-        static let `continuE` = LocalizedStringKey("Continue")
+        static let `continue` = LocalizedStringKey("Continue")
     }
 
     struct SuccesPage {

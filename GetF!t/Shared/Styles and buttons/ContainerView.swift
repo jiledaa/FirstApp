@@ -1,7 +1,5 @@
 import SwiftUI
 
-import SwiftUI
-
 struct ContainerView<Content: View>: View {
     var content: Content
     

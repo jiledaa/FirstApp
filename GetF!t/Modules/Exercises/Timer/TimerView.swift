@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct TimerView: View {
-    @ObservedObject var timerViewModel: TimerViewModel
+    @StateObject var timerViewModel = TimerViewModel()
     @Environment(\.presentationMode) var presentationMode
-
+    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -15,39 +16,42 @@ struct TimerView: View {
                             .mask(circle(size: geometry.size))
                     )
                 VStack {
-                    Text(timerViewModel.exerciseName)
+                    Text(selectedTabManager.titleText)
                         .font(.largeTitle)
                         .fontWeight(.black)
                         .foregroundColor(.white)
-                        .padding(.top, 20)
+                        .padding(.top)
                     Spacer()
-                    invertIndentView
+                    indentView
                     Spacer()
-                    RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                    .opacity(timerViewModel.opacity)
-                    .padding([.leading, .trailing], 30)
-                    .padding(.bottom, 60)
-                    .disabled(!timerViewModel.timerDone)
+                    doneButton
                 }
             }
         }
     }
 
     @ViewBuilder
-    private var invertIndentView: some View {
-        if !timerViewModel.timerDone {
-            IndentView {
-                timerText
-            }
-        } else {
-            IndentViewInverted {
-                timerText
-            }
+    private var indentView: some View {
+        IndentView {
+            timerText
         }
+        .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6,
+                x: timerViewModel.dropShadowParameter,
+                y: timerViewModel.dropShadowParameter)
+        .shadow(color: ColorProvider.dropHighlight, radius: 6,
+                x: timerViewModel.dropHighlightParameter,
+                y: timerViewModel.dropHighlightParameter)
     }
 
+    private var doneButton: some View {
+        RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
+            presentationMode.wrappedValue.dismiss()
+        }
+        .opacity(timerViewModel.opacity)
+        .padding([.leading, .trailing], 30)
+        .padding(.bottom, 60)
+    }
+    
     var timerText: some View {
         Text("\(timerViewModel.timeRemaining)")
             .font(.system(size: 90, design: .rounded))
@@ -74,6 +78,6 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(timerViewModel: TimerViewModel.init(exerciseName: "Steig auf!"))
+        TimerView()
     }
 }

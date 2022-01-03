@@ -1,14 +1,8 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @EnvironmentObject var history: HistoryViewModel
+    @EnvironmentObject var historyViewModel: HistoryViewModel
     @Environment(\.presentationMode) var presentationMode
-    @Binding var showHistory: Bool
-    @State var layoutType = LayoutType.list
-
-    enum LayoutType {
-        case list, bar
-    }
 
     var body: some View {
         GeometryReader { geometry in
@@ -20,45 +14,54 @@ struct HistoryView: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .padding()
-                        layout
+                        buttonLayout
                     }
                     .frame(height: geometry.size.height * 0.15)
                     Spacer()
-                    if layoutType == .list {
-                        HistoryListView()
-                    } else {
-                        HistoryBarView()
-                    }
+                    historyLayout
                 }
             }
         }
     }
 
-    var layout: some View {
+    @ViewBuilder
+    private var historyLayout: some View {
+        if historyViewModel.layoutTypeIsList {
+            HistoryListView()
+        } else {
+            HistoryBarView()
+        }
+    }
+
+    private var buttonLayout: some View {
         HStack {
-            switch layoutType {
+            switch historyViewModel.layoutType {
             case .list:
-                Button(action: {})
-                {
+                Button(action: {
+                }) {
                     ImageProvider.squareGrid2x2Fill
                         .padding([.leading, .trailing], 20)
                 }
                 .buttonStyle(EmbossedButtonStyle())
-                Button(action: {layoutType = .bar}) {
+                Button(action: {
+                    historyViewModel.layoutType = .bar
+                }) {
                     ImageProvider.chartBarFill
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
                 .buttonStyle(EmbossedButtonStyle())
             case .bar:
-                Button(action: {layoutType = .list})
-                {
+                Button(action: {
+                    historyViewModel.layoutType = .list
+                }) {
                     ImageProvider.squareGrid2x2Fill
                         .padding([.leading, .trailing], 20)
                         .foregroundColor(.gray)
                 }
                 .buttonStyle(EmbossedButtonStyle())
-                Button(action: {}) {
+                Button(action: {
+                }) {
                     ImageProvider.chartBarFill
                         .padding([.leading, .trailing], 20)
                 }
@@ -71,7 +74,9 @@ struct HistoryView: View {
         ZStack(alignment: .topTrailing) {
             ColorProvider.background
                 .edgesIgnoringSafeArea(.all)
-            Button(action: { presentationMode.wrappedValue.dismiss() }) {
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
                 ImageProvider.xmark
                     .foregroundColor(.primary)
             }
@@ -83,6 +88,6 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView(showHistory: .constant(true))
+        HistoryView()
     }
 }
