@@ -4,6 +4,8 @@ struct RatingView: View {
     @StateObject var ratingViewModel = RatingViewModel()
 //    @AppStorage(StringProvider.ratingsString) private var ratings = ""
 
+    let onColor = ColorProvider.ratings
+    let offColor = Color.gray
     let exerciseIndex: Int
     var body: some View {
         VStack {
@@ -38,7 +40,7 @@ struct RatingView: View {
             }) {
                 ImageProvider.waveform
                     .foregroundColor(
-                        ratingViewModel.ratingActive(index: index))
+                        ratingViewModel.ratingActive(index) ? offColor : onColor)
                     .font(.title3)
             }
             .buttonStyle(EmbossedButtonStyle(buttonShape: .round))

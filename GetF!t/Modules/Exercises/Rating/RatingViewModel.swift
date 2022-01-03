@@ -4,8 +4,6 @@ class RatingViewModel: ObservableObject {
     @Published var rating = 0
     
     let maximumRating = 5
-    let onColor = ColorProvider.ratings
-    let offColor = Color.gray
     
 //    init(exerciseIndex: Int) {
 //        self.exerciseIndex = exerciseIndex
@@ -18,8 +16,8 @@ class RatingViewModel: ObservableObject {
 //        }
 //    }
 
-    func ratingActive(index: Int) -> Color {
-        index > rating ? offColor : onColor
+    func ratingActive(_ index: Int) -> Bool {
+        index > rating
     }
 
     func updateRating(index: Int, exerciseIndex key: Int) {
