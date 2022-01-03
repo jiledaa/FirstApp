@@ -1,10 +1,11 @@
 import SwiftUI
 
 struct RatingView: View {
-    @ObservedObject var ratingViewModel: RatingViewModel
-    @AppStorage(StringProvider.ratingsString) private var ratings = ""
+    @StateObject var ratingViewModel = RatingViewModel()
+//    @AppStorage(StringProvider.ratingsString) private var ratings = ""
 
-    let onColor = Color(StringProvider.ratingsString)
+    let index: Int
+    let onColor = ColorProvider.ratings
     let offColor = Color.gray
 
     var body: some View {
@@ -13,7 +14,6 @@ struct RatingView: View {
                 forEach
             }
             .font(.largeTitle)
-            
             HStack {
                 ImageProvider.battery100
                     .foregroundColor(.green)
@@ -33,30 +33,24 @@ struct RatingView: View {
 
     private var forEach: some View {
         ForEach(1 ..< ratingViewModel.maximumRating + 1, id: \.self) { index in
-            Button(action: {ratingViewModel.updateRating(index: index)}) {
+            Button(action: {
+                ratingViewModel.updateRating(index: index)}) {
                 ImageProvider.waveform
                     .foregroundColor(
                         ratingViewModel.ratingActive(index) ? offColor : onColor)
                     .font(.title3)
             }
             .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
-            .onChange(of: self.ratings) { _ in
-                ratingViewModel.convertRating()
-            }
-            .onAppear {
-                ratingViewModel.convertRating()
-            }
         }
     }
-
 }
 
 
 struct RatingView_Previews: PreviewProvider {
-    @AppStorage(StringProvider.ratingsString) static var ratings: String?
+//    @AppStorage(StringProvider.ratingsString) static var ratings: String?
     static var previews: some View {
-        ratings = nil
-        return RatingView(ratingViewModel: RatingViewModel.init(exerciseIndex: 0))
+//       ratingViewModel.rating = nil
+        return RatingView(index: 0)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }
