@@ -1,11 +1,7 @@
 import Foundation
 
 class WelcomeViewModel: ObservableObject {
-    var showHistory: Bool
-
-    init(showHistory: Bool) {
-        self.showHistory = showHistory
-    }
+    var showHistory = false
 
     var showHistoryToggle: () {
         showHistory.toggle()

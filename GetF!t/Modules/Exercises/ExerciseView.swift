@@ -47,7 +47,7 @@ struct ExerciseView: View {
             case .history:
                 HistoryView()
             case .timer:
-                TimerView(timerViewModel: .init(), selectedTabManager: selectedTabManager)
+                TimerView()
             case .success:
                 SuccessView()
             }

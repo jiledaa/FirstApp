@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @StateObject var welcomeViewModel = WelcomeViewModel(showHistory: false)
+    @StateObject var welcomeViewModel = WelcomeViewModel()
     @EnvironmentObject var selectedTabManager: SelectedTabManager
     
     var body: some View {
