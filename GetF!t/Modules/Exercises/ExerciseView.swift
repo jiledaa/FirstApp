@@ -15,7 +15,7 @@ struct ExerciseView: View {
                         video(size: geometry.size)
                         startExerciseButton
                         Spacer()
-                        RatingView(index: exerciseViewModel.index)
+                        RatingView(exerciseIndex: exerciseViewModel.index)
                             .padding()
                         historyButton
                     }
