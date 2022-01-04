@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @StateObject var welcomeViewModel = WelcomeViewModel()
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    @EnvironmentObject var navigationManager: NavigationManager
     
     var body: some View {
         GeometryReader { geometry in
@@ -14,9 +13,6 @@ struct WelcomeView: View {
                     getStartedButton
                     Spacer()
                     historyButton
-                        .sheet(isPresented: $welcomeViewModel.showHistory) {
-                            HistoryView()
-                        }
                 }
                 .frame(height: geometry.size.height * 0.7)
             }
@@ -25,7 +21,7 @@ struct WelcomeView: View {
     
     var getStartedButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.getStarted) {
-            selectedTabManager.goToFirstTab()
+            navigationManager.goToFirstTab()
         }
         .frame(width: 250, height: 50, alignment: .center)
         .padding(40)
@@ -33,7 +29,7 @@ struct WelcomeView: View {
     
     var historyButton: some View {
         Button(action: {
-            welcomeViewModel.showHistoryToggle
+            navigationManager.showHistory()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)

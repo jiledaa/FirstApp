@@ -1,24 +1,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var selectedTabManager = SelectedTabManager()
+    @StateObject var navigationManager = NavigationManager()
 
     var body: some View {
         ZStack(alignment: .top) {
             GradientBackground()
             HeaderView()
-            TabView(selection: $selectedTabManager.selectedTab) {
+            TabView(selection: $navigationManager.selectedTab) {
                 WelcomeView()
-                    .tag(9)
+                    .tag(-1)
                 ForEach(0 ..< Exercise.exercises.count) { index in
-                    // TODO: predelat ViewModel
+                    // this is okay now, we don't store anything in the view model
+                    // so there is no problem with it beeing recomputed every time
                     ExerciseView(exerciseViewModel: .init(index: index))
                         .tag(index)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .sheet(item: $navigationManager.modal, content: Modal.init)
         }
-        .environmentObject(selectedTabManager)
+        .environmentObject(navigationManager)
     }
 }
 

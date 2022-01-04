@@ -2,9 +2,9 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-    @ObservedObject var exerciseViewModel: ExercisesViewModel
-    @EnvironmentObject var history: HistoryViewModel
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    @EnvironmentObject var navigationManager: NavigationManager
+    // view model doesn't have any @Published properties so we don't need to observe it
+    var exerciseViewModel: ExercisesViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -21,35 +21,6 @@ struct ExerciseView: View {
                     }
                 }
                 .frame(height: geometry.size.height * 0.8)
-                .sheet(
-                    isPresented: $exerciseViewModel.showSheet,
-                    onDismiss: exerciseViewModel.onDismissLogic
-                ) {
-                    switchLogic
-                }
-            }
-           // .onChange(of: exerciseViewModel.shouldAddExercise) {
-           //     if $0 {
-           //         history.addDoneExercise(Exercise.exercises[exerciseViewModel.index].exerciseName)
-           //     }
-           // }
-            .onAppear {
-                exerciseViewModel.addDoneExercise = history.addDoneExercise
-                exerciseViewModel.goToNextTab = selectedTabManager.goToNextTab
-            }
-        }
-    }
-
-    @ViewBuilder
-    var switchLogic: some View {
-        if let exerciseSheet = exerciseViewModel.exerciseSheet, exerciseViewModel.indexLimit {
-            switch exerciseSheet {
-            case .history:
-                HistoryView()
-            case .timer:
-                TimerView()
-            case .success:
-                SuccessView()
             }
         }
     }
@@ -71,7 +42,7 @@ struct ExerciseView: View {
 
     private var startExerciseButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
-            exerciseViewModel.startExerciseButtonTapped()
+            navigationManager.showTimer()
         }
         .frame(width: 250, height: 50, alignment: .center)
         .padding(100)
@@ -79,7 +50,7 @@ struct ExerciseView: View {
 
     var historyButton: some View {
         Button(action: {
-            exerciseViewModel.historyButtonTapped()
+            navigationManager.showHistory()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)
