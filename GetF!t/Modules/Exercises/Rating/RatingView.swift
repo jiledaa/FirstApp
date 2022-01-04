@@ -1,19 +1,18 @@
 import SwiftUI
 
 struct RatingView: View {
-    @ObservedObject var ratingViewModel: RatingViewModel
-    @AppStorage(StringProvider.ratingsString) private var ratings = ""
+    @StateObject var ratingViewModel = RatingViewModel()
+//    @AppStorage(StringProvider.ratingsString) private var ratings = ""
 
-    let onColor = Color(StringProvider.ratingsString)
+    let onColor = ColorProvider.ratings
     let offColor = Color.gray
-
+    let exerciseIndex: Int
     var body: some View {
         VStack {
             HStack {
                 forEach
             }
             .font(.largeTitle)
-            
             HStack {
                 ImageProvider.battery100
                     .foregroundColor(.green)
@@ -29,34 +28,32 @@ struct RatingView: View {
                     .padding(.leading, 15)
             }.padding(-5)
         }
+        .onAppear {
+            ratingViewModel.loadRating(exerciseIndex: exerciseIndex)
+        }
     }
 
     private var forEach: some View {
         ForEach(1 ..< ratingViewModel.maximumRating + 1, id: \.self) { index in
-            Button(action: {ratingViewModel.updateRating(index: index)}) {
+            Button(action: {
+                ratingViewModel.updateRating(index: index, exerciseIndex: exerciseIndex)
+            }) {
                 ImageProvider.waveform
                     .foregroundColor(
                         ratingViewModel.ratingActive(index) ? offColor : onColor)
                     .font(.title3)
             }
             .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
-            .onChange(of: self.ratings) { _ in
-                ratingViewModel.convertRating()
-            }
-            .onAppear {
-                ratingViewModel.convertRating()
-            }
         }
     }
-
 }
 
 
 struct RatingView_Previews: PreviewProvider {
-    @AppStorage(StringProvider.ratingsString) static var ratings: String?
+//    @AppStorage(StringProvider.ratingsString) static var ratings: String?
     static var previews: some View {
-        ratings = nil
-        return RatingView(ratingViewModel: RatingViewModel.init(exerciseIndex: 0))
+//       ratingViewModel.rating = nil
+        return RatingView(exerciseIndex: 0)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }
