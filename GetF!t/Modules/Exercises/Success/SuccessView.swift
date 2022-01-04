@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SuccessView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         ZStack {
@@ -34,7 +34,7 @@ struct SuccessView: View {
                 HeaderView()
                 Spacer()
                 RaisedButton(buttonText: LocalizedStringProvider.Button.continue) {
-                    selectedTabManager.goToWelcomeView()
+                    appState.goToWelcomeView()
                     presentationMode.wrappedValue.dismiss()
                 }
                 .font(.largeTitle)

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @StateObject var welcomeViewModel = WelcomeViewModel()
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         GeometryReader { geometry in
@@ -25,7 +25,7 @@ struct WelcomeView: View {
     
     var getStartedButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.getStarted) {
-            selectedTabManager.goToFirstTab()
+            appState.goToFirstTab()
         }
         .frame(width: 250, height: 50, alignment: .center)
         .padding(40)

@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var selectedTabManager = SelectedTabManager()
+    @StateObject var appState = AppState()
 
     var body: some View {
         ZStack(alignment: .top) {
             GradientBackground()
             HeaderView()
-            TabView(selection: $selectedTabManager.selectedTab) {
+            TabView(selection: $appState.selectedTab) {
                 WelcomeView()
                     .tag(9)
                 ForEach(0 ..< Exercise.exercises.count) { index in
@@ -18,7 +18,7 @@ struct ContentView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
-        .environmentObject(selectedTabManager)
+        .environmentObject(appState)
     }
 }
 

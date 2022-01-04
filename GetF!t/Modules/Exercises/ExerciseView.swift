@@ -4,7 +4,7 @@ import AVKit
 struct ExerciseView: View {
     @ObservedObject var exerciseViewModel: ExercisesViewModel
     @EnvironmentObject var history: HistoryViewModel
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    @EnvironmentObject var appState: AppState
 
     var body: some View {
         GeometryReader { geometry in
@@ -35,7 +35,7 @@ struct ExerciseView: View {
            // }
             .onAppear {
                 exerciseViewModel.addDoneExercise = history.addDoneExercise
-                exerciseViewModel.goToNextTab = selectedTabManager.goToNextTab
+                exerciseViewModel.goToNextTab = appState.goToNextTab
             }
         }
     }

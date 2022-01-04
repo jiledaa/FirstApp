@@ -3,7 +3,7 @@ import SwiftUI
 struct TimerView: View {
     @StateObject var timerViewModel = TimerViewModel()
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         GeometryReader { geometry in
@@ -16,7 +16,7 @@ struct TimerView: View {
                             .mask(circle(size: geometry.size))
                     )
                 VStack {
-                    Text(selectedTabManager.titleText)
+                    Text(appState.titleText)
                         .font(.largeTitle)
                         .fontWeight(.black)
                         .foregroundColor(.white)

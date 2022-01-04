@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-class SelectedTabManager: ObservableObject {
+class AppState: ObservableObject {
     @Published var selectedTab = 9
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
 
