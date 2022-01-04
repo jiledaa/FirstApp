@@ -37,12 +37,14 @@ struct HistoryBarView: View {
                             color: ColorProvider.dropHighlight,
                             radius: 4,
                             x: -4,
-                            y: -4)
+                            y: -4
+                        )
                         .shadow(
                             color: ColorProvider.dropShadow,
                             radius: 4,
                             x: 4,
-                            y: 4)
+                            y: 4
+                        )
                     RoundedRectangle(cornerRadius: 6)
                         .padding(12)
                         .foregroundColor(ColorProvider.historyBar)
@@ -52,9 +54,9 @@ struct HistoryBarView: View {
             Text(date.truncatedDayName)
             Text(date.truncatedDayMonth)
         }
-            .frame(width: size.width / 9)
-            .font(.caption)
-            .foregroundColor(Color.primary)
+        .frame(width: size.width / 9)
+        .font(.caption)
+        .foregroundColor(Color.primary)
         return AnyView(view)
     }
 }

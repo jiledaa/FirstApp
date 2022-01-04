@@ -26,10 +26,10 @@ struct Container_Previews: PreviewProvider {
     static var previews: some View {
         ContainerView {
             VStack {
-                RaisedButton(buttonText: LocalizedStringProvider.Button.history) {}
-                .padding(50)
-                Button(LocalizedStringProvider.Button.history) {}
-                .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+                RaisedButton(buttonText: LocalizedStringProvider.Button.history, action: {})
+                    .padding(50)
+                Button(LocalizedStringProvider.Button.history, action: {})
+                    .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
             }
         }
         .padding(50)

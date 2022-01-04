@@ -38,10 +38,12 @@ struct TimerView: View {
         }
         .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6,
                 x: timerViewModel.dropShadowParameter,
-                y: timerViewModel.dropShadowParameter)
+                y: timerViewModel.dropShadowParameter
+        )
         .shadow(color: ColorProvider.dropHighlight, radius: 6,
                 x: timerViewModel.dropHighlightParameter,
-                y: timerViewModel.dropHighlightParameter)
+                y: timerViewModel.dropHighlightParameter
+        )
     }
 
     private var doneButton: some View {
@@ -50,7 +52,7 @@ struct TimerView: View {
             navigationManager.goToNextTab()
         }
         .opacity(timerViewModel.opacity)
-        .padding([.leading, .trailing], 30)
+        .padding(.horizontal, 30)
         .padding(.bottom, 60)
     }
     
@@ -62,7 +64,8 @@ struct TimerView: View {
                 minWidth: 180,
                 maxWidth: 200,
                 minHeight: 180,
-                maxHeight: 200)
+                maxHeight: 200
+            )
             .padding()
             .onReceive(timerViewModel.timer, perform: timerViewModel.onTimeOver)
     }
@@ -71,10 +74,12 @@ struct TimerView: View {
         Circle()
             .frame(
                 width: size.width,
-                height: size.height)
+                height: size.height
+            )
             .position(
                 x: size.width * 0.5,
-                y: -size.width * 0.2)
+                y: -size.width * 0.2
+            )
     }
 }
 

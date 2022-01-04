@@ -17,7 +17,7 @@ struct RaisedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: 250, maxHeight: 50)
-            .padding([.top, .bottom], 12)
+            .padding(.vertical, 12)
             .background(
                 Capsule()
                     .foregroundColor(ColorProvider.background)

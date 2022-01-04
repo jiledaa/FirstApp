@@ -66,7 +66,8 @@ extension Date {
             Calendar.current.date(
                 byAdding: .day,
                 value: day,
-                to: Date()) ?? Date()
+                to: Date()
+            ) ?? Date()
         }
     }
 }

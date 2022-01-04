@@ -17,7 +17,7 @@ struct HistoryListView: View {
                         },
                     footer:
                         Divider()
-                        .padding(.top, 40)
+                            .padding(.top, 40)
                 ) {
                     HStack(spacing: 40) {
                         ForEach(0..<min(day.exercises.count, 4)) { index in

@@ -27,7 +27,8 @@ struct RatingView: View {
                     .foregroundColor(.green)
                     .font(.title)
                     .padding(.leading, 15)
-            }.padding(-5)
+            }
+            .padding(-5)
         }
         .onAppear {
             ratingViewModel.loadRating(exerciseIndex: exerciseIndex)
@@ -41,7 +42,8 @@ struct RatingView: View {
             }) {
                 ImageProvider.waveform
                     .foregroundColor(
-                        ratingViewModel.ratingActive(index) ? offColor : onColor)
+                        ratingViewModel.ratingActive(index) ? offColor : onColor
+                    )
                     .font(.title3)
             }
             .buttonStyle(EmbossedButtonStyle(buttonShape: .round))

@@ -20,7 +20,8 @@ struct IndentView<Content: View>: View {
                             .foregroundColor(ColorProvider.background)
                             .clipShape(Circle().inset(by: -1))
                             .resized(size: geometry.size)
-                    })
+                    }
+                )
         }
     }
 }
@@ -30,9 +31,9 @@ private extension View {
         self
             .frame(
                 width: max(size.width, size.height),
-                height: max(size.width, size.height))
-            .offset(y: -max(size.width, size.height) / 2
-                    + min(size.width, size.height) / 2)
+                height: max(size.width, size.height)
+            )
+            .offset(y: -max(size.width, size.height) / 2 + min(size.width, size.height) / 2)
     }
 }
 

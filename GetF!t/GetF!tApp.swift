@@ -4,7 +4,7 @@ import SwiftUI
 struct GetFit: App {
     @StateObject private var historyStore: HistoryViewModel
     @State private var showAlert = false
-
+    
     init() {
         let historyStore: HistoryViewModel
         do {
@@ -16,7 +16,7 @@ struct GetFit: App {
         }
         _historyStore = StateObject(wrappedValue: historyStore)
     }
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -24,7 +24,8 @@ struct GetFit: App {
                 .onAppear {
                     print(FileManager.default.urls(
                         for: .documentDirectory,
-                           in: .userDomainMask))
+                        in: .userDomainMask
+                    ))
                 }
                 .alert(isPresented: $showAlert) {
                     Alert(

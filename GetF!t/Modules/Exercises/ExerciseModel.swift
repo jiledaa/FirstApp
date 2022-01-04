@@ -3,6 +3,7 @@ import SwiftUI
 struct Exercise {
     let exerciseName: LocalizedStringKey
     let videoName: String
+    
     enum ExerciseEnum {
         case squat
         case stepUp

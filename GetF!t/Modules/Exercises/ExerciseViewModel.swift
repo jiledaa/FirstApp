@@ -10,6 +10,7 @@ struct ExercisesViewModel {
     var videoURL: URL? {
         Bundle.main.url(
             forResource: Exercise.exercises[index].videoName,
-            withExtension: "mp4")
+            withExtension: "mp4"
+        )
     }
 }

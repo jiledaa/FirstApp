@@ -40,14 +40,14 @@ struct HistoryView: View {
                 Button(action: {
                 }) {
                     ImageProvider.squareGrid2x2Fill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal, 20)
                 }
                 .buttonStyle(EmbossedButtonStyle())
                 Button(action: {
                     historyViewModel.layoutType = .bar
                 }) {
                     ImageProvider.chartBarFill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal, 20)
                         .foregroundColor(.gray)
                 }
                 .buttonStyle(EmbossedButtonStyle())
@@ -56,14 +56,14 @@ struct HistoryView: View {
                     historyViewModel.layoutType = .list
                 }) {
                     ImageProvider.squareGrid2x2Fill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal, 20)
                         .foregroundColor(.gray)
                 }
                 .buttonStyle(EmbossedButtonStyle())
                 Button(action: {
                 }) {
                     ImageProvider.chartBarFill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal, 20)
                 }
                 .buttonStyle(EmbossedButtonStyle())
             }
