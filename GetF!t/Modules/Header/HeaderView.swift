@@ -34,10 +34,12 @@ struct HeaderView_Previews: PreviewProvider {
         Group {
             HeaderView()
                 .previewLayout(.sizeThatFits)
+                .environmentObject(NavigationManager())
             HeaderView()
                 .preferredColorScheme(.dark)
                 .environment(\.sizeCategory, .accessibilityLarge)
                 .previewLayout(.sizeThatFits)
+                .environmentObject(NavigationManager())
         }
     }
 }
