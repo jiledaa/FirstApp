@@ -270,8 +270,8 @@
 			children = (
 				CD30C92C251474DD0049DB93 /* Info.plist */,
 				CD30C923251474DC0049DB93 /* GetF!tApp.swift */,
-				16A91487273965A0001D82A6 /* ContentView.swift */,
 				16A9B13A276BBD34004F68FD /* AppState.swift */,
+				16A91487273965A0001D82A6 /* ContentView.swift */,
 				168E9925276382EF00B0406A /* Modules */,
 				168E99212763524500B0406A /* Shared */,
 				168E99202763508300B0406A /* Extensions */,

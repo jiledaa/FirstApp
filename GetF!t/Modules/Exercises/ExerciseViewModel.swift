@@ -4,7 +4,7 @@ class ExercisesViewModel: ObservableObject {
     @Published var showSheet = false
     @Published var showHistory = false
     @Published var exerciseSheet: ExerciseSheet?
-    @Published var shouldAddExercise = false
+//    @Published var shouldAddExercise = false
 
     var timerDone = false
     var showSuccess = false

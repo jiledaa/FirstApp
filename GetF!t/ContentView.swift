@@ -2,7 +2,8 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var appState = AppState()
-
+    @EnvironmentObject var history: HistoryViewModel
+    
     var body: some View {
         ZStack(alignment: .top) {
             GradientBackground()
@@ -19,6 +20,9 @@ struct ContentView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
         .environmentObject(appState)
+        .onAppear {
+            appState.addDoneExercise = history.addDoneExercise
+        }
     }
 }
 
