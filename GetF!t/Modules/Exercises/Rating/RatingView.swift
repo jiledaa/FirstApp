@@ -7,6 +7,7 @@ struct RatingView: View {
     let onColor = ColorProvider.ratings
     let offColor = Color.gray
     let exerciseIndex: Int
+    
     var body: some View {
         VStack {
             HStack {

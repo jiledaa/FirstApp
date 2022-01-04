@@ -64,6 +64,6 @@ struct ExerciseView: View {
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ExerciseView(exerciseViewModel: ExercisesViewModel.init(index: 0))
-            .environmentObject(HistoryViewModel())
+            .environmentObject(NavigationManager())
     }
 }
