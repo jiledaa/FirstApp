@@ -4,7 +4,7 @@ import SwiftUI
 class NavigationManager: ObservableObject {
     @Published var selectedTab = -1
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
-    @Published var modal: ModalType?
+    @Published var modal: Modal?
     
     let maxTabs = Exercise.exercises.count
     

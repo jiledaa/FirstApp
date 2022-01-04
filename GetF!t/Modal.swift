@@ -1,22 +1,11 @@
-import SwiftUI
+import Foundation
 
-struct Modal: View {
-    let modalType: ModalType
-    
-    var body: some View {
-        switch modalType {
-        case .timer:
-            TimerView()
-        case .history:
-            HistoryView()
-        case .successView:
-            SuccessView()
-        }
-    }
+enum Modal {
+    case timer
+    case history
+    case successView
 }
 
-struct Modal_Previews: PreviewProvider {
-    static var previews: some View {
-        Modal(modalType: .history)
-    }
+extension Modal: Identifiable {
+    var id: Self { self }
 }

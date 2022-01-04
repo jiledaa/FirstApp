@@ -18,7 +18,7 @@ struct ContentView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .sheet(item: $navigationManager.modal, content: Modal.init)
+            .sheet(item: $navigationManager.modal, content: ModalView.init)
         }
         .environmentObject(navigationManager)
     }
