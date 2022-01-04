@@ -10,30 +10,17 @@ struct RatingView: View {
     var body: some View {
         VStack {
             HStack {
-                forEach
+                rating
             }
             .font(.largeTitle)
-            HStack {
-                ImageProvider.battery100
-                    .foregroundColor(.green)
-                    .font(.title)
-                    .padding(.trailing, 15)
-                ImageProvider.battery50
-                    .foregroundColor(.green)
-                    .font(.title)
-                    .padding(.horizontal, 15)
-                ImageProvider.battery0
-                    .foregroundColor(.green)
-                    .font(.title)
-                    .padding(.leading, 15)
-            }.padding(-5)
+            .padding(.vertical, 40)
         }
         .onAppear {
             ratingViewModel.loadRating(exerciseIndex: exerciseIndex)
         }
     }
 
-    private var forEach: some View {
+    private var rating: some View {
         ForEach(1 ..< ratingViewModel.maximumRating + 1, id: \.self) { index in
             Button(action: {
                 ratingViewModel.updateRating(index: index, exerciseIndex: exerciseIndex)
@@ -43,7 +30,7 @@ struct RatingView: View {
                         ratingViewModel.ratingActive(index) ? offColor : onColor)
                     .font(.title3)
             }
-            .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+            .buttonStyle(EmbossedButton(buttonShape: .round))
         }
     }
 }

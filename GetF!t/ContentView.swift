@@ -7,22 +7,55 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
             GradientBackground()
-            HeaderView()
-            TabView(selection: $appState.selectedTab) {
-                WelcomeView()
-                    .tag(9)
-                ForEach(0 ..< Exercise.exercises.count) { index in
-                    // TODO: predelat ViewModel
-                    ExerciseView(exerciseViewModel: .init(index: index))
-                        .tag(index)
+            VStack {
+                HeaderView()
+                TabView(selection: $appState.selectedTab) {
+                    WelcomeView()
+                        .tag(9)
+                    ForEach(0 ..< Exercise.exercises.count) { index in
+                        // TODO: predelat ViewModel
+                        ExerciseView(exerciseViewModel: .init(index: index))
+                            .tag(index)
+                    }
                 }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                historyButton
+                    .sheet(isPresented: $appState.showHistory) {
+                        HistoryView()
+                    }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
         .environmentObject(appState)
         .onAppear {
             appState.addDoneExercise = history.addDoneExercise
         }
+    }
+
+    @ViewBuilder
+    var switchLogic: some View {
+        if let exerciseSheet = appState.sheetType {
+            switch exerciseSheet {
+            case .history:
+                HistoryView()
+            case .timer:
+                TimerView()
+            case .success:
+                SuccessView()
+            }
+        }
+    }
+
+    var historyButton: some View {
+        Button(action: {
+            appState.showHistoryToggle
+        }) {
+            Text(LocalizedStringProvider.Button.history)
+                .fontWeight(.bold)
+                .padding([.leading, .trailing], 5)
+        }
+
+        .padding(.bottom)
+        .buttonStyle(EmbossedButton())
     }
 }
 

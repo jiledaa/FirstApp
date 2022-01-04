@@ -12,37 +12,36 @@ struct ExerciseView: View {
                 Spacer()
                 ContainerView {
                     VStack {
+
                         video(size: geometry.size)
-                        startExerciseButton
                         Spacer()
+                        startExerciseButton
                         RatingView(exerciseIndex: exerciseViewModel.index)
-                            .padding()
-                        historyButton
+                        //                        historyButton
                     }
                 }
-                .frame(height: geometry.size.height * 0.8)
+                .frame(height: geometry.size.height * 1)
                 .sheet(
-                    isPresented: $exerciseViewModel.showSheet,
-                    onDismiss: exerciseViewModel.onDismissLogic
+                    isPresented: $appState.showSheet,
+                    onDismiss: appState.onDismissLogic
                 ) {
                     switchLogic
                 }
             }
-           // .onChange(of: exerciseViewModel.shouldAddExercise) {
-           //     if $0 {
-           //         history.addDoneExercise(Exercise.exercises[exerciseViewModel.index].exerciseName)
-           //     }
-           // }
-            .onAppear {
-                exerciseViewModel.addDoneExercise = history.addDoneExercise
-                exerciseViewModel.goToNextTab = appState.goToNextTab
-            }
+            // .onChange(of: exerciseViewModel.shouldAddExercise) {
+            //     if $0 {
+            //         history.addDoneExercise(Exercise.exercises[exerciseViewModel.index].exerciseName)
+            //     }
+            // }
+            //            .onAppear {
+            //                appState.addDoneExercise = history.addDoneExercise
+            //            }
         }
     }
 
     @ViewBuilder
     var switchLogic: some View {
-        if let exerciseSheet = exerciseViewModel.exerciseSheet, exerciseViewModel.indexLimit {
+        if let exerciseSheet = appState.sheetType {
             switch exerciseSheet {
             case .history:
                 HistoryView()
@@ -56,37 +55,34 @@ struct ExerciseView: View {
 
     @ViewBuilder
     private func video(size: CGSize) -> some View {
-        if exerciseViewModel.indexLimit {
-            if let url = exerciseViewModel.videoURL {
-                VideoPlayer(player: AVPlayer(url: url))
-                    .frame(height: size.height * 0.25)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .padding(20)
-            } else {
-                Text(LocalizedStringProvider.Errors.couldntFind)
-                    .foregroundColor(.red)
-            }
+        if let url = exerciseViewModel.videoURL {
+            VideoPlayer(player: AVPlayer(url: url))
+                .frame(height: size.height * 0.55)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .padding(20)
+        } else {
+            Text(LocalizedStringProvider.Errors.couldntFind)
+                .foregroundColor(.red)
         }
     }
 
     private var startExerciseButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
-            exerciseViewModel.startExerciseButtonTapped()
+            appState.startExerciseButtonTapped()
         }
         .frame(width: 250, height: 50, alignment: .center)
-        .padding(100)
     }
 
     var historyButton: some View {
         Button(action: {
-            exerciseViewModel.historyButtonTapped()
+            appState.historyButtonTapped()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)
                 .padding([.leading, .trailing], 5)
         }
         .padding(.bottom, 10)
-        .buttonStyle(EmbossedButtonStyle())
+        .buttonStyle(EmbossedButton())
     }
 }
 

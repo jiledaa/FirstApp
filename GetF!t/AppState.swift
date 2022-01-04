@@ -86,6 +86,10 @@ class AppState: ObservableObject {
         sheetType = .timer
     }
 
+        var showHistoryToggle: () {
+            showHistory.toggle()
+        }
+
     func historyButtonTapped() {
         showSheet = true
         showHistory = true

@@ -22,7 +22,6 @@ struct RaisedButtonStyle: ButtonStyle {
                 Capsule()
                     .foregroundColor(ColorProvider.background)
                     .shadow(color: ColorProvider.dropShadow, radius: 4, x: -6, y: 2)
-                    .shadow(color: ColorProvider.dropHighlight, radius: 4, x: -6, y: -6)
             )
     }
 }

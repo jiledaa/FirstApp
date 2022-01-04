@@ -9,15 +9,15 @@ struct SuccessView: View {
             VStack {
                 HStack {
                     ImageProvider.person3Fill
-                        .resizedToFill(width: 180, height: 110)
+                        .resizedToFill(width: 180, height: 110, ratio: 1)
                         .foregroundColor(.purple)
                     ImageProvider.handRaised
-                        .resizedToFill(width: 0, height: 75)
+                        .resizedToFill(width: 0, height: 75, ratio: 1)
                         .foregroundColor(.red)
                         .padding(115)
                         .rotation3DEffect(Angle(degrees: 270), axis: (x: 20.0, y: 40.0, z: 40.0))
                     ImageProvider.personWave2Fill
-                        .resizedToFill(width: 0, height: 140)
+                        .resizedToFill(width: 0, height: 140, ratio: 1)
                         .foregroundColor(.red)
                         .padding()
                         .rotation3DEffect(Angle(degrees: 180), axis: (x: 0, y: 1, z: 0))

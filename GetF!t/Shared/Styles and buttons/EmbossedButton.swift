@@ -4,7 +4,7 @@ enum EmbossedButtonShape {
     case round, capsule
 }
 
-struct EmbossedButtonStyle: ButtonStyle {
+struct EmbossedButton: ButtonStyle {
     var buttonShape = EmbossedButtonShape.capsule
 
     func makeBody(configuration: Configuration) -> some View {
@@ -48,7 +48,7 @@ struct EmbossedButton_Previews: PreviewProvider {
                 Text(LocalizedStringProvider.Button.history)
                     .fontWeight(.bold)
             }
-            .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+            .buttonStyle(EmbossedButton(buttonShape: .round))
             .padding(40)
             .previewLayout(.sizeThatFits)
             Button(action: {}) {
@@ -56,7 +56,7 @@ struct EmbossedButton_Previews: PreviewProvider {
                     .fontWeight(.bold)
             }
             .preferredColorScheme(.dark)
-            .buttonStyle(EmbossedButtonStyle())
+            .buttonStyle(EmbossedButton())
             .padding(40)
             .previewLayout(.sizeThatFits)
         }

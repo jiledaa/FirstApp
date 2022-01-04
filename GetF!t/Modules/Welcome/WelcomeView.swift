@@ -6,19 +6,16 @@ struct WelcomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
+            Spacer()
             VStack {
+                WelcomeView.images
+                    .padding(.top, 200)
+                getStartedButton
                 Spacer()
-                VStack {
-                    WelcomeView.images
-                        .padding(150)
-                    getStartedButton
-                    Spacer()
-                    historyButton
-                        .sheet(isPresented: $welcomeViewModel.showHistory) {
-                            HistoryView()
-                        }
-                }
-                .frame(height: geometry.size.height * 0.7)
+                //                    historyButton
+                //                        .sheet(isPresented: $welcomeViewModel.showHistory) {
+                //                            HistoryView()
+                //                        }
             }
         }
     }
@@ -28,21 +25,21 @@ struct WelcomeView: View {
             appState.goToFirstTab()
         }
         .frame(width: 250, height: 50, alignment: .center)
-        .padding(40)
+        .padding(.top, 110)
     }
     
-    var historyButton: some View {
-        Button(action: {
-            welcomeViewModel.showHistoryToggle
-        }) {
-            Text(LocalizedStringProvider.Button.history)
-                .fontWeight(.bold)
-                .padding([.leading, .trailing], 5)
-        }
-
-        .padding(.bottom, 200)
-        .buttonStyle(EmbossedButtonStyle())
-    }
+    //    var historyButton: some View {
+    //        Button(action: {
+    //            welcomeViewModel.showHistoryToggle
+    //        }) {
+    //            Text(LocalizedStringProvider.Button.history)
+    //                .fontWeight(.bold)
+    //                .padding([.leading, .trailing], 5)
+    //        }
+    //
+    //        .padding(.bottom, 200)
+    //        .buttonStyle(EmbossedButtonStyle())
+    //    }
 }
 
 struct WelcomeView_Previews: PreviewProvider {
