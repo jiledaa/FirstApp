@@ -42,7 +42,7 @@ struct ExerciseView: View {
 
     private var startExerciseButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
-            navigationManager.showTimer()
+            navigationManager.onStartExerciseTapped()
         }
         .frame(width: 250, height: 50, alignment: .center)
         .padding(100)
@@ -50,7 +50,7 @@ struct ExerciseView: View {
 
     var historyButton: some View {
         Button(action: {
-            navigationManager.showHistory()
+            navigationManager.onShowHistoryTapped()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)

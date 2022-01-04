@@ -46,18 +46,18 @@ class NavigationManager: ObservableObject {
         selectedTab = tab
     }
     
-    // MARK: - modals
+    // MARK: - convenience methods
     
-    func showHistory() {
+    func onShowHistoryTapped() {
         modal = .history
     }
     
-    func showTimer() {
+    func onStartExerciseTapped() {
         modal = .timer
     }
     
-    func showSuccessView() {
-        modal = .successView
+    func onDoneTapped() {
+        goToNextTab()
     }
     
     // MARK: - UI helpers

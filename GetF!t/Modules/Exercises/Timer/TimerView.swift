@@ -2,8 +2,9 @@ import SwiftUI
 
 struct TimerView: View {
     @StateObject var timerViewModel = TimerViewModel()
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var navigationManager: NavigationManager
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         GeometryReader { geometry in

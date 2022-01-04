@@ -29,7 +29,7 @@ struct WelcomeView: View {
     
     var historyButton: some View {
         Button(action: {
-            navigationManager.showHistory()
+            navigationManager.onShowHistoryTapped()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)
