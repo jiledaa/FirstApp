@@ -1,24 +1,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var selectedTabManager = SelectedTabManager()
-
+    @StateObject var navigationManager = NavigationManager()
+    @EnvironmentObject var history: HistoryViewModel
+    
     var body: some View {
         ZStack(alignment: .top) {
             GradientBackground()
-            HeaderView()
-            TabView(selection: $selectedTabManager.selectedTab) {
-                WelcomeView()
-                    .tag(9)
-                ForEach(0 ..< Exercise.exercises.count) { index in
-                    // TODO: predelat ViewModel
-                    ExerciseView(exerciseViewModel: .init(index: index))
-                        .tag(index)
+            VStack {
+                HeaderView()
+                TabView(selection: $navigationManager.selectedTab) {
+                    WelcomeView()
+                        .tag(-1)
+                    ForEach(0 ..< Exercise.exercises.count) { index in
+                        ExerciseView(exerciseViewModel: .init(index: index))
+                            .tag(index)
+                    }
                 }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .sheet(item: $navigationManager.modal, content: ModalView.init)
+                historyButton
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
-        .environmentObject(selectedTabManager)
+        .environmentObject(navigationManager)
+        .onAppear {
+//            navigationManager.addDoneExercise = history.addDoneExercise
+        }
+    }
+
+    var historyButton: some View {
+        Button(action: {
+            navigationManager.onShowHistoryTapped()
+        }) {
+            Text(LocalizedStringProvider.Button.history)
+                .fontWeight(.bold)
+                .padding([.leading, .trailing], 5)
+        }
+
+        .padding(.bottom)
+        .buttonStyle(EmbossedButton())
     }
 }
 

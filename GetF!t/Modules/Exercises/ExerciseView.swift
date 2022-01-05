@@ -2,9 +2,9 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-    @ObservedObject var exerciseViewModel: ExercisesViewModel
-    @EnvironmentObject var history: HistoryViewModel
-    @EnvironmentObject var selectedTabManager: SelectedTabManager
+    @EnvironmentObject var navigationManager: NavigationManager
+
+    var exerciseViewModel: ExercisesViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -13,80 +13,46 @@ struct ExerciseView: View {
                 ContainerView {
                     VStack {
                         video(size: geometry.size)
-                        startExerciseButton
                         Spacer()
+                        startExerciseButton
                         RatingView(exerciseIndex: exerciseViewModel.index)
-                            .padding()
-                        historyButton
                     }
                 }
-                .frame(height: geometry.size.height * 0.8)
-                .sheet(
-                    isPresented: $exerciseViewModel.showSheet,
-                    onDismiss: exerciseViewModel.onDismissLogic
-                ) {
-                    switchLogic
-                }
-            }
-           // .onChange(of: exerciseViewModel.shouldAddExercise) {
-           //     if $0 {
-           //         history.addDoneExercise(Exercise.exercises[exerciseViewModel.index].exerciseName)
-           //     }
-           // }
-            .onAppear {
-                exerciseViewModel.addDoneExercise = history.addDoneExercise
-                exerciseViewModel.goToNextTab = selectedTabManager.goToNextTab
-            }
-        }
-    }
-
-    @ViewBuilder
-    var switchLogic: some View {
-        if let exerciseSheet = exerciseViewModel.exerciseSheet, exerciseViewModel.indexLimit {
-            switch exerciseSheet {
-            case .history:
-                HistoryView()
-            case .timer:
-                TimerView()
-            case .success:
-                SuccessView()
+                .frame(height: geometry.size.height * 1)
             }
         }
     }
 
     @ViewBuilder
     private func video(size: CGSize) -> some View {
-        if exerciseViewModel.indexLimit {
-            if let url = exerciseViewModel.videoURL {
-                VideoPlayer(player: AVPlayer(url: url))
-                    .frame(height: size.height * 0.25)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .padding(20)
-            } else {
-                Text(LocalizedStringProvider.Errors.couldntFind)
-                    .foregroundColor(.red)
-            }
+        if let url = exerciseViewModel.videoURL {
+            VideoPlayer(player: AVPlayer(url: url))
+                .frame(height: size.height * 0.55)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .padding(20)
+        } else {
+            Text(LocalizedStringProvider.Errors.couldntFind)
+                .foregroundColor(.red)
         }
     }
 
     private var startExerciseButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
-            exerciseViewModel.startExerciseButtonTapped()
+            navigationManager.onStartExerciseTapped()
         }
         .frame(width: 250, height: 50, alignment: .center)
-        .padding(100)
     }
 
     var historyButton: some View {
         Button(action: {
-            exerciseViewModel.historyButtonTapped()
+            navigationManager.onShowHistoryTapped()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)
                 .padding([.leading, .trailing], 5)
         }
         .padding(.bottom, 10)
-        .buttonStyle(EmbossedButtonStyle())
+        .buttonStyle(EmbossedButton())
     }
 }
 

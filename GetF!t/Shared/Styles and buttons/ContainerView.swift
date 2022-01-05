@@ -29,7 +29,7 @@ struct Container_Previews: PreviewProvider {
                 RaisedButton(buttonText: LocalizedStringProvider.Button.history) {}
                 .padding(50)
                 Button(LocalizedStringProvider.Button.history) {}
-                .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+                .buttonStyle(EmbossedButton(buttonShape: .round))
             }
         }
         .padding(50)

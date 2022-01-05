@@ -7,7 +7,7 @@ struct GradientBackground: View {
         return Gradient(
             stops: [
                 Gradient.Stop(color: color1, location: 0),
-                Gradient.Stop(color: color2, location: 0.9),
+                Gradient.Stop(color: color2, location: 0.99),
             ])
     }
     
