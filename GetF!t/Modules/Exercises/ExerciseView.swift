@@ -3,8 +3,9 @@ import AVKit
 
 struct ExerciseView: View {
     @EnvironmentObject var navigationManager: NavigationManager
+    @StateObject var ratingViewModel = RatingViewModel()
 
-    var exerciseViewModel: ExercisesViewModel
+    let exerciseViewModel: ExercisesViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -15,11 +16,14 @@ struct ExerciseView: View {
                         video(size: geometry.size)
                         Spacer()
                         startExerciseButton
-                        RatingView(exerciseIndex: exerciseViewModel.index)
+                        RatingView(ratingViewModel: ratingViewModel)
                     }
                 }
                 .frame(height: geometry.size.height * 1)
             }
+        }
+        .onAppear{
+            ratingViewModel.loadRating(exercise: exerciseViewModel.exercise)
         }
     }
 
@@ -42,23 +46,11 @@ struct ExerciseView: View {
         }
         .frame(width: 250, height: 50, alignment: .center)
     }
-
-    var historyButton: some View {
-        Button(action: {
-            navigationManager.onShowHistoryTapped()
-        }) {
-            Text(LocalizedStringProvider.Button.history)
-                .fontWeight(.bold)
-                .padding([.leading, .trailing], 5)
-        }
-        .padding(.bottom, 10)
-        .buttonStyle(EmbossedButton())
-    }
 }
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(exerciseViewModel: ExercisesViewModel.init(index: 0))
+        ExerciseView(exerciseViewModel: .init(exercise: .init(exerciseName: LocalizedStringProvider.ExercisesNames.squat, videoName: StringProvider.ExercisesNamesVideo.squat)))
             .environmentObject(HistoryViewModel())
     }
 }

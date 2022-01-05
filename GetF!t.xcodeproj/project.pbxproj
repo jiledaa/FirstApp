@@ -149,8 +149,8 @@
 		168602C72768ACC700A7CFCA /* Rating */ = {
 			isa = PBXGroup;
 			children = (
-				16A9148F273AA2F6001D82A6 /* RatingView.swift */,
 				168391832756B4FB000DFF7A /* RatingViewModel.swift */,
+				16A9148F273AA2F6001D82A6 /* RatingView.swift */,
 			);
 			path = Rating;
 			sourceTree = "<group>";

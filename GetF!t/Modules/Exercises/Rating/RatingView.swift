@@ -1,12 +1,10 @@
 import SwiftUI
 
 struct RatingView: View {
-    @StateObject var ratingViewModel = RatingViewModel()
-//    @AppStorage(StringProvider.ratingsString) private var ratings = ""
+    @ObservedObject var ratingViewModel: RatingViewModel
 
     let onColor = ColorProvider.ratings
     let offColor = Color.gray
-    let exerciseIndex: Int
     var body: some View {
         VStack {
             HStack {
@@ -15,15 +13,12 @@ struct RatingView: View {
             .font(.largeTitle)
             .padding(.vertical, 40)
         }
-        .onAppear {
-            ratingViewModel.loadRating(exerciseIndex: exerciseIndex)
-        }
     }
 
     private var rating: some View {
         ForEach(1 ..< ratingViewModel.maximumRating + 1, id: \.self) { index in
             Button(action: {
-                ratingViewModel.updateRating(index: index, exerciseIndex: exerciseIndex)
+                ratingViewModel.updateRating(index: index)
             }) {
                 ImageProvider.waveform
                     .foregroundColor(
@@ -37,10 +32,8 @@ struct RatingView: View {
 
 
 struct RatingView_Previews: PreviewProvider {
-//    @AppStorage(StringProvider.ratingsString) static var ratings: String?
     static var previews: some View {
-//       ratingViewModel.rating = nil
-        return RatingView(exerciseIndex: 0)
+        return RatingView(ratingViewModel: .init())
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }
