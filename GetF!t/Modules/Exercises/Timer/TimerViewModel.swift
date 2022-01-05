@@ -2,7 +2,10 @@ import SwiftUI
 
 class TimerViewModel: ObservableObject {
     @Published var timeRemaining = 3
-    @Published var timerDone = false
+
+    var timeOver: Bool {
+        timeRemaining == 0
+    }
 
     let timer = Timer.publish(
         every: 1,
@@ -23,10 +26,10 @@ class TimerViewModel: ObservableObject {
     }
 
     func onTimeOver(_ timerValue: Date) -> Void {
-        if !timeOver {
-            timeRemaining -= 1
+        if timeOver {
+            timer.upstream.connect().cancel()
         } else {
-            timerDone = true
+            timeRemaining -= 1
         }
     }
 }

@@ -13,7 +13,6 @@ struct ContentView: View {
                     WelcomeView()
                         .tag(-1)
                     ForEach(0 ..< Exercise.exercises.count) { index in
-                        // TODO: predelat ViewModel
                         ExerciseView(exerciseViewModel: .init(index: index))
                             .tag(index)
                     }
@@ -21,20 +20,17 @@ struct ContentView: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .sheet(item: $navigationManager.modal, content: ModalView.init)
                 historyButton
-                    .sheet(isPresented: $navigationManager.showHistory) {
-                        HistoryView()
-                    }
             }
         }
         .environmentObject(navigationManager)
         .onAppear {
-            navigationManager.addDoneExercise = history.addDoneExercise
+//            navigationManager.addDoneExercise = history.addDoneExercise
         }
     }
 
     var historyButton: some View {
         Button(action: {
-            navigationManager.showHistoryToggle
+            navigationManager.onShowHistoryTapped()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)

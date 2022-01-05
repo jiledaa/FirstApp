@@ -36,16 +36,16 @@ class HistoryViewModel: ObservableObject {
         exercisesForWeek = [ExerciseDay](exerciseDays.prefix(7))
 
         let lastWeekExerciseCount: [Int] = days.map { day in
-             let foundDate = exercisesForWeek.filter {
-                 $0.date.yearMonthDay == day.yearMonthDay
-             }
-             return foundDate.first?.exercises.count ?? 0
-         }
+            let foundDate = exercisesForWeek.filter {
+                $0.date.yearMonthDay == day.yearMonthDay
+            }
+            return foundDate.first?.exercises.count ?? 0
+        }
 
-         let maxValue = max(lastWeekExerciseCount.max() ?? 0, 1)
-         countsForWeek = lastWeekExerciseCount.map {
-             $0 * maxBarHeight / maxValue
-         }
+        let maxValue = max(lastWeekExerciseCount.max() ?? 0, 1)
+        countsForWeek = lastWeekExerciseCount.map {
+            $0 * maxBarHeight / maxValue
+        }
     }
 
     init() {
@@ -107,7 +107,7 @@ class HistoryViewModel: ObservableObject {
         }
     }
 
-    func addDoneExercise(_ exerciseName: LocalizedStringKey) {
+    private func addDoneExercise(_ exerciseName: LocalizedStringKey) {
         let today = Date()
         if let firstDate = exerciseDays.first?.date,
            today.isSameDay(as: firstDate) {
@@ -117,6 +117,10 @@ class HistoryViewModel: ObservableObject {
                 ExerciseDay(date: today, exercises: [exerciseName]),
                 at: 0)
         }
+    }
+
+    func onDoneTapped(_ exerciseName: LocalizedStringKey) {
+        addDoneExercise(exerciseName)
     }
 }
 

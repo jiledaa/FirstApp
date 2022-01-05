@@ -4,6 +4,7 @@ struct TimerView: View {
     @StateObject var timerViewModel = TimerViewModel()
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var historyViewModel: HistoryViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -47,6 +48,7 @@ struct TimerView: View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
             presentationMode.wrappedValue.dismiss()
             navigationManager.onDoneTapped()
+            historyViewModel.onDoneTapped(navigationManager.titleText)
         }
         .opacity(timerViewModel.opacity)
         .padding([.leading, .trailing], 30)
