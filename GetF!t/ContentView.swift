@@ -13,7 +13,7 @@ struct ContentView: View {
                     WelcomeView()
                         .tag(-1)
                     ForEach(0 ..< Exercise.exercises.count) { index in
-                        ExerciseView(exerciseViewModel: .init(index: index))
+                        ExerciseView(exerciseViewModel: .init(exercise: Exercise.exercises[index]))
                             .tag(index)
                     }
                 }
@@ -23,9 +23,6 @@ struct ContentView: View {
             }
         }
         .environmentObject(navigationManager)
-        .onAppear {
-//            navigationManager.addDoneExercise = history.addDoneExercise
-        }
     }
 
     var historyButton: some View {
@@ -36,7 +33,6 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding([.leading, .trailing], 5)
         }
-
         .padding(.bottom)
         .buttonStyle(EmbossedButton())
     }
