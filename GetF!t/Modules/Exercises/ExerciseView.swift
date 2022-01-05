@@ -2,9 +2,10 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-    @ObservedObject var exerciseViewModel: ExercisesViewModel
-    @EnvironmentObject var history: HistoryViewModel
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var navigationManager: NavigationManager
+    @StateObject var appState = AppState()
+
+    var exerciseViewModel: ExercisesViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -12,7 +13,6 @@ struct ExerciseView: View {
                 Spacer()
                 ContainerView {
                     VStack {
-
                         video(size: geometry.size)
                         Spacer()
                         startExerciseButton

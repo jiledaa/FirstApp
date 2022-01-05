@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var navigationManager = NavigationManager()
     @StateObject var appState = AppState()
     @EnvironmentObject var history: HistoryViewModel
     
@@ -11,7 +12,7 @@ struct ContentView: View {
                 HeaderView()
                 TabView(selection: $appState.selectedTab) {
                     WelcomeView()
-                        .tag(9)
+                        .tag(-1)
                     ForEach(0 ..< Exercise.exercises.count) { index in
                         // TODO: predelat ViewModel
                         ExerciseView(exerciseViewModel: .init(index: index))
@@ -19,13 +20,14 @@ struct ContentView: View {
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .sheet(item: $navigationManager.modal, content: ModalView.init)
                 historyButton
                     .sheet(isPresented: $appState.showHistory) {
                         HistoryView()
                     }
             }
         }
-        .environmentObject(appState)
+        .environmentObject(navigationManager)
         .onAppear {
             appState.addDoneExercise = history.addDoneExercise
         }

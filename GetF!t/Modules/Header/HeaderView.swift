@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @EnvironmentObject var appState: AppState
+    @StateObject var navigationManager = NavigationManager()
 
     var body: some View {
         VStack {
-            Text(appState.titleText)
+            Text(navigationManager.titleText)
                 .font(.largeTitle)
                 .fontWeight(.black)
                 .foregroundColor(.white)
@@ -15,13 +15,13 @@ struct HeaderView: View {
                         Circle()
                             .frame(width: 32, height: 32)
                             .foregroundColor(.white)
-                            .opacity(appState.opacity(tab))
+                            .opacity(navigationManager.opacity(tab))
                         Circle()
                             .frame(width: 16, height: 16)
                             .foregroundColor(.white)
                     }
                     .onTapGesture {
-                        appState.goTo(tab: tab)
+                        navigationManager.goTo(tab: tab)
                     }
                 }
             }

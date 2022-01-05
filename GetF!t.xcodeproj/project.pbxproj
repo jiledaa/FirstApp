@@ -36,6 +36,9 @@
 		16A9B13B276BBD34004F68FD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9B13A276BBD34004F68FD /* AppState.swift */; };
 		16AC207A2770D3AD00C7338D /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AC20792770D3AD00C7338D /* ExerciseViewModel.swift */; };
 		16B042BF276FA76A001F10F4 /* TimerViewModel+timeOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B042BE276FA76A001F10F4 /* TimerViewModel+timeOver.swift */; };
+		16D73860278586E8001BD235 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7385F278586E8001BD235 /* NavigationManager.swift */; };
+		16D738622785878C001BD235 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D738612785878C001BD235 /* ModalView.swift */; };
+		16D73864278587C0001BD235 /* ModalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D73863278587C0001BD235 /* ModalModel.swift */; };
 		16F20178275101CC00ACE724 /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F20177275101CB00ACE724 /* HistoryListView.swift */; };
 		16F2017A2751021500ACE724 /* HistoryBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F201792751021500ACE724 /* HistoryBarView.swift */; };
 		16F2017C2751029700ACE724 /* IndentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F2017B2751029700ACE724 /* IndentView.swift */; };
@@ -81,6 +84,9 @@
 		16A9B13A276BBD34004F68FD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		16AC20792770D3AD00C7338D /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		16B042BE276FA76A001F10F4 /* TimerViewModel+timeOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerViewModel+timeOver.swift"; sourceTree = "<group>"; };
+		16D7385F278586E8001BD235 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		16D738612785878C001BD235 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		16D73863278587C0001BD235 /* ModalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalModel.swift; sourceTree = "<group>"; };
 		16F20177275101CB00ACE724 /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		16F201792751021500ACE724 /* HistoryBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBarView.swift; sourceTree = "<group>"; };
 		16F2017B2751029700ACE724 /* IndentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentView.swift; sourceTree = "<group>"; };
@@ -270,7 +276,10 @@
 			children = (
 				CD30C92C251474DD0049DB93 /* Info.plist */,
 				CD30C923251474DC0049DB93 /* GetF!tApp.swift */,
+				16D73863278587C0001BD235 /* ModalModel.swift */,
 				16A9B13A276BBD34004F68FD /* AppState.swift */,
+				16D738612785878C001BD235 /* ModalView.swift */,
+				16D7385F278586E8001BD235 /* NavigationManager.swift */,
 				16A91487273965A0001D82A6 /* ContentView.swift */,
 				168E9925276382EF00B0406A /* Modules */,
 				168E99212763524500B0406A /* Shared */,
@@ -405,6 +414,7 @@
 				16F2017C2751029700ACE724 /* IndentView.swift in Sources */,
 				168E9924276352CE00B0406A /* LocalizedStringProvider.swift in Sources */,
 				168C09FB274E550700390C21 /* ContainerView.swift in Sources */,
+				16D738622785878C001BD235 /* ModalView.swift in Sources */,
 				16A9B13B276BBD34004F68FD /* AppState.swift in Sources */,
 				1683E5E52764E442003B6B02 /* ColorProvider.swift in Sources */,
 				16A91497273C18E8001D82A6 /* ExerciseModel.swift in Sources */,
@@ -423,8 +433,10 @@
 				CD30C924251474DC0049DB93 /* GetF!tApp.swift in Sources */,
 				16B042BF276FA76A001F10F4 /* TimerViewModel+timeOver.swift in Sources */,
 				168C09F5274E4FB400390C21 /* RaisedButton.swift in Sources */,
+				16D73864278587C0001BD235 /* ModalModel.swift in Sources */,
 				16F2017A2751021500ACE724 /* HistoryBarView.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* Image+resizeToFill.swift in Sources */,
+				16D73860278586E8001BD235 /* NavigationManager.swift in Sources */,
 				16A91492273AB2C4001D82A6 /* HistoryView.swift in Sources */,
 				168C09F9274E54FB00390C21 /* EmbossedButton.swift in Sources */,
 				168C09FD274E552600390C21 /* GradientBackground.swift in Sources */,
