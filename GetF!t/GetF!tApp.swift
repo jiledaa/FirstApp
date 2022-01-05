@@ -24,7 +24,8 @@ struct GetFit: App {
                 .onAppear {
                     print(FileManager.default.urls(
                         for: .documentDirectory,
-                           in: .userDomainMask))
+                           in: .userDomainMask
+                    ))
                 }
                 .alert(isPresented: $showAlert) {
                     Alert(
