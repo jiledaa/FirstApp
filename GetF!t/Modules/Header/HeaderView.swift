@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @StateObject var navigationManager = NavigationManager()
+    @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
         VStack {

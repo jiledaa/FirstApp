@@ -3,7 +3,6 @@ import AVKit
 
 struct ExerciseView: View {
     @EnvironmentObject var navigationManager: NavigationManager
-    @StateObject var appState = AppState()
 
     var exerciseViewModel: ExercisesViewModel
 
@@ -17,38 +16,9 @@ struct ExerciseView: View {
                         Spacer()
                         startExerciseButton
                         RatingView(exerciseIndex: exerciseViewModel.index)
-                        //                        historyButton
                     }
                 }
                 .frame(height: geometry.size.height * 1)
-                .sheet(
-                    isPresented: $appState.showSheet,
-                    onDismiss: appState.onDismissLogic
-                ) {
-                    switchLogic
-                }
-            }
-            // .onChange(of: exerciseViewModel.shouldAddExercise) {
-            //     if $0 {
-            //         history.addDoneExercise(Exercise.exercises[exerciseViewModel.index].exerciseName)
-            //     }
-            // }
-            //            .onAppear {
-            //                appState.addDoneExercise = history.addDoneExercise
-            //            }
-        }
-    }
-
-    @ViewBuilder
-    var switchLogic: some View {
-        if let exerciseSheet = appState.sheetType {
-            switch exerciseSheet {
-            case .history:
-                HistoryView()
-            case .timer:
-                TimerView()
-            case .success:
-                SuccessView()
             }
         }
     }
@@ -68,14 +38,14 @@ struct ExerciseView: View {
 
     private var startExerciseButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
-            appState.startExerciseButtonTapped()
+            navigationManager.onStartExerciseTapped()
         }
         .frame(width: 250, height: 50, alignment: .center)
     }
 
     var historyButton: some View {
         Button(action: {
-            appState.historyButtonTapped()
+            navigationManager.onShowHistoryTapped()
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)

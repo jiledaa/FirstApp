@@ -26,7 +26,7 @@ class NavigationManager: ObservableObject {
     }
 
     func goToWelcomeView() {
-        selectedTab = 9
+        selectedTab = -1
     }
 
     func goToFirstTab() {

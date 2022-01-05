@@ -10,7 +10,7 @@ struct ContentView: View {
             GradientBackground()
             VStack {
                 HeaderView()
-                TabView(selection: $appState.selectedTab) {
+                TabView(selection: $navigationManager.selectedTab) {
                     WelcomeView()
                         .tag(-1)
                     ForEach(0 ..< Exercise.exercises.count) { index in
@@ -30,20 +30,6 @@ struct ContentView: View {
         .environmentObject(navigationManager)
         .onAppear {
             appState.addDoneExercise = history.addDoneExercise
-        }
-    }
-
-    @ViewBuilder
-    var switchLogic: some View {
-        if let exerciseSheet = appState.sheetType {
-            switch exerciseSheet {
-            case .history:
-                HistoryView()
-            case .timer:
-                TimerView()
-            case .success:
-                SuccessView()
-            }
         }
     }
 

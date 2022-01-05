@@ -3,8 +3,8 @@ import SwiftUI
 struct TimerView: View {
     @StateObject var timerViewModel = TimerViewModel()
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var appState: AppState
-    
+    @EnvironmentObject var navigationManager: NavigationManager
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -16,7 +16,7 @@ struct TimerView: View {
                             .mask(circle(size: geometry.size))
                     )
                 VStack {
-                    Text(appState.titleText)
+                    Text(navigationManager.titleText)
                         .font(.largeTitle)
                         .fontWeight(.black)
                         .foregroundColor(.white)
@@ -46,6 +46,7 @@ struct TimerView: View {
     private var doneButton: some View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
             presentationMode.wrappedValue.dismiss()
+            navigationManager.onDoneTapped()
         }
         .opacity(timerViewModel.opacity)
         .padding([.leading, .trailing], 30)
