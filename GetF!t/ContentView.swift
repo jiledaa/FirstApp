@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
-    @StateObject var appState = AppState()
     @EnvironmentObject var history: HistoryViewModel
     
     var body: some View {
@@ -22,20 +21,20 @@ struct ContentView: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .sheet(item: $navigationManager.modal, content: ModalView.init)
                 historyButton
-                    .sheet(isPresented: $appState.showHistory) {
+                    .sheet(isPresented: $navigationManager.showHistory) {
                         HistoryView()
                     }
             }
         }
         .environmentObject(navigationManager)
         .onAppear {
-            appState.addDoneExercise = history.addDoneExercise
+            navigationManager.addDoneExercise = history.addDoneExercise
         }
     }
 
     var historyButton: some View {
         Button(action: {
-            appState.showHistoryToggle
+            navigationManager.showHistoryToggle
         }) {
             Text(LocalizedStringProvider.Button.history)
                 .fontWeight(.bold)

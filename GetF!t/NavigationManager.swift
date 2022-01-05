@@ -66,5 +66,15 @@ class NavigationManager: ObservableObject {
     func opacity(_ tab: Int) -> Double {
         tab == selectedTab ? 0.5 : 0
     }
+
+    // MARK: - history
+
+    @Published var showHistory = false
+    
+    var showHistoryToggle: () {
+        showHistory.toggle()
+    }
+
+    var addDoneExercise: ((LocalizedStringKey) -> Void)?
 }
 
