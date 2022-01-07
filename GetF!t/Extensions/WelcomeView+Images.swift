@@ -10,23 +10,23 @@ extension WelcomeView {
                 ImageProvider.exercise
                     .resizedToFill(width: width, height: height, ratio: 1.2)
                     .clipShape(Circle())
-                    .offset(x: -50, y: -80)
+                    .offset(x: -100, y: -100)
                 ImageProvider.head
                     .resizedToFill(width: width, height: height, ratio: 2)
                     .clipShape(Circle())
-                    .offset(x: 38, y: -80)
+                    .offset(x: -12, y: -100)
                 ImageProvider.arm
-                    .resizedToFill(width: width, height: height, ratio: 3)
+                    .resizedToFill(width: width, height: height, ratio: 2.7)
                     .clipShape(Circle())
-                    .offset(x: 155, y: -35)
+                    .offset(x: 90, y: -60)
                 ImageProvider.hands
+                    .resizedToFill(width: width, height: height, ratio: 3.3)
+                    .clipShape(Circle())
+                    .offset(x: 135, y: 60)
+                ImageProvider.stepUp
                     .resizedToFill(width: width, height: height, ratio: 4)
                     .clipShape(Circle())
-                    .offset(x: 205, y: 80)
-                ImageProvider.stepUp
-                    .resizedToFill(width: width, height: height, ratio: 5)
-                    .clipShape(Circle())
-                    .offset(x: 5)
+                    .offset(x: -45)
             }
             VStack(alignment: .leading) {
                 Text(LocalizedStringProvider.WelcomePage.getfit)
