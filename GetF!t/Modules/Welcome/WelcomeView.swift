@@ -7,10 +7,11 @@ struct WelcomeView: View {
         GeometryReader { geometry in
             Spacer()
             VStack {
-                WelcomeView.images
-                    .padding(.top, 200)
-                getStartedButton
                 Spacer()
+                WelcomeView.images
+                Spacer()
+                getStartedButton
+                    .padding(.bottom)
             }
         }
     }
@@ -20,7 +21,6 @@ struct WelcomeView: View {
             navigationManager.goToFirstTab()
         }
         .frame(width: 250, height: 50, alignment: .center)
-        .padding(.top, 110)
     }
 }
 

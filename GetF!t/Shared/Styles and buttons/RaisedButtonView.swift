@@ -23,8 +23,6 @@ struct RaisedButtonStyle: ButtonStyle {
     }
 }
 
-
-
 struct RaisedButton_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {

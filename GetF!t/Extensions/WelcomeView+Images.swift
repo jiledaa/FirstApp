@@ -1,26 +1,32 @@
 import SwiftUI
 
 extension WelcomeView {
-    static var width = 40
-    
+    static var width: CGFloat = 40
+    static var height: CGFloat = 40
+
     static var images: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .top, spacing: 30) {
+            ZStack(alignment: .top) {
                 ImageProvider.exercise
-                    .resizedToFill(width: 40, height: 40, ratio: 1)
+                    .resizedToFill(width: width, height: height, ratio: 1.2)
                     .clipShape(Circle())
+                    .offset(x: -50, y: -80)
                 ImageProvider.head
-                    .resizedToFill(width: 40, height: 40, ratio: 2)
+                    .resizedToFill(width: width, height: height, ratio: 2)
                     .clipShape(Circle())
+                    .offset(x: 38, y: -80)
                 ImageProvider.arm
-                    .resizedToFill(width: 40, height: 40, ratio: 3)
+                    .resizedToFill(width: width, height: height, ratio: 3)
                     .clipShape(Circle())
+                    .offset(x: 155, y: -35)
                 ImageProvider.hands
-                    .resizedToFill(width: 40, height: 40, ratio: 4)
+                    .resizedToFill(width: width, height: height, ratio: 4)
                     .clipShape(Circle())
+                    .offset(x: 205, y: 80)
                 ImageProvider.stepUp
-                    .resizedToFill(width: 40, height: 40, ratio: 5)
+                    .resizedToFill(width: width, height: height, ratio: 5)
                     .clipShape(Circle())
+                    .offset(x: 5)
             }
             VStack(alignment: .leading) {
                 Text(LocalizedStringProvider.WelcomePage.getfit)
@@ -32,12 +38,10 @@ extension WelcomeView {
                     .fontWeight(.medium)
                     .kerning(2)
             }
-            .padding(.leading, 100)
+            .padding(.leading)
         }
-        .frame(maxWidth: .infinity, maxHeight: 220)
-        .padding(.top, 70)
-        .padding(.bottom,50)
-        .padding(.trailing, 10)
+        .frame(maxWidth: .infinity)
+        .padding(.trailing)
     }
 }
 

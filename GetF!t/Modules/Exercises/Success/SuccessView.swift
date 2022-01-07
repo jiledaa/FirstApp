@@ -29,7 +29,6 @@ struct SuccessView: View {
                     .font(.title2)
                     .foregroundColor(.gray)
             }
-
             VStack {
                 HeaderView()
                 Spacer()
