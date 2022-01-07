@@ -52,9 +52,9 @@ class HistoryViewModel: ObservableObject {
     }
 
     init(withChecking: Bool) throws {
-#if DEBUG
+    #if DEBUG
         //    createDevData()
-#endif
+    #endif
         do {
             try load()
         } catch {

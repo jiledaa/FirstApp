@@ -10,17 +10,17 @@ extension View {
 
   func normal() -> some View {
     Capsule()
-      .shadow(color: Color("drop-shadow"), radius: 8, x: 6, y: 6)
-      .foregroundColor(Color("background"))
+          .shadow(color: ColorProvider.dropShadow, radius: 8, x: 6, y: 6)
+          .foregroundColor(ColorProvider.background)
   }
 
   func pressed() -> some View {
     Capsule()
       .inset(by: -4)
-      .stroke(Color("background"), lineWidth: 8)
-      .shadow(color: Color("drop-shadow"), radius: 4, x: 6, y: 6)
-      .shadow(color: Color("drop-highlight"), radius: 4, x: -6, y: -6)
-      .foregroundColor(Color("background"))
+      .stroke(ColorProvider.background, lineWidth: 8)
+      .shadow(color: ColorProvider.dropShadow, radius: 4, x: 6, y: 6)
+      .shadow(color: ColorProvider.dropHighlight, radius: 4, x: -6, y: -6)
+      .foregroundColor(ColorProvider.background)
       .clipShape(Capsule())
   }
 }

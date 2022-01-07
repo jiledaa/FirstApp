@@ -40,32 +40,36 @@ struct HistoryView: View {
                 Button(action: {
                 }) {
                     ImageProvider.squareGrid2x2Fill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal)
                 }
-                .buttonStyle(EmbossedButton())
+                .buttonStyle(EmbossedButtonView())
+                .shadow(color: ColorProvider.dropShadow, radius: 1, x: 2, y: -2)
+                .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
                 Button(action: {
                     historyViewModel.layoutType = .bar
                 }) {
                     ImageProvider.chartBarFill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal)
                         .foregroundColor(.gray)
                 }
-                .buttonStyle(EmbossedButton())
+                .buttonStyle(EmbossedButtonView())
             case .bar:
                 Button(action: {
                     historyViewModel.layoutType = .list
                 }) {
                     ImageProvider.squareGrid2x2Fill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal)
                         .foregroundColor(.gray)
                 }
-                .buttonStyle(EmbossedButton())
+                .buttonStyle(EmbossedButtonView())
                 Button(action: {
                 }) {
                     ImageProvider.chartBarFill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal)
                 }
-                .buttonStyle(EmbossedButton())
+                .buttonStyle(EmbossedButtonView())
+                .shadow(color: ColorProvider.dropShadow, radius: 1, x: 2, y: -2)
+                .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
             }
         }
     }

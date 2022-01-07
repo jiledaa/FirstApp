@@ -37,7 +37,7 @@ struct ContentView: View {
                 .padding([.leading, .trailing], 5)
         }
         .padding(.bottom)
-        .buttonStyle(EmbossedButton())
+        .buttonStyle(EmbossedButtonView())
     }
 }
 

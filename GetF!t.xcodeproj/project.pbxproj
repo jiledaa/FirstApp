@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1657D7BC27877C4E008C8D07 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7BB27877C4E008C8D07 /* String+.swift */; };
-		1657D7BF2788721C008C8D07 /* RaisedButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7BE2788721C008C8D07 /* RaisedButtonViewModel.swift */; };
 		1657D7C72788770A008C8D07 /* View+buttonpress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7C62788770A008C8D07 /* View+buttonpress.swift */; };
 		168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391812756AD2D000DFF7A /* Exercise+constructor.swift */; };
 		168391842756B4FB000DFF7A /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391832756B4FB000DFF7A /* RatingViewModel.swift */; };
@@ -19,7 +18,7 @@
 		1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689CED92743B0C9004362A7 /* TimerView.swift */; };
 		168C09F5274E4FB400390C21 /* RaisedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F4274E4FB400390C21 /* RaisedButtonView.swift */; };
 		168C09F7274E54E200390C21 /* WelcomeView+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F6274E54E200390C21 /* WelcomeView+Images.swift */; };
-		168C09F9274E54FB00390C21 /* EmbossedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F8274E54FB00390C21 /* EmbossedButton.swift */; };
+		168C09F9274E54FB00390C21 /* EmbossedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F8274E54FB00390C21 /* EmbossedButtonView.swift */; };
 		168C09FB274E550700390C21 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09FA274E550700390C21 /* ContainerView.swift */; };
 		168C09FD274E552600390C21 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09FC274E552600390C21 /* GradientBackground.swift */; };
 		168E9924276352CE00B0406A /* LocalizedStringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168E9923276352CE00B0406A /* LocalizedStringProvider.swift */; };
@@ -55,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		1657D7BB27877C4E008C8D07 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		1657D7BE2788721C008C8D07 /* RaisedButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButtonViewModel.swift; sourceTree = "<group>"; };
 		1657D7C62788770A008C8D07 /* View+buttonpress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+buttonpress.swift"; sourceTree = "<group>"; };
 		168391812756AD2D000DFF7A /* Exercise+constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+constructor.swift"; sourceTree = "<group>"; };
 		168391832756B4FB000DFF7A /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
@@ -66,7 +64,7 @@
 		1689CED92743B0C9004362A7 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		168C09F4274E4FB400390C21 /* RaisedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButtonView.swift; sourceTree = "<group>"; };
 		168C09F6274E54E200390C21 /* WelcomeView+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeView+Images.swift"; sourceTree = "<group>"; };
-		168C09F8274E54FB00390C21 /* EmbossedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbossedButton.swift; sourceTree = "<group>"; };
+		168C09F8274E54FB00390C21 /* EmbossedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbossedButtonView.swift; sourceTree = "<group>"; };
 		168C09FA274E550700390C21 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		168C09FC274E552600390C21 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		168E9923276352CE00B0406A /* LocalizedStringProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringProvider.swift; sourceTree = "<group>"; };
@@ -114,20 +112,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1657D7BD278871A7008C8D07 /* RaisedButton */ = {
-			isa = PBXGroup;
-			children = (
-				168C09F4274E4FB400390C21 /* RaisedButtonView.swift */,
-				1657D7BE2788721C008C8D07 /* RaisedButtonViewModel.swift */,
-			);
-			path = RaisedButton;
-			sourceTree = "<group>";
-		};
 		1683917527565DF3000DFF7A /* Styles and buttons */ = {
 			isa = PBXGroup;
 			children = (
-				1657D7BD278871A7008C8D07 /* RaisedButton */,
-				168C09F8274E54FB00390C21 /* EmbossedButton.swift */,
+				168C09F4274E4FB400390C21 /* RaisedButtonView.swift */,
+				168C09F8274E54FB00390C21 /* EmbossedButtonView.swift */,
 				168C09FA274E550700390C21 /* ContainerView.swift */,
 				16F2017B2751029700ACE724 /* IndentView.swift */,
 				168C09FC274E552600390C21 /* GradientBackground.swift */,
@@ -445,9 +434,8 @@
 				CD30C94025147A8C0049DB93 /* Image+resizeToFill.swift in Sources */,
 				16D73860278586E8001BD235 /* NavigationManager.swift in Sources */,
 				16A91492273AB2C4001D82A6 /* HistoryView.swift in Sources */,
-				168C09F9274E54FB00390C21 /* EmbossedButton.swift in Sources */,
+				168C09F9274E54FB00390C21 /* EmbossedButtonView.swift in Sources */,
 				168C09FD274E552600390C21 /* GradientBackground.swift in Sources */,
-				1657D7BF2788721C008C8D07 /* RaisedButtonViewModel.swift in Sources */,
 				16A9148C2739A38C001D82A6 /* HeaderView.swift in Sources */,
 				16AC207A2770D3AD00C7338D /* ExerciseViewModel.swift in Sources */,
 				168602C62767DF5800A7CFCA /* TimerViewModel.swift in Sources */,
