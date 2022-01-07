@@ -17,10 +17,10 @@ struct HistoryListView: View {
                         },
                     footer:
                         Divider()
-                        .padding(.top, 40)
+                        .padding(.top)
                 ) {
-                    HStack(spacing: 40) {
-                        LazyVGrid(columns: [GridItem(), GridItem(), GridItem(), GridItem(), GridItem()]) {
+                    VStack {
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 70, maximum: 100))]) {
                             ForEach(0..<day.exercises.count) { index in
                                 exercisesSwitch(exercise: day.exercises[index])
                             }
@@ -28,6 +28,7 @@ struct HistoryListView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .font(.headline)
+                    .padding(.horizontal)
                 }
             }
         }
@@ -53,11 +54,12 @@ struct HistoryListView: View {
                 }
             }
             .foregroundColor(ColorProvider.gradientTop)
-            .padding(.bottom, 20)
+            .padding(.bottom)
             Text(exercise)
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)
+                .padding(.bottom)
         }
     }
 }
