@@ -4,7 +4,7 @@ import SwiftUI
 struct ExerciseDay: Identifiable {
     let id = UUID()
     let date: Date
-    var exercises: [LocalizedStringKey] = []
+    var exercises: [String] = []
 }
 
 class HistoryViewModel: ObservableObject {
@@ -85,7 +85,7 @@ class HistoryViewModel: ObservableObject {
         exerciseDays = convertedPlistData.map {
             ExerciseDay(
                 date: $0[1] as? Date ?? Date(),
-                exercises: $0[2] as? [LocalizedStringKey] ?? [])
+                exercises: $0[2] as? [String] ?? [])
         }
     }
 
@@ -96,6 +96,8 @@ class HistoryViewModel: ObservableObject {
         let plistData = exerciseDays.map {
             [$0.id.uuidString, $0.date, $0.exercises]
         }
+//        let wev = (plistData[0][2] as AnyObject).stringValue()
+//        print("mamurl\(wev)")
         do {
             let data = try PropertyListSerialization.data(
                 fromPropertyList: plistData,
@@ -107,7 +109,7 @@ class HistoryViewModel: ObservableObject {
         }
     }
 
-    private func addDoneExercise(_ exerciseName: LocalizedStringKey) {
+    private func addDoneExercise(_ exerciseName: String) {
         let today = Date()
         if let firstDate = exerciseDays.first?.date,
            today.isSameDay(as: firstDate) {
@@ -117,11 +119,45 @@ class HistoryViewModel: ObservableObject {
                 ExerciseDay(date: today, exercises: [exerciseName]),
                 at: 0)
         }
+        do {
+          try save()
+        } catch {
+          fatalError(error.localizedDescription)
+        }
     }
 
-    func onDoneTapped(_ exerciseName: LocalizedStringKey) {
+    func onDoneTapped(_ exerciseName: String) {
         addDoneExercise(exerciseName)
     }
 }
 
+extension LocalizedStringKey {
+    var stringKey: String {
+        let description = "\(self)"
+
+        let components = description.components(separatedBy: "key: \"")
+            .map { $0.components(separatedBy: "\",") }
+
+        return components[1][0]
+    }
+}
+
+extension String {
+    static func localizedString(for key: String,
+                                locale: Locale = .current) -> String {
+
+        let language = locale.languageCode
+        let path = Bundle.main.path(forResource: language, ofType: "lproj")!
+        let bundle = Bundle(path: path)!
+        let localizedString = NSLocalizedString(key, bundle: bundle, comment: "")
+
+        return localizedString
+    }
+}
+
+extension LocalizedStringKey {
+    func stringValue(locale: Locale = .current) -> String {
+        return .localizedString(for: self.stringKey, locale: locale)
+    }
+}
 

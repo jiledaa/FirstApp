@@ -62,6 +62,6 @@ struct HistoryBarView: View {
 struct HistoryBarView_Previews: PreviewProvider {
     static var previews: some View {
         HistoryBarView()
-            .environmentObject(HistoryViewModel(debugData: true))
+            .environmentObject(HistoryViewModel())
     }
 }

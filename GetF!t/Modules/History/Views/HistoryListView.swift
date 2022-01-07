@@ -32,17 +32,17 @@ struct HistoryListView: View {
         .frame(maxWidth: .infinity)
     }
 
-    func exercisesSwitch(exercise: LocalizedStringKey) -> some View {
+    func exercisesSwitch(exercise: String) -> some View {
         VStack {
             IndentView {
                 switch exercise {
-                case LocalizedStringProvider.ExercisesNames.squat:
+                case StringProvider.ExercisesNamesVideo.squat:
                     ImageProvider.boltFill
                         .frame(minWidth: 60)
-                case LocalizedStringProvider.ExercisesNames.stepUp:
+                case StringProvider.ExercisesNamesVideo.stepUp:
                     ImageProvider.arrowUturnUp
                         .frame(minWidth: 60)
-                case LocalizedStringProvider.ExercisesNames.burpee:
+                case StringProvider.ExercisesNamesVideo.burpee:
                     ImageProvider.hareFill
                         .frame(minWidth: 60)
                 default:
@@ -63,6 +63,6 @@ struct HistoryListView: View {
 struct HistoryListView_Previews: PreviewProvider {
     static var previews: some View {
         HistoryListView()
-            .environmentObject(HistoryViewModel(debugData: true))
+            .environmentObject(HistoryViewModel())
     }
 }
