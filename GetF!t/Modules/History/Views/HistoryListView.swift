@@ -20,8 +20,10 @@ struct HistoryListView: View {
                         .padding(.top, 40)
                 ) {
                     HStack(spacing: 40) {
-                        ForEach(0..<min(day.exercises.count, 4)) { index in
-                            exercisesSwitch(exercise: day.exercises[index])
+                        LazyVGrid(columns: [GridItem(), GridItem(), GridItem(), GridItem(), GridItem()]) {
+                            ForEach(0..<day.exercises.count) { index in
+                                exercisesSwitch(exercise: day.exercises[index])
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity)

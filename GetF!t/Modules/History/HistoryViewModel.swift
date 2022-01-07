@@ -119,15 +119,18 @@ class HistoryViewModel: ObservableObject {
                 ExerciseDay(date: today, exercises: [exerciseName]),
                 at: 0)
         }
+    }
+
+    func onDoneTapped(_ exerciseName: String) {
+        addDoneExercise(exerciseName)
+    }
+
+    func savingHistory() {
         do {
           try save()
         } catch {
           fatalError(error.localizedDescription)
         }
-    }
-
-    func onDoneTapped(_ exerciseName: String) {
-        addDoneExercise(exerciseName)
     }
 }
 
