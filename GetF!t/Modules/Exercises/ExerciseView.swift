@@ -41,7 +41,7 @@ struct ExerciseView: View {
     }
 
     private var startExerciseButton: some View {
-        RaisedButton(buttonText: LocalizedStringProvider.Button.startExercise) {
+        RaisedButtonView(buttonText: LocalizedStringProvider.Button.startExercise) {
             navigationManager.onStartExerciseTapped()
         }
         .frame(width: 250, height: 50, alignment: .center)

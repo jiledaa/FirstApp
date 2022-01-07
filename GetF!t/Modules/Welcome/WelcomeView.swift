@@ -16,7 +16,7 @@ struct WelcomeView: View {
     }
     
     var getStartedButton: some View {
-        RaisedButton(buttonText: LocalizedStringProvider.Button.getStarted) {
+        RaisedButtonView(buttonText: LocalizedStringProvider.Button.getStarted) {
             navigationManager.goToFirstTab()
         }
         .frame(width: 250, height: 50, alignment: .center)

@@ -45,7 +45,7 @@ struct TimerView: View {
     }
 
     private var doneButton: some View {
-        RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
+        RaisedButtonView(buttonText: LocalizedStringProvider.Button.done) {
             presentationMode.wrappedValue.dismiss()
             navigationManager.onDoneTapped()
             historyViewModel.onDoneTapped(navigationManager.titleTextForHistoryStore)

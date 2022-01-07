@@ -33,7 +33,7 @@ struct SuccessView: View {
             VStack {
                 HeaderView()
                 Spacer()
-                RaisedButton(buttonText: LocalizedStringProvider.Button.continue) {
+                RaisedButtonView(buttonText: LocalizedStringProvider.Button.continue) {
                     navigationManager.goToWelcomeView()
                     presentationMode.wrappedValue.dismiss()
                 }
