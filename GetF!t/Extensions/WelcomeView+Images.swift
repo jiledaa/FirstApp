@@ -26,8 +26,9 @@ extension WelcomeView {
                 ImageProvider.stepUp
                     .resizedToFill(width: width, height: height, ratio: 4)
                     .clipShape(Circle())
-                    .offset(x: -45)
+                    .offset(x: -45, y: 30)
             }
+            .padding([.leading, .bottom, .trailing])
             VStack(alignment: .leading) {
                 Text(LocalizedStringProvider.WelcomePage.getfit)
                     .font(.largeTitle)
@@ -38,7 +39,7 @@ extension WelcomeView {
                     .fontWeight(.medium)
                     .kerning(2)
             }
-            .padding(.leading)
+            .padding()
         }
         .frame(maxWidth: .infinity)
         .padding(.trailing)

@@ -5,11 +5,10 @@ struct WelcomeView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            Spacer()
             VStack {
                 Spacer()
                 WelcomeView.images
-                Spacer()
+                    .padding(.bottom, geometry.size.height * 0.1)
                 getStartedButton
                     .padding(.bottom)
             }

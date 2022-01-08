@@ -21,5 +21,7 @@ struct ImageProvider {
     static var arrowUturnUp: Image { Image(systemName: "arrow.uturn.up") }
     static var hareFill: Image { Image(systemName: "hare.fill") }
     static var sunMaxFill: Image { Image(systemName: "sun.max.fill") }
+    static var calendar: Image { Image(systemName: "calendar") }
+    static var settings: Image { Image(systemName: "wrench.and.screwdriver.fill") }
 }
 

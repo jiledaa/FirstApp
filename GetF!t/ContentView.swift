@@ -19,7 +19,14 @@ struct ContentView: View {
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .sheet(item: $navigationManager.modal, content: ModalView.init)
-                historyButton
+                HStack {
+                    historyButton
+                    Spacer()
+                    settingsButton
+                }
+                .padding(.horizontal)
+                .padding(.horizontal)
+
             }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                 historyViewModel.savingHistory()
@@ -32,11 +39,21 @@ struct ContentView: View {
         Button(action: {
             navigationManager.onShowHistoryTapped()
         }) {
-            Text(LocalizedStringProvider.Button.history)
-                .fontWeight(.bold)
-                .padding([.leading, .trailing], 5)
+            ImageProvider.calendar
+                .padding(.horizontal)
         }
-        .padding(.bottom)
+        .padding(.top)
+        .buttonStyle(EmbossedButtonView())
+    }
+
+    var settingsButton: some View {
+        Button(action: {
+            navigationManager.onShowHistoryTapped()
+        }) {
+            ImageProvider.settings
+                .padding(.horizontal)
+        }
+        .padding(.top)
         .buttonStyle(EmbossedButtonView())
     }
 }
