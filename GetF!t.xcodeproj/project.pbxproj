@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1602BB5D278A2E0A0032F983 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5C278A2E0A0032F983 /* TimerManager.swift */; };
 		1657D7BC27877C4E008C8D07 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7BB27877C4E008C8D07 /* String+.swift */; };
 		1657D7C72788770A008C8D07 /* View+buttonpress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7C62788770A008C8D07 /* View+buttonpress.swift */; };
 		168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391812756AD2D000DFF7A /* Exercise+constructor.swift */; };
@@ -14,7 +15,6 @@
 		1683E5E32764D075003B6B02 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E22764D075003B6B02 /* ImageProvider.swift */; };
 		1683E5E52764E442003B6B02 /* ColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E42764E442003B6B02 /* ColorProvider.swift */; };
 		168602C32767D6A000A7CFCA /* DateFormatProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C22767D6A000A7CFCA /* DateFormatProvider.swift */; };
-		168602C62767DF5800A7CFCA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C52767DF5800A7CFCA /* TimerViewModel.swift */; };
 		1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689CED92743B0C9004362A7 /* TimerView.swift */; };
 		168C09F5274E4FB400390C21 /* RaisedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F4274E4FB400390C21 /* RaisedButtonView.swift */; };
 		168C09F7274E54E200390C21 /* WelcomeView+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F6274E54E200390C21 /* WelcomeView+Images.swift */; };
@@ -55,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1602BB5C278A2E0A0032F983 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		1657D7BB27877C4E008C8D07 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1657D7C62788770A008C8D07 /* View+buttonpress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+buttonpress.swift"; sourceTree = "<group>"; };
 		168391812756AD2D000DFF7A /* Exercise+constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+constructor.swift"; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		1683E5E22764D075003B6B02 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		1683E5E42764E442003B6B02 /* ColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorProvider.swift; sourceTree = "<group>"; };
 		168602C22767D6A000A7CFCA /* DateFormatProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatProvider.swift; sourceTree = "<group>"; };
-		168602C52767DF5800A7CFCA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		1689CED92743B0C9004362A7 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		168C09F4274E4FB400390C21 /* RaisedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButtonView.swift; sourceTree = "<group>"; };
 		168C09F6274E54E200390C21 /* WelcomeView+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeView+Images.swift"; sourceTree = "<group>"; };
@@ -148,7 +148,6 @@
 		168602C42767DF2500A7CFCA /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				168602C52767DF5800A7CFCA /* TimerViewModel.swift */,
 				1689CED92743B0C9004362A7 /* TimerView.swift */,
 			);
 			path = Timer;
@@ -292,6 +291,7 @@
 				16D738612785878C001BD235 /* ModalView.swift */,
 				16D7385F278586E8001BD235 /* NavigationManager.swift */,
 				16A91487273965A0001D82A6 /* ContentView.swift */,
+				1602BB5C278A2E0A0032F983 /* TimerManager.swift */,
 				168E9925276382EF00B0406A /* Modules */,
 				168E99212763524500B0406A /* Shared */,
 				168E99202763508300B0406A /* Extensions */,
@@ -439,6 +439,7 @@
 				16A91494273BE9B5001D82A6 /* SuccessView.swift in Sources */,
 				16A91499273C1FD9001D82A6 /* HistoryViewModel.swift in Sources */,
 				1683E5E32764D075003B6B02 /* ImageProvider.swift in Sources */,
+				1602BB5D278A2E0A0032F983 /* TimerManager.swift in Sources */,
 				16A91488273965A0001D82A6 /* ContentView.swift in Sources */,
 				16A91490273AA2F6001D82A6 /* RatingView.swift in Sources */,
 				169AFA642767AEC4000B1E5A /* HistoryViewModel+createDevData.swift in Sources */,
@@ -454,7 +455,6 @@
 				168C09FD274E552600390C21 /* GradientBackground.swift in Sources */,
 				16A9148C2739A38C001D82A6 /* HeaderView.swift in Sources */,
 				16AC207A2770D3AD00C7338D /* ExerciseViewModel.swift in Sources */,
-				168602C62767DF5800A7CFCA /* TimerViewModel.swift in Sources */,
 				168602C32767D6A000A7CFCA /* DateFormatProvider.swift in Sources */,
 				168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */,
 			);

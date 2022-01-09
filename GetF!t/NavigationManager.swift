@@ -50,7 +50,7 @@ class NavigationManager: ObservableObject {
     // only called from welcome view and timer view
     func goToNextTab() {
         if selectedTab + 1 == maxTabs {
-            modal = .successView
+            modal = .success
         } else {
             selectedTab += 1
         }
@@ -64,6 +64,10 @@ class NavigationManager: ObservableObject {
 
     func onShowHistoryTapped() {
         modal = .history
+    }
+
+    func onShowSettingsTapped() {
+        modal = .settings
     }
 
     func onStartExerciseTapped() {

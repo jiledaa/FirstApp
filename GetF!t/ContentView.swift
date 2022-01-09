@@ -48,7 +48,7 @@ struct ContentView: View {
 
     var settingsButton: some View {
         Button(action: {
-            navigationManager.onShowHistoryTapped()
+            navigationManager.onShowSettingsTapped()
         }) {
             ImageProvider.settings
                 .padding(.horizontal)

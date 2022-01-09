@@ -85,7 +85,7 @@ struct HistoryView: View {
                     .foregroundColor(.primary)
             }
             .font(.title2)
-            .padding([.top, .trailing], 25)
+            .padding([.top, .trailing])
         }
     }
 }

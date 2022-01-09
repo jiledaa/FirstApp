@@ -9,8 +9,10 @@ struct ModalView: View {
             TimerView()
         case .history:
             HistoryView()
-        case .successView:
+        case .success:
             SuccessView()
+        case .settings:
+            SettingsView()
         }
     }
 }

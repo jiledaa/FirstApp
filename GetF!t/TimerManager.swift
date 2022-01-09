@@ -1,10 +1,11 @@
+import Foundation
 import SwiftUI
 
-class TimerViewModel: ObservableObject {
+class TimerManager: ObservableObject {
     @Published var timeRemaining = 3
 
     var timeOver: Bool {
-        timeRemaining == 0
+       timeRemaining == 0
     }
 
     let timer = Timer.publish(
@@ -29,7 +30,11 @@ class TimerViewModel: ObservableObject {
         if timeOver {
             timer.upstream.connect().cancel()
         } else {
-            timeRemaining -= 1
+           timeRemaining -= 1
         }
+    }
+
+    func set(timeSet: Int) {
+        timeRemaining = timeSet
     }
 }

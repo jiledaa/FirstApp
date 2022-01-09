@@ -13,9 +13,16 @@ struct ExerciseView: View {
                 Spacer()
                 ContainerView {
                     VStack {
-                        video(size: geometry.size)
+                        VideoPlayerView(
+                            size: geometry.size,
+                            videoURL: exerciseViewModel.videoURL,
+                            errorText: LocalizedStringProvider.Errors.couldntFind
+                        )
                         Spacer()
-                        startExerciseButton
+                        CustomButton(
+                            text: LocalizedStringProvider.Button.startExercise,
+                            action: navigationManager.onStartExerciseTapped
+                        )
                         RatingView(ratingViewModel: ratingViewModel)
                     }
                 }
@@ -26,27 +33,36 @@ struct ExerciseView: View {
             ratingViewModel.loadRating(exercise: exerciseViewModel.exercise)
         }
     }
+}
 
-    @ViewBuilder
-    private func video(size: CGSize) -> some View {
-        if let url = exerciseViewModel.videoURL {
+private struct CustomButton: View {
+    let text: LocalizedStringKey
+    let action: () -> Void
+
+    var body: some View {
+        RaisedButtonView(buttonText: LocalizedStringProvider.Button.startExercise, action: action)
+            .frame(width: 250, height: 50, alignment: .center)
+    }
+}
+private struct VideoPlayerView: View {
+    let size: CGSize
+    let videoURL: URL?
+    let errorText: LocalizedStringKey
+
+    var body: some View {
+        if let url = videoURL {
             VideoPlayer(player: AVPlayer(url: url))
                 .frame(height: size.height * 0.55)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .padding(20)
         } else {
-            Text(LocalizedStringProvider.Errors.couldntFind)
+            Text(errorText)
                 .foregroundColor(.red)
         }
     }
-
-    private var startExerciseButton: some View {
-        RaisedButtonView(buttonText: LocalizedStringProvider.Button.startExercise) {
-            navigationManager.onStartExerciseTapped()
-        }
-        .frame(width: 250, height: 50, alignment: .center)
-    }
 }
+
+
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {

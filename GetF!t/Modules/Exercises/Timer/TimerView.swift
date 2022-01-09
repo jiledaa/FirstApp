@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TimerView: View {
-    @StateObject var timerViewModel = TimerViewModel()
+    @StateObject var timerManager = TimerManager()
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var historyViewModel: HistoryViewModel
@@ -37,11 +37,11 @@ struct TimerView: View {
             timerText
         }
         .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6,
-                x: timerViewModel.dropShadowParameter,
-                y: timerViewModel.dropShadowParameter)
+                x: timerManager.dropShadowParameter,
+                y: timerManager.dropShadowParameter)
         .shadow(color: ColorProvider.dropHighlight, radius: 6,
-                x: timerViewModel.dropHighlightParameter,
-                y: timerViewModel.dropHighlightParameter)
+                x: timerManager.dropHighlightParameter,
+                y: timerManager.dropHighlightParameter)
     }
 
     private var doneButton: some View {
@@ -50,13 +50,13 @@ struct TimerView: View {
             navigationManager.onDoneTapped()
             historyViewModel.onDoneTapped(navigationManager.titleTextForHistoryStore)
         }
-        .opacity(timerViewModel.opacity)
+        .opacity(timerManager.opacity)
         .padding([.leading, .trailing], 30)
         .padding(.bottom, 60)
     }
     
     var timerText: some View {
-        Text("\(timerViewModel.timeRemaining)")
+        Text("\(timerManager.timeRemaining)")
             .font(.system(size: 90, design: .rounded))
             .fontWeight(.heavy)
             .frame(
@@ -65,7 +65,7 @@ struct TimerView: View {
                 minHeight: 180,
                 maxHeight: 200)
             .padding()
-            .onReceive(timerViewModel.timer, perform: timerViewModel.onTimeOver)
+            .onReceive(timerManager.timer, perform: timerManager.onTimeOver)
     }
 
     private func circle(size: CGSize) -> some View {

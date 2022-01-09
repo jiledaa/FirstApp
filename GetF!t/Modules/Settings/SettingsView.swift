@@ -2,25 +2,29 @@ import Foundation
 import SwiftUI
 
 struct SettingsView: View {
-    @State var timeRemaining: Int
-
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var timeManager: TimerManager
 
     var body: some View {
         GeometryReader { geometry in
-            
+            closeButton
         }
     }
 
-//    var settingsButton: some View {
-//        Button(action: {
-//            navigationManager.onShowHistoryTapped()
-//        }) {
-//            Text(LocalizedStringProvider.Button.history)
-//                .fontWeight(.bold)
-//                .padding([.leading, .trailing], 5)
-//        }
-//        .padding(.bottom)
-//        .buttonStyle(EmbossedButtonView())
-//    }
+    var closeButton: some View {
+        ZStack(alignment: .topTrailing) {
+            ColorProvider.background
+                .edgesIgnoringSafeArea(.all)
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                ImageProvider.xmark
+                    .foregroundColor(.primary)
+            }
+            .font(.title2)
+            .padding([.top, .trailing])
+        }
+    }
 }
+
 
