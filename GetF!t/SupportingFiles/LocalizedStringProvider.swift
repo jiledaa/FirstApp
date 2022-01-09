@@ -31,8 +31,13 @@ struct LocalizedStringProvider {
     }
     
     struct Errors {
-        static let `couldntFind` = LocalizedStringKey("CouldntFind")
-        static let `loadingError1` = LocalizedStringKey("LaodingError1")
-        static let `loadingError2` = LocalizedStringKey("LoadingError2")
+        static let couldntFind = LocalizedStringKey("CouldntFind")
+        static let loadingError1 = LocalizedStringKey("LaodingError1")
+        static let loadingError2 = LocalizedStringKey("LoadingError2")
+    }
+
+    struct Settings {
+        static let exerciseInterval = NSLocalizedString("exerciseInterval", comment: "")
+        static let orderInterval = NSLocalizedString("exerciseOrder", comment: "")
     }
 }

@@ -44,6 +44,7 @@ private struct CustomButton: View {
             .frame(width: 250, height: 50, alignment: .center)
     }
 }
+
 private struct VideoPlayerView: View {
     let size: CGSize
     let videoURL: URL?
@@ -61,8 +62,6 @@ private struct VideoPlayerView: View {
         }
     }
 }
-
-
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {

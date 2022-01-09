@@ -31,3 +31,7 @@
 "LoadingError1" = "Die Trainingsdaten könnten nicht geladen werden!";
 
 "LoadingError2" = "Leider kann Ihr Trainingsverlauf \n nicht geladen werden! \n Email Untersützung: support@berlin.com";
+
+"exerciseInterval" = "Stellen Sie das Trainingsintervall ein";
+
+"exerciseOrder" = "Legen Sie die Übungsreihenfolge fest";

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1602BB5D278A2E0A0032F983 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5C278A2E0A0032F983 /* TimerManager.swift */; };
+		1602BB5F278AF9AC0032F983 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5E278AF9AC0032F983 /* PickerView.swift */; };
 		1657D7BC27877C4E008C8D07 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7BB27877C4E008C8D07 /* String+.swift */; };
 		1657D7C72788770A008C8D07 /* View+buttonpress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7C62788770A008C8D07 /* View+buttonpress.swift */; };
 		168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391812756AD2D000DFF7A /* Exercise+constructor.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		1602BB5C278A2E0A0032F983 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		1602BB5E278AF9AC0032F983 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		1657D7BB27877C4E008C8D07 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1657D7C62788770A008C8D07 /* View+buttonpress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+buttonpress.swift"; sourceTree = "<group>"; };
 		168391812756AD2D000DFF7A /* Exercise+constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+constructor.swift"; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				16E3FAFA2789ACE700D15079 /* SettingsView.swift */,
 				16E3FAFC2789B03700D15079 /* SettingsViewModel.swift */,
+				1602BB5E278AF9AC0032F983 /* PickerView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				16AC207A2770D3AD00C7338D /* ExerciseViewModel.swift in Sources */,
 				168602C32767D6A000A7CFCA /* DateFormatProvider.swift in Sources */,
 				168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */,
+				1602BB5F278AF9AC0032F983 /* PickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
