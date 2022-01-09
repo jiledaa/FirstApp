@@ -10,21 +10,21 @@ extension WelcomeView {
                 ImageProvider.exercise
                     .resizedToFill(width: width, height: height, ratio: 1.2)
                     .clipShape(Circle())
-                    .offset(x: -100, y: -100)
+                    .offset(x: -110, y: -80)
                 ImageProvider.head
-                    .resizedToFill(width: width, height: height, ratio: 2)
+                    .resizedToFill(width: width, height: height, ratio: 1.8)
                     .clipShape(Circle())
-                    .offset(x: -12, y: -100)
+                    .offset(x: -30, y: -80)
                 ImageProvider.arm
-                    .resizedToFill(width: width, height: height, ratio: 2.7)
+                    .resizedToFill(width: width, height: height, ratio: 2.5)
                     .clipShape(Circle())
-                    .offset(x: 90, y: -60)
+                    .offset(x: 70, y: -50)
                 ImageProvider.hands
-                    .resizedToFill(width: width, height: height, ratio: 3.3)
+                    .resizedToFill(width: width, height: height, ratio: 3.2)
                     .clipShape(Circle())
-                    .offset(x: 135, y: 60)
+                    .offset(x: 125, y: 60)
                 ImageProvider.stepUp
-                    .resizedToFill(width: width, height: height, ratio: 4)
+                    .resizedToFill(width: width, height: height, ratio: 4.2)
                     .clipShape(Circle())
                     .offset(x: -45, y: 30)
             }

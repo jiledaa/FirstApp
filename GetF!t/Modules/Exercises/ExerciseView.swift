@@ -20,7 +20,6 @@ struct ExerciseView: View {
                         )
                         Spacer()
                         CustomButton(
-                            text: LocalizedStringProvider.Button.startExercise,
                             action: navigationManager.onStartExerciseTapped
                         )
                         RatingView(ratingViewModel: ratingViewModel)
@@ -36,7 +35,6 @@ struct ExerciseView: View {
 }
 
 private struct CustomButton: View {
-    let text: LocalizedStringKey
     let action: () -> Void
 
     var body: some View {

@@ -11,15 +11,17 @@ struct HistoryView: View {
                 VStack {
                     VStack {
                         Text(LocalizedStringProvider.Button.history)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding()
+                            .font(.largeTitle)
+                            .fontWeight(.black)
+                            .foregroundColor(.white)
                         buttonLayout
+                            .padding()
                     }
                     .frame(height: geometry.size.height * 0.15)
                     Spacer()
                     historyLayout
                 }
+                .padding(.top, geometry.size.height * 0.07)
             }
         }
     }
@@ -75,8 +77,13 @@ struct HistoryView: View {
     }
 
     var closeButton: some View {
+        GeometryReader { geometry in
         ZStack(alignment: .topTrailing) {
             ColorProvider.background
+                .overlay(
+                    GradientBackground()
+                        .mask(circle(size: geometry.size))
+                )
                 .edgesIgnoringSafeArea(.all)
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
@@ -87,6 +94,17 @@ struct HistoryView: View {
             .font(.title2)
             .padding([.top, .trailing])
         }
+        }
+    }
+
+    private func circle(size: CGSize) -> some View {
+        Circle()
+            .frame(
+                width: size.width,
+                height: size.height)
+            .position(
+                x: size.width * 0.5,
+                y: -size.width * 0.2)
     }
 }
 

@@ -10,6 +10,7 @@ struct WelcomeView: View {
                 WelcomeView.images
                     .padding(.bottom, geometry.size.height * 0.1)
                 getStartedButton
+                    .frame(width: geometry.size.width, height: geometry.size.height * 0.08, alignment: .center)
                     .padding(.bottom)
             }
         }
@@ -19,7 +20,7 @@ struct WelcomeView: View {
         RaisedButtonView(buttonText: LocalizedStringProvider.Button.getStarted) {
             navigationManager.goToFirstTab()
         }
-        .frame(width: 250, height: 50, alignment: .center)
+
     }
 }
 
