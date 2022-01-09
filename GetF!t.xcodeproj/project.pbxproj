@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1602BB5D278A2E0A0032F983 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5C278A2E0A0032F983 /* TimerManager.swift */; };
 		1602BB5F278AF9AC0032F983 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5E278AF9AC0032F983 /* PickerView.swift */; };
+		1602BB63278B62B20032F983 /* ModalSheetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB62278B62B20032F983 /* ModalSheetHeader.swift */; };
 		1657D7BC27877C4E008C8D07 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7BB27877C4E008C8D07 /* String+.swift */; };
 		1657D7C72788770A008C8D07 /* View+buttonpress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7C62788770A008C8D07 /* View+buttonpress.swift */; };
 		168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391812756AD2D000DFF7A /* Exercise+constructor.swift */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		1602BB5C278A2E0A0032F983 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		1602BB5E278AF9AC0032F983 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		1602BB62278B62B20032F983 /* ModalSheetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetHeader.swift; sourceTree = "<group>"; };
 		1657D7BB27877C4E008C8D07 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1657D7C62788770A008C8D07 /* View+buttonpress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+buttonpress.swift"; sourceTree = "<group>"; };
 		168391812756AD2D000DFF7A /* Exercise+constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+constructor.swift"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				168C09FA274E550700390C21 /* ContainerView.swift */,
 				16F2017B2751029700ACE724 /* IndentView.swift */,
 				168C09FC274E552600390C21 /* GradientBackground.swift */,
+				1602BB62278B62B20032F983 /* ModalSheetHeader.swift */,
 			);
 			path = "Styles and buttons";
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				16D73864278587C0001BD235 /* ModalModel.swift in Sources */,
 				16F2017A2751021500ACE724 /* HistoryBarView.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* Image+resizeToFill.swift in Sources */,
+				1602BB63278B62B20032F983 /* ModalSheetHeader.swift in Sources */,
 				16D73860278586E8001BD235 /* NavigationManager.swift in Sources */,
 				16A91492273AB2C4001D82A6 /* HistoryView.swift in Sources */,
 				168C09F9274E54FB00390C21 /* EmbossedButtonView.swift in Sources */,

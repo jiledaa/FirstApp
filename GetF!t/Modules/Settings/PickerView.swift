@@ -2,8 +2,8 @@ import Foundation
 import SwiftUI
 
 struct PickerView: UIViewRepresentable {
-    var data: [[String]]
     @Binding var selections: [Int]
+    var data: [[String]]
 
     func makeCoordinator() -> PickerView.Coordinator {
         Coordinator(self)
@@ -51,6 +51,6 @@ struct PickerView: UIViewRepresentable {
 
 struct PickerView_Previews: PreviewProvider {
     static var previews: some View {
-        PickerView(data: [["1"]], selections: .constant([20]))
+        PickerView(selections: .constant([20]), data: [["1"]])
     }
 }

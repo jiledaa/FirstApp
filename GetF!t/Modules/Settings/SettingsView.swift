@@ -12,39 +12,41 @@ struct SettingsView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .top) {
-                closeButton
+                ModalSheetHeader(text: LocalizedStringProvider.Settings.settings, circleX: 0.5, circleY: 0.18)
                 VStack {
-                    Text(LocalizedStringProvider.Settings.settings)
-                        .font(.largeTitle)
-                        .fontWeight(.black)
-                        .foregroundColor(.white)
-                        .padding(.bottom, geometry.size.height * 0.06)
-                    Text(verbatim: LocalizedStringProvider.Settings.exerciseInterval)
+                    Text(LocalizedStringProvider.Settings.exerciseInterval)
                         .font(.title)
                         .fontWeight(.bold)
-                        .padding()
-                    HStack {
-                        PickerView(data: self.data, selections: self.$selections)
-                            .frame(width: geometry.size.width * 0.6, alignment: .trailing)
-                        Text("\(self.data[0][self.selections[0]])sec")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .padding(.all)
-                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
-                            .background(ColorProvider.dropShadow)
-                            .cornerRadius(10)
-                    }
+                        .multilineTextAlignment(.center)
+                    picker(geometry: geometry)
                     .padding(.trailing)
-                    Text(verbatim: LocalizedStringProvider.Settings.orderInterval)
+                    Divider()
+                    Text(LocalizedStringProvider.Settings.orderInterval)
                         .font(.title)
                         .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
                         .padding()
                 }
-                .padding(.top)
+                .padding(.top, geometry.size.height * 0.17)
             }
         }
     }
+    
+@ViewBuilder
+    func picker(geometry: GeometryProxy ) -> some View {
+        HStack {
+            PickerView(selections: self.$selections, data: self.data)
+                .frame(width: geometry.size.width * 0.6, alignment: .trailing)
 
+        Text("\(self.data[0][self.selections[0]])sec")
+            .font(.headline)
+            .fontWeight(.bold)
+            .padding(.all)
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
+            .background(ColorProvider.dropShadow)
+            .cornerRadius(10)
+    }
+    }
     var closeButton: some View {
         GeometryReader { geometry in
         ZStack(alignment: .topTrailing) {

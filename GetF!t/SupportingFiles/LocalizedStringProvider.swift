@@ -37,8 +37,8 @@ struct LocalizedStringProvider {
     }
 
     struct Settings {
-        static let settings = NSLocalizedString("settings", comment: "")
-        static let exerciseInterval = NSLocalizedString("exerciseInterval", comment: "")
-        static let orderInterval = NSLocalizedString("exerciseOrder", comment: "")
+        static let settings = LocalizedStringKey("settings")
+        static let exerciseInterval = LocalizedStringKey("exerciseInterval")
+        static let orderInterval = LocalizedStringKey("exerciseOrder")
     }
 }

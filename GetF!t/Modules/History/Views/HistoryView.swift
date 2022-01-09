@@ -7,17 +7,11 @@ struct HistoryView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                closeButton
+                ModalSheetHeader(text: LocalizedStringProvider.Button.history, circleX: 0.5, circleY: 0.18)
                 VStack {
-                    VStack {
-                        Text(LocalizedStringProvider.Button.history)
-                            .font(.largeTitle)
-                            .fontWeight(.black)
-                            .foregroundColor(.white)
-                        buttonLayout
-                            .padding()
-                    }
-                    .frame(height: geometry.size.height * 0.15)
+                    buttonLayout
+                        .padding(.top, geometry.size.height * 0.12)
+                        .frame(height: geometry.size.height * 0.15)
                     Spacer()
                     historyLayout
                 }
@@ -74,37 +68,6 @@ struct HistoryView: View {
                 .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
             }
         }
-    }
-
-    var closeButton: some View {
-        GeometryReader { geometry in
-        ZStack(alignment: .topTrailing) {
-            ColorProvider.background
-                .overlay(
-                    GradientBackground()
-                        .mask(circle(size: geometry.size))
-                )
-                .edgesIgnoringSafeArea(.all)
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                ImageProvider.xmark
-                    .foregroundColor(.primary)
-            }
-            .font(.title2)
-            .padding([.top, .trailing])
-        }
-        }
-    }
-
-    private func circle(size: CGSize) -> some View {
-        Circle()
-            .frame(
-                width: size.width,
-                height: size.height)
-            .position(
-                x: size.width * 0.5,
-                y: -size.width * 0.2)
     }
 }
 

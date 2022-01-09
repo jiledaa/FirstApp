@@ -9,19 +9,8 @@ struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ColorProvider.background
-                    .edgesIgnoringSafeArea(.all)
-                circle(size: geometry.size)
-                    .overlay(
-                        GradientBackground()
-                            .mask(circle(size: geometry.size))
-                    )
+                ModalSheetHeader(text: navigationManager.titleText, circleX: 0.5, circleY: 0.18)
                 VStack {
-                    Text(navigationManager.titleText)
-                        .font(.largeTitle)
-                        .fontWeight(.black)
-                        .foregroundColor(.white)
-                        .padding(.top)
                     Spacer()
                     indentView
                     Spacer()
