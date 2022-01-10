@@ -48,7 +48,7 @@ struct TimerView: View {
         RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
             presentationMode.wrappedValue.dismiss()
             navigationManager.onDoneTapped()
-            historyViewModel.onDoneTapped(navigationManager.titleText)
+            historyViewModel.onDoneTapped(navigationManager.titleTextForHistoryStore)
         }
         .opacity(timerViewModel.opacity)
         .padding([.leading, .trailing], 30)

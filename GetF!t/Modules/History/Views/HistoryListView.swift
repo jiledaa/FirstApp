@@ -17,32 +17,35 @@ struct HistoryListView: View {
                         },
                     footer:
                         Divider()
-                        .padding(.top, 40)
+                        .padding(.top)
                 ) {
-                    HStack(spacing: 40) {
-                        ForEach(0..<min(day.exercises.count, 4)) { index in
-                            exercisesSwitch(exercise: day.exercises[index])
+                    VStack {
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 70, maximum: 100))]) {
+                            ForEach(0..<day.exercises.count) { index in
+                                exercisesSwitch(exercise: day.exercises[index])
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity)
                     .font(.headline)
+                    .padding(.horizontal)
                 }
             }
         }
         .frame(maxWidth: .infinity)
     }
 
-    func exercisesSwitch(exercise: LocalizedStringKey) -> some View {
+    func exercisesSwitch(exercise: String) -> some View {
         VStack {
             IndentView {
                 switch exercise {
-                case LocalizedStringProvider.ExercisesNames.squat:
+                case StringProvider.ExercisesNamesVideo.squat:
                     ImageProvider.boltFill
                         .frame(minWidth: 60)
-                case LocalizedStringProvider.ExercisesNames.stepUp:
+                case StringProvider.ExercisesNamesVideo.stepUp:
                     ImageProvider.arrowUturnUp
                         .frame(minWidth: 60)
-                case LocalizedStringProvider.ExercisesNames.burpee:
+                case StringProvider.ExercisesNamesVideo.burpee:
                     ImageProvider.hareFill
                         .frame(minWidth: 60)
                 default:
@@ -51,11 +54,12 @@ struct HistoryListView: View {
                 }
             }
             .foregroundColor(ColorProvider.gradientTop)
-            .padding(.bottom, 20)
+            .padding(.bottom)
             Text(exercise)
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)
+                .padding(.bottom)
         }
     }
 }
@@ -63,6 +67,6 @@ struct HistoryListView: View {
 struct HistoryListView_Previews: PreviewProvider {
     static var previews: some View {
         HistoryListView()
-            .environmentObject(HistoryViewModel(debugData: true))
+            .environmentObject(HistoryViewModel())
     }
 }

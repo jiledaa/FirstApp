@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
-    @EnvironmentObject var history: HistoryViewModel
+    @EnvironmentObject var historyViewModel: HistoryViewModel
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -20,6 +20,9 @@ struct ContentView: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .sheet(item: $navigationManager.modal, content: ModalView.init)
                 historyButton
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                historyViewModel.savingHistory()
             }
         }
         .environmentObject(navigationManager)

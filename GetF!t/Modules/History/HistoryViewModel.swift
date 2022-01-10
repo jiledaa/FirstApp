@@ -4,7 +4,7 @@ import SwiftUI
 struct ExerciseDay: Identifiable {
     let id = UUID()
     let date: Date
-    var exercises: [LocalizedStringKey] = []
+    var exercises: [String] = []
 }
 
 class HistoryViewModel: ObservableObject {
@@ -85,7 +85,7 @@ class HistoryViewModel: ObservableObject {
         exerciseDays = convertedPlistData.map {
             ExerciseDay(
                 date: $0[1] as? Date ?? Date(),
-                exercises: $0[2] as? [LocalizedStringKey] ?? [])
+                exercises: $0[2] as? [String] ?? [])
         }
     }
 
@@ -96,6 +96,8 @@ class HistoryViewModel: ObservableObject {
         let plistData = exerciseDays.map {
             [$0.id.uuidString, $0.date, $0.exercises]
         }
+//        let wev = (plistData[0][2] as AnyObject).stringValue()
+//        print("mamurl\(wev)")
         do {
             let data = try PropertyListSerialization.data(
                 fromPropertyList: plistData,
@@ -107,7 +109,7 @@ class HistoryViewModel: ObservableObject {
         }
     }
 
-    private func addDoneExercise(_ exerciseName: LocalizedStringKey) {
+    private func addDoneExercise(_ exerciseName: String) {
         let today = Date()
         if let firstDate = exerciseDays.first?.date,
            today.isSameDay(as: firstDate) {
@@ -119,9 +121,15 @@ class HistoryViewModel: ObservableObject {
         }
     }
 
-    func onDoneTapped(_ exerciseName: LocalizedStringKey) {
+    func onDoneTapped(_ exerciseName: String) {
         addDoneExercise(exerciseName)
     }
+
+    func savingHistory() {
+        do {
+          try save()
+        } catch {
+          fatalError(error.localizedDescription)
+        }
+    }
 }
-
-
