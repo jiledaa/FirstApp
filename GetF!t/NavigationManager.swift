@@ -4,7 +4,6 @@ import SwiftUI
 class NavigationManager: ObservableObject {
     @Published var selectedTab = -1
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
-    @Published var titleTextForHistoryStore: String = StringProvider.ExercisesNamesVideo.sunSalute
     @Published var modal: Modal?
 
     let maxTabs = Exercise.exercises.count
@@ -14,9 +13,6 @@ class NavigationManager: ObservableObject {
         $selectedTab
             .map(nameForTitle(tab:))
             .assign(to: &$titleText)
-        $titleText
-            .map(nameForHistory(titleText:))
-            .assign(to: &$titleTextForHistoryStore)
     }
     
 
@@ -30,7 +26,7 @@ class NavigationManager: ObservableObject {
         }
     }
 
-    private func nameForHistory(titleText: LocalizedStringKey) -> String {
+    func nameForHistory() -> String {
         switch titleText {
         case LocalizedStringProvider.ExercisesNames.squat: return StringProvider.ExercisesNamesVideo.squat
         case LocalizedStringProvider.ExercisesNames.stepUp: return StringProvider.ExercisesNamesVideo.stepUp
