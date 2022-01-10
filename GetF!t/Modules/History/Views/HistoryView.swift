@@ -16,7 +16,6 @@ struct HistoryView: View {
                             .padding()
                         buttonLayout
                     }
-                    .frame(height: geometry.size.height * 0.15)
                     Spacer()
                     historyLayout
                 }
@@ -42,7 +41,7 @@ struct HistoryView: View {
                     ImageProvider.squareGrid2x2Fill
                         .padding(.horizontal)
                 }
-                .buttonStyle(EmbossedButtonView())
+                .buttonStyle(EmbossedButtonStyle())
                 .shadow(color: ColorProvider.dropShadow, radius: 1, x: 2, y: -2)
                 .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
                 Button(action: {
@@ -52,7 +51,7 @@ struct HistoryView: View {
                         .padding(.horizontal)
                         .foregroundColor(.gray)
                 }
-                .buttonStyle(EmbossedButtonView())
+                .buttonStyle(EmbossedButtonStyle())
             case .bar:
                 Button(action: {
                     historyViewModel.layoutType = .list
@@ -61,13 +60,13 @@ struct HistoryView: View {
                         .padding(.horizontal)
                         .foregroundColor(.gray)
                 }
-                .buttonStyle(EmbossedButtonView())
+                .buttonStyle(EmbossedButtonStyle())
                 Button(action: {
                 }) {
                     ImageProvider.chartBarFill
                         .padding(.horizontal)
                 }
-                .buttonStyle(EmbossedButtonView())
+                .buttonStyle(EmbossedButtonStyle())
                 .shadow(color: ColorProvider.dropShadow, radius: 1, x: 2, y: -2)
                 .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
             }

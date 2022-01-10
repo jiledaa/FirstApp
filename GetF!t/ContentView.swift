@@ -5,7 +5,7 @@ struct ContentView: View {
     @EnvironmentObject var historyViewModel: HistoryViewModel
     
     var body: some View {
-        ZStack(alignment: .top) {
+        ZStack {
             GradientBackground()
             VStack {
                 HeaderView()
@@ -37,7 +37,7 @@ struct ContentView: View {
                 .padding([.leading, .trailing], 5)
         }
         .padding(.bottom)
-        .buttonStyle(EmbossedButtonView())
+        .buttonStyle(EmbossedButtonStyle())
     }
 }
 

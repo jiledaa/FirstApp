@@ -25,7 +25,7 @@ struct RatingView: View {
                         ratingViewModel.ratingActive(index) ? offColor : onColor)
                     .font(.title3)
             }
-            .buttonStyle(EmbossedButtonView(buttonShape: .round))
+            .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
         }
     }
 }

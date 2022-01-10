@@ -5,13 +5,10 @@ struct WelcomeView: View {
 
     var body: some View {
             VStack {
-                Spacer()
                 WelcomeView.images
-                Spacer()
                 getStartedButton
                     .padding(.bottom)
             }
-
     }
     
     var getStartedButton: some View {
