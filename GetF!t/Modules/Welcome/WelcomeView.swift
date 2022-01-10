@@ -4,8 +4,6 @@ struct WelcomeView: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
-        GeometryReader { geometry in
-            Spacer()
             VStack {
                 Spacer()
                 WelcomeView.images
@@ -13,7 +11,7 @@ struct WelcomeView: View {
                 getStartedButton
                     .padding(.bottom)
             }
-        }
+
     }
     
     var getStartedButton: some View {

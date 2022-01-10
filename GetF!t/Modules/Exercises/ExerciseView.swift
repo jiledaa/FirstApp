@@ -8,30 +8,27 @@ struct ExerciseView: View {
     let exerciseViewModel: ExercisesViewModel
 
     var body: some View {
-        GeometryReader { geometry in
             VStack {
                 Spacer()
                 ContainerView {
                     VStack {
-                        video(size: geometry.size)
+                        video
                         Spacer()
                         startExerciseButton
                         RatingView(ratingViewModel: ratingViewModel)
                     }
                 }
-                .frame(height: geometry.size.height * 1)
             }
-        }
+
         .onAppear{
             ratingViewModel.loadRating(exercise: exerciseViewModel.exercise)
         }
     }
 
     @ViewBuilder
-    private func video(size: CGSize) -> some View {
+    private var video: some View {
         if let url = exerciseViewModel.videoURL {
             VideoPlayer(player: AVPlayer(url: url))
-                .frame(height: size.height * 0.55)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .padding(20)
         } else {
