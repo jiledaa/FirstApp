@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1652E4EA278CAA8200350A2F /* ModalSheetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652E4E9278CAA8200350A2F /* ModalSheetStyle.swift */; };
 		168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391812756AD2D000DFF7A /* Exercise+constructor.swift */; };
 		168391842756B4FB000DFF7A /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391832756B4FB000DFF7A /* RatingViewModel.swift */; };
 		1683E5E32764D075003B6B02 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E22764D075003B6B02 /* ImageProvider.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1652E4E9278CAA8200350A2F /* ModalSheetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetStyle.swift; sourceTree = "<group>"; };
 		168391812756AD2D000DFF7A /* Exercise+constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+constructor.swift"; sourceTree = "<group>"; };
 		168391832756B4FB000DFF7A /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		1683E5E22764D075003B6B02 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				168C09FA274E550700390C21 /* ContainerView.swift */,
 				16F2017B2751029700ACE724 /* IndentView.swift */,
 				168C09FC274E552600390C21 /* GradientBackground.swift */,
+				1652E4E9278CAA8200350A2F /* ModalSheetStyle.swift */,
 			);
 			path = "Styles and buttons";
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				1683E5E52764E442003B6B02 /* ColorProvider.swift in Sources */,
 				16A91497273C18E8001D82A6 /* ExerciseModel.swift in Sources */,
 				16A9148427396543001D82A6 /* WelcomeView.swift in Sources */,
+				1652E4EA278CAA8200350A2F /* ModalSheetStyle.swift in Sources */,
 				168391842756B4FB000DFF7A /* RatingViewModel.swift in Sources */,
 				16F20178275101CC00ACE724 /* HistoryListView.swift in Sources */,
 				16A9148627396587001D82A6 /* ExerciseView.swift in Sources */,

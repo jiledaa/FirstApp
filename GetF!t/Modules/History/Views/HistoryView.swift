@@ -7,18 +7,15 @@ struct HistoryView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                closeButton
+                ModalSheetStyle(text: LocalizedStringProvider.Button.history, circleX: 0.5, circleY: 0.18)
                 VStack {
-                    VStack {
-                        Text(LocalizedStringProvider.Button.history)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding()
-                        buttonLayout
-                    }
+                    buttonLayout
+                        .padding(.top, geometry.size.height * 0.12)
+                        .frame(height: geometry.size.height * 0.15)
                     Spacer()
                     historyLayout
                 }
+                .padding(.top, geometry.size.height * 0.07)
             }
         }
     }
