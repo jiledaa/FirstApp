@@ -9,12 +9,13 @@ struct TimerView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ModalSheetStyle(text: navigationManager.titleText, circleX: 0.5, circleY: 0.18)
-                VStack {
-                    Spacer()
-                    indentView
-                    Spacer()
-                    doneButton
+                ModalSheetView(text: navigationManager.titleText, circleX: 0.5, circleY: 0.18) {
+                    VStack {
+                        Spacer()
+                        indentView
+                        Spacer()
+                        doneButton
+                    }
                 }
             }
         }
