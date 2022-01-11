@@ -137,9 +137,8 @@ class HistoryViewModel: ObservableObject {
     func nameForHistoryLoad(titleTextForHistorySave: String) -> LocalizedStringKey {
         switch titleTextForHistorySave {
         case StringProvider.ExercisesNamesVideo.squat: return LocalizedStringProvider.ExercisesNames.squat
-        case StringProvider.ExercisesNamesVideo.squat: return LocalizedStringProvider.ExercisesNames.squat
-        case StringProvider.ExercisesNamesVideo.squat: return LocalizedStringProvider.ExercisesNames.stepUp
-        case StringProvider.ExercisesNamesVideo.squat: return LocalizedStringProvider.ExercisesNames.burpee
+        case StringProvider.ExercisesNamesVideo.stepUp: return LocalizedStringProvider.ExercisesNames.stepUp
+        case StringProvider.ExercisesNamesVideo.burpee: return LocalizedStringProvider.ExercisesNames.burpee
         default: return LocalizedStringProvider.ExercisesNames.sunSalute
         }
     }

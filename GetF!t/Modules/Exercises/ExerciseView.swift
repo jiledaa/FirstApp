@@ -3,7 +3,8 @@ import AVKit
 
 struct ExerciseView: View {
     @EnvironmentObject var navigationManager: NavigationManager
-
+    @StateObject var ratingViewModel = RatingViewModel()
+    
     let exerciseViewModel: ExercisesViewModel
 
     var body: some View {
@@ -15,8 +16,20 @@ struct ExerciseView: View {
                         .padding(.bottom)
                     startExerciseButton
                         .padding(.bottom, 40)
+                    VStack {
+                        Text(LocalizedStringProvider.texts.rating)
+                            .italic()
+                        HStack {
+                            rating
+                        }
+
+                    }
+                    .padding(.vertical)
                 }
             }
+        }
+        .onAppear {
+            ratingViewModel.loadRating(exercise: exerciseViewModel.exercise)
         }
     }
 
@@ -37,6 +50,19 @@ struct ExerciseView: View {
             navigationManager.onStartExerciseTapped()
         }
         .frame(width: 250, height: 50, alignment: .center)
+    }
+
+    private var rating: some View {
+        ForEach(1 ..< ratingViewModel.maximumRating + 1, id: \.self) { index in
+            Button(action: {
+            }) {
+                ImageProvider.waveform
+                    .foregroundColor(
+                        ratingViewModel.ratingActive(index) ? ratingViewModel.offColor :   ratingViewModel.onColor)
+                    .font(.title3)
+            }
+            .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+        }
     }
 }
 

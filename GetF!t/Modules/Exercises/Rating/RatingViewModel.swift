@@ -6,6 +6,9 @@ class RatingViewModel: ObservableObject {
     var exercise: Exercise?
     let maximumRating = 5
 
+    let onColor = ColorProvider.ratings
+    let offColor = Color.gray
+    
     func ratingActive(_ index: Int) -> Bool {
         index > rating
     }

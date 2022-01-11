@@ -6,15 +6,15 @@ struct TimerView: View {
     @StateObject var ratingViewModel = RatingViewModel()
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                ModalSheetView(text: navigationManager.titleText, circleX: 0.5, circleY: 0.18) {
-                    VStack {
-                        Spacer()
-                        indentView
-                        RatingView(ratingViewModel: ratingViewModel)
-                            .padding(.vertical)
-                    }
+        ZStack {
+            ModalSheetView(text: navigationManager.titleText, circleX: 0.5, circleY: 0.18) {
+                VStack {
+                    Spacer()
+                    indentView
+                        .padding(.top, 120)
+                    Spacer()
+                    RatingView(ratingViewModel: ratingViewModel)
+                        .padding(.bottom)
                 }
             }
         }
