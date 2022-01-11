@@ -1,6 +1,6 @@
 import SwiftUI
 
-class TimerViewModel: ObservableObject {
+class TimerViewManager: ObservableObject {
     @Published var timeRemaining = 3
 
     var timeOver: Bool {

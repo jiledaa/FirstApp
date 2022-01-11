@@ -18,7 +18,7 @@
 
 "GetfitPostScript" = "mit hochintensivem \nIntervalltraining!";
 
-"CouldntFind" = "Can nicht Video finden";
+"CouldntFind" = "Can nicht Video finden!";
 
 "Glory" = "Sieg he!l";
 
@@ -31,3 +31,7 @@
 "LoadingError1" = "Die Trainingsdaten könnten nicht geladen werden!";
 
 "LoadingError2" = "Leider kann Ihr Trainingsverlauf \n nicht geladen werden! \n Email Untersützung: support@berlin.com";
+
+"rating" = "Deine letzte Intensität!";
+
+"ratingButton" = "Bewerte die Intensität!";

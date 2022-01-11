@@ -3,25 +3,20 @@ import AVKit
 
 struct ExerciseView: View {
     @EnvironmentObject var navigationManager: NavigationManager
-    @StateObject var ratingViewModel = RatingViewModel()
 
     let exerciseViewModel: ExercisesViewModel
 
     var body: some View {
-            VStack {
-                Spacer()
-                ContainerView {
-                    VStack {
-                        video
-                        Spacer()
-                        startExerciseButton
-                        RatingView(ratingViewModel: ratingViewModel)
-                    }
+        VStack {
+            Spacer()
+            ContainerView {
+                VStack {
+                    video
+                        .padding(.bottom)
+                    startExerciseButton
+                        .padding(.bottom, 40)
                 }
             }
-
-        .onAppear{
-            ratingViewModel.loadRating(exercise: exerciseViewModel.exercise)
         }
     }
 

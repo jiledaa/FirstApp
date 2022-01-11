@@ -35,4 +35,9 @@ struct LocalizedStringProvider {
         static let `loadingError1` = LocalizedStringKey("LaodingError1")
         static let `loadingError2` = LocalizedStringKey("LoadingError2")
     }
+
+    struct texts {
+        static let rating = LocalizedStringKey("rating")
+        static let ratingButton = LocalizedStringKey("ratingButton")
+    }
 }

@@ -15,7 +15,6 @@ class NavigationManager: ObservableObject {
             .assign(to: &$titleText)
     }
     
-
     private func nameForTitle(tab: Int) -> LocalizedStringKey {
         switch tab {
         case -1: return LocalizedStringProvider.WelcomePage.welcome

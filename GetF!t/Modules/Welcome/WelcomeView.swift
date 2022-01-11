@@ -7,7 +7,7 @@ struct WelcomeView: View {
             VStack {
                 WelcomeView.images
                 getStartedButton
-                    .padding(.bottom)
+                    .padding(.bottom, 40)
             }
     }
     
