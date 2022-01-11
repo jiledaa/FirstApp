@@ -16,10 +16,12 @@ class RatingViewModel: ObservableObject {
             return
         }
         UserDefaults.standard.set(rating, forKey: "\(key)")
+        print("sejf\(UserDefaults.standard.set(rating, forKey: "\(key)"))")
     }
 
     func loadRating(exercise: Exercise) {
         self.exercise = exercise
         rating = UserDefaults.standard.integer(forKey: "\(exercise.exerciseName)")
+        print("loud\(rating)")
     }
 }

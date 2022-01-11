@@ -55,7 +55,7 @@ struct HistoryListView: View {
             }
             .foregroundColor(ColorProvider.gradientTop)
             .padding(.bottom)
-            Text(exercise)
+            Text(historyViewModel.nameForHistoryLoad(titleTextForHistorySave: exercise))
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)

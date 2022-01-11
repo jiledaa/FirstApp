@@ -14,6 +14,7 @@ struct RatingView: View {
         VStack {
             VStack {
                 Text(LocalizedStringProvider.texts.rating)
+                    .italic()
                 HStack {
                     rating
                 }
@@ -24,9 +25,12 @@ struct RatingView: View {
                     .font(.largeTitle)
 
                 Text(LocalizedStringProvider.texts.ratingButton)
+                    .italic()
                 HStack {
                     ratingButton
                 }
+                .shadow(color: ColorProvider.dropShadow, radius: 1, x: -2, y: 2)
+                .shadow(color: ColorProvider.dropHighlight, radius: 1, x: -2, y: -2)
             }
             .padding(.vertical)
             .onReceive(timerManager.timer, perform: timerManager.onTimeOver)
@@ -46,8 +50,8 @@ struct RatingView: View {
             Button(action: {
                 ratingViewModel.updateRating(index: index)
                 presentationMode.wrappedValue.dismiss()
+                historyViewModel.onDoneTapped(navigationManager.nameForHistorySave())
                 navigationManager.onDoneTapped()
-                historyViewModel.onDoneTapped(navigationManager.nameForHistory())
             }) {
                 ImageProvider.waveform
                     .foregroundColor(

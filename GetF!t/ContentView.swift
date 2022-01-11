@@ -22,7 +22,7 @@ struct ContentView: View {
                 historyButton
             }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                historyViewModel.savingHistory()
+                historyViewModel.saveHistory()
             }
         }
         .environmentObject(navigationManager)

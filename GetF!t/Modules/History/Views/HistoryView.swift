@@ -70,21 +70,6 @@ struct HistoryView: View {
             }
         }
     }
-
-    var closeButton: some View {
-        ZStack(alignment: .topTrailing) {
-            ColorProvider.background
-                .edgesIgnoringSafeArea(.all)
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                ImageProvider.xmark
-                    .foregroundColor(.primary)
-            }
-            .font(.title2)
-            .padding([.top, .trailing], 25)
-        }
-    }
 }
 
 struct HistoryView_Previews: PreviewProvider {

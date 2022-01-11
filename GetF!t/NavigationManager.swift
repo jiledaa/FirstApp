@@ -25,7 +25,7 @@ class NavigationManager: ObservableObject {
         }
     }
 
-    func nameForHistory() -> String {
+    func nameForHistorySave() -> String {
         switch titleText {
         case LocalizedStringProvider.ExercisesNames.squat: return StringProvider.ExercisesNamesVideo.squat
         case LocalizedStringProvider.ExercisesNames.stepUp: return StringProvider.ExercisesNamesVideo.stepUp
@@ -33,7 +33,7 @@ class NavigationManager: ObservableObject {
         default: return StringProvider.ExercisesNamesVideo.sunSalute
         }
     }
-    
+
     func goToWelcomeView() {
         selectedTab = -1
     }
