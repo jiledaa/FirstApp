@@ -2,7 +2,8 @@ import SwiftUI
 
 struct HistoryListView: View {
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    
+    @StateObject var ratingViewModel = RatingViewModel()
+
     var body: some View {
         ScrollView {
             ForEach(historyViewModel.exerciseDays) { day in
@@ -56,6 +57,10 @@ struct HistoryListView: View {
             .foregroundColor(ColorProvider.gradientTop)
             .padding(.bottom)
             Text(historyViewModel.nameForHistoryLoad(titleTextForHistorySave: exercise))
+                .font(.caption)
+                .fontWeight(.light)
+                .foregroundColor(Color.primary)
+            Text("\(ratingViewModel.rating)")
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)

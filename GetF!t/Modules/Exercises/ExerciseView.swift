@@ -55,6 +55,7 @@ struct ExerciseView: View {
     private var rating: some View {
         ForEach(1 ..< ratingViewModel.maximumRating + 1, id: \.self) { index in
             Button(action: {
+//                ratingViewModel.updateRating(index: index)
             }) {
                 ImageProvider.waveform
                     .foregroundColor(
