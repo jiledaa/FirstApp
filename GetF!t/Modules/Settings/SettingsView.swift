@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @StateObject var timerManager = TimerManager()
+
     private let data: [[String]] = [
         Array(0...180).map { "\($0)" }
     ]
@@ -58,19 +59,7 @@ struct SettingsView: View {
                 .cornerRadius(10)
         }
     }
-    
-    private func circle(size: CGSize) -> some View {
-        Circle()
-            .frame(
-                width: size.width,
-                height: size.height)
-            .position(
-                x: size.width * 0.5,
-                y: -size.width * 0.18)
-    }
 }
-
-
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
