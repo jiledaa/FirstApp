@@ -16,6 +16,10 @@ struct TimerView: View {
                     Spacer()
                     doneButton
                 }
+                .onAppear {
+                    timerManager.loadSelections()
+                    timerManager.timeRemaining = timerManager.selections[0]
+                }
             }
         }
     }
@@ -55,16 +59,6 @@ struct TimerView: View {
                 maxHeight: 200)
             .padding()
             .onReceive(timerManager.timer, perform: timerManager.onTimeOver)
-    }
-
-    private func circle(size: CGSize) -> some View {
-        Circle()
-            .frame(
-                width: size.width,
-                height: size.height)
-            .position(
-                x: size.width * 0.5,
-                y: -size.width * 0.2)
     }
 }
 

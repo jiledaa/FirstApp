@@ -26,10 +26,9 @@ struct ContentView: View {
                 }
                 .padding(.horizontal)
                 .padding(.horizontal)
-
             }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                historyViewModel.savingHistory()
+                historyViewModel.saveHistory()
             }
         }
         .environmentObject(navigationManager)

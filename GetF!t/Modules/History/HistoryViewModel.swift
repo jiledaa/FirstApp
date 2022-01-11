@@ -125,7 +125,7 @@ class HistoryViewModel: ObservableObject {
         addDoneExercise(exerciseName)
     }
 
-    func savingHistory() {
+    func saveHistory() {
         do {
           try save()
         } catch {

@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 
 struct PickerView: UIViewRepresentable {
+    @StateObject var timerManager = TimerManager()
     @Binding var selections: [Int]
     var data: [[String]]
 

@@ -1,10 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var timeManager: TimerManager
-    @State private var selections: [Int] = [10]
-
+    @StateObject var timerManager = TimerManager()
     private let data: [[String]] = [
         Array(0...180).map { "\($0)" }
     ]
@@ -19,7 +16,6 @@ struct SettingsView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                     picker(geometry: geometry)
-                    .padding(.trailing)
                     Divider()
                     Text(LocalizedStringProvider.Settings.orderInterval)
                         .font(.title)
@@ -27,44 +23,39 @@ struct SettingsView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                 }
+                .onAppear {
+                    timerManager.loadSelections()
+                }
+                .onChange(of: timerManager.selections[0]) { newValue in
+                    timerManager.updateSelections(newValue: newValue)
+                    print("SettingsViewvoe\(timerManager.selections[0])\(newValue)")
+                }
                 .padding(.top, geometry.size.height * 0.17)
             }
         }
     }
-    
-@ViewBuilder
+
+//    @ViewBuilder
+//    func picker() -> some View{
+//        Picker("seconds", selection: $selections) {
+//            Text("1").tag(selections)
+//        }
+//        Text("\(selections[0])")
+//    }
+
+    @ViewBuilder
     func picker(geometry: GeometryProxy ) -> some View {
         HStack {
-            PickerView(selections: self.$selections, data: self.data)
+            PickerView(selections: $timerManager.selections, data: self.data)
                 .frame(width: geometry.size.width * 0.6, alignment: .trailing)
 
-        Text("\(self.data[0][self.selections[0]])sec")
-            .font(.headline)
-            .fontWeight(.bold)
-            .padding(.all)
-            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
-            .background(ColorProvider.dropShadow)
-            .cornerRadius(10)
-    }
-    }
-    var closeButton: some View {
-        GeometryReader { geometry in
-        ZStack(alignment: .topTrailing) {
-            ColorProvider.background
-                .overlay(
-                    GradientBackground()
-                        .mask(circle(size: geometry.size))
-                )
-                .edgesIgnoringSafeArea(.all)
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                ImageProvider.xmark
-                    .foregroundColor(.primary)
-            }
-            .font(.title2)
-            .padding([.top, .trailing])
-        }
+            Text("\(data[0][timerManager.selections[0]]) sec")
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding(.all)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
+                .background(ColorProvider.dropShadow)
+                .cornerRadius(10)
         }
     }
     
