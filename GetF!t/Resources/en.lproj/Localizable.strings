@@ -16,7 +16,7 @@
 
 "Welcome" = "Welcome";
 
-"GetfitPostScript" = "with high intensity interval training!";
+"GetfitPostScript" = "with high intensity \ninterval training! ";
 
 "CouldntFind" = "Couldn't find the video";
 
@@ -37,3 +37,6 @@
 "exerciseInterval" = "Set the exercise interval";
 
 "exerciseOrder" = "Set the exercise order";
+"rating" = "your last intensity";
+
+"ratingButton" = "evaluate the intensity";

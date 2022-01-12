@@ -2,68 +2,71 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-    @EnvironmentObject var navigationManager: NavigationManager
-    @StateObject var ratingViewModel = RatingViewModel()
-
-    let exerciseViewModel: ExercisesViewModel
+    @EnvironmentObject var navigationManager: NavigationManager    
+    @ObservedObject var exerciseManager: ExerciseManager
 
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                Spacer()
-                ContainerView {
+        VStack {
+            Spacer()
+            ContainerView {
+                VStack {
+                    video
+                        .padding(.bottom)
+                    startExerciseButton
+                        .padding(.bottom, 40)
                     VStack {
-                        VideoPlayerView(
-                            size: geometry.size,
-                            videoURL: exerciseViewModel.videoURL,
-                            errorText: LocalizedStringProvider.Errors.couldntFind
-                        )
-                        Spacer()
-                        CustomButton(
-                            action: navigationManager.onStartExerciseTapped
-                        )
-                        RatingView(ratingViewModel: ratingViewModel)
+                        Text(LocalizedStringProvider.texts.rating)
+                            .italic()
+                        HStack {
+                            rating
+                        }
                     }
+                    .padding(.vertical)
                 }
-                .frame(height: geometry.size.height * 1)
             }
         }
-        .onAppear{
-            ratingViewModel.loadRating(exercise: exerciseViewModel.exercise)
+        .sheet(isPresented: $exerciseManager.isShowingTimer) {
+            TimerView(exerciseManager: exerciseManager)
         }
     }
+  
+  @ViewBuilder
+  private var video: some View {
+      if let url = exerciseManager.videoURL {
+          VideoPlayer(player: AVPlayer(url: url))
+              .clipShape(RoundedRectangle(cornerRadius: 12))
+              .padding(20)
+      } else {
+          Text(errorText)
+              .foregroundColor(.red)
+      }
+  }
+
+  private var startExerciseButton: some View {
+      RaisedButtonView(buttonText: LocalizedStringProvider.Button.startExercise) {
+          exerciseManager.onStartExerciseTapped()
+      }
+      .frame(width: 250, height: 50, alignment: .center)
+  }
+
+  private var rating: some View {
+      ForEach(1 ..< exerciseManager.maximumRating + 1, id: \.self) { index in
+          Button(action: {}) {
+              ImageProvider.waveform
+                  .foregroundColor(
+                      exerciseManager.ratingActive(index) ? exerciseManager.offColor :   exerciseManager.onColor)
+                  .font(.title3)
+          }
+          .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+      }
+  }
 }
 
-private struct CustomButton: View {
-    let action: () -> Void
-
-    var body: some View {
-        RaisedButtonView(buttonText: LocalizedStringProvider.Button.startExercise, action: action)
-            .frame(width: 250, height: 50, alignment: .center)
-    }
-}
-
-private struct VideoPlayerView: View {
-    let size: CGSize
-    let videoURL: URL?
-    let errorText: LocalizedStringKey
-
-    var body: some View {
-        if let url = videoURL {
-            VideoPlayer(player: AVPlayer(url: url))
-                .frame(height: size.height * 0.55)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .padding(20)
-        } else {
-            Text(errorText)
-                .foregroundColor(.red)
-        }
-    }
-}
+  
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(exerciseViewModel: .init(exercise: .init(exerciseName: LocalizedStringProvider.ExercisesNames.squat, videoName: StringProvider.ExercisesNamesVideo.squat)))
+        ExerciseView(exerciseManager: .init(exercise: .exercises[0]))
             .environmentObject(HistoryViewModel())
     }
 }

@@ -19,7 +19,32 @@ struct RaisedButtonStyle: ButtonStyle {
         configuration.label
             .frame(maxWidth: 250, maxHeight: 50)
             .padding([.top, .bottom], 12)
-            .buttonPress(configuration.isPressed)
+            .background(buttonBackground(isPressed: configuration.isPressed))
+    }
+
+    @ViewBuilder
+    private func buttonBackground(isPressed: Bool) -> some View{
+        if isPressed {
+            pressed
+        } else {
+            normal
+        }
+    }
+
+    private var normal: some View {
+        Capsule()
+            .shadow(color: ColorProvider.dropShadow, radius: 8, x: 6, y: 6)
+            .foregroundColor(ColorProvider.background)
+    }
+
+    private var pressed: some View {
+        Capsule()
+            .inset(by: -4)
+            .stroke(ColorProvider.background, lineWidth: 8)
+            .shadow(color: ColorProvider.dropShadow, radius: 4, x: 6, y: 6)
+            .shadow(color: ColorProvider.dropHighlight, radius: 4, x: -6, y: -6)
+            .foregroundColor(ColorProvider.background)
+            .clipShape(Capsule())
     }
 }
 
@@ -27,7 +52,6 @@ struct RaisedButton_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             RaisedButtonView(buttonText: LocalizedStringProvider.Button.getStarted) {
-
             }
             .buttonStyle(RaisedButtonStyle())
             .padding(20)

@@ -16,9 +16,9 @@
 
 "Welcome" = "Wilkommen!";
 
-"GetfitPostScript" = "mit hochintensivem Intervalltraining!";
+"GetfitPostScript" = "mit hochintensivem \nIntervalltraining!";
 
-"CouldntFind" = "Can nicht Video finden";
+"CouldntFind" = "Can nicht Video finden!";
 
 "Glory" = "Sieg he!l";
 
@@ -37,3 +37,6 @@
 "exerciseInterval" = "Stellen Sie das Trainingsintervall ein";
 
 "exerciseOrder" = "Legen Sie die Übungsreihenfolge fest";
+"rating" = "Deine letzte Intensität!";
+
+"ratingButton" = "Bewerte die Intensität!";

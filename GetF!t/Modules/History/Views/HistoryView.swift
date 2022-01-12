@@ -7,13 +7,15 @@ struct HistoryView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ModalSheetHeader(text: LocalizedStringProvider.Button.history, circleX: 0.5, circleY: 0.18)
-                VStack {
-                    buttonLayout
-                        .padding(.top, geometry.size.height * 0.12)
-                        .frame(height: geometry.size.height * 0.15)
-                    Spacer()
-                    historyLayout
+                ModalSheetView(text: LocalizedStringProvider.Button.history, circleX: 0.5, circleY: 0.18) {
+                    VStack {
+                        buttonLayout
+                            .padding(.top, geometry.size.height * 0.12)
+                            .frame(height: geometry.size.height * 0.15)
+                        Spacer()
+                        historyLayout
+                    }
+                    .padding(.top, geometry.size.height * 0.07)
                 }
                 .padding(.top, geometry.size.height * 0.07)
             }
@@ -38,7 +40,7 @@ struct HistoryView: View {
                     ImageProvider.squareGrid2x2Fill
                         .padding(.horizontal)
                 }
-                .buttonStyle(EmbossedButtonView())
+                .buttonStyle(EmbossedButtonStyle())
                 .shadow(color: ColorProvider.dropShadow, radius: 1, x: 2, y: -2)
                 .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
                 Button(action: {
@@ -48,7 +50,7 @@ struct HistoryView: View {
                         .padding(.horizontal)
                         .foregroundColor(.gray)
                 }
-                .buttonStyle(EmbossedButtonView())
+                .buttonStyle(EmbossedButtonStyle())
             case .bar:
                 Button(action: {
                     historyViewModel.layoutType = .list
@@ -57,13 +59,13 @@ struct HistoryView: View {
                         .padding(.horizontal)
                         .foregroundColor(.gray)
                 }
-                .buttonStyle(EmbossedButtonView())
+                .buttonStyle(EmbossedButtonStyle())
                 Button(action: {
                 }) {
                     ImageProvider.chartBarFill
                         .padding(.horizontal)
                 }
-                .buttonStyle(EmbossedButtonView())
+                .buttonStyle(EmbossedButtonStyle())
                 .shadow(color: ColorProvider.dropShadow, radius: 1, x: 2, y: -2)
                 .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
             }

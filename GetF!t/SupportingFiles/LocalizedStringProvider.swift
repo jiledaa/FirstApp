@@ -41,4 +41,9 @@ struct LocalizedStringProvider {
         static let exerciseInterval = LocalizedStringKey("exerciseInterval")
         static let orderInterval = LocalizedStringKey("exerciseOrder")
     }
+
+    struct texts {
+        static let rating = LocalizedStringKey("rating")
+        static let ratingButton = LocalizedStringKey("ratingButton")
+    }
 }

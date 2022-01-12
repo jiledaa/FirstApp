@@ -4,9 +4,9 @@ import SwiftUI
 class NavigationManager: ObservableObject {
     @Published var selectedTab = -1
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
-    @Published var titleTextForHistoryStore: String = StringProvider.ExercisesNamesVideo.sunSalute
     @Published var modal: Modal?
 
+    // MARK: - navigation
     let maxTabs = Exercise.exercises.count
 
     init() {
@@ -14,12 +14,8 @@ class NavigationManager: ObservableObject {
         $selectedTab
             .map(nameForTitle(tab:))
             .assign(to: &$titleText)
-        $titleText
-            .map(nameForHistory(titleText:))
-            .assign(to: &$titleTextForHistoryStore)
     }
     
-
     private func nameForTitle(tab: Int) -> LocalizedStringKey {
         switch tab {
         case -1: return LocalizedStringProvider.WelcomePage.welcome
@@ -30,7 +26,7 @@ class NavigationManager: ObservableObject {
         }
     }
 
-    private func nameForHistory(titleText: LocalizedStringKey) -> String {
+    func nameForHistorySave() -> String {
         switch titleText {
         case LocalizedStringProvider.ExercisesNames.squat: return StringProvider.ExercisesNamesVideo.squat
         case LocalizedStringProvider.ExercisesNames.stepUp: return StringProvider.ExercisesNamesVideo.stepUp
@@ -38,7 +34,7 @@ class NavigationManager: ObservableObject {
         default: return StringProvider.ExercisesNamesVideo.sunSalute
         }
     }
-    
+
     func goToWelcomeView() {
         selectedTab = -1
     }
@@ -50,7 +46,10 @@ class NavigationManager: ObservableObject {
     // only called from welcome view and timer view
     func goToNextTab() {
         if selectedTab + 1 == maxTabs {
-            modal = .success
+        // TODO: cekovat pri novych verzich
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) { [weak self] in // Change `2.0` to the desired number of seconds.
+                self?.modal = .successView
+            }
         } else {
             selectedTab += 1
         }
@@ -68,10 +67,6 @@ class NavigationManager: ObservableObject {
 
     func onShowSettingsTapped() {
         modal = .settings
-    }
-
-    func onStartExerciseTapped() {
-        modal = .timer
     }
 
     func onDoneTapped() {
