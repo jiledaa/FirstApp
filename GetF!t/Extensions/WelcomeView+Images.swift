@@ -27,7 +27,7 @@ extension WelcomeView {
                 .clipShape(Circle())
                 .position(x: 110, y: 220)
             Text(LocalizedStringProvider.WelcomePage.getfit)
-                .font(.largeTitle)
+                .font(.title)
                 .fontWeight(.black)
                 .kerning(3)
                 .position(x: 100, y: 350)

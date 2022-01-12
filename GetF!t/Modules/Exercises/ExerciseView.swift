@@ -2,7 +2,6 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-    @EnvironmentObject var navigationManager: NavigationManager    
     @ObservedObject var exerciseManager: ExerciseManager
 
     var body: some View {
@@ -13,7 +12,7 @@ struct ExerciseView: View {
                     video
                         .padding(.bottom)
                     startExerciseButton
-                        .padding(.bottom, 40)
+                        .padding(.bottom, 30)
                     VStack {
                         Text(LocalizedStringProvider.texts.rating)
                             .italic()
@@ -37,7 +36,7 @@ struct ExerciseView: View {
               .clipShape(RoundedRectangle(cornerRadius: 12))
               .padding(20)
       } else {
-          Text(errorText)
+          Text(LocalizedStringProvider.Errors.couldntFind)
               .foregroundColor(.red)
       }
   }

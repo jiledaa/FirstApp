@@ -6,6 +6,10 @@ struct GetFit: App {
     @State private var showAlert = false
 
     init() {
+        if UserDefaults.standard.object(forKey: StringProvider.selectedTime) == nil {
+            UserDefaults.standard.set(30, forKey: StringProvider.selectedTime)
+        }
+
         let historyStore: HistoryViewModel
         do {
             historyStore = try HistoryViewModel(withChecking: true)

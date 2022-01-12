@@ -6,7 +6,7 @@ struct HeaderView: View {
     var body: some View {
         VStack {
             Text(navigationManager.titleText)
-                .font(.largeTitle)
+                .font(.title)
                 .fontWeight(.black)
                 .foregroundColor(.white)
             HStack {

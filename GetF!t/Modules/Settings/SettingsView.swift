@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject var timerManager = TimerManager()
+    @EnvironmentObject var settingsManager: SettingsManager
 
     private let data: [String] = Array(0...180).map(String.init)
 
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .top) {
-                ModalSheetHeader(text: LocalizedStringProvider.Settings.settings, circleX: 0.5, circleY: 0.18)
+                ModalSheetView(text: LocalizedStringProvider.Settings.settings, circleX: 0.5, circleY: 0.14) {
                 VStack {
                     Text(LocalizedStringProvider.Settings.exerciseInterval)
                         .font(.title)
@@ -22,32 +22,21 @@ struct SettingsView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                 }
-                .onAppear {
-                    timerManager.loadSelection()
-                }
-                .onChange(of: timerManager.selectedTime) { newValue in
-                    timerManager.updateSelection(newValue: newValue)
-                }
+
                 .padding(.top, geometry.size.height * 0.17)
+                }
             }
         }
+        .onChange(of: settingsManager.selectedTime, perform: settingsManager.saveSelection)
     }
-
-//    @ViewBuilder
-//    func picker() -> some View{
-//        Picker("seconds", selection: $selections) {
-//            Text("1").tag(selections)
-//        }
-//        Text("\(selections[0])")
-//    }
 
     @ViewBuilder
     func picker(geometry: GeometryProxy ) -> some View {
         HStack {
-            PickerView(selection: $timerManager.selectedTime, data: self.data)
+            PickerView(selection: $settingsManager.selectedTime, data: self.data)
                 .frame(width: geometry.size.width * 0.6, alignment: .trailing)
 
-            Text("\(data[timerManager.selectedTime]) sec")
+            Text("\(data[settingsManager.selectedTime]) sec")
                 .foregroundColor(.white)
                 .font(.headline)
                 .fontWeight(.bold)

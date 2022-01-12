@@ -1,10 +1,9 @@
 import SwiftUI
 
 struct TimerView: View {
-    @StateObject var timerManager = TimerManager()
-    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var exerciseManager: ExerciseManager
     @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var settingsManager: SettingsManager
 
     var body: some View {
         ZStack {
@@ -18,8 +17,7 @@ struct TimerView: View {
                         .padding(.bottom)
                 }
                 .onAppear {
-                    timerManager.loadSelection()
-                    timerManager.timeRemaining = timerManager.selectedTime
+                    exerciseManager.timeRemaining = settingsManager.selectedTime
                 }
             }
         }

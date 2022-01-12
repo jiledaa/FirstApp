@@ -4,7 +4,8 @@ struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
     @EnvironmentObject var historyViewModel: HistoryViewModel
     @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.exercises.map(ExerciseManager.init))
-
+    @StateObject var settingsView = SettingsManager()
+    
     var body: some View {
         ZStack {
             GradientBackground()
@@ -18,6 +19,10 @@ struct ContentView: View {
                             .tag(index)
                     }
                 }
+                .padding(.top, -5)
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                    historyViewModel.saveHistory()
+                }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .sheet(item: $navigationManager.modal, content: ModalView.init)
                 HStack {
@@ -26,12 +31,10 @@ struct ContentView: View {
                     settingsButton
                 }
                 .padding(.horizontal)
-                .padding(.horizontal)
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                historyViewModel.saveHistory()
+                .padding(.top, 5)
             }
         }
+        .environmentObject(settingsView)
         .environmentObject(navigationManager)
     }
 
@@ -40,10 +43,9 @@ struct ContentView: View {
             navigationManager.onShowHistoryTapped()
         }) {
             ImageProvider.calendar
-                .padding(.horizontal)
+                .frame(width: 60, height: 20)
         }
-        .padding(.top)
-        .buttonStyle(EmbossedButtonView())
+        .buttonStyle(EmbossedButtonStyle())
     }
 
     var settingsButton: some View {
@@ -51,9 +53,8 @@ struct ContentView: View {
             navigationManager.onShowSettingsTapped()
         }) {
             ImageProvider.settings
-                .padding(.horizontal)
+                .frame(width: 60, height: 20)
         }
-        .padding(.top)
         .buttonStyle(EmbossedButtonStyle())
     }
 }

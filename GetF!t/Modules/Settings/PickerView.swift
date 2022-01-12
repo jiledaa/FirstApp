@@ -2,7 +2,6 @@ import Foundation
 import SwiftUI
 
 struct PickerView: UIViewRepresentable {
-    @StateObject var timerManager = TimerManager()
     @Binding var selection: Int
     var data: [String]
 
@@ -20,10 +19,6 @@ struct PickerView: UIViewRepresentable {
     }
 
     func updateUIView(_ view: UIPickerView, context: UIViewRepresentableContext<PickerView>) {
-//        for i in 0...(self.selections.count - 1) {
-//            view.selectRow(self.selections[i], inComponent: i, animated: false)
-//        }
-
         view.selectRow(self.selection, inComponent: 0, animated: false)
     }
 

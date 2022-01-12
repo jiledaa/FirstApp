@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HistoryView: View {
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         GeometryReader { geometry in
@@ -17,7 +16,6 @@ struct HistoryView: View {
                     }
                     .padding(.top, geometry.size.height * 0.07)
                 }
-                .padding(.top, geometry.size.height * 0.07)
             }
         }
     }

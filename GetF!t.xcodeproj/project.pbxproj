@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1602BB5D278A2E0A0032F983 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5C278A2E0A0032F983 /* TimerManager.swift */; };
 		1602BB5F278AF9AC0032F983 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5E278AF9AC0032F983 /* PickerView.swift */; };
-		1657D7BC27877C4E008C8D07 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1657D7BB27877C4E008C8D07 /* String+.swift */; };
 		1652E4EA278CAA8200350A2F /* ModalSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652E4E9278CAA8200350A2F /* ModalSheetView.swift */; };
 		168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391812756AD2D000DFF7A /* Exercise+constructor.swift */; };
 		1683E5E32764D075003B6B02 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E22764D075003B6B02 /* ImageProvider.swift */; };
@@ -39,6 +38,7 @@
 		16D738622785878C001BD235 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D738612785878C001BD235 /* ModalView.swift */; };
 		16D73864278587C0001BD235 /* ModalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D73863278587C0001BD235 /* ModalModel.swift */; };
 		16E3FAFB2789ACE700D15079 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3FAFA2789ACE700D15079 /* SettingsView.swift */; };
+		16ED4267278F2B6D009E23D8 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED4266278F2B6D009E23D8 /* SettingsManager.swift */; };
 		16F15FDD278F080500D79086 /* ExerciseManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F15FDC278F080500D79086 /* ExerciseManagerProvider.swift */; };
 		16F20178275101CC00ACE724 /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F20177275101CB00ACE724 /* HistoryListView.swift */; };
 		16F2017A2751021500ACE724 /* HistoryBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F201792751021500ACE724 /* HistoryBarView.swift */; };
@@ -57,7 +57,6 @@
 /* Begin PBXFileReference section */
 		1602BB5C278A2E0A0032F983 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		1602BB5E278AF9AC0032F983 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
-		1657D7BB27877C4E008C8D07 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1652E4E9278CAA8200350A2F /* ModalSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetView.swift; sourceTree = "<group>"; };
 		168391812756AD2D000DFF7A /* Exercise+constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+constructor.swift"; sourceTree = "<group>"; };
 		1683E5E22764D075003B6B02 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		16D738612785878C001BD235 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		16D73863278587C0001BD235 /* ModalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalModel.swift; sourceTree = "<group>"; };
 		16E3FAFA2789ACE700D15079 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		16ED4266278F2B6D009E23D8 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		16F15FDC278F080500D79086 /* ExerciseManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManagerProvider.swift; sourceTree = "<group>"; };
 		16F20177275101CB00ACE724 /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		16F201792751021500ACE724 /* HistoryBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBarView.swift; sourceTree = "<group>"; };
@@ -291,6 +291,7 @@
 				16A91487273965A0001D82A6 /* ContentView.swift */,
 				168602C52767DF5800A7CFCA /* ExerciseManager.swift */,
 				16F15FDC278F080500D79086 /* ExerciseManagerProvider.swift */,
+				16ED4266278F2B6D009E23D8 /* SettingsManager.swift */,
 				168E9925276382EF00B0406A /* Modules */,
 				168E99212763524500B0406A /* Shared */,
 				168E99202763508300B0406A /* Extensions */,
@@ -426,6 +427,7 @@
 				16E3FAFB2789ACE700D15079 /* SettingsView.swift in Sources */,
 				168C09FB274E550700390C21 /* ContainerView.swift in Sources */,
 				16F15FDD278F080500D79086 /* ExerciseManagerProvider.swift in Sources */,
+				16ED4267278F2B6D009E23D8 /* SettingsManager.swift in Sources */,
 				16D738622785878C001BD235 /* ModalView.swift in Sources */,
 				1683E5E52764E442003B6B02 /* ColorProvider.swift in Sources */,
 				16A91497273C18E8001D82A6 /* ExerciseModel.swift in Sources */,
@@ -446,13 +448,11 @@
 				16D73864278587C0001BD235 /* ModalModel.swift in Sources */,
 				16F2017A2751021500ACE724 /* HistoryBarView.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* Image+resizeToFill.swift in Sources */,
-				1602BB63278B62B20032F983 /* ModalSheetHeader.swift in Sources */,
 				16D73860278586E8001BD235 /* NavigationManager.swift in Sources */,
 				16A91492273AB2C4001D82A6 /* HistoryView.swift in Sources */,
 				168C09F9274E54FB00390C21 /* EmbossedButtonStyle.swift in Sources */,
 				168C09FD274E552600390C21 /* GradientBackground.swift in Sources */,
 				16A9148C2739A38C001D82A6 /* HeaderView.swift in Sources */,
-				16AC207A2770D3AD00C7338D /* ExerciseViewModel.swift in Sources */,
 				168602C62767DF5800A7CFCA /* ExerciseManager.swift in Sources */,
 				168602C32767D6A000A7CFCA /* DateFormatProvider.swift in Sources */,
 				168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */,
