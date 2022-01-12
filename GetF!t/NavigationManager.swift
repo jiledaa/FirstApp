@@ -46,7 +46,10 @@ class NavigationManager: ObservableObject {
     // only called from welcome view and timer view
     func goToNextTab() {
         if selectedTab + 1 == maxTabs {
-            modal = .successView
+        // TODO: cekovat pri novych verzich
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) { [weak self] in // Change `2.0` to the desired number of seconds.
+                self?.modal = .successView
+            }
         } else {
             selectedTab += 1
         }

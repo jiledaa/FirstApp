@@ -1,7 +1,12 @@
 import SwiftUI
 
 class ExerciseManager: ObservableObject {
-    var exercise: Exercise?
+    let exercise: Exercise
+
+    init(exercise: Exercise) {
+        self.exercise = exercise
+        rating = UserDefaults.standard.integer(forKey: "\(exercise.exerciseName)")
+    }
 
     // MARK: - timerView
     @Published var timeRemaining = 3
@@ -41,7 +46,7 @@ class ExerciseManager: ObservableObject {
 
     var videoURL: URL? {
         Bundle.main.url(
-            forResource: exercise?.videoName,
+            forResource: exercise.videoName,
             withExtension: "mp4"
         )
     }
@@ -64,17 +69,7 @@ class ExerciseManager: ObservableObject {
 
     func updateRating(index: Int) {
         rating = index
-        guard let key = exercise?.exerciseName else {
-            return
-        }
-        UserDefaults.standard.set(rating, forKey: "\(key)")
+        UserDefaults.standard.set(rating, forKey: "\(exercise.exerciseName)")
         print("sejf\(rating)")
     }
-
-    func loadRating(exercise: Exercise) {
-        self.exercise = exercise
-        rating = UserDefaults.standard.integer(forKey: "\(exercise.exerciseName)")
-        print("loud\(rating)")
-    }
-
 }

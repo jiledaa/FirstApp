@@ -3,7 +3,8 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    
+    @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.exercises.map(ExerciseManager.init))
+
     var body: some View {
         ZStack {
             GradientBackground()
@@ -12,8 +13,8 @@ struct ContentView: View {
                 TabView(selection: $navigationManager.selectedTab) {
                     WelcomeView()
                         .tag(-1)
-                    ForEach(0 ..< Exercise.exercises.count) { index in
-                        ExerciseView(exercise: Exercise.exercises[index])
+                    ForEach(Array(exerciseManagerProvider.managers.enumerated()), id:\.offset) { index, manager in
+                        ExerciseView(exerciseManager: manager)
                             .tag(index)
                     }
                 }

@@ -3,9 +3,7 @@ import AVKit
 
 struct ExerciseView: View {
     @EnvironmentObject var navigationManager: NavigationManager    
-    @StateObject var exerciseManager = ExerciseManager()
-
-    let exercise: Exercise
+    @ObservedObject var exerciseManager: ExerciseManager
 
     var body: some View {
         VStack {
@@ -30,9 +28,6 @@ struct ExerciseView: View {
         }
         .sheet(isPresented: $exerciseManager.isShowingTimer) {
             TimerView(exerciseManager: exerciseManager)
-        }
-        .onAppear {
-            exerciseManager.loadRating(exercise: exercise)
         }
     }
 
@@ -72,7 +67,7 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(exerciseManager: .init(), exercise: .exercises[0])
+        ExerciseView(exerciseManager: .init(exercise: .exercises[0]))
             .environmentObject(HistoryViewModel())
     }
 }
