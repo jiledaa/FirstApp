@@ -13,7 +13,7 @@ struct ContentView: View {
                     WelcomeView()
                         .tag(-1)
                     ForEach(0 ..< Exercise.exercises.count) { index in
-                        ExerciseView(exerciseViewModel: .init(exercise: Exercise.exercises[index]))
+                        ExerciseView(exercise: Exercise.exercises[index])
                             .tag(index)
                     }
                 }

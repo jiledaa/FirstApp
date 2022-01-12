@@ -1,7 +1,6 @@
 import Foundation
 
 enum Modal {
-    case timer
     case history
     case successView
 }

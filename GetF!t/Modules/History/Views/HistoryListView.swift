@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HistoryListView: View {
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    @StateObject var ratingViewModel = RatingViewModel()
+    @StateObject var exerciseManager = ExerciseManager()
 
     var body: some View {
         ScrollView {
@@ -60,7 +60,7 @@ struct HistoryListView: View {
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)
-            Text("\(ratingViewModel.rating)")
+            Text("\(exerciseManager.rating)")
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)

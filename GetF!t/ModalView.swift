@@ -5,8 +5,6 @@ struct ModalView: View {
 
     var body: some View {
         switch modal {
-        case .timer:
-            TimerView()
         case .history:
             HistoryView()
         case .successView:

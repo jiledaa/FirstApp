@@ -2,10 +2,10 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-    @EnvironmentObject var navigationManager: NavigationManager
-    @StateObject var ratingViewModel = RatingViewModel()
-    
-    let exerciseViewModel: ExercisesViewModel
+    @EnvironmentObject var navigationManager: NavigationManager    
+    @StateObject var exerciseManager = ExerciseManager()
+
+    let exercise: Exercise
 
     var body: some View {
         VStack {
@@ -28,14 +28,17 @@ struct ExerciseView: View {
                 }
             }
         }
+        .sheet(isPresented: $exerciseManager.isShowingTimer) {
+            TimerView(exerciseManager: exerciseManager)
+        }
         .onAppear {
-            ratingViewModel.loadRating(exercise: exerciseViewModel.exercise)
+            exerciseManager.loadRating(exercise: exercise)
         }
     }
 
     @ViewBuilder
     private var video: some View {
-        if let url = exerciseViewModel.videoURL {
+        if let url = exerciseManager.videoURL {
             VideoPlayer(player: AVPlayer(url: url))
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .padding(20)
@@ -47,19 +50,19 @@ struct ExerciseView: View {
 
     private var startExerciseButton: some View {
         RaisedButtonView(buttonText: LocalizedStringProvider.Button.startExercise) {
-            navigationManager.onStartExerciseTapped()
+            exerciseManager.onStartExerciseTapped()
         }
         .frame(width: 250, height: 50, alignment: .center)
     }
 
     private var rating: some View {
-        ForEach(1 ..< ratingViewModel.maximumRating + 1, id: \.self) { index in
+        ForEach(1 ..< exerciseManager.maximumRating + 1, id: \.self) { index in
             Button(action: {
 //                ratingViewModel.updateRating(index: index)
             }) {
                 ImageProvider.waveform
                     .foregroundColor(
-                        ratingViewModel.ratingActive(index) ? ratingViewModel.offColor :   ratingViewModel.onColor)
+                        exerciseManager.ratingActive(index) ? exerciseManager.offColor :   exerciseManager.onColor)
                     .font(.title3)
             }
             .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
@@ -69,7 +72,7 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(exerciseViewModel: .init(exercise: .init(exerciseName: LocalizedStringProvider.ExercisesNames.squat, videoName: StringProvider.ExercisesNamesVideo.squat)))
+        ExerciseView(exerciseManager: .init(), exercise: .exercises[0])
             .environmentObject(HistoryViewModel())
     }
 }

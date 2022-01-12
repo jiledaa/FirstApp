@@ -1,9 +1,8 @@
 import SwiftUI
 
 struct TimerView: View {
-    @StateObject var timerManager = TimerViewManager()
+    @ObservedObject var exerciseManager: ExerciseManager
     @EnvironmentObject var navigationManager: NavigationManager
-    @StateObject var ratingViewModel = RatingViewModel()
 
     var body: some View {
         ZStack {
@@ -13,7 +12,7 @@ struct TimerView: View {
                     indentView
                         .padding(.top, 120)
                     Spacer()
-                    RatingView(ratingViewModel: ratingViewModel)
+                    RatingView(exerciseManager: exerciseManager)
                         .padding(.bottom)
                 }
             }
@@ -26,15 +25,15 @@ struct TimerView: View {
             timerText
         }
         .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6,
-                x: timerManager.dropShadowParameter,
-                y: timerManager.dropShadowParameter)
+                x: exerciseManager.dropShadowParameter,
+                y: exerciseManager.dropShadowParameter)
         .shadow(color: ColorProvider.dropHighlight, radius: 6,
-                x: timerManager.dropHighlightParameter,
-                y: timerManager.dropHighlightParameter)
+                x: exerciseManager.dropHighlightParameter,
+                y: exerciseManager.dropHighlightParameter)
     }
     
     var timerText: some View {
-        Text("\(timerManager.timeRemaining)")
+        Text("\(exerciseManager.timeRemaining)")
             .font(.system(size: 90, design: .rounded))
             .fontWeight(.heavy)
             .frame(
@@ -43,12 +42,12 @@ struct TimerView: View {
                 minHeight: 180,
                 maxHeight: 200)
             .padding()
-            .onReceive(timerManager.timer, perform: timerManager.onTimeOver)
+            .onReceive(exerciseManager.timer, perform: exerciseManager.onTimeOver)
     }
 }
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        TimerView(exerciseManager: .init())
     }
 }

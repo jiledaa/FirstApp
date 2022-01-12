@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		1652E4EA278CAA8200350A2F /* ModalSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652E4E9278CAA8200350A2F /* ModalSheetView.swift */; };
 		168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391812756AD2D000DFF7A /* Exercise+constructor.swift */; };
-		168391842756B4FB000DFF7A /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391832756B4FB000DFF7A /* RatingViewModel.swift */; };
 		1683E5E32764D075003B6B02 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E22764D075003B6B02 /* ImageProvider.swift */; };
 		1683E5E52764E442003B6B02 /* ColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E5E42764E442003B6B02 /* ColorProvider.swift */; };
 		168602C32767D6A000A7CFCA /* DateFormatProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C22767D6A000A7CFCA /* DateFormatProvider.swift */; };
-		168602C62767DF5800A7CFCA /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C52767DF5800A7CFCA /* TimerManager.swift */; };
+		168602C62767DF5800A7CFCA /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168602C52767DF5800A7CFCA /* ExerciseManager.swift */; };
 		1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689CED92743B0C9004362A7 /* TimerView.swift */; };
 		168C09F5274E4FB400390C21 /* RaisedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F4274E4FB400390C21 /* RaisedButtonView.swift */; };
 		168C09F7274E54E200390C21 /* WelcomeView+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C09F6274E54E200390C21 /* WelcomeView+Images.swift */; };
@@ -33,7 +32,6 @@
 		16A91499273C1FD9001D82A6 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A91498273C1FD9001D82A6 /* HistoryViewModel.swift */; };
 		16A9149E273C2C65001D82A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A914A0273C2C65001D82A6 /* Localizable.strings */; };
 		16A9B131276A443B004F68FD /* StringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9B130276A443B004F68FD /* StringProvider.swift */; };
-		16AC207A2770D3AD00C7338D /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AC20792770D3AD00C7338D /* ExerciseViewModel.swift */; };
 		16D73860278586E8001BD235 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7385F278586E8001BD235 /* NavigationManager.swift */; };
 		16D738622785878C001BD235 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D738612785878C001BD235 /* ModalView.swift */; };
 		16D73864278587C0001BD235 /* ModalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D73863278587C0001BD235 /* ModalModel.swift */; };
@@ -54,11 +52,10 @@
 /* Begin PBXFileReference section */
 		1652E4E9278CAA8200350A2F /* ModalSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetView.swift; sourceTree = "<group>"; };
 		168391812756AD2D000DFF7A /* Exercise+constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+constructor.swift"; sourceTree = "<group>"; };
-		168391832756B4FB000DFF7A /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		1683E5E22764D075003B6B02 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		1683E5E42764E442003B6B02 /* ColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorProvider.swift; sourceTree = "<group>"; };
 		168602C22767D6A000A7CFCA /* DateFormatProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatProvider.swift; sourceTree = "<group>"; };
-		168602C52767DF5800A7CFCA /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		168602C52767DF5800A7CFCA /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
 		1689CED92743B0C9004362A7 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		168C09F4274E4FB400390C21 /* RaisedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButtonView.swift; sourceTree = "<group>"; };
 		168C09F6274E54E200390C21 /* WelcomeView+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeView+Images.swift"; sourceTree = "<group>"; };
@@ -79,7 +76,6 @@
 		16A9149F273C2C65001D82A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16A914A1273C2C6D001D82A6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16A9B130276A443B004F68FD /* StringProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProvider.swift; sourceTree = "<group>"; };
-		16AC20792770D3AD00C7338D /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		16D7385F278586E8001BD235 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		16D738612785878C001BD235 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		16D73863278587C0001BD235 /* ModalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalModel.swift; sourceTree = "<group>"; };
@@ -151,7 +147,6 @@
 		168602C72768ACC700A7CFCA /* Rating */ = {
 			isa = PBXGroup;
 			children = (
-				168391832756B4FB000DFF7A /* RatingViewModel.swift */,
 				16A9148F273AA2F6001D82A6 /* RatingView.swift */,
 			);
 			path = Rating;
@@ -240,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				16A91496273C18E8001D82A6 /* ExerciseModel.swift */,
-				16AC20792770D3AD00C7338D /* ExerciseViewModel.swift */,
 				16A9148527396587001D82A6 /* ExerciseView.swift */,
 				168602C42767DF2500A7CFCA /* Timer */,
 				168602C72768ACC700A7CFCA /* Rating */,
@@ -274,7 +268,7 @@
 				16D738612785878C001BD235 /* ModalView.swift */,
 				16D7385F278586E8001BD235 /* NavigationManager.swift */,
 				16A91487273965A0001D82A6 /* ContentView.swift */,
-				168602C52767DF5800A7CFCA /* TimerManager.swift */,
+				168602C52767DF5800A7CFCA /* ExerciseManager.swift */,
 				168E9925276382EF00B0406A /* Modules */,
 				168E99212763524500B0406A /* Shared */,
 				168E99202763508300B0406A /* Extensions */,
@@ -413,7 +407,6 @@
 				16A91497273C18E8001D82A6 /* ExerciseModel.swift in Sources */,
 				16A9148427396543001D82A6 /* WelcomeView.swift in Sources */,
 				1652E4EA278CAA8200350A2F /* ModalSheetView.swift in Sources */,
-				168391842756B4FB000DFF7A /* RatingViewModel.swift in Sources */,
 				16F20178275101CC00ACE724 /* HistoryListView.swift in Sources */,
 				16A9148627396587001D82A6 /* ExerciseView.swift in Sources */,
 				16A91494273BE9B5001D82A6 /* SuccessView.swift in Sources */,
@@ -433,8 +426,7 @@
 				168C09F9274E54FB00390C21 /* EmbossedButtonStyle.swift in Sources */,
 				168C09FD274E552600390C21 /* GradientBackground.swift in Sources */,
 				16A9148C2739A38C001D82A6 /* HeaderView.swift in Sources */,
-				16AC207A2770D3AD00C7338D /* ExerciseViewModel.swift in Sources */,
-				168602C62767DF5800A7CFCA /* TimerManager.swift in Sources */,
+				168602C62767DF5800A7CFCA /* ExerciseManager.swift in Sources */,
 				168602C32767D6A000A7CFCA /* DateFormatProvider.swift in Sources */,
 				168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */,
 			);

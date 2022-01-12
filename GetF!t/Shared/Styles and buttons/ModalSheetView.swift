@@ -3,7 +3,7 @@ import SwiftUI
 struct ModalSheetView<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
 
-    var content: Content
+    let content: Content
 
     init(text:LocalizedStringKey, circleX: CGFloat, circleY: CGFloat, @ViewBuilder content: () -> Content) {
         self.text = text

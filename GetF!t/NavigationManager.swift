@@ -6,6 +6,7 @@ class NavigationManager: ObservableObject {
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
     @Published var modal: Modal?
 
+    // MARK: - navigation
     let maxTabs = Exercise.exercises.count
 
     init() {
@@ -59,10 +60,6 @@ class NavigationManager: ObservableObject {
 
     func onShowHistoryTapped() {
         modal = .history
-    }
-
-    func onStartExerciseTapped() {
-        modal = .timer
     }
 
     func onDoneTapped() {
