@@ -17,8 +17,8 @@ struct TimerView: View {
                     doneButton
                 }
                 .onAppear {
-                    timerManager.loadSelections()
-                    timerManager.timeRemaining = timerManager.selections[0]
+                    timerManager.loadSelection()
+                    timerManager.timeRemaining = timerManager.selectedTime
                 }
             }
         }

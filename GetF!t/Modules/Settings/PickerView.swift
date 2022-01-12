@@ -3,8 +3,8 @@ import SwiftUI
 
 struct PickerView: UIViewRepresentable {
     @StateObject var timerManager = TimerManager()
-    @Binding var selections: [Int]
-    var data: [[String]]
+    @Binding var selection: Int
+    var data: [String]
 
     func makeCoordinator() -> PickerView.Coordinator {
         Coordinator(self)
@@ -20,9 +20,11 @@ struct PickerView: UIViewRepresentable {
     }
 
     func updateUIView(_ view: UIPickerView, context: UIViewRepresentableContext<PickerView>) {
-        for i in 0...(self.selections.count - 1) {
-            view.selectRow(self.selections[i], inComponent: i, animated: false)
-        }
+//        for i in 0...(self.selections.count - 1) {
+//            view.selectRow(self.selections[i], inComponent: i, animated: false)
+//        }
+
+        view.selectRow(self.selection, inComponent: 0, animated: false)
     }
 
     class Coordinator: NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
@@ -33,25 +35,25 @@ struct PickerView: UIViewRepresentable {
         }
 
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return self.parent.data.count
+            return 1
         }
 
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return self.parent.data[component].count
+            return self.parent.data.count
         }
 
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return self.parent.data[component][row]
+            return self.parent.data[row]
         }
 
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            self.parent.selections[component] = row
+            self.parent.selection = row
         }
     }
 }
 
 struct PickerView_Previews: PreviewProvider {
     static var previews: some View {
-        PickerView(selections: .constant([20]), data: [["1"]])
+        PickerView(selection: .constant(0), data: ["1","2"])
     }
 }

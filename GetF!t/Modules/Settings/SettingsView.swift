@@ -3,9 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @StateObject var timerManager = TimerManager()
 
-    private let data: [[String]] = [
-        Array(0...180).map { "\($0)" }
-    ]
+    private let data: [String] = Array(0...180).map(String.init)
 
     var body: some View {
         GeometryReader { geometry in
@@ -25,11 +23,10 @@ struct SettingsView: View {
                         .padding()
                 }
                 .onAppear {
-                    timerManager.loadSelections()
+                    timerManager.loadSelection()
                 }
-                .onChange(of: timerManager.selections[0]) { newValue in
-                    timerManager.updateSelections(newValue: newValue)
-                    print("SettingsViewvoe\(timerManager.selections[0])\(newValue)")
+                .onChange(of: timerManager.selectedTime) { newValue in
+                    timerManager.updateSelection(newValue: newValue)
                 }
                 .padding(.top, geometry.size.height * 0.17)
             }
@@ -47,15 +44,15 @@ struct SettingsView: View {
     @ViewBuilder
     func picker(geometry: GeometryProxy ) -> some View {
         HStack {
-            PickerView(selections: $timerManager.selections, data: self.data)
+            PickerView(selection: $timerManager.selectedTime, data: self.data)
                 .frame(width: geometry.size.width * 0.6, alignment: .trailing)
 
-            Text("\(data[0][timerManager.selections[0]]) sec")
+            Text("\(data[timerManager.selectedTime]) sec")
+                .foregroundColor(.white)
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.all)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
-                .background(ColorProvider.dropShadow)
+                .background(ColorProvider.gradientTop)
                 .cornerRadius(10)
         }
     }

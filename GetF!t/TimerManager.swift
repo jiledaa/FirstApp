@@ -3,7 +3,7 @@ import SwiftUI
 
 class TimerManager: ObservableObject {
     @Published var timeRemaining = 3
-    @Published var selections: [Int] = [1]
+    @Published var selectedTime = 1
 
     var timeOver: Bool {
        timeRemaining == 0
@@ -35,16 +35,12 @@ class TimerManager: ObservableObject {
         }
     }
 
-    func set(timeSet: Int) {
-        timeRemaining = timeSet
+    func updateSelection(newValue: Int) {
+        selectedTime = newValue
+        UserDefaults.standard.set(selectedTime, forKey: StringProvider.selectedTime)
     }
 
-    func updateSelections(newValue: Int) {
-        selections[0] = newValue
-        UserDefaults.standard.set(selections[0], forKey: "save")
-    }
-
-    func loadSelections() {
-        selections = [UserDefaults.standard.integer(forKey: "save")]
+    func loadSelection() {
+        selectedTime = UserDefaults.standard.integer(forKey: StringProvider.selectedTime)
     }
 }
