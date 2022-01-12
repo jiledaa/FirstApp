@@ -7,18 +7,15 @@ struct HistoryView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                closeButton
-                VStack {
+                ModalSheetView(text: LocalizedStringProvider.Button.history, circleX: 0.5, circleY: 0.18) {
                     VStack {
-                        Text(LocalizedStringProvider.Button.history)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding()
                         buttonLayout
+                            .padding(.top, geometry.size.height * 0.12)
+                            .frame(height: geometry.size.height * 0.15)
+                        Spacer()
+                        historyLayout
                     }
-                    .frame(height: geometry.size.height * 0.15)
-                    Spacer()
-                    historyLayout
+                    .padding(.top, geometry.size.height * 0.07)
                 }
             }
         }
@@ -40,48 +37,37 @@ struct HistoryView: View {
                 Button(action: {
                 }) {
                     ImageProvider.squareGrid2x2Fill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal)
                 }
-                .buttonStyle(EmbossedButton())
+                .buttonStyle(EmbossedButtonStyle())
+                .shadow(color: ColorProvider.dropShadow, radius: 1, x: 2, y: -2)
+                .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
                 Button(action: {
                     historyViewModel.layoutType = .bar
                 }) {
                     ImageProvider.chartBarFill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal)
                         .foregroundColor(.gray)
                 }
-                .buttonStyle(EmbossedButton())
+                .buttonStyle(EmbossedButtonStyle())
             case .bar:
                 Button(action: {
                     historyViewModel.layoutType = .list
                 }) {
                     ImageProvider.squareGrid2x2Fill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal)
                         .foregroundColor(.gray)
                 }
-                .buttonStyle(EmbossedButton())
+                .buttonStyle(EmbossedButtonStyle())
                 Button(action: {
                 }) {
                     ImageProvider.chartBarFill
-                        .padding([.leading, .trailing], 20)
+                        .padding(.horizontal)
                 }
-                .buttonStyle(EmbossedButton())
+                .buttonStyle(EmbossedButtonStyle())
+                .shadow(color: ColorProvider.dropShadow, radius: 1, x: 2, y: -2)
+                .shadow(color: ColorProvider.dropHighlight, radius: 1, x: 2, y: 2)
             }
-        }
-    }
-
-    var closeButton: some View {
-        ZStack(alignment: .topTrailing) {
-            ColorProvider.background
-                .edgesIgnoringSafeArea(.all)
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                ImageProvider.xmark
-                    .foregroundColor(.primary)
-            }
-            .font(.title2)
-            .padding([.top, .trailing], 25)
         }
     }
 }

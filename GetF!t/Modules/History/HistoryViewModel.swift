@@ -14,6 +14,7 @@ class HistoryViewModel: ObservableObject {
     @Published var exercisesForWeek: [ExerciseDay] = []
     @Published var countsForWeek: [Int] = []
     @Published var datesExercised: [Date] = []
+    @StateObject var navigationManager = NavigationManager()
 
     var maxBarHeight: Int = 300
 
@@ -52,9 +53,9 @@ class HistoryViewModel: ObservableObject {
     }
 
     init(withChecking: Bool) throws {
-#if DEBUG
+    #if DEBUG
         //    createDevData()
-#endif
+    #endif
         do {
             try load()
         } catch {
@@ -125,11 +126,20 @@ class HistoryViewModel: ObservableObject {
         addDoneExercise(exerciseName)
     }
 
-    func savingHistory() {
+    func saveHistory() {
         do {
           try save()
         } catch {
           fatalError(error.localizedDescription)
+        }
+    }
+
+    func nameForHistoryLoad(titleTextForHistorySave: String) -> LocalizedStringKey {
+        switch titleTextForHistorySave {
+        case StringProvider.ExercisesNamesVideo.squat: return LocalizedStringProvider.ExercisesNames.squat
+        case StringProvider.ExercisesNamesVideo.stepUp: return LocalizedStringProvider.ExercisesNames.stepUp
+        case StringProvider.ExercisesNamesVideo.burpee: return LocalizedStringProvider.ExercisesNames.burpee
+        default: return LocalizedStringProvider.ExercisesNames.sunSalute
         }
     }
 }

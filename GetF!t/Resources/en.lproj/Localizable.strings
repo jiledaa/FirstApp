@@ -16,7 +16,7 @@
 
 "Welcome" = "Welcome";
 
-"GetfitPostScript" = "with high intensity interval training! ";
+"GetfitPostScript" = "with high intensity \ninterval training! ";
 
 "CouldntFind" = "Couldn't find the video";
 
@@ -31,3 +31,7 @@
 "LoadingError1" = "Could not load history data.";
 
 "LoadingError2" = "Could not load history data \n Email Support: support@berlin.com";
+
+"rating" = "your last intensity";
+
+"ratingButton" = "evaluate the intensity";

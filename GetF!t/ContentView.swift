@@ -3,17 +3,18 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    
+    @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.exercises.map(ExerciseManager.init))
+
     var body: some View {
-        ZStack(alignment: .top) {
+        ZStack {
             GradientBackground()
             VStack {
                 HeaderView()
                 TabView(selection: $navigationManager.selectedTab) {
                     WelcomeView()
                         .tag(-1)
-                    ForEach(0 ..< Exercise.exercises.count) { index in
-                        ExerciseView(exerciseViewModel: .init(exercise: Exercise.exercises[index]))
+                    ForEach(Array(exerciseManagerProvider.managers.enumerated()), id:\.offset) { index, manager in
+                        ExerciseView(exerciseManager: manager)
                             .tag(index)
                     }
                 }
@@ -22,7 +23,7 @@ struct ContentView: View {
                 historyButton
             }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                historyViewModel.savingHistory()
+                historyViewModel.saveHistory()
             }
         }
         .environmentObject(navigationManager)
@@ -36,8 +37,8 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding([.leading, .trailing], 5)
         }
-        .padding(.bottom)
-        .buttonStyle(EmbossedButton())
+        .padding(.top, 5)
+        .buttonStyle(EmbossedButtonStyle())
     }
 }
 

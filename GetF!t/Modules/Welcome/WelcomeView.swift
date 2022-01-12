@@ -4,23 +4,18 @@ struct WelcomeView: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
-        GeometryReader { geometry in
-            Spacer()
             VStack {
                 WelcomeView.images
-                    .padding(.top, 200)
                 getStartedButton
-                Spacer()
+                    .padding(.bottom, 40)
             }
-        }
     }
     
     var getStartedButton: some View {
-        RaisedButton(buttonText: LocalizedStringProvider.Button.getStarted) {
+        RaisedButtonView(buttonText: LocalizedStringProvider.Button.getStarted) {
             navigationManager.goToFirstTab()
         }
         .frame(width: 250, height: 50, alignment: .center)
-        .padding(.top, 110)
     }
 }
 

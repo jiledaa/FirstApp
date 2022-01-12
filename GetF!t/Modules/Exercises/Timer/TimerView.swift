@@ -1,31 +1,19 @@
 import SwiftUI
 
 struct TimerView: View {
-    @StateObject var timerViewModel = TimerViewModel()
-    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var exerciseManager: ExerciseManager
     @EnvironmentObject var navigationManager: NavigationManager
-    @EnvironmentObject var historyViewModel: HistoryViewModel
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                ColorProvider.background
-                    .edgesIgnoringSafeArea(.all)
-                circle(size: geometry.size)
-                    .overlay(
-                        GradientBackground()
-                            .mask(circle(size: geometry.size))
-                    )
+        ZStack {
+            ModalSheetView(text: navigationManager.titleText, circleX: 0.5, circleY: 0.18) {
                 VStack {
-                    Text(navigationManager.titleText)
-                        .font(.largeTitle)
-                        .fontWeight(.black)
-                        .foregroundColor(.white)
-                        .padding(.top)
                     Spacer()
                     indentView
+                        .padding(.top, 120)
                     Spacer()
-                    doneButton
+                    RatingView(exerciseManager: exerciseManager)
+                        .padding(.bottom)
                 }
             }
         }
@@ -37,26 +25,15 @@ struct TimerView: View {
             timerText
         }
         .shadow(color: ColorProvider.dropShadow.opacity(0.5), radius: 6,
-                x: timerViewModel.dropShadowParameter,
-                y: timerViewModel.dropShadowParameter)
+                x: exerciseManager.dropShadowParameter,
+                y: exerciseManager.dropShadowParameter)
         .shadow(color: ColorProvider.dropHighlight, radius: 6,
-                x: timerViewModel.dropHighlightParameter,
-                y: timerViewModel.dropHighlightParameter)
-    }
-
-    private var doneButton: some View {
-        RaisedButton(buttonText: LocalizedStringProvider.Button.done) {
-            presentationMode.wrappedValue.dismiss()
-            navigationManager.onDoneTapped()
-            historyViewModel.onDoneTapped(navigationManager.titleTextForHistoryStore)
-        }
-        .opacity(timerViewModel.opacity)
-        .padding([.leading, .trailing], 30)
-        .padding(.bottom, 60)
+                x: exerciseManager.dropHighlightParameter,
+                y: exerciseManager.dropHighlightParameter)
     }
     
     var timerText: some View {
-        Text("\(timerViewModel.timeRemaining)")
+        Text("\(exerciseManager.timeRemaining)")
             .font(.system(size: 90, design: .rounded))
             .fontWeight(.heavy)
             .frame(
@@ -65,22 +42,12 @@ struct TimerView: View {
                 minHeight: 180,
                 maxHeight: 200)
             .padding()
-            .onReceive(timerViewModel.timer, perform: timerViewModel.onTimeOver)
-    }
-
-    private func circle(size: CGSize) -> some View {
-        Circle()
-            .frame(
-                width: size.width,
-                height: size.height)
-            .position(
-                x: size.width * 0.5,
-                y: -size.width * 0.2)
+            .onReceive(exerciseManager.timer, perform: exerciseManager.onTimeOver)
     }
 }
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        TimerView(exerciseManager: .init(exercise: .exercises[0]))
     }
 }
