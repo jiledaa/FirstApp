@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HistoryView: View {
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         GeometryReader { geometry in

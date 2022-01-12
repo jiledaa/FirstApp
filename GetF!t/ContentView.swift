@@ -4,7 +4,8 @@ struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
     @EnvironmentObject var historyViewModel: HistoryViewModel
     @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.exercises.map(ExerciseManager.init))
-
+    @StateObject var settingsView = SettingsManager()
+    
     var body: some View {
         ZStack {
             GradientBackground()
@@ -18,14 +19,22 @@ struct ContentView: View {
                             .tag(index)
                     }
                 }
+                .padding(.top, -5)
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                    historyViewModel.saveHistory()
+                }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .sheet(item: $navigationManager.modal, content: ModalView.init)
-                historyButton
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                historyViewModel.saveHistory()
+                HStack {
+                    historyButton
+                    Spacer()
+                    settingsButton
+                }
+                .padding(.horizontal)
+                .padding(.top, 5)
             }
         }
+        .environmentObject(settingsView)
         .environmentObject(navigationManager)
     }
 
@@ -33,11 +42,19 @@ struct ContentView: View {
         Button(action: {
             navigationManager.onShowHistoryTapped()
         }) {
-            Text(LocalizedStringProvider.Button.history)
-                .fontWeight(.bold)
-                .padding([.leading, .trailing], 5)
+            ImageProvider.calendar
+                .frame(width: 60, height: 20)
         }
-        .padding(.top, 5)
+        .buttonStyle(EmbossedButtonStyle())
+    }
+
+    var settingsButton: some View {
+        Button(action: {
+            navigationManager.onShowSettingsTapped()
+        }) {
+            ImageProvider.settings
+                .frame(width: 60, height: 20)
+        }
         .buttonStyle(EmbossedButtonStyle())
     }
 }

@@ -3,6 +3,7 @@ import SwiftUI
 struct TimerView: View {
     @ObservedObject var exerciseManager: ExerciseManager
     @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var settingsManager: SettingsManager
 
     var body: some View {
         ZStack {
@@ -14,6 +15,9 @@ struct TimerView: View {
                     Spacer()
                     RatingView(exerciseManager: exerciseManager)
                         .padding(.bottom)
+                }
+                .onAppear {
+                    exerciseManager.timeRemaining = settingsManager.selectedTime
                 }
             }
         }

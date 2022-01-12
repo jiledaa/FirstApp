@@ -2,7 +2,8 @@ import Foundation
 
 enum Modal {
     case history
-    case successView
+    case success
+    case settings
 }
 
 extension Modal: Identifiable {

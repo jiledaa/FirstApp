@@ -32,6 +32,11 @@
 
 "LoadingError2" = "Leider kann Ihr Trainingsverlauf \n nicht geladen werden! \n Email Untersützung: support@berlin.com";
 
+"settings" = "Die Einstellungen";
+
+"exerciseInterval" = "Stellen Sie das Trainingsintervall ein";
+
+"exerciseOrder" = "Legen Sie die Übungsreihenfolge fest";
 "rating" = "Deine letzte Intensität!";
 
 "ratingButton" = "Bewerte die Intensität!";

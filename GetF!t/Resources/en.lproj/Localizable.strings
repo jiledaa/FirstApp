@@ -2,7 +2,7 @@
 
 "GetStarted" = "Get started";
 
-"History" = "History!";
+"History" = "History";
 
 "Squat" = "Squat";
 
@@ -32,6 +32,11 @@
 
 "LoadingError2" = "Could not load history data \n Email Support: support@berlin.com";
 
+"settings" = "Settings";
+
+"exerciseInterval" = "Set the exercise interval";
+
+"exerciseOrder" = "Set the exercise order";
 "rating" = "your last intensity";
 
 "ratingButton" = "evaluate the intensity";

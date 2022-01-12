@@ -7,8 +7,10 @@ struct ModalView: View {
         switch modal {
         case .history:
             HistoryView()
-        case .successView:
+        case .success:
             SuccessView()
+        case .settings:
+            SettingsView()
         }
     }
 }

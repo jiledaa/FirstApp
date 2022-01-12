@@ -47,8 +47,8 @@ class NavigationManager: ObservableObject {
     func goToNextTab() {
         if selectedTab + 1 == maxTabs {
         // TODO: cekovat pri novych verzich
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) { [weak self] in // Change `2.0` to the desired number of seconds.
-                self?.modal = .successView
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in // Change `2.0` to the desired number of seconds.
+                self?.modal = .success
             }
         } else {
             selectedTab += 1
@@ -63,6 +63,10 @@ class NavigationManager: ObservableObject {
 
     func onShowHistoryTapped() {
         modal = .history
+    }
+
+    func onShowSettingsTapped() {
+        modal = .settings
     }
 
     func onDoneTapped() {
