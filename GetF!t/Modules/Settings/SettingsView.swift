@@ -21,9 +21,10 @@ struct SettingsView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                         .padding()
+                    ExerciseListView()
+                        .padding(.top, geometry.size.height * 0.05)
                 }
-
-                .padding(.top, geometry.size.height * 0.17)
+                .padding(.top, geometry.size.height * 0.2)
                 }
             }
         }
@@ -31,7 +32,7 @@ struct SettingsView: View {
     }
 
     @ViewBuilder
-    func picker(geometry: GeometryProxy ) -> some View {
+    func picker(geometry: GeometryProxy) -> some View {
         HStack {
             PickerView(selection: $settingsManager.selectedTime, data: self.data)
                 .frame(width: geometry.size.width * 0.6, alignment: .trailing)

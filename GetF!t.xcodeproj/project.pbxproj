@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1602BB5D278A2E0A0032F983 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5C278A2E0A0032F983 /* TimerManager.swift */; };
 		1602BB5F278AF9AC0032F983 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602BB5E278AF9AC0032F983 /* PickerView.swift */; };
 		1652E4EA278CAA8200350A2F /* ModalSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652E4E9278CAA8200350A2F /* ModalSheetView.swift */; };
 		168391822756AD2D000DFF7A /* Exercise+constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168391812756AD2D000DFF7A /* Exercise+constructor.swift */; };
@@ -43,6 +42,7 @@
 		16F20178275101CC00ACE724 /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F20177275101CB00ACE724 /* HistoryListView.swift */; };
 		16F2017A2751021500ACE724 /* HistoryBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F201792751021500ACE724 /* HistoryBarView.swift */; };
 		16F2017C2751029700ACE724 /* IndentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F2017B2751029700ACE724 /* IndentView.swift */; };
+		16F348232790689400480C34 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F348222790689400480C34 /* ExerciseListView.swift */; };
 		CD30C924251474DC0049DB93 /* GetF!tApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C923251474DC0049DB93 /* GetF!tApp.swift */; };
 		CD30C928251474DD0049DB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C927251474DD0049DB93 /* Assets.xcassets */; };
 		CD30C92B251474DD0049DB93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C92A251474DD0049DB93 /* Preview Assets.xcassets */; };
@@ -55,7 +55,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1602BB5C278A2E0A0032F983 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		1602BB5E278AF9AC0032F983 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		1652E4E9278CAA8200350A2F /* ModalSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetView.swift; sourceTree = "<group>"; };
 		168391812756AD2D000DFF7A /* Exercise+constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+constructor.swift"; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		16F20177275101CB00ACE724 /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		16F201792751021500ACE724 /* HistoryBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBarView.swift; sourceTree = "<group>"; };
 		16F2017B2751029700ACE724 /* IndentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentView.swift; sourceTree = "<group>"; };
+		16F348222790689400480C34 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		CD30C920251474DC0049DB93 /* GetF!t.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GetF!t.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD30C923251474DC0049DB93 /* GetF!tApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetF!tApp.swift"; sourceTree = "<group>"; };
 		CD30C927251474DD0049DB93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -259,8 +259,29 @@
 			children = (
 				16E3FAFA2789ACE700D15079 /* SettingsView.swift */,
 				1602BB5E278AF9AC0032F983 /* PickerView.swift */,
+				16F348222790689400480C34 /* ExerciseListView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		16F34820279035E800480C34 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				16D7385F278586E8001BD235 /* NavigationManager.swift */,
+				16ED4266278F2B6D009E23D8 /* SettingsManager.swift */,
+				168602C52767DF5800A7CFCA /* ExerciseManager.swift */,
+				16F15FDC278F080500D79086 /* ExerciseManagerProvider.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		16F348212790366700480C34 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				16D73863278587C0001BD235 /* ModalModel.swift */,
+				16D738612785878C001BD235 /* ModalView.swift */,
+			);
+			path = Modals;
 			sourceTree = "<group>";
 		};
 		CD30C917251474DC0049DB93 = {
@@ -282,22 +303,17 @@
 		CD30C922251474DC0049DB93 /* GetF!t */ = {
 			isa = PBXGroup;
 			children = (
-				CD30C92C251474DD0049DB93 /* Info.plist */,
 				CD30C923251474DC0049DB93 /* GetF!tApp.swift */,
-				16D73863278587C0001BD235 /* ModalModel.swift */,
-				16D738612785878C001BD235 /* ModalView.swift */,
-				16D7385F278586E8001BD235 /* NavigationManager.swift */,
-				1602BB5C278A2E0A0032F983 /* TimerManager.swift */,
 				16A91487273965A0001D82A6 /* ContentView.swift */,
-				168602C52767DF5800A7CFCA /* ExerciseManager.swift */,
-				16F15FDC278F080500D79086 /* ExerciseManagerProvider.swift */,
-				16ED4266278F2B6D009E23D8 /* SettingsManager.swift */,
+				16F348212790366700480C34 /* Modals */,
+				16F34820279035E800480C34 /* Managers */,
 				168E9925276382EF00B0406A /* Modules */,
 				168E99212763524500B0406A /* Shared */,
 				168E99202763508300B0406A /* Extensions */,
 				168E99222763528700B0406A /* SupportingFiles */,
 				168E991F27634C1800B0406A /* Resources */,
 				CD30C929251474DD0049DB93 /* Preview Content */,
+				CD30C92C251474DD0049DB93 /* Info.plist */,
 			);
 			path = "GetF!t";
 			sourceTree = "<group>";
@@ -438,7 +454,6 @@
 				16A91494273BE9B5001D82A6 /* SuccessView.swift in Sources */,
 				16A91499273C1FD9001D82A6 /* HistoryViewModel.swift in Sources */,
 				1683E5E32764D075003B6B02 /* ImageProvider.swift in Sources */,
-				1602BB5D278A2E0A0032F983 /* TimerManager.swift in Sources */,
 				16A91488273965A0001D82A6 /* ContentView.swift in Sources */,
 				16A91490273AA2F6001D82A6 /* RatingView.swift in Sources */,
 				169AFA642767AEC4000B1E5A /* HistoryViewModel+createDevData.swift in Sources */,
@@ -451,6 +466,7 @@
 				16D73860278586E8001BD235 /* NavigationManager.swift in Sources */,
 				16A91492273AB2C4001D82A6 /* HistoryView.swift in Sources */,
 				168C09F9274E54FB00390C21 /* EmbossedButtonStyle.swift in Sources */,
+				16F348232790689400480C34 /* ExerciseListView.swift in Sources */,
 				168C09FD274E552600390C21 /* GradientBackground.swift in Sources */,
 				16A9148C2739A38C001D82A6 /* HeaderView.swift in Sources */,
 				168602C62767DF5800A7CFCA /* ExerciseManager.swift in Sources */,

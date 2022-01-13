@@ -6,7 +6,7 @@ struct HistoryView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ModalSheetView(text: LocalizedStringProvider.Button.history, circleX: 0.5, circleY: 0.18) {
+                ModalSheetView(text: LocalizedStringProvider.Button.history, circleX: 0.5, circleY: 0.2) {
                     VStack {
                         buttonLayout
                             .padding(.top, geometry.size.height * 0.12)
