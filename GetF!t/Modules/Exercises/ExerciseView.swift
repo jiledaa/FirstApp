@@ -61,8 +61,6 @@ struct ExerciseView: View {
   }
 }
 
-  
-
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ExerciseView(exerciseManager: .init(exercise: .exercises[0]))

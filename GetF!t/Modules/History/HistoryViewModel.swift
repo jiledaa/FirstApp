@@ -5,6 +5,7 @@ struct ExerciseDay: Identifiable {
     let id = UUID()
     let date: Date
     var exercises: [String] = []
+    var rating: [Int] = []
 }
 
 class HistoryViewModel: ObservableObject {
@@ -14,7 +15,6 @@ class HistoryViewModel: ObservableObject {
     @Published var exercisesForWeek: [ExerciseDay] = []
     @Published var countsForWeek: [Int] = []
     @Published var datesExercised: [Date] = []
-    @StateObject var navigationManager = NavigationManager()
 
     var maxBarHeight: Int = 300
 
@@ -86,7 +86,8 @@ class HistoryViewModel: ObservableObject {
         exerciseDays = convertedPlistData.map {
             ExerciseDay(
                 date: $0[1] as? Date ?? Date(),
-                exercises: $0[2] as? [String] ?? [])
+                exercises: $0[2] as? [String] ?? [],
+                rating: $0[3] as? [Int] ?? [])
         }
     }
 
@@ -95,10 +96,8 @@ class HistoryViewModel: ObservableObject {
             throw FileError.urlFailure
         }
         let plistData = exerciseDays.map {
-            [$0.id.uuidString, $0.date, $0.exercises]
+            [$0.id.uuidString, $0.date, $0.exercises, $0.rating]
         }
-//        let wev = (plistData[0][2] as AnyObject).stringValue()
-//        print("mamurl\(wev)")
         do {
             let data = try PropertyListSerialization.data(
                 fromPropertyList: plistData,
@@ -110,20 +109,21 @@ class HistoryViewModel: ObservableObject {
         }
     }
 
-    private func addDoneExercise(_ exerciseName: String) {
+    private func addDoneExercise(_ exerciseName: String, _ rating: Int) {
         let today = Date()
         if let firstDate = exerciseDays.first?.date,
            today.isSameDay(as: firstDate) {
             exerciseDays[0].exercises.append(exerciseName)
+            exerciseDays[0].rating.append(rating)
         } else {
             exerciseDays.insert(
-                ExerciseDay(date: today, exercises: [exerciseName]),
+                ExerciseDay(date: today, exercises: [exerciseName], rating: [rating]),
                 at: 0)
         }
     }
 
-    func onDoneTapped(_ exerciseName: String) {
-        addDoneExercise(exerciseName)
+    func onDoneTapped(_ exerciseName: String, _ rating: Int) {
+        addDoneExercise(exerciseName, rating)
     }
 
     func saveHistory() {

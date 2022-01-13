@@ -22,7 +22,7 @@ struct HistoryListView: View {
                     VStack {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 70, maximum: 100))]) {
                             ForEach(0..<day.exercises.count) { index in
-                                exercisesSwitch(exercise: day.exercises[index])
+                                exercisesSwitch(exercise: day.exercises[index], rating: day.rating[index])
                             }
                         }
                     }
@@ -35,7 +35,7 @@ struct HistoryListView: View {
         .frame(maxWidth: .infinity)
     }
 
-    func exercisesSwitch(exercise: String) -> some View {
+    func exercisesSwitch(exercise: String, rating: Int) -> some View {
         VStack {
             IndentView {
                 switch exercise {
@@ -59,7 +59,7 @@ struct HistoryListView: View {
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)
-            Text("0")
+            Text("\(rating)")
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)
