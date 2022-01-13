@@ -2,7 +2,6 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var settingsManager: SettingsManager
-
     private let data: [String] = Array(0...180).map(String.init)
 
     var body: some View {

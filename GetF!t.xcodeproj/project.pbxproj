@@ -43,6 +43,7 @@
 		16F2017A2751021500ACE724 /* HistoryBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F201792751021500ACE724 /* HistoryBarView.swift */; };
 		16F2017C2751029700ACE724 /* IndentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F2017B2751029700ACE724 /* IndentView.swift */; };
 		16F348232790689400480C34 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F348222790689400480C34 /* ExerciseListView.swift */; };
+		16F348252790B5C100480C34 /* MovableObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F348242790B5C100480C34 /* MovableObjectView.swift */; };
 		CD30C924251474DC0049DB93 /* GetF!tApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C923251474DC0049DB93 /* GetF!tApp.swift */; };
 		CD30C928251474DD0049DB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C927251474DD0049DB93 /* Assets.xcassets */; };
 		CD30C92B251474DD0049DB93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C92A251474DD0049DB93 /* Preview Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		16F201792751021500ACE724 /* HistoryBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBarView.swift; sourceTree = "<group>"; };
 		16F2017B2751029700ACE724 /* IndentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentView.swift; sourceTree = "<group>"; };
 		16F348222790689400480C34 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
+		16F348242790B5C100480C34 /* MovableObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovableObjectView.swift; sourceTree = "<group>"; };
 		CD30C920251474DC0049DB93 /* GetF!t.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GetF!t.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD30C923251474DC0049DB93 /* GetF!tApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetF!tApp.swift"; sourceTree = "<group>"; };
 		CD30C927251474DD0049DB93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		1683917527565DF3000DFF7A /* Styles and buttons */ = {
 			isa = PBXGroup;
 			children = (
+				16F348242790B5C100480C34 /* MovableObjectView.swift */,
 				168C09F4274E4FB400390C21 /* RaisedButtonView.swift */,
 				168C09F8274E54FB00390C21 /* EmbossedButtonStyle.swift */,
 				168C09FA274E550700390C21 /* ContainerView.swift */,
@@ -440,6 +443,7 @@
 				1689CEDA2743B0C9004362A7 /* TimerView.swift in Sources */,
 				16F2017C2751029700ACE724 /* IndentView.swift in Sources */,
 				168E9924276352CE00B0406A /* LocalizedStringProvider.swift in Sources */,
+				16F348252790B5C100480C34 /* MovableObjectView.swift in Sources */,
 				16E3FAFB2789ACE700D15079 /* SettingsView.swift in Sources */,
 				168C09FB274E550700390C21 /* ContainerView.swift in Sources */,
 				16F15FDD278F080500D79086 /* ExerciseManagerProvider.swift in Sources */,
