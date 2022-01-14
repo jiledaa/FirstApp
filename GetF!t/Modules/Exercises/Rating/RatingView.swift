@@ -26,13 +26,12 @@ struct RatingView: View {
         ForEach(1 ..< exerciseManager.maximumRating + 1, id: \.self) { index in
             Button(action: {
                 exerciseManager.updateRating(index: index)
-                historyViewModel.onDoneTapped(navigationManager.nameForHistorySave())
+                historyViewModel.onDoneTapped(navigationManager.nameForHistorySave(), exerciseManager.rating)
                 presentationMode.wrappedValue.dismiss()
                 navigationManager.onDoneTapped()
             }) {
                 ImageProvider.waveform
-                    .foregroundColor(
-                        exerciseManager.ratingActive(index) ? exerciseManager.offColor : exerciseManager.onColor)
+                    .foregroundColor(exerciseManager.offColor)
                     .font(.title3)
             }
             .buttonStyle(EmbossedButtonStyle(buttonShape: .round))

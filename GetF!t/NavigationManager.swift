@@ -47,7 +47,7 @@ class NavigationManager: ObservableObject {
     func goToNextTab() {
         if selectedTab + 1 == maxTabs {
         // TODO: cekovat pri novych verzich
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in // Change `2.0` to the desired number of seconds.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
                 self?.modal = .success
             }
         } else {
