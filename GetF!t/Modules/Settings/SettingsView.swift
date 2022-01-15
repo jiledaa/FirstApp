@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var settingsManager: SettingsManager
+    
     private let data: [String] = Array(0...180).map(String.init)
 
     var body: some View {
@@ -20,8 +21,9 @@ struct SettingsView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                         .padding()
+//                    ExerciseListView()
+//                        .padding(.top, geometry.size.height * 0.05)
                     ExerciseListView()
-                        .padding(.top, geometry.size.height * 0.05)
                 }
                 .padding(.top, geometry.size.height * 0.2)
                 }

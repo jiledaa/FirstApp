@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 struct ExercisesForList: Identifiable {
     let id: Int
@@ -16,4 +17,39 @@ class SettingsManager: ObservableObject {
 
     //MARK: - ExerciseList
     var exerciseListt: [ExercisesForList] = []
+}
+
+struct GridData: Identifiable, Equatable {
+    var id: String {
+        image
+    }
+
+    let title: LocalizedStringKey
+    let image: String
+}
+
+struct DragRelocateDelegate: DropDelegate {
+    let item: GridData
+    @Binding var listData: [GridData]
+    @Binding var current: GridData?
+
+    func dropEntered(info: DropInfo) {
+        if item != current {
+            let from = listData.firstIndex(of: current!)!
+            let to = listData.firstIndex(of: item)!
+            if listData[to].id != current!.id {
+                listData.move(fromOffsets: IndexSet(integer: from),
+                    toOffset: to > from ? to + 1 : to)
+            }
+        }
+    }
+
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        return DropProposal(operation: .move)
+    }
+
+    func performDrop(info: DropInfo) -> Bool {
+        self.current = nil
+        return true
+    }
 }

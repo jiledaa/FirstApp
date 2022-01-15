@@ -1,43 +1,30 @@
 import SwiftUI
 
 struct MovableObject: View {
-    @State private var draggedOfset = CGSize.zero
-    let imageName: String
-    let exercise: LocalizedStringKey
+    let exercise: (LocalizedStringKey, String)
     
     var body: some View {
         movableExercise()
-
     }
 
     func movableExercise() -> some View {
         VStack {
             IndentView {
-                Image(systemName: imageName)
+                Image(systemName: exercise.1)
                     .frame(minWidth: 60)
             }
-            .padding(.bottom)
-            Text(exercise)
+            Text(exercise.0)
                 .font(.caption)
                 .fontWeight(.light)
                 .foregroundColor(Color.primary)
+                .padding(.top)
         }
-        .animation(.linear, value: 3)
-        .offset(x: self.draggedOfset.width)
-        .gesture(DragGesture()
-                    .onChanged{ value in
-            self.draggedOfset = value.translation
-        }
-                    .onEnded { value in
-            self.draggedOfset = CGSize.zero
-        })
         .foregroundColor(ColorProvider.gradientTop)
-        .padding(.bottom)
     }
 }
 
 struct Bolt_Previews: PreviewProvider {
     static var previews: some View {
-        MovableObject(imageName: StringProvider.images.bolt, exercise: LocalizedStringProvider.ExercisesNames.squat)
+        MovableObject(exercise: (LocalizedStringProvider.ExercisesNames.squat, StringProvider.images.bolt))
     }
 }

@@ -53,9 +53,9 @@ class HistoryViewModel: ObservableObject {
     }
 
     init(withChecking: Bool) throws {
-    #if DEBUG
+#if DEBUG
         //    createDevData()
-    #endif
+#endif
         do {
             try load()
         } catch {
@@ -71,24 +71,21 @@ class HistoryViewModel: ObservableObject {
         return documentsURL.appendingPathComponent(StringProvider.historyPlist)
     }
 
-    func load() throws {
-        guard let dataURL = getURL() else {
-            throw FileError.urlFailure
+    private func addDoneExercise(_ exerciseName: String, _ rating: Int) {
+        let today = Date()
+        if let firstDate = exerciseDays.first?.date,
+           today.isSameDay(as: firstDate) {
+            exerciseDays[0].exercises.append(exerciseName)
+            exerciseDays[0].rating.append(rating)
+        } else {
+            exerciseDays.insert(
+                ExerciseDay(date: today, exercises: [exerciseName], rating: [rating]),
+                at: 0)
         }
-        guard let data = try? Data(contentsOf: dataURL) else {
-            return
-        }
-        let plistData = try PropertyListSerialization.propertyList(
-            from: data,
-            options: [],
-            format: nil)
-        let convertedPlistData = plistData as? [[Any]] ?? []
-        exerciseDays = convertedPlistData.map {
-            ExerciseDay(
-                date: $0[1] as? Date ?? Date(),
-                exercises: $0[2] as? [String] ?? [],
-                rating: $0[3] as? [Int] ?? [])
-        }
+    }
+
+    func onDoneTapped(_ exerciseName: String, _ rating: Int) {
+        addDoneExercise(exerciseName, rating)
     }
 
     func save() throws {
@@ -109,28 +106,31 @@ class HistoryViewModel: ObservableObject {
         }
     }
 
-    private func addDoneExercise(_ exerciseName: String, _ rating: Int) {
-        let today = Date()
-        if let firstDate = exerciseDays.first?.date,
-           today.isSameDay(as: firstDate) {
-            exerciseDays[0].exercises.append(exerciseName)
-            exerciseDays[0].rating.append(rating)
-        } else {
-            exerciseDays.insert(
-                ExerciseDay(date: today, exercises: [exerciseName], rating: [rating]),
-                at: 0)
+    func saveHistory() {
+        do {
+            try save()
+        } catch {
+            fatalError(error.localizedDescription)
         }
     }
 
-    func onDoneTapped(_ exerciseName: String, _ rating: Int) {
-        addDoneExercise(exerciseName, rating)
-    }
-
-    func saveHistory() {
-        do {
-          try save()
-        } catch {
-          fatalError(error.localizedDescription)
+    func load() throws {
+        guard let dataURL = getURL() else {
+            throw FileError.urlFailure
+        }
+        guard let data = try? Data(contentsOf: dataURL) else {
+            return
+        }
+        let plistData = try PropertyListSerialization.propertyList(
+            from: data,
+            options: [],
+            format: nil)
+        let convertedPlistData = plistData as? [[Any]] ?? []
+        exerciseDays = convertedPlistData.map {
+            ExerciseDay(
+                date: $0[1] as? Date ?? Date(),
+                exercises: $0[2] as? [String] ?? [],
+                rating: $0[3] as? [Int] ?? [])
         }
     }
 

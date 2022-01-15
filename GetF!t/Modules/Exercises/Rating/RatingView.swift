@@ -6,7 +6,8 @@ struct RatingView: View {
     @EnvironmentObject var historyViewModel: HistoryViewModel
     @Environment(\.presentationMode) var presentationMode
     @State var animationAmount = 1.0
-    
+    @State private var offset: CGFloat = 100.0
+
     var body: some View {
         VStack {
             Text(LocalizedStringProvider.Button.done)
@@ -21,7 +22,7 @@ struct RatingView: View {
         }
         .padding(.vertical)
         .opacity(exerciseManager.timeOver ? 1 : 0)
-        .animation(.easeInOut(duration: 1.0))
+        .animation(Animation.easeInOut(duration: 1.0), value: offset)
     }
 
     private var ratingButton: some View {
