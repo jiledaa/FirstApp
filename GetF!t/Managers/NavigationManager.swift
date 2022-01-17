@@ -5,7 +5,7 @@ class NavigationManager: ObservableObject {
     @Published var selectedTab = -1
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
     @Published var modal: Modal?
-
+    @Published var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.exercises.map(ExerciseManager.init))
     // MARK: - navigation
     let maxTabs = Exercise.exercises.count
 
@@ -46,7 +46,7 @@ class NavigationManager: ObservableObject {
     // only called from welcome view and timer view
     func goToNextTab() {
         if selectedTab + 1 == maxTabs {
-        // TODO: cekovat pri novych verzich
+            // TODO: cekovat pri novych verzich
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
                 self?.modal = .success
             }
@@ -83,11 +83,27 @@ class NavigationManager: ObservableObject {
     // MARK: - history
 
     @Published var showHistory = false
-    
     var showHistoryToggle: () {
         showHistory.toggle()
     }
 
     var addDoneExercise: ((LocalizedStringKey) -> Void)?
+
+    // MARK: - settings
+
+    
+//    var exerciseIndexes: [Int]
+//
+//    func getIndexForSelectedTab(exerciseList: [(LocalizedStringKey, String)]) {
+//        for (exerciseIndex, exercise) in exerciseList.enumerated() {
+//
+//            print("nazdaar\(exerciseIndexes) and \(exercise)")
+//        }
+//        ForEach(Array(exerciseList.enumerated()), id:\.self) { index, exerciseList in
+//            exerciseIndexes.insert(exerciseIndex, at: index)
+//        }
+//    }
 }
+
+
 

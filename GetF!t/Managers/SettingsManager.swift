@@ -19,7 +19,7 @@ class SettingsManager: ObservableObject {
     var exerciseListt: [ExercisesForList] = []
 }
 
-struct GridData: Identifiable, Equatable {
+struct ExerciseData: Identifiable, Equatable {
     var id: String {
         image
     }
@@ -29,9 +29,9 @@ struct GridData: Identifiable, Equatable {
 }
 
 struct DragRelocateDelegate: DropDelegate {
-    let item: GridData
-    @Binding var listData: [GridData]
-    @Binding var current: GridData?
+    let item: ExerciseData
+    @Binding var listData: [ExerciseData]
+    @Binding var current: ExerciseData?
 
     func dropEntered(info: DropInfo) {
         if item != current {
@@ -39,7 +39,7 @@ struct DragRelocateDelegate: DropDelegate {
             let to = listData.firstIndex(of: item)!
             if listData[to].id != current!.id {
                 listData.move(fromOffsets: IndexSet(integer: from),
-                    toOffset: to > from ? to + 1 : to)
+                              toOffset: to > from ? to + 1 : to)
             }
         }
     }

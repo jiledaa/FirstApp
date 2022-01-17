@@ -29,10 +29,6 @@ class ExerciseManager: ObservableObject {
         timeOver ? -6 : 6
     }
 
-    var opacity: Double {
-        timeOver ? 1 : 0
-    }
-
     func onTimeOver(_ timerValue: Date) -> Void {
         if timeOver {
             timer.upstream.connect().cancel()
