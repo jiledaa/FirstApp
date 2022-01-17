@@ -38,8 +38,10 @@ struct DragRelocateDelegate: DropDelegate {
             let from = listData.firstIndex(of: current!)!
             let to = listData.firstIndex(of: item)!
             if listData[to].id != current!.id {
-                listData.move(fromOffsets: IndexSet(integer: from),
-                              toOffset: to > from ? to + 1 : to)
+                listData.move(
+                    fromOffsets: IndexSet(integer: from),
+                    toOffset: to > from ? to + 1 : to
+                )
             }
         }
     }

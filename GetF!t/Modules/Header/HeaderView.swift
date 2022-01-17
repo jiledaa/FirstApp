@@ -10,7 +10,7 @@ struct HeaderView: View {
                 .fontWeight(.black)
                 .foregroundColor(.white)
             HStack {
-                ForEach(0 ..< Exercise.exercises.count) { tab in
+                ForEach(0 ..< Exercise.allCases.count) { tab in
                     ZStack {
                         Circle()
                             .frame(width: 32, height: 32)
