@@ -5,7 +5,12 @@ class SettingsManager: ObservableObject {
     
     @Published var draggedExercise: Exercise?
     @Published var selectedTime: Int = UserDefaults.standard.integer(forKey: StringProvider.selectedTime)
-    @Published var orderedExercises = UserDefaults.standard.array(forKey: StringProvider.orderedExercises) as? [Exercise] ?? Exercise.allCases
+    @Published var orderedExercises: [Exercise] = {
+        guard let data = UserDefaults.standard.data(forKey: StringProvider.orderedExercises),
+              let exercises = try? JSONDecoder().decode([Exercise].self, from: data) else { return Exercise.allCases }
+        
+        return exercises
+    }()
     
     let possibleTimeData: [String] = Array(0...180).map(String.init)
 
@@ -14,7 +19,9 @@ class SettingsManager: ObservableObject {
     }
     
     func saveExerciseOrder() {
-        UserDefaults.standard.set(orderedExercises, forKey: StringProvider.orderedExercises)
+        guard let encodedExercises = try? JSONEncoder().encode(orderedExercises) else { return }
+
+        UserDefaults.standard.set(encodedExercises, forKey: StringProvider.orderedExercises)
     }
     
     var selectedTimeString: String {

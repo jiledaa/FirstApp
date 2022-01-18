@@ -4,7 +4,7 @@ struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
     @EnvironmentObject var historyViewModel: HistoryViewModel
     @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.allCases.map(ExerciseManager.init))
-    @StateObject var settingsView = SettingsManager()
+    @StateObject var settingsManager = SettingsManager()
     
     var body: some View {
         ZStack {
@@ -20,11 +20,9 @@ struct ContentView: View {
                     }
                 }
                 .padding(.top, -5)
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                    historyViewModel.saveHistory()
-                }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .sheet(item: $navigationManager.modal, content: ModalView.init)
+                
                 HStack {
                     historyButton
                     Spacer()
@@ -34,7 +32,11 @@ struct ContentView: View {
                 .padding(.top, 5)
             }
         }
-        .environmentObject(settingsView)
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            historyViewModel.saveHistory()
+            settingsManager.saveExerciseOrder()
+        }
+        .environmentObject(settingsManager)
         .environmentObject(navigationManager)
     }
 
