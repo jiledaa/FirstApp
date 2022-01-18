@@ -1,11 +1,6 @@
 import Foundation
 import SwiftUI
 
-struct ExercisesForList: Identifiable {
-    let id: Int
-    var exercise: String
-}
-
 class SettingsManager: ObservableObject {
 
     //MARK: - Picker
@@ -14,9 +9,6 @@ class SettingsManager: ObservableObject {
     func saveSelection(_ newValue: Int) {
         UserDefaults.standard.set(selectedTime, forKey: StringProvider.selectedTime)
     }
-
-    //MARK: - ExerciseList
-    var exerciseListt: [ExercisesForList] = []
 }
 
 struct ExerciseData: Identifiable, Equatable {
@@ -38,8 +30,10 @@ struct DragRelocateDelegate: DropDelegate {
             let from = listData.firstIndex(of: current!)!
             let to = listData.firstIndex(of: item)!
             if listData[to].id != current!.id {
-                listData.move(fromOffsets: IndexSet(integer: from),
-                              toOffset: to > from ? to + 1 : to)
+                listData.move(
+                    fromOffsets: IndexSet(integer: from),
+                    toOffset: to > from ? to + 1 : to
+                )
             }
         }
     }

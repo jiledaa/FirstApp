@@ -58,7 +58,7 @@ struct RatingView: View {
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        return RatingView(exerciseManager: .init(exercise: .exercises[0]))
+        return RatingView(exerciseManager: .init(exercise: .stepUp))
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }

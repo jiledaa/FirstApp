@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.exercises.map(ExerciseManager.init))
+    @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.allCases.map(ExerciseManager.init))
     @StateObject var settingsView = SettingsManager()
     
     var body: some View {

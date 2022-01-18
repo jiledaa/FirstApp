@@ -5,9 +5,9 @@ class NavigationManager: ObservableObject {
     @Published var selectedTab = -1
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
     @Published var modal: Modal?
-    @Published var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.exercises.map(ExerciseManager.init))
+    @Published var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.allCases.map(ExerciseManager.init))
     // MARK: - navigation
-    let maxTabs = Exercise.exercises.count
+    let maxTabs = Exercise.allCases.count
 
     init() {
         // titleText is now computed from selectedTab
