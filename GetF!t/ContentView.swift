@@ -29,7 +29,7 @@ struct ContentView: View {
                     settingsButton
                 }
                 .padding(.horizontal)
-                .padding(.top, 5)
+                .padding(.bottom, 25)
             }
         }
         .onAppear {

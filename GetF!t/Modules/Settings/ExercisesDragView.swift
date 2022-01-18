@@ -14,7 +14,7 @@ struct ExercisesDragView: View {
                         return NSItemProvider(object: String(exercise.id) as NSString)
                     } preview: {
                         MovableObject(exercise: (exercise.name, exercise.image))
-                            .scaleEffect(0.8)
+                            .scaleEffect(1.5)
                     }
                     .onDrop(
                         of: [UTType.text],
