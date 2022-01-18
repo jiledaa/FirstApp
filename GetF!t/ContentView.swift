@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.allCases.map(ExerciseManager.init))
+    @StateObject var exerciseManagerProvider = ExerciseManagerProvider()
     @StateObject var settingsManager = SettingsManager()
     
     var body: some View {
@@ -31,6 +31,14 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .padding(.top, 5)
             }
+        }
+        .onAppear {
+            exerciseManagerProvider.setupManagersIfEmpty(from: settingsManager.orderedExercises)
+            navigationManager.updateTitles(settingsManager.orderedExercises)
+        }
+        .onChange(of: settingsManager.orderedExercises) {
+            exerciseManagerProvider.sortManagers($0)
+            navigationManager.updateTitles($0)
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
             historyViewModel.saveHistory()
