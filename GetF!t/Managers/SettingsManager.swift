@@ -3,27 +3,22 @@ import SwiftUI
 
 class SettingsManager: ObservableObject {
 
-    //MARK: - Picker
     @Published var selectedTime: Int = UserDefaults.standard.integer(forKey: StringProvider.selectedTime)
+    @Published var orderedExercises = UserDefaults.standard.array(forKey: StringProvider.orderedExercises) as? [Exercise] ?? Exercise.allCases
 
     func saveSelection(_ newValue: Int) {
         UserDefaults.standard.set(selectedTime, forKey: StringProvider.selectedTime)
     }
-}
-
-struct ExerciseData: Identifiable, Equatable {
-    var id: String {
-        image
+    
+    func saveExerciseOrder() {
+        UserDefaults.standard.set(orderedExercises, forKey: StringProvider.orderedExercises)
     }
-
-    let title: LocalizedStringKey
-    let image: String
 }
 
 struct DragRelocateDelegate: DropDelegate {
-    let item: ExerciseData
-    @Binding var listData: [ExerciseData]
-    @Binding var current: ExerciseData?
+    let item: Exercise
+    @Binding var listData: [Exercise]
+    @Binding var current: Exercise?
 
     func dropEntered(info: DropInfo) {
         if item != current {

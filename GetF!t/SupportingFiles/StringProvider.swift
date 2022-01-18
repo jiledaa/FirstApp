@@ -3,6 +3,7 @@ import SwiftUI
 struct StringProvider {
     static let historyPlist = String("history.plist")
     static let selectedTime = String("selectedTime")
+    static let orderedExercises = "orderedExercises"
 
     struct ExercisesNamesVideo {
         static let burpee = String("Burpee")

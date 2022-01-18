@@ -21,8 +21,6 @@ struct SettingsView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                         .padding()
-//                    ExerciseListView()
-//                        .padding(.top, geometry.size.height * 0.05)
                     ExerciseListView()
                 }
                 .padding(.top, geometry.size.height * 0.2)

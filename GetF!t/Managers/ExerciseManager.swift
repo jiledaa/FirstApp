@@ -5,7 +5,7 @@ class ExerciseManager: ObservableObject {
 
     init(exercise: Exercise) {
         self.exercise = exercise
-        rating = UserDefaults.standard.integer(forKey: "\(exercise.exerciseName)")
+        rating = UserDefaults.standard.integer(forKey: "\(exercise.name)")
     }
 
     // MARK: - timerView
@@ -65,7 +65,7 @@ class ExerciseManager: ObservableObject {
 
     func updateRating(index: Int) {
         rating = index
-        UserDefaults.standard.set(rating, forKey: "\(exercise.exerciseName)")
+        UserDefaults.standard.set(rating, forKey: "\(exercise.name)")
         print("sejf\(rating)")
     }
 }
