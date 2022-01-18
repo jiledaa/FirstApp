@@ -5,6 +5,8 @@ class SettingsManager: ObservableObject {
 
     @Published var selectedTime: Int = UserDefaults.standard.integer(forKey: StringProvider.selectedTime)
     @Published var orderedExercises = UserDefaults.standard.array(forKey: StringProvider.orderedExercises) as? [Exercise] ?? Exercise.allCases
+    
+    let possibleTimeData: [String] = Array(0...180).map(String.init)
 
     func saveSelection(_ newValue: Int) {
         UserDefaults.standard.set(selectedTime, forKey: StringProvider.selectedTime)
@@ -12,6 +14,10 @@ class SettingsManager: ObservableObject {
     
     func saveExerciseOrder() {
         UserDefaults.standard.set(orderedExercises, forKey: StringProvider.orderedExercises)
+    }
+    
+    var selectedTimeString: String {
+        possibleTimeData[selectedTime]
     }
 }
 
