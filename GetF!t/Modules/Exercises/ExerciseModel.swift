@@ -1,6 +1,10 @@
 import SwiftUI
 
-extension Exercise: CaseIterable {}
+extension Exercise: CaseIterable, Equatable, Codable {}
+
+extension Exercise: Identifiable {
+    var id: String { videoName }
+}
 
 enum Exercise {
     case squat
@@ -8,7 +12,7 @@ enum Exercise {
     case burpee
     case sunSalute
     
-    var exerciseName: LocalizedStringKey {
+    var name: LocalizedStringKey {
         switch self {
         case .squat:
             return LocalizedStringProvider.ExercisesNames.squat

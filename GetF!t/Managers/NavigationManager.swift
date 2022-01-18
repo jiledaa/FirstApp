@@ -5,9 +5,9 @@ class NavigationManager: ObservableObject {
     @Published var selectedTab = -1
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
     @Published var modal: Modal?
-    @Published var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.allCases.map(ExerciseManager.init))
     // MARK: - navigation
     let maxTabs = Exercise.allCases.count
+    var titles = [LocalizedStringKey]()
 
     init() {
         // titleText is now computed from selectedTab
@@ -17,13 +17,11 @@ class NavigationManager: ObservableObject {
     }
     
     private func nameForTitle(tab: Int) -> LocalizedStringKey {
-        switch tab {
-        case -1: return LocalizedStringProvider.WelcomePage.welcome
-        case 0: return LocalizedStringProvider.ExercisesNames.squat
-        case 1: return LocalizedStringProvider.ExercisesNames.stepUp
-        case 2: return LocalizedStringProvider.ExercisesNames.burpee
-        default: return LocalizedStringProvider.ExercisesNames.sunSalute
+        if (0..<titles.count).contains(tab) {
+            return titles[tab]
         }
+        
+        return LocalizedStringProvider.WelcomePage.welcome
     }
 
     func nameForHistorySave() -> String {
@@ -88,21 +86,12 @@ class NavigationManager: ObservableObject {
     }
 
     var addDoneExercise: ((LocalizedStringKey) -> Void)?
-
-    // MARK: - settings
-
     
-//    var exerciseIndexes: [Int]
-//
-//    func getIndexForSelectedTab(exerciseList: [(LocalizedStringKey, String)]) {
-//        for (exerciseIndex, exercise) in exerciseList.enumerated() {
-//
-//            print("nazdaar\(exerciseIndexes) and \(exercise)")
-//        }
-//        ForEach(Array(exerciseList.enumerated()), id:\.self) { index, exerciseList in
-//            exerciseIndexes.insert(exerciseIndex, at: index)
-//        }
-//    }
+    // MARK: - titles
+    func updateTitles(_ exercises: [Exercise]) {
+        titles = exercises.map(\.name)
+        titleText = nameForTitle(tab: selectedTab)
+    }
 }
 
 

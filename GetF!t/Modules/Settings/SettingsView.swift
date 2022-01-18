@@ -2,8 +2,6 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var settingsManager: SettingsManager
-    
-    private let data: [String] = Array(0...180).map(String.init)
 
     var body: some View {
         GeometryReader { geometry in
@@ -21,9 +19,7 @@ struct SettingsView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                         .padding()
-//                    ExerciseListView()
-//                        .padding(.top, geometry.size.height * 0.05)
-                    ExerciseListView()
+                    ExercisesDragView()
                 }
                 .padding(.top, geometry.size.height * 0.2)
                 }
@@ -35,10 +31,10 @@ struct SettingsView: View {
     @ViewBuilder
     func picker(geometry: GeometryProxy) -> some View {
         HStack {
-            PickerView(selection: $settingsManager.selectedTime, data: self.data)
+            PickerView(selection: $settingsManager.selectedTime, data: settingsManager.possibleTimeData)
                 .frame(width: geometry.size.width * 0.6, alignment: .trailing)
 
-            Text("\(data[settingsManager.selectedTime]) sec")
+            Text("\(settingsManager.selectedTimeString) sec")
                 .foregroundColor(.white)
                 .font(.headline)
                 .fontWeight(.bold)

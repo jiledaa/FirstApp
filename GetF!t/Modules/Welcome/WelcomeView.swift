@@ -6,8 +6,9 @@ struct WelcomeView: View {
     var body: some View {
         VStack {
             WelcomeView.images
+                .padding(.top, 130)
             getStartedButton
-                .padding(.bottom, 35)
+                .padding(.top, 120)
         }
     }
     
@@ -15,7 +16,6 @@ struct WelcomeView: View {
         RaisedButtonView(buttonText: LocalizedStringProvider.Button.getStarted) {
             navigationManager.goToFirstTab()
         }
-
     }
 }
 
