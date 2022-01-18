@@ -2,7 +2,8 @@ import Foundation
 import SwiftUI
 
 class SettingsManager: ObservableObject {
-
+    
+    @Published var draggedExercise: Exercise?
     @Published var selectedTime: Int = UserDefaults.standard.integer(forKey: StringProvider.selectedTime)
     @Published var orderedExercises = UserDefaults.standard.array(forKey: StringProvider.orderedExercises) as? [Exercise] ?? Exercise.allCases
     
@@ -18,6 +19,10 @@ class SettingsManager: ObservableObject {
     
     var selectedTimeString: String {
         possibleTimeData[selectedTime]
+    }
+    
+    func onExerciseDragged(exercise: Exercise) {
+        draggedExercise = exercise
     }
 }
 

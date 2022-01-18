@@ -19,7 +19,7 @@ struct SettingsView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                         .padding()
-                    ExerciseListView()
+                    ExercisesDragView()
                 }
                 .padding(.top, geometry.size.height * 0.2)
                 }

@@ -1,23 +1,29 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct ExerciseListView: View {
+struct ExercisesDragView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var settingsManager: SettingsManager
-    @State var dragging: Exercise?
 
     var body: some View {
         LazyHStack {
             ForEach(settingsManager.orderedExercises) { exercise in
                 MovableObject(exercise: (exercise.name, exercise.image))
                     .onDrag {
-                        self.dragging = exercise
+                        settingsManager.onExerciseDragged(exercise: exercise)
                         return NSItemProvider(object: String(exercise.id) as NSString)
                     } preview: {
                         MovableObject(exercise: (exercise.name, exercise.image))
                             .scaleEffect(0.8)
                     }
-                    .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: exercise, listData: $settingsManager.orderedExercises, current: $dragging))
+                    .onDrop(
+                        of: [UTType.text],
+                        delegate: DragRelocateDelegate(
+                            item: exercise,
+                            listData: $settingsManager.orderedExercises,
+                            current: $settingsManager.draggedExercise
+                        )
+                    )
             }
         }
         .animation(.default, value: settingsManager.orderedExercises)
@@ -29,6 +35,6 @@ struct ExerciseListView: View {
 
 struct ExerciseList_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseListView()
+        ExercisesDragView()
     }
 }
