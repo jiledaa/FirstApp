@@ -25,7 +25,7 @@ struct IndentView<Content: View>: View {
     }
 }
 
-private extension View {
+extension View {
     func resized(size: CGSize) -> some View {
         self
             .frame(

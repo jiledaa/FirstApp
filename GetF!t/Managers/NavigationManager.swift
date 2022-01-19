@@ -5,9 +5,9 @@ class NavigationManager: ObservableObject {
     @Published var selectedTab = -1
     @Published var titleText: LocalizedStringKey = LocalizedStringProvider.WelcomePage.welcome
     @Published var modal: Modal?
-
     // MARK: - navigation
-    let maxTabs = Exercise.exercises.count
+    let maxTabs = Exercise.allCases.count
+    var titles = [LocalizedStringKey]()
 
     init() {
         // titleText is now computed from selectedTab
@@ -17,13 +17,11 @@ class NavigationManager: ObservableObject {
     }
     
     private func nameForTitle(tab: Int) -> LocalizedStringKey {
-        switch tab {
-        case -1: return LocalizedStringProvider.WelcomePage.welcome
-        case 0: return LocalizedStringProvider.ExercisesNames.squat
-        case 1: return LocalizedStringProvider.ExercisesNames.stepUp
-        case 2: return LocalizedStringProvider.ExercisesNames.burpee
-        default: return LocalizedStringProvider.ExercisesNames.sunSalute
+        if (0..<titles.count).contains(tab) {
+            return titles[tab]
         }
+        
+        return LocalizedStringProvider.WelcomePage.welcome
     }
 
     func nameForHistorySave() -> String {
@@ -46,7 +44,7 @@ class NavigationManager: ObservableObject {
     // only called from welcome view and timer view
     func goToNextTab() {
         if selectedTab + 1 == maxTabs {
-        // TODO: cekovat pri novych verzich
+            // TODO: cekovat pri novych verzich
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
                 self?.modal = .success
             }
@@ -83,11 +81,18 @@ class NavigationManager: ObservableObject {
     // MARK: - history
 
     @Published var showHistory = false
-    
     var showHistoryToggle: () {
         showHistory.toggle()
     }
 
     var addDoneExercise: ((LocalizedStringKey) -> Void)?
+    
+    // MARK: - titles
+    func updateTitles(_ exercises: [Exercise]) {
+        titles = exercises.map(\.name)
+        titleText = nameForTitle(tab: selectedTab)
+    }
 }
+
+
 

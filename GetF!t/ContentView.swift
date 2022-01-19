@@ -3,8 +3,8 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var navigationManager = NavigationManager()
     @EnvironmentObject var historyViewModel: HistoryViewModel
-    @StateObject var exerciseManagerProvider = ExerciseManagerProvider(managers: Exercise.exercises.map(ExerciseManager.init))
-    @StateObject var settingsView = SettingsManager()
+    @StateObject var exerciseManagerProvider = ExerciseManagerProvider()
+    @StateObject var settingsManager = SettingsManager()
     
     var body: some View {
         ZStack {
@@ -20,21 +20,31 @@ struct ContentView: View {
                     }
                 }
                 .padding(.top, -5)
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                    historyViewModel.saveHistory()
-                }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .sheet(item: $navigationManager.modal, content: ModalView.init)
+                
                 HStack {
                     historyButton
                     Spacer()
                     settingsButton
                 }
                 .padding(.horizontal)
-                .padding(.top, 5)
+                .padding(.bottom, 25)
             }
         }
-        .environmentObject(settingsView)
+        .onAppear {
+            exerciseManagerProvider.setupManagersIfEmpty(from: settingsManager.orderedExercises)
+            navigationManager.updateTitles(settingsManager.orderedExercises)
+        }
+        .onChange(of: settingsManager.orderedExercises) {
+            exerciseManagerProvider.sortManagers($0)
+            navigationManager.updateTitles($0)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            historyViewModel.saveHistory()
+            settingsManager.saveExerciseOrder()
+        }
+        .environmentObject(settingsManager)
         .environmentObject(navigationManager)
     }
 
